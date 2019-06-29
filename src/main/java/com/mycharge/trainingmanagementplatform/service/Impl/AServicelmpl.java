@@ -3,8 +3,10 @@ package com.mycharge.trainingmanagementplatform.service.Impl;
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.AMapper;
 import com.mycharge.trainingmanagementplatform.model.A;
+import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.AService;
+import org.apache.ibatis.type.JdbcType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +18,12 @@ import java.util.List;
 public class AServicelmpl implements AService {
 
     @Autowired
-    AMapper aMapper;
+    AMapper mapper;
 
     @Override
-    public Result save(A a){
+    public Result save(MyObject myObject){
         try {
-            aMapper.save(a);
+            mapper.save(myObject);
         }catch (Exception  e){
             return Result.getResult(0);
         }
@@ -30,15 +32,15 @@ public class AServicelmpl implements AService {
     }
 
     @Override
-    public Result findByAname(String aname){
-        List<A> la;
+    public Result findByAname(MyObject myObject){
+        List<MyObject> list;
         try {
-            la=aMapper.findByAname(aname);
+            list=mapper.findByAname(myObject);
         }catch (Exception e){
             return Result.getResult(0);
         }
         Result res = Result.getResult(1);
-        res.put("data",la);
+        res.put("data",list);
         return res;
     }
 }

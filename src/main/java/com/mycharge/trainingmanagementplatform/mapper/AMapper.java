@@ -1,6 +1,7 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
 import com.mycharge.trainingmanagementplatform.model.A;
+import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import org.apache.ibatis.annotations.*;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Mapper
 public interface AMapper {
-    public int save(A a) throws SQLException;
+    public int save(MyObject myObject) throws Exception;
 
-    public List<A> findByAname(String aname) throws SQLException;
+    public List<MyObject> findByAname(MyObject myObject) throws Exception;
 }

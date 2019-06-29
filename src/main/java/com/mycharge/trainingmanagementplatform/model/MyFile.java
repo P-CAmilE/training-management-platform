@@ -2,6 +2,7 @@ package com.mycharge.trainingmanagementplatform.model;
 
 
 public class MyFile {
+
     private Integer fid;
     private String path;
 

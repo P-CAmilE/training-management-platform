@@ -23,7 +23,12 @@ public class FileServicelmpl implements FileService {
     public String upload(MultipartFile file, HttpServletRequest request) throws IOException {
         //String path = request.getSession().getServletContext().getRealPath("upload");
         String fileName = file.getOriginalFilename();
-        File dir = new File(path,fileName);
+        String username= request.getParameter("username");
+        File dir = new File(path+username+"/",fileName);
+
+        if(!dir.getParentFile().exists()){
+            dir.getParentFile().mkdir();
+        }
         if(!dir.exists()){
             dir.createNewFile();
         }

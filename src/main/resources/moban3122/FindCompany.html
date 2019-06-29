@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <head>
-	<title>实训平台-找职业</title>
+	<title>实训平台-找公司</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -67,8 +67,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="top_right">
 						<ul>
 							<li><a href="StudentIndex.html">首页</a></li>|
-							<li><a href="FindCompany.html">找公司</a></li>|
-							<li><a href="FindPosition.html" style="color: indianred">找职位</a></li>
+							<li><a href="FindCompany.html" style="color: indianred">找公司</a></li>|
+							<li><a href="FindPosition.html">找职位</a></li>
 						</ul>
 					</div>
 					<div class="top_left">
@@ -87,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="header_right">
 							<div class="search">
 								<form>
-									<input type="text" value="" placeholder="search...">
+									<input type="text" value="" placeholder="搜索...">
 									<input type="submit" value="">
 								</form>
 							</div>
@@ -133,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</dl>
 				<dl>
 					<dt>行业领域：</dt>
-					<dd><div><a>全部</a></div></dd>
+					<dd><div><a>不限</a></div></dd>
 					<dd><div><a>计算机通信</a></div></dd>
 					<dd><div><a>网络/信息安全</a></div></dd>
 					<dd><div><a>人工智能</a></div></dd>
@@ -143,14 +143,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<dd><div><a>其他</a></div></dd>
 				</dl>
 				<dl>
-					<dt>工资范围：</dt>
-					<dd><div><a>5k以下</a></div></dd>
-					<dd><div><a>5k-10k</a></div></dd>
-					<dd><div><a>10k-15k</a></div></dd>
-					<dd><div><a>15k-20k</a></div></dd>
-					<dd><div><a>20k-30k</a></div></dd>
-					<dd><div><a>30k-50k</a></div></dd>
-					<dd><div><a>50k以上</a></div></dd>
+					<dt>融资阶段：</dt>
+					<dd><div><a>不限</a></div></dd>
+					<dd><div><a>未融资</a></div></dd>
+					<dd><div><a>天使轮</a></div></dd>
+					<dd><div><a>A轮</a></div></dd>
+					<dd><div><a>B轮</a></div></dd>
+					<dd><div><a>C轮</a></div></dd>
+					<dd><div><a>D轮以上</a></div></dd>
+					<dd><div><a>上市公司</a></div></dd>
+					<dd><div><a>不需要融资</a></div></dd>
 				</dl>
 			</div>
 			<!--//choice bar!-->
@@ -159,134 +161,176 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="row py-sm-5">
 					<!-- left grid -->
 					<div class="col-lg-9">
-						<!-- blog grid -->
-						<div class="card">
-							<div class="row no-gutters">
-								<div class="col-md-4">
-									<a href="ViewPositionDetail.html">
-										<img class="card-img-bottom" src="images/imgr4.jpg" alt="Card image cap">
-									</a>
-								</div>
-								<div class="col-md-8">
+						<div class="row">
+							<!-- blog grid -->
+							<div class="col-md-4">
+								<div class="card">
+									<div class="card-header p-0">
+										<a href="ViewCompanyDetail.html">
+											<img class="card-img-bottom" src="images/img2.jpg" alt="Card image cap">
+										</a>
+									</div>
 									<div class="card-body">
-										<div class="d-sm-flex justify-content-between border-bottom py-2">
-											<h5 class="blog-title card-title font-weight-bold">
-												<a href="ViewPositionDetail.html">Blog Title</a>
+										<div class="d-flex flex-column  border-bottom">
+											<h5 class="blog-title card-title font-weight-bold m-0">
+												<a href="ViewCompanyDetail.html">Blog Title</a>
 											</h5>
-											<div class="blog_w3icon">
-                                        <span>
-                                            <i class="fas fa-user mr-2"></i>Stella</span>
-												<span class="ml-3">
-                                            <i class="fab fa-servicestack mr-2"></i>Funding Trends</span>
+											<div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Stella</span>
 											</div>
 										</div>
 										<p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
-											nibh pulvinar a. Pellentesque in ipsum id orci porta sed magna dictum dapibus.</p>
-										<a href="ViewPositionDetail.html" class="blog-btn text-dark">Read more</a>
-										<p class="card-text">
+											nibh pulvinar a.</p>
+										<a href="ViewCompanyDetail.html" class="blog-btn text-dark">Read more</a>
+										<p class="card-text text-right">
 											<small class="text-muted">Last updated 3 mins ago</small>
 										</p>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- //blog grid -->
-						<!-- blog grid -->
-						<div class="card my-5">
-							<div class="row no-gutters">
-								<div class="col-md-4">
-									<a href="ViewPositionDetail.html">
-										<img class="card-img-bottom" src="images/imgr3.jpg" alt="Card image cap">
-									</a>
-								</div>
-								<div class="col-md-8">
+							<!-- //blog grid -->
+							<!-- blog grid -->
+							<div class="col-md-4 my-md-0 my-5">
+								<div class="card">
+									<div class="card-header p-0">
+										<a href="ViewCompanyDetail.html">
+											<img class="card-img-bottom" src="images/img5.jpg" alt="Card image cap">
+										</a>
+									</div>
 									<div class="card-body">
-										<div class="d-sm-flex justify-content-between border-bottom py-2">
-											<h5 class="blog-title card-title font-weight-bold">
-												<a href="ViewPositionDetail.html">Blog Title</a>
+										<div class="d-flex flex-column  border-bottom">
+											<h5 class="blog-title card-title font-weight-bold m-0">
+												<a href="ViewCompanyDetail.html">Blog Title</a>
 											</h5>
-											<div class="blog_w3icon">
-                                        <span>
-                                            <i class="fas fa-user mr-2"></i>Stella</span>
-												<span class="ml-3">
-                                            <i class="fab fa-servicestack mr-2"></i>Quality Resourcing</span>
+											<div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Mark</span>
 											</div>
 										</div>
 										<p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
-											nibh pulvinar a. Pellentesque in ipsum id orci porta sed magna dictum dapibus.</p>
-										<a href="ViewPositionDetail.html" class="blog-btn text-dark">Read more</a>
-										<p class="card-text">
+											nibh pulvinar a.</p>
+										<a href="ViewCompanyDetail.html" class="blog-btn text-dark">Read more</a>
+										<p class="card-text text-right">
+											<small class="text-muted">Last updated 18 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- //blog grid -->
+							<!-- blog grid -->
+							<div class="col-md-4">
+								<div class="card">
+									<div class="card-header p-0">
+										<a href="ViewCompanyDetail.html">
+											<img class="card-img-bottom" src="images/img4.jpg" alt="Card image cap">
+										</a>
+									</div>
+									<div class="card-body">
+										<div class="d-flex flex-column  border-bottom">
+											<h5 class="blog-title card-title font-weight-bold m-0">
+												<a href="ViewCompanyDetail.html">Blog Title</a>
+											</h5>
+											<div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Mercy</span>
+											</div>
+										</div>
+										<p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
+											nibh pulvinar a.</p>
+										<a href="ViewCompanyDetail.html" class="blog-btn text-dark">Read more</a>
+										<p class="card-text text-right">
 											<small class="text-muted">Last updated 15 mins ago</small>
 										</p>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- //blog grid -->
-						<!-- blog grid -->
-						<div class="card">
-							<div class="row no-gutters">
-								<div class="col-md-4">
-									<a href="ViewPositionDetail.html">
-										<img class="card-img-bottom" src="images/imgr2.jpg" alt="Card image cap">
-									</a>
-								</div>
-								<div class="col-md-8">
+							<!-- //blog grid -->
+							<!-- blog grid -->
+							<div class="col-md-4 mt-5">
+								<div class="card">
+									<div class="card-header p-0">
+										<a href="ViewCompanyDetail.html">
+											<img class="card-img-bottom" src="images/img5.jpg" alt="Card image cap">
+										</a>
+									</div>
 									<div class="card-body">
-										<div class="d-sm-flex justify-content-between border-bottom py-2">
-											<h5 class="blog-title card-title font-weight-bold">
-												<a href="ViewPositionDetail.html">Blog Title</a>
+										<div class="d-flex flex-column  border-bottom">
+											<h5 class="blog-title card-title font-weight-bold m-0">
+												<a href="ViewCompanyDetail.html">Blog Title</a>
 											</h5>
-											<div class="blog_w3icon">
-                                        <span>
-                                            <i class="fas fa-user mr-2"></i>Stella</span>
-												<span class="ml-3">
-                                            <i class="fab fa-servicestack mr-2"></i>Inventory Tracking</span>
+											<div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Mary</span>
 											</div>
 										</div>
 										<p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
-											nibh pulvinar a. Pellentesque in ipsum id orci porta sed magna dictum dapibus.</p>
-										<a href="ViewPositionDetail.html" class="blog-btn text-dark">Read more</a>
-										<p class="card-text">
-											<small class="text-muted">Last updated 3 hrs ago</small>
+											nibh pulvinar a.</p>
+										<a href="ViewCompanyDetail.html" class="blog-btn text-dark">Read more</a>
+										<p class="card-text text-right">
+											<small class="text-muted">Last updated 25 mins ago</small>
 										</p>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- //blog grid -->
-						<!-- blog grid -->
-						<div class="card my-5">
-							<div class="row no-gutters">
-								<div class="col-md-4">
-									<a href="ViewPositionDetail.html">
-										<img class="card-img-bottom" src="images/imgr5.jpg" alt="Card image cap">
-									</a>
-								</div>
-								<div class="col-md-8">
+							<!-- //blog grid -->
+							<!-- blog grid -->
+							<div class="col-md-4 mt-5">
+								<div class="card">
+									<div class="card-header p-0">
+										<a href="ViewCompanyDetail.html">
+											<img class="card-img-bottom" src="images/img3.jpg" alt="Card image cap">
+										</a>
+									</div>
 									<div class="card-body">
-										<div class="d-sm-flex justify-content-between border-bottom py-2">
-											<h5 class="blog-title card-title font-weight-bold">
-												<a href="ViewPositionDetail.html">Blog Title</a>
+										<div class="d-flex flex-column  border-bottom">
+											<h5 class="blog-title card-title font-weight-bold m-0">
+												<a href="ViewCompanyDetail.html">Blog Title</a>
 											</h5>
-											<div class="blog_w3icon">
-                                        <span>
-                                            <i class="fas fa-user mr-2"></i>Stella</span>
-												<span class="ml-3">
-                                            <i class="fab fa-servicestack mr-2"></i>Financial Planning</span>
+											<div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Jack</span>
 											</div>
 										</div>
 										<p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
-											nibh pulvinar a. Pellentesque in ipsum id orci porta sed magna dictum dapibus.</p>
-										<a href="ViewPositionDetail.html" class="blog-btn text-dark">Read more</a>
-										<p class="card-text">
-											<small class="text-muted">Last updated 5 hrs ago</small>
+											nibh pulvinar a.</p>
+										<a href="ViewCompanyDetail.html" class="blog-btn text-dark">Read more</a>
+										<p class="card-text text-right">
+											<small class="text-muted">Last updated 33 mins ago</small>
 										</p>
 									</div>
 								</div>
 							</div>
+							<!-- //blog grid -->
+							<!-- blog grid -->
+							<div class="col-md-4 mt-5 mb-md-0 mb-5">
+								<div class="card">
+									<div class="card-header p-0">
+										<a href="ViewCompanyDetail.html">
+											<img class="card-img-bottom" src="images/img2.jpg" alt="Card image cap">
+										</a>
+									</div>
+									<div class="card-body">
+										<div class="d-flex flex-column  border-bottom">
+											<h5 class="blog-title card-title font-weight-bold m-0">
+												<a href="ViewCompanyDetail.html">Blog Title</a>
+											</h5>
+											<div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Micky</span>
+											</div>
+										</div>
+										<p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
+											nibh pulvinar a.</p>
+										<a href="ViewCompanyDetail.html" class="blog-btn text-dark">Read more</a>
+										<p class="card-text text-right">
+											<small class="text-muted">Last updated 43 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- //blog grid -->
 						</div>
-						<!-- //blog grid -->
 					</div>
 					<!-- //left grid -->
 					<!-- right grid -->
@@ -305,12 +349,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h5 class="card-header">Latest posts</h5>
 							<div class="row mt-3">
 								<div class="col-4">
-									<a href="ViewPositionDetail.html">
+									<a href="ViewCompanyDetail.html">
 										<img class="card-img-bottom" src="images/img2.jpg" alt="Card image cap">
 									</a>
 								</div>
 								<div class="col-8 pl-0">
-									<a href="ViewPositionDetail.html">eveniie arcet ut moles morbi dapiti</a>
+									<a href="ViewCompanyDetail.html">eveniie arcet ut moles morbi dapiti</a>
 									<p class="card-text">
 										<small class="text-muted">26 April,2018</small>
 									</p>
@@ -318,12 +362,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="row my-3">
 								<div class="col-4">
-									<a href="ViewPositionDetail.html">
+									<a href="ViewCompanyDetail.html">
 										<img class="card-img-bottom" src="images/img5.jpg" alt="Card image cap">
 									</a>
 								</div>
 								<div class="col-8 pl-0">
-									<a href="blog.html">eveniie arcet ut moles morbi dapiti</a>
+									<a href="ViewCompanyDetail.html">eveniie arcet ut moles morbi dapiti</a>
 									<p class="card-text">
 										<small class="text-muted">1 May, 2018</small>
 									</p>
@@ -331,12 +375,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="row">
 								<div class="col-4">
-									<a href="blog.html">
+									<a href="ViewCompanyDetail.html">
 										<img class="card-img-bottom" src="images/img4.jpg" alt="Card image cap">
 									</a>
 								</div>
 								<div class="col-8 pl-0">
-									<a href="blog.html">eveniie arcet ut moles morbi dapiti</a>
+									<a href="ViewCompanyDetail.html">eveniie arcet ut moles morbi dapiti</a>
 									<p class="card-text">
 										<small class="text-muted">10 May 2018</small>
 									</p>
@@ -344,20 +388,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="row my-3">
 								<div class="col-4">
-									<a href="blog.html">
+									<a href="ViewCompanyDetail.html">
 										<img class="card-img-bottom" src="images/img3.jpg" alt="Card image cap">
 									</a>
 								</div>
 								<div class="col-8 pl-0">
-									<a href="blog.html">eveniie arcet ut moles morbi dapiti</a>
+									<a href="ViewCompanyDetail.html">eveniie arcet ut moles morbi dapiti</a>
 									<p class="card-text">
 										<small class="text-muted">12 May 2018</small>
 									</p>
 								</div>
 							</div>
 						</div>
-						<!-- /right grid -->
 					</div>
+					<!-- //right grid -->
 				</div>
 			</div>
 			<!-- //blog -->
@@ -439,23 +483,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>>
-<div class="sidebar-menu">
-	<header class="logo1">
-		<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
-	</header>
-	<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
-	<div class="menu">
-		<ul id="menu" >
-			<li><a href="MyHomepage.html"><span>我的主页</span></a></li>
-			<li><a href="MyInternship.html"><span>我的实习</span></a></li>
-			<li><a href="MyTeam.html"><span>我的团队</span></a></li>
-			<li><a href="MyLog.html"><span>日志</span></a></li>
-			<li><a href="MyCode.html"><span>我的代码</span></a></li>
-			<li><a href="MyReport.html"><span>实习报告</span></a></li>
-			<li><a href="MySummary.html"><span>我的总结</span></a></li>
-		</ul>
+
+	<div class="sidebar-menu">
+		<header class="logo1">
+			<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+		</header>
+		<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+		<div class="menu">
+			<ul id="menu" >
+				<li><a href="MyHomepage.html"><span>我的主页</span></a></li>
+				<li><a href="MyInternship.html"><span>我的实习</span></a></li>
+				<li><a href="MyTeam.html"><span>我的团队</span></a></li>
+				<li><a href="MyLog.html"><span>日志</span></a></li>
+				<li><a href="MyCode.html"><span>我的代码</span></a></li>
+				<li><a href="MyReport.html"><span>实习报告</span></a></li>
+				<li><a href="MySummary.html"><span>我的总结</span></a></li>
+			</ul>
+		</div>
 	</div>
-</div>
+
 	<script>
 		var toggle = true;
 

@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<head>
+    <title>实训平台-实训项目</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="css/style1.css" rel='stylesheet' type='text/css' />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- popup box -->
+    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font-awesome icons -->
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <script src="js/amcharts.js"></script>
+    <script src="js/serial.js"></script>
+    <script src="js/light.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/pie-chart.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#demo-pie-1').pieChart({
+                barColor: '#3bb2d0',
+                trackColor: '#eee',
+                lineCap: 'round',
+                lineWidth: 8,
+                onStep: function (from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+
+            $('#demo-pie-2').pieChart({
+                barColor: '#fbb03b',
+                trackColor: '#eee',
+                lineCap: 'butt',
+                lineWidth: 8,
+                onStep: function (from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+
+            $('#demo-pie-3').pieChart({
+                barColor: '#ed6498',
+                trackColor: '#eee',
+                lineCap: 'square',
+                lineWidth: 8,
+                onStep: function (from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="page-container">
+    <div class="left-content">
+        <div class="inner-content">
+            <div class="header-section navbar" >
+                <div class="header_top">
+                    <div class="top_right">
+                        <ul>
+                            <li><a href="CompIndex.html">首页</a></li>|
+                            <li><a href="CompFindCompany.html">找公司</a></li>|
+                            <li><a href="CompFindPosition.html">找职位</a></li>
+                        </ul>
+                    </div>
+                    <div class="top_left">
+                        <h2><a href="home.html" style="color: indianred">退出登录</a></h2>
+                    </div>
+                    <div class="top_left">
+                        <h2><span></span> 用户：<a href="CompanyHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="header_bg">
+                <div class="header">
+                    <div class="head-t">
+                        <div class="header_right">
+                            <div class="search">
+                                <form>
+                                    <input type="text" value="" placeholder="search...">
+                                    <input type="submit" value="">
+                                </form>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content1">
+                <div class="fo-top-dj">
+                    <h3 class="sub-tittle">实训项目:</h3><br>
+                    <a class="ui_button" href="CreateProject.html" style="width:90px;margin-left:1000px;margin-right: 20px">创建项目</a>
+                    <div class="content tab">
+                        <div class="fo-top">
+                            <div class="form-group">
+                                <label  class="col-sm-2 control-label">项目列表:</label>
+                                <br><br>
+                                <div class="grids_of_4">
+                                    <div class="grid1_of_4">
+                                        <div class="content_box"><a href="CheckProject.html">
+                                            <img src="images/t1.jpg" class="img-responsive" alt="">
+                                        </a>
+                                            <h4><a href="CheckProject.html"> 项目1</a></h4>
+                                            <div class="grid_1 simpleCart_shelfItem">
+                                                <div class="item_add"><span class="item_price"><a href="CheckProject.html" onclick="saved()">查看项目</a></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="grid1_of_4">
+                                        <div class="content_box"><a href="#">
+                                            <img src="images/t2.jpg" class="img-responsive" alt="">
+                                        </a>
+                                            <h4><a href="#"> 项目2</a></h4>
+                                            <div class="grid_1 simpleCart_shelfItem">
+                                                <div class="item_add"><span class="item_price"><a href="#" onclick="saved()">查看项目</a></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="grid1_of_4">
+                                        <div class="content_box"><a href="#">
+                                            <img src="images/t3.jpg" class="img-responsive" alt="">
+                                        </a>
+                                            <h4><a href="#"> 项目3</a></h4>
+                                            <div class="grid_1 simpleCart_shelfItem">
+                                                <div class="item_add"><span class="item_price"><a href="#" onclick="saved()">查看项目</a></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="grid1_of_4">
+                                        <div class="content_box"><a href="#">
+                                            <img src="images/t4.jpg" class="img-responsive" alt="">
+                                        </a>
+                                            <h4><a href="#"> 项目4</a></h4>
+                                            <div class="grid_1 simpleCart_shelfItem">
+                                                <div class="item_add"><span class="item_price"><a href="#" onclick="saved()">查看项目</a></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="fo-top-di">
+                    <div class="foot-top">
+                        <div class="col-md-6 s-c">
+                            <li>
+                                <div class="fooll">
+                                    <h1>follow us on</h1>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="social-ic">
+                                    <ul>
+                                        <li><a href="#"><i class="facebok"> </i></a></li>
+                                        <li><a href="#"><i class="twiter"> </i></a></li>
+                                        <li><a href="#"><i class="goog"> </i></a></li>
+                                        <li><a href="#"><i class="be"> </i></a></li>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                </div>
+                            </li>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="footer">
+                        <div class="col-md-3 cust">
+                            <h4>CUSTOMER CARE</h4>
+                            <li><a href="MyCode.html">Help Center</a></li>
+                            <li><a href="MySummary.html">FAQ</a></li>
+                            <li><a href="MyReport.html">How To Buy</a></li>
+                            <li><a href="MyLog.html">Delivery</a></li>
+                        </div>
+                        <div class="col-md-2 abt">
+                            <h4>ABOUT US</h4>
+                            <li><a href="products.html">Our Stories</a></li>
+                            <li><a href="products.html">Press</a></li>
+                            <li><a href="MySummary.html">Career</a></li>
+                            <li><a href="MyCode.html">Contact</a></li>
+                        </div>
+                        <div class="col-md-2 myac">
+                            <h4>MY ACCOUNT</h4>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="MyLog.html">My Cart</a></li>
+                            <li><a href="MyLog.html">Order History</a></li>
+                            <li><a href="MyReport.html">Payment</a></li>
+                        </div>
+                        <div class="col-md-5 our-st">
+                            <div class="our-left">
+                                <h4>OUR STORES</h4>
+                            </div>
+                            <li><i class="add"> </i>Mark peter</li>
+                            <li><i class="phone"> </i>012-586987</li>
+                            <li><a href="mailto:info@example.com"><i class="mail"> </i>info@sitename.com </a></li>
+                        </div>
+                        <div class="clearfix"> </div>
+                        <p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+        <header class="logo1">
+            <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+        </header>
+        <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+        <div class="menu">
+            <ul id="menu">
+                <li><a href="CompanyHomepage.html">企业主页</a> </li>
+                <li><a href="CompProject.html"><span>实训项目</span></a></li>
+                <li><a href="ProjectResource.html"><span>实训资源</span></a></li>
+                <li><a href="CompTeam.html"><span>实训团队</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+</body>
+</html>
