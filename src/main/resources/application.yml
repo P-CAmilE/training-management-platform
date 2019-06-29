@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/webdb?serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/wzsweb?serverTimezone=GMT%2B8
     username: root
-    password: 0117fjxcbryl
+    password: ICDATAC300a
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
