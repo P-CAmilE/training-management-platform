@@ -8,7 +8,6 @@ $("#company_login").click(function(){
     $.ajax({
         url: "/login",
         type: "POST",
-        async: false,
         // dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
@@ -18,7 +17,7 @@ $("#company_login").click(function(){
         }),
         success:function(data){
             alert("company log in");
-            window.location.href="/CompIndex"
+            window.location.href="CompIndex"
         },
         error:function () {
             alert("error")
@@ -36,7 +35,7 @@ $("#student_login").click(function(){
     $.ajax({
         url: "/login",
         type: "POST",
-        async: false,
+
         // dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data: JSON.stringify({
@@ -46,7 +45,7 @@ $("#student_login").click(function(){
         }),
         success:function(data){
             alert("student log in");
-            window.location.href="/StudentIndex.html"
+            window.location.href="StudentIndex"
         },
         error: function () {
             alert("error");
@@ -55,8 +54,6 @@ $("#student_login").click(function(){
     });
 
 })
-
-
 $("#register").click(function(){
     alert($("#recipient-name3").val());
     var username = $("#recipient-name3").val();
@@ -66,8 +63,8 @@ $("#register").click(function(){
     $.ajax({
         url: "/register",
         type: "POST",
-        async: false,
-        // dataType : "json",
+
+        dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
             "username":username,
@@ -77,8 +74,8 @@ $("#register").click(function(){
 
         }),
         success:function(data){
-            alert("register");
-            window.location.href="/StudentIndex"
+            alert(data);
+            window.location.href="StudentIndex"
         },
         error:function () {
             alert("error");
