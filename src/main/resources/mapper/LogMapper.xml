@@ -3,15 +3,43 @@
 <mapper namespace="com.mycharge.trainingmanagementplatform.mapper.LogMapper">
 
 
-    <select id="studentLogIn" resultType="com.mycharge.trainingmanagementplatform.model.Student">
-        select * from user_info where username = #{username} and password = #{password}
+    <resultMap id="Student" type="com.mycharge.trainingmanagementplatform.model.Student">
+        <id column="stu_account" property="stuAccount"/>
+        <result column="stu_name" property="stuName"/>
+        <result column="stu_email" property="stuEmail"/>
+    </resultMap>
+
+    <resultMap id="Teacher" type="com.mycharge.trainingmanagementplatform.model.Teacher">
+        <id column="tea_account" property="teaAccount"/>
+        <result column="tea_name" property="teaName"/>
+        <result column="tea_email" property="teaEmail"/>
+    </resultMap>
+
+    <resultMap id="Company" type="com.mycharge.trainingmanagementplatform.model.Company">
+        <id column="com_account" property="comAccount"/>
+        <result column="com_name" property="comName"/>
+        <result column="com_email" property="comEmail"/>
+    </resultMap>
+
+    <select id="studentLogIn" resultMap="Student">
+        select stu_account,stu_name,stu_email from student_info where stu_account = #{username} and stu_password = #{password}
     </select>
 
-   <select id="teacherLogIn" resultType="com.mycharge.trainingmanagementplatform.model.Teacher">
-        select * from user_info where username = #{username} and password = #{password}
+   <select id="teacherLogIn" resultMap="Teacher">
+        select tea_account,tea_name,tea_email from teacher_info where tea_account = #{username} and tea_password = #{password}
     </select>
+
+    <select id="companyLogIn" resultMap="Company">
+        select com_account,com_name,com_email from company_info where com_account = #{username} and com_password = #{password}
+    </select>
+
 
     <insert id="studentRegister">
-        insert user_info (user_name,user_password, user_email) values (#{username},#{password}, #{eamil}})
+        insert student_info (stu_account,stu_password, stu_email) values (#{username},#{password}, #{email})
     </insert>
+
+    <insert id="teacherRegister">
+        insert teacher_info (tea_account,tea_password, tea_email) values (#{username},#{password}, #{email})
+    </insert>
+
 </mapper>

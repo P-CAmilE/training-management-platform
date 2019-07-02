@@ -4,6 +4,7 @@ import com.mycharge.trainingmanagementplatform.mapper.LogMapper;
 import com.mycharge.trainingmanagementplatform.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.mycharge.trainingmanagementplatform.model.*;
 
 @Service
 public class LogServiceImpl implements LogService {
@@ -12,16 +13,16 @@ public class LogServiceImpl implements LogService {
     private LogMapper logMapper;
 
     @Override
-    public int login(String username, String password,int usertype) {
+    public User login(String username, String password,int usertype) {
 
+        User user = null;
         if(usertype == 0)
-            logMapper.studentLogIn(username, password);
+            user = logMapper.studentLogIn(username, password);
         else if (usertype == 2)
-            logMapper.teacherLogIn(username,password);
+            user = logMapper.teacherLogIn(username,password);
         else if (usertype == 1)
-            logMapper.companyLogIn(username, password);
-
-        return 0;
+            user = logMapper.companyLogIn(username, password);
+        return user;
     }
 
     @Override
