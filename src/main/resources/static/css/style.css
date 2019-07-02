@@ -1422,6 +1422,19 @@ ul.social_w3 li a:hover {
     font-family: 'Raleway', sans-serif;
     cursor: pointer;
 }
+.right-w3l label{
+    background: rgba(254, 59, 48, 0.6);
+    border: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-align: center;
+}
+.right-w3l label p{
+    font-family: 微软雅黑;
+    font-color:skyblue;
+}
 
 .col-form-label {
     text-transform: uppercase;

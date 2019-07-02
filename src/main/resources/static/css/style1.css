@@ -1908,6 +1908,23 @@ label {
     color: #ffffff;
     background:#252525;
 }
+.studentinput{
+    -webkit-appearance: none;
+    color: #ffffff;
+    text-transform: capitalize;
+    display: inline-block;
+    background:#B52E31;
+    padding: 10px 20px;
+    transition: 0.5s ease;
+    -moz-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+    cursor:pointer;
+    border:none;
+    outline:none;
+    font-size:1em;
+    margin-bottom: 5px;
+}
 .yg_content{
     margin-top: 50px;
     text-align: center;
@@ -1934,7 +1951,8 @@ label {
     opacity: .5;
 }
 .showimg{
-    margin: 20px auto;
+    margin-left: 0px;
+    margin-bottom: 20px;
     border: 1px #ccc solid;
     border-radius: 10px;
     width: 200px;
@@ -3183,19 +3201,22 @@ span.brand {
     pointer-events:inherit !important;
 }
 /*--  general forms  --*/
-.form-control1, .form-control_2.input-sm{
-  border: 1px solid #ccc;
-  padding: 5px 8px;
-  color: #616161;
-  background: #fff;
-  box-shadow: none !important;
-  width: 100%;
-  font-size: 0.85em;
-  font-weight: 300;
-  height: 40px;
-  border-radius: 0;
-  -webkit-appearance: none;
-  resize: none;
+.form-control1, .form-control_2.input-sm {
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    color: #616161;
+    background: #fff;
+    box-shadow: none !important;
+    width: 100%;
+    font-size: 0.85em;
+    font-weight: 300;
+    height: 40px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    resize: none;
+}
+.hover1 label:hover{
+    color:#01AAED;
 }
 .ui_button {
     padding:10px;

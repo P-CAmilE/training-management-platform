@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <head>
-    <title>实训平台-修改项目</title>
+    <title>实训平台-实训学校</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -64,18 +64,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="inner-content">
             <div class="header-section navbar" >
                 <div class="header_top">
-                    <div class="top_right">
-                        <ul>
-                            <li><a href="CompIndex.html">首页</a></li>|
-                            <li><a href="CompFindCompany.html">找公司</a></li>|
-                            <li><a href="CompFindPosition.html">找职位</a></li>
-                        </ul>
+                    <div class="top_left">
+                        <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><a href="home.html" style="color: indianred">退出登录</a></h2>
-                    </div>
-                    <div class="top_left">
-                        <h2><span></span> 用户：<a href="CompanyHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a href="CompHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -99,88 +92,76 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="content1">
                 <div class="fo-top-dj">
-                    <h3 class="sub-tittle">修改项目:</h3><br>
+                    <h3 class="sub-tittle">创建项目:</h3><br>
                     <div class="content tab">
-                        <div class="registration">
-                            <div class="registration_left">
-                                <script>
-                                    (function() {
-
-                                        // Create input element for testing
-                                        var inputs = document.createElement('input');
-
-                                        // Create the supports object
-                                        var supports = {};
-
-                                        supports.autofocus   = 'autofocus' in inputs;
-                                        supports.required    = 'required' in inputs;
-                                        supports.placeholder = 'placeholder' in inputs;
-
-                                        // Fallback for autofocus attribute
-                                        if(!supports.autofocus) {
-
-                                        }
-
-                                        // Fallback for required attribute
-                                        if(!supports.required) {
-
-                                        }
-
-                                        // Fallback for placeholder attribute
-                                        if(!supports.placeholder) {
-
-                                        }
-
-                                        // Change text inside send button on submit
-                                        var send = document.getElementById('register-submit');
-                                        if(send) {
-                                            send.onclick = function () {
-                                                this.innerHTML = '...Sending';
-                                            }
-                                        }
-
-                                    })();
-                                </script>
-                                <div class="registration_form">
-                                    <!-- Form -->
-                                    <form>
-                                        <div>
-                                            <label class="create_project">项目名称：
-                                            <input placeholder="" required="" autofocus="" class="form-control1" style="height: 30px;width: 100px">
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">项目内容:
-                                                <textarea placeholder="" required="" autofocus="" class="form-control1" style="height:100px;width: 500px;border:solid 1px grey"></textarea>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">验收标准:
-                                                <textarea placeholder="" required="" autofocus="" class="form-control1" style="height:100px;width: 500px;border:solid 1px grey"></textarea>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">项目开始时间:
-                                                <input placeholder="" type="date" required="" style="width: 150px">
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">项目结束时间:
-                                                <input placeholder="" type="date" required="" style="width: 150px">
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <input type="submit" style="margin-left: 100px" value="保存">
-                                            <a href="CheckProject.html" style="margin-left:100px">返回</a>
-                                        </div>
-                                    </form>
+                        <form>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">项目名称:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="text" class="form-control1" value="123" style="height: 35px;width:200px" >
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="clearfix"></div>
-                        </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">项目描述:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px" ></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">项目内容:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px" ></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">验收标准:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px" ></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">项目开始时间:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="date" class="form-control1" style="height: 35px;width: 200px" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">项目结束时间:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="date" class="form-control1" style="height: 35px;width: 200px" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div>
+                                <input type="submit" class="studentinput" style="width: 200px;margin-left: 200px;text-align: center" value="创建实习" onclick="myFunction()">
+                                <a href="CompInternship.html" class="studentinput" style="width: 200px;margin-left: 200px"><span style="color: white;padding-left: 65px">返回</span></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
+        </div>
+    </div>
+</div>
             <div class="content">
                 <div class="clearfix"></div>
                 <div class="clearfix"></div>
@@ -213,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="MyCode.html">Help Center</a></li>
                             <li><a href="MySummary.html">FAQ</a></li>
                             <li><a href="MyReport.html">How To Buy</a></li>
-                            <li><a href="MyLog.html">Delivery</a></li>
+                            <li><a href="StuLog.html">Delivery</a></li>
                         </div>
                         <div class="col-md-2 abt">
                             <h4>ABOUT US</h4>
@@ -225,8 +206,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="col-md-2 myac">
                             <h4>MY ACCOUNT</h4>
                             <li><a href="register.html">Register</a></li>
-                            <li><a href="MyLog.html">My Cart</a></li>
-                            <li><a href="MyLog.html">Order History</a></li>
+                            <li><a href="StuLog.html">My Cart</a></li>
+                            <li><a href="StuLog.html">Order History</a></li>
                             <li><a href="MyReport.html">Payment</a></li>
                         </div>
                         <div class="col-md-5 our-st">
@@ -251,9 +232,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
             <ul id="menu">
-                <li><a href="CompanyHomepage.html"><span>企业主页</span></a></li>
-                <li><a href="CompProject.html"><span>实训项目</span></a></li>
-                <li><a href="ProjectResource.html"><span>实训资源</span></a></li>
+                <li><a href="CompHomepage.html"><span>企业主页</span></a></li>
+                <li><a href="CompInternship.html"><span>实训项目</span></a></li>
+                <li><a href="CompProjectResource.html"><span>实训资源</span></a></li>
                 <li><a href="CompTeam.html"><span>实训团队</span></a></li>
             </ul>
         </div>
@@ -278,5 +259,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             toggle = !toggle;
         });
     </script>
+    <script>
+        function upLoad(){
+            var fileInput = document.getElementById("upimg");
+            var file = fileInput.files[0];
+            //创建读取文件的对象
+            var reader = new FileReader();
+            //创建文件读取相关的变量
+            var imgFile;
+            //为文件读取成功设置事件
+            reader.onload=function(e) {
+                // alert('文件读取完成');
+                imgFile = e.target.result;
+                console.log(imgFile);
+                $("#img").attr('src',imgFile);
+            };
+
+            //正式读取文件
+            reader.readAsDataURL(file);
+        }
+    </script>
+<script>
+    function myFunction() {
+        alert("创建成功")
+    }
+</script>
 </body>
 </html>

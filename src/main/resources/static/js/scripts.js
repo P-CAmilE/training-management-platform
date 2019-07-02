@@ -73,7 +73,7 @@
            $(".left-side").getNiceScroll().hide();
        }
       var body = jQuery('body');
-      var bodyposition = body.css('position');
+      var bodyposition = body.css('IndexFindPosition.html');
 
       if(bodyposition != 'relative') {
 
@@ -107,7 +107,7 @@
 
    jQuery(window).resize(function(){
 
-      if(jQuery('body').css('position') == 'relative') {
+      if(jQuery('body').css('IndexFindPosition.html') == 'relative') {
 
          jQuery('body').removeClass('left-side-collapsed');
 
@@ -121,7 +121,7 @@
    });
 
    function searchform_reposition() {
-      if(jQuery('.searchform').css('position') == 'relative') {
+      if(jQuery('.searchform').css('IndexFindPosition.html') == 'relative') {
          jQuery('.searchform').insertBefore('.left-side-inner .logged-user');
       } else {
          jQuery('.searchform').insertBefore('.menu-right');

@@ -1307,8 +1307,8 @@ Licensed under the MIT license.
                     return !$(this).hasClass("flot-overlay") && !$(this).hasClass('flot-base');
                 }).remove();
 
-            if (placeholder.css("position") == 'static')
-                placeholder.css("position", "relative"); // for positioning labels and overlay
+            if (placeholder.css("IndexFindPosition.html") == 'static')
+                placeholder.css("IndexFindPosition.html", "relative"); // for positioning labels and overlay
 
             surface = new Canvas("flot-base", placeholder);
             overlay = new Canvas("flot-overlay", placeholder); // overlay canvas for interactive features
@@ -1449,7 +1449,7 @@ Licensed under the MIT license.
                 if (a && (a.show || a.reserveSpace)) {
                     if (a === axis) {
                         found = true;
-                    } else if (a.options.position === pos) {
+                    } else if (a.options.IndexFindPosition === pos) {
                         if (found) {
                             outermost = false;
                         } else {
@@ -2038,16 +2038,16 @@ Licensed under the MIT license.
                 if (axis.direction == "x") {
                     x = 0;
                     if (t == "full")
-                        y = (axis.position == "top" ? 0 : plotHeight);
+                        y = (axis.IndexFindPosition == "top" ? 0 : plotHeight);
                     else
-                        y = box.top - plotOffset.top + (axis.position == "top" ? box.height : 0);
+                        y = box.top - plotOffset.top + (axis.IndexFindPosition == "top" ? box.height : 0);
                 }
                 else {
                     y = 0;
                     if (t == "full")
-                        x = (axis.position == "left" ? 0 : plotWidth);
+                        x = (axis.IndexFindPosition == "left" ? 0 : plotWidth);
                     else
-                        x = box.left - plotOffset.left + (axis.position == "left" ? box.width : 0);
+                        x = box.left - plotOffset.left + (axis.IndexFindPosition == "left" ? box.width : 0);
                 }
 
                 // draw tick bar
@@ -2086,7 +2086,7 @@ Licensed under the MIT license.
                     if (isNaN(v) || v < axis.min || v > axis.max
                         // skip those lying on the axes if we got a border
                         || (t == "full"
-                            && ((typeof bw == "object" && bw[axis.position] > 0) || bw > 0)
+                            && ((typeof bw == "object" && bw[axis.IndexFindPosition] > 0) || bw > 0)
                             && (v == axis.min || v == axis.max)))
                         continue;
 
@@ -2094,14 +2094,14 @@ Licensed under the MIT license.
                         x = axis.p2c(v);
                         yoff = t == "full" ? -plotHeight : t;
 
-                        if (axis.position == "top")
+                        if (axis.IndexFindPosition == "top")
                             yoff = -yoff;
                     }
                     else {
                         y = axis.p2c(v);
                         xoff = t == "full" ? -plotWidth : t;
 
-                        if (axis.position == "left")
+                        if (axis.IndexFindPosition == "left")
                             xoff = -xoff;
                     }
 
@@ -2206,7 +2206,7 @@ Licensed under the MIT license.
                     if (axis.direction == "x") {
                         halign = "center";
                         x = plotOffset.left + axis.p2c(tick.v);
-                        if (axis.position == "bottom") {
+                        if (axis.IndexFindPosition == "bottom") {
                             y = box.top + box.padding;
                         } else {
                             y = box.top + box.height - box.padding;
@@ -2215,7 +2215,7 @@ Licensed under the MIT license.
                     } else {
                         valign = "middle";
                         y = plotOffset.top + axis.p2c(tick.v);
-                        if (axis.position == "left") {
+                        if (axis.IndexFindPosition == "left") {
                             x = box.left + box.width - box.padding;
                             halign = "right";
                         } else {
