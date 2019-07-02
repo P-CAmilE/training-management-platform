@@ -77,15 +77,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="clearfix"></div>
 							</div>
 						</div>
-						<br><br><br><br><br>
+						<br><br><br>
 						<div class="fo-top">
 							<div class="form-group">
 								<label  class="col-sm-2 control-label">写日志:</label>
 								<div class="col-sm-8 ">
-									<input type="text" class="form-control1" value="123456" style="height: 35px;width:200px" placeholder="标题" readonly>
+									<input type="text" class="form-control1" style="height: 35px;width:200px" placeholder="标题">
+                                    <br><br>
 									<textarea class="form-control1" value="123" style="height: 400px;width:600px"></textarea>
+									<br><br><br>
 								</div>
-								<br><br><br>
+								<input type="submit" class="studentinput" style="width: 200px;margin-left: 200px" value="保存" onclick="myFunction()">
+								<a href="MyLog.html" class="studentinput" style="width: 200px;margin-left: 200px"><span style="color: white;padding-left: 65px">返回</span></a>
 								<div class="clearfix"></div>
 								<br><br>
 							</div>
@@ -134,9 +137,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li><a href="MyInternship.html"><span>我的实习</span></a></li>
 				<li><a href="MyTeam.html"><span>我的团队</span></a></li>
 				<li><a href="MyLog.html"><span>日志</span></a></li>
-				<li><a href="MyCode.html"><span>我的代码</span></a></li>
-				<li><a href="MyReport.html"><span>实习报告</span></a></li>
-				<li><a href="MySummary.html"><span>我的总结</span></a></li>
+				<li><a href="MyResource.html"><span>上传资源</span></a></li>
+				<li><a href="MyDownload.html"><span>下载资源</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -160,6 +162,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 		toggle = !toggle;
 	});
+</script>
+<script>
+	function myFunction() {
+		alert("保存成功")
+	}
 </script>
 </body>
 </html>
