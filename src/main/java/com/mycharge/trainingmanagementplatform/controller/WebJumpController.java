@@ -11,7 +11,8 @@ public class WebJumpController {
 
     @RequestMapping("/{pageurl}")
     public String WebJump(@PathVariable("pageurl") String weburl) {
-        return weburl + ".html";
+        return weburl;
+//        return weburl + ".html";
     }
 
 }

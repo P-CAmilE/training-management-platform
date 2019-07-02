@@ -1,12 +1,13 @@
-var host="http://localhost:8080"
+var host="127.0.0.1:8080"
+
 
 $("#company_login").click(function(){
     alert($("#recipient-name2").val());
     var username = $("#recipient-name2").val();
     var password = $("#password4").val();
     $.ajax({
-        url: host+"/login",
-        type:"post",
+        url: "/login",
+        type: "POST",
         dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
@@ -15,33 +16,42 @@ $("#company_login").click(function(){
             "usertype": 1
         }),
         success:function(data){
-            alert(data.stuAccount);
+            if(data.logstate == "1"){ window.location.href="CompIndex";}
+            alert(data.msg);
+        },
+        error:function () {
+            alert("ajax error");
         }
     });
-    alert("bb");
+
 })
+
 
 $("#student_login").click(function(){
     alert($("#recipient-name").val());
     var username = $("#recipient-name").val();
     var password = $("#password").val();
+
     $.ajax({
-        url: host+"/login",
-        type:"post",
-        dataType : "json",
+        url: "/login",
+        type: "POST",
+        // dataType : "json",
         contentType: 'application/json;charset=UTF-8',
-        data :  JSON.stringify({
-            "username":username,
+        data: JSON.stringify({
+            "username": username,
             "password": password,
             "usertype": 0
         }),
         success:function(data){
-            alert(data.stuAccount);
+            if(data.logstate == "1"){ window.location.href="StudentIndex";}
+            alert(data.msg);
+        },
+        error: function () {
+            alert("ajax error");
         }
     });
-    alert("bb");
-})
 
+})
 $("#register").click(function(){
     alert($("#recipient-name3").val());
     var username = $("#recipient-name3").val();
@@ -49,8 +59,9 @@ $("#register").click(function(){
     var useremail = $("#recipient-email").val();
 
     $.ajax({
-        url: host+"/register",
-        type:"Post",
+        url: "/register",
+        type: "POST",
+
         dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
@@ -61,8 +72,13 @@ $("#register").click(function(){
 
         }),
         success:function(data){
-            alert(data);
+            if(data.getParameter("logstate") == "1"){ window.location.href="CompIndex";}
+            else if(data.logstate == "0"){ window.location.href="StudentIndex";}
+            alert(data.msg);
+        },
+        error:function () {
+            alert("ajax error");
         }
     });
-    alert("bb");
+
 })

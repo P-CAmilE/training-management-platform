@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<head>
+	<title>实训平台-企业主页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<link href="css/style1.css" rel='stylesheet' type='text/css' />
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<!-- popup box -->
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- font-awesome icons -->
+	<link href="css/fontawesome-all.min.css" rel="stylesheet">
+	<!-- //Custom Theme files -->
+	<script src="js/amcharts.js"></script>
+	<script src="js/serial.js"></script>
+	<script src="js/light.js"></script>
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/pie-chart.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#demo-pie-1').pieChart({
+				barColor: '#3bb2d0',
+				trackColor: '#eee',
+				lineCap: 'round',
+				lineWidth: 8,
+				onStep: function (from, to, percent) {
+					$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+				}
+			});
+
+			$('#demo-pie-2').pieChart({
+				barColor: '#fbb03b',
+				trackColor: '#eee',
+				lineCap: 'butt',
+				lineWidth: 8,
+				onStep: function (from, to, percent) {
+					$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+				}
+			});
+
+			$('#demo-pie-3').pieChart({
+				barColor: '#ed6498',
+				trackColor: '#eee',
+				lineCap: 'square',
+				lineWidth: 8,
+				onStep: function (from, to, percent) {
+					$(this.element).find('.pie-value').text(Math.round(percent) + '%');
+				}
+			});
+		});
+	</script>
+</head>
+<div class="page-container">
+	<div class="left-content">
+		<div class="inner-content">
+			<div class="header-section navbar" >
+				<div class="header_top">
+					<div class="top_right">
+						<ul>
+							<li><a href="CompIndex.html">首页</a></li>|
+							<li><a href="CompFindCompany.html">找公司</a></li>|
+							<li><a href="CompFindPosition.html">找职位</a></li>
+						</ul>
+					</div>
+					<div class="top_left">
+						<h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
+					</div>
+					<div class="top_left">
+						<h2><span></span> 用户:<a href="CompHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		   <div class="header_bg">
+			   <div class="header">
+				   <div class="head-t">
+					   <div class="header_right">
+						   <div class="search">
+							   <form>
+								   <input type="text" value="" placeholder="search...">
+								   <input type="submit" value="">
+							   </form>
+						   </div>
+						   <div class="clearfix"> </div>
+					   </div>
+					   <div class="clearfix"> </div>
+				   </div>
+			   </div>
+		   </div>
+		   <div class="content1">
+			   <div class="fo-top-dj">
+				   <h3 class="sub-tittle">主页:</h3>
+				   <div class="content tab">
+				   <div>
+					   <form>
+					   <div class="fo-top">
+						   <div class="form-group">
+							   <label  class="col-sm-2 control-label">企业图片:</label>
+							   <div class="col-sm-8 ">
+								   <div>
+									   <input type="file" id="upimg" accept="image/*" onchange="upLoad()">
+									   <div class="showimg">
+										   <img id="img" src="images/tx_1.jpg" alt="">
+									   </div>
+									   <div class="right-w3l" style="width: 200px;">
+										   <label for="upimg"class="studentinput" style="width: 200px">选取文件</label>
+									   </div>
+								   </div>
+							   </div>
+							   <div class="clearfix"></div>
+						   </div>
+					   </div>
+					   <div class="fo-top">
+						   <div class="form-group">
+							   <label  class="col-sm-2 control-label">企业名称:</label>
+							   <div class="col-sm-8 ">
+								   <input type="text" class="form-control1" value="***" style="height: 35px;width:200px">
+							   </div>
+							   <div class="clearfix"></div>
+						   </div>
+					   </div>
+					   <div class="fo-top">
+						   <div class="form-group">
+							   <label  class="col-sm-2 control-label">企业描述:</label>
+							   <div class="col-sm-8 ">
+								   <textarea class="form-control1" value="123" style="height: 100px;width:500px"></textarea>
+							   </div>
+							   <div class="clearfix"></div>
+						   </div>
+					   </div>
+						   <input type="submit" class="studentinput" value="保存" style="width: 200px;margin-left: 200px" onclick="myFunction()">
+					     </form>
+					   </div>
+				   </div>
+			   </div>
+		   </div>
+		   <div class="content">
+			   <div class="clearfix"></div>
+			   <div class="clearfix"></div>
+			   <div class="fo-top-di">
+				   <div class="foot-top">
+					   <div class="col-md-6 s-c">
+						   <li>
+							   <div class="fooll">
+								   <h1>follow us on</h1>
+							   </div>
+						   </li>
+						   <li>
+							   <div class="social-ic">
+								   <ul>
+									   <li><a href="#"><i class="facebok"> </i></a></li>
+									   <li><a href="#"><i class="twiter"> </i></a></li>
+									   <li><a href="#"><i class="goog"> </i></a></li>
+									   <li><a href="#"><i class="be"> </i></a></li>
+									   <div class="clearfix"></div>
+								   </ul>
+							   </div>
+						   </li>
+						   <div class="clearfix"> </div>
+					   </div>
+					   <div class="clearfix"> </div>
+				   </div>
+			   </div>
+		   </div>
+	   <div class="sidebar-menu">
+		   <header class="logo1">
+			   <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+		   </header>
+		   <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+            <div class="sidebar-menu">
+                <header class="logo1">
+                    <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+                </header>
+                <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+                <div class="menu">
+                    <ul id="menu">
+                        <li><a href="CompHomepage.html">企业主页</a> </li>
+                        <li><a href="CompInternship.html"><span>实训项目</span></a></li>
+                        <li><a href="ProjectResource.html"><span>实训资源</span></a></li>
+                        <li><a href="CompTeam.html"><span>实训团队</span></a></li>
+                    </ul>
+                </div>
+            </div>
+	   </div>
+	   <div class="clearfix"></div>
+   </div>
+
+   <script>
+	   var toggle = true;
+
+	   $(".sidebar-icon").click(function() {
+		   if (toggle)
+		   {
+			   $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+			   $("#menu span").css({"position":"absolute"});
+		   }
+		   else
+		   {
+			   $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+			   setTimeout(function() {
+				   $("#menu span").css({"position":"relative"});
+			   }, 400);
+		   }
+		   toggle = !toggle;
+	   });
+   </script>
+
+   <script>
+       function upLoad(){
+           var fileInput = document.getElementById("upimg");
+           var file = fileInput.files[0];
+               //创建读取文件的对象
+           var reader = new FileReader();
+               //创建文件读取相关的变量
+           var imgFile;
+               //为文件读取成功设置事件
+           reader.onload=function(e) {
+                   // alert('文件读取完成');
+           imgFile = e.target.result;
+           console.log(imgFile);
+           $("#img").attr('src',imgFile);
+       };
+
+               //正式读取文件
+            reader.readAsDataURL(file);
+           }
+   </script>
+		<script>
+			function myFunction() {
+				alert("保存成功")
+			}
+		</script>
+</body>
+</html>

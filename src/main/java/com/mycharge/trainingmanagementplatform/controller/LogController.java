@@ -28,7 +28,7 @@ public class LogController {
         MSG loginMSG = logService.login((String)myObject.get("username"),
                 (String)myObject.get("password"), (Integer) myObject.get("usertype"));
 
-        Cookie accountCookie = new Cookie("useraccount",(String) loginMSG.get("useraccount"));
+        Cookie accountCookie = new Cookie("useraccount",String.valueOf(loginMSG.get("useraccount")));
 
         accountCookie.setPath("/usercookie");
 

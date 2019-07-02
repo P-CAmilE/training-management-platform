@@ -40,10 +40,16 @@ public class LogServiceImpl implements LogService {
     @Override
     public MSG register(String username, String password, int usertype, String email) {
 
-        if(usertype == 0)
+        if(usertype == 0) {
+
             logMapper.studentRegister(username, password, email);
-        else if(usertype == 1)
-            logMapper.companyRegister(username,password,email);
+
+        }
+        else if(usertype == 1) {
+
+            logMapper.companyRegister(username, password, email);
+
+        }
         MSG msg = MSG.newMessage("msg",(Object)"注册成功");
         return msg;
     }

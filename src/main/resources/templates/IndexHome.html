@@ -15,7 +15,6 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 	<!-- Bootstrap Core CSS -->
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 	<!-- popup box -->
@@ -25,11 +24,7 @@
 	<!-- font-awesome icons -->
 	<link href="css/fontawesome-all.min.css" rel="stylesheet">
 	<!-- //Custom Theme files -->
-	<!--webfonts-->
-	<link href="http://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
-	<link href="http://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-	    rel="stylesheet">
-	<!-- //webfonts -->
+
 </head>
 
 <body>
@@ -40,7 +35,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light py-4">
 				<!-- logo -->
 				<h1>
-					<a class="navbar-brand" href="home.html">
+					<a class="navbar-brand" href="IndexHome.html">
 						实训管理平台
 					</a>
 				</h1>
@@ -53,17 +48,17 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-lg-auto text-center">
 						<li class="nav-item active mr-lg-3">
-							<a class="nav-link" href="home.html">主页
+							<a class="nav-link" href="IndexHome.html">主页
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item mr-lg-3">
-							<a class="nav-link" href="../templates/company.html">选公司
+							<a class="nav-link" href="IndexFindCompany.html">选公司
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item mr-lg-3">
-							<a class="nav-link" href="../templates/position.html">选职位
+							<a class="nav-link" href="IndexFindPosition.html">选职位
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
@@ -375,13 +370,13 @@
 				<!-- footer grid1 -->
 				<div class="col-lg-3 col-sm-6">
 					<h2>
-						<a class="navbar-brand" href="../templates/StudentIndex.html">
-							stock
+						<a class="navbar-brand" href="IndexHome.html">
+							高校实训管理
 						</a>
 					</h2>
 					<div class="fv3-contact mt-3">
 						<span class="fas fa-home mr-2"></span>
-						<p>90 Street, City, State 34789.</p>
+						<p>WHU, WeCharge</p>
 					</div>
 					<div class="fv3-contact">
 						<span class="fas fa-phone-volume mr-2"></span>
@@ -398,23 +393,23 @@
 					<h3 class="mb-3">our services</h3>
 					<ul class="list-agileits">
 						<li>
-							<a href="home.html">
-								quality resourcing
+							<a href="IndexHome.html">
+								关于本平台
 							</a>
 						</li>
 						<li class="my-3">
-							<a href="about.html">
-								inventory tracking
+							<a href="IndexFindCompany.html">
+								公司信息
 							</a>
 						</li>
 						<li class="mb-3">
-							<a href="services.html">
-								financial planning
+							<a href="IndexFindPosition.html">
+								职位信息
 							</a>
 						</li>
 						<li>
-							<a href="../templates/contact.html">
-								budget friendly
+							<a href="IndexContact.html">
+								联系我们
 							</a>
 						</li>
 					</ul>
@@ -425,23 +420,18 @@
 					<h3 class="mb-3">Navigation</h3>
 					<ul class="list-agileits">
 						<li>
-							<a href="../templates/StudentIndex.html">
-								Home
+							<a href="IndexHome.html">
+								主页
 							</a>
 						</li>
 						<li class="my-3">
-							<a href="about.html">
-								About Us
+							<a href="IndexFindCompany.html">
+								选公司
 							</a>
 						</li>
 						<li class="mb-3">
-							<a href="services.html">
-								Services
-							</a>
-						</li>
-						<li>
-							<a href="../templates/contact.html">
-								Contact Us
+							<a href="IndexFindPosition.html">
+								选职位
 							</a>
 						</li>
 					</ul>
@@ -479,17 +469,17 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form method="post">
+
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label">用户名</label>
 							<input type="text" class="form-control border" placeholder="请输入用户名、手机号或邮箱 " name="Name" id="recipient-name" required="">
 						</div>
 						<div class="form-group">
 							<label for="password" class="col-form-label">密码</label>
-							<input type="password" class="form-control border" placeholder=" " name="Password" id="password" required="">
+							<input type="password" class="form-control border" placeholder="请输入密码" name="Password" id="password" required="">
 						</div>
 						<div class="right-w3l">
-							<input type="submit" id="student_login" class="form-control border text-white" value="登录">
+							<input type="submit" class="form-control border text-white" id="student_login" value="登录">
 						</div>
 						<div class="row sub-w3l my-3">
 							<div class="col sub-agile">
@@ -505,7 +495,7 @@
 							<a href="#" data-toggle="modal" data-target="#exampleModal3" class="text-dark font-weight-bold">
 								现在注册</a>
 						</p>
-					</form>
+
 				</div>
 			</div>
 		</div>
@@ -522,7 +512,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="../templates/StudentIndex.html" method="post">
+
 						<div class="form-group">
 							<label for="school" class="col-form-label">请选择您的学校</label>
 								<select class="form-control border" name="School"  id="school" required="">
@@ -555,7 +545,6 @@
 							</div>
 						</div>
 						<p class="text-center">温馨提醒：如果没有账号，请联系贵校管理员为您添加账号进行登录，谢谢！</p>
-					</form>
 				</div>
 			</div>
 		</div>
@@ -572,7 +561,6 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form method="post">
 						<div class="form-group">
 							<label for="recipient-name2" class="col-form-label">用户名</label>
 							<input type="text" class="form-control border" placeholder="请输入用户名、手机号或邮箱 " name="Name" id="recipient-name2" required="">
@@ -582,7 +570,7 @@
 							<input type="password" class="form-control border" placeholder=" " name="Password" id="password4" required="">
 						</div>
 						<div class="right-w3l">
-							<input type="submit" id="company_login" class="form-control border text-white" value="登录">
+							<input type="submit" class="form-control border text-white" id="company_login" value="登录">
 						</div>
 						<div class="row sub-w3l my-3">
 							<div class="col sub-agile">
@@ -598,7 +586,6 @@
 							<a href="#" data-toggle="modal" data-target="#exampleModal3" class="text-dark font-weight-bold">
 								现在注册</a>
 						</p>
-					</form>
 				</div>
 			</div>
 		</div>
@@ -615,7 +602,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form method="post">
+					<form>
 						<div class="form-group">
 							<label for="recipient-name3" class="col-form-label">用户名</label>
 							<input type="text" class="form-control border" placeholder=" " name="Name" id="recipient-name3" required="">
@@ -640,7 +627,7 @@
 							</div>
 						</div>
 						<div class="right-w3l">
-							<input type="submit" id="register" class="form-control border text-white" value="注册">
+							<input type="button" id="register" class="form-control border text-white" value="注册">
 						</div>
 					</form>
 				</div>
@@ -727,7 +714,7 @@
 	<!-- smooth scroll -->
 	<script src="js/SmoothScroll.min.js"></script>
 	<!--  necessary snippets for few javascript files -->
-	<script src="stock.js"></script>
+	<script src="js/stock.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.js "></script>
 	<script src="js/login.js"></script>
