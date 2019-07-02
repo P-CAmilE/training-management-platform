@@ -8,4 +8,6 @@
         insert file (path) values (#{path})
     </insert>
 
+
+
 </mapper>

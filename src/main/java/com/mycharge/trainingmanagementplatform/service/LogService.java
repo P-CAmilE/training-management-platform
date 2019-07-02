@@ -1,11 +1,14 @@
 package com.mycharge.trainingmanagementplatform.service;
 
 
+import com.mycharge.trainingmanagementplatform.model.MSG;
+
 public interface LogService {
 
-    public int login(String username, String password);
+    public MSG login(String username, String password, int usertype);
 
-    public int register(String username, String password, int usertype, String email);
+    public MSG register(String username, String password, int usertype, String email);
+
 
 
 }

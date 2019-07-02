@@ -1,28 +1,31 @@
 package com.mycharge.trainingmanagementplatform.model;
 
-public class Student {
+public class Student implements User{
+    private String stuName;
+    private String stuAccount;
+    private String stuEmail;
 
-    private String studentName;
-    private String studentPassword;
-
-    public Student(String studentName, String studentPassword) {
-        this.studentName = studentName;
-        this.studentPassword = studentPassword;
+    public String getStuName() {
+        return stuName;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public void setStuName(String stuName) {
+        this.stuName = stuName;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public String getStuAccount() {
+        return stuAccount;
     }
 
-    public String getStudentPassword() {
-        return studentPassword;
+    public void setStuAccount(String stuAccount) {
+        this.stuAccount = stuAccount;
     }
 
-    public void setStudentPassword(String studentPassword) {
-        this.studentPassword = studentPassword;
+    public String getStuEmail() {
+        return stuEmail;
+    }
+
+    public void setStuEmail(String stuEmail) {
+        this.stuEmail = stuEmail;
     }
 }
