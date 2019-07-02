@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <head>
-	<title>实训平台-上传资源</title>
+	<title>实训平台-下载资源</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -34,15 +34,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="top_right">
 						<ul>
 							<li><a href="StudentIndex.html">首页</a></li>|
-							<li><a href="FindCompany.html">找公司</a></li>|
-							<li><a href="FindPosition.html">找职位</a></li>
+							<li><a href="StuFindCompany.html">找公司</a></li>|
+							<li><a href="StuFindPosition.html">找职位</a></li>
 						</ul>
 					</div>
 					<div class="top_left">
-						<h2><a href="home.html" style="color: indianred">退出登录</a></h2>
+						<h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
 					</div>
 					<div class="top_left">
-						<h2><span></span> 用户：<a href="MyHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+						<h2><span></span> 用户：<a href="StuHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -66,70 +66,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="content1">
 				<div class="fo-top-dj">
-					<h3 class="sub-tittle">我的资源:</h3>
+					<h3 class="sub-tittle">资源下载:</h3>
 					<div class="content tab">
+						<br><br><br><br><br>
 						<div class="fo-top">
 							<div class="form-group">
-								<label  class="col-sm-2 control-label">上传资源记录：</label>
-								<div class="col-sm-8 ">
-									<textarea  class="form-control1" style="height:200px;border:0px;outline:none;background:rgba(0, 0, 0, 0)" readonly>1.txt</textarea>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="content1">
-				<div class="fo-top-dj">
-					<div class="content tab">
-						<br><br>
-						<div class="fo-top">
-							<div class="form-group">
-								<label  class="col-sm-2 control-label">上传代码文件:</label>
-								<div class="col-sm-8 ">
-									<textarea  id="fileName" style="height:100px;width:500px;border:1px solid black; outline: none" readonly></textarea>
-								</div>
-								<br><br><br>
-								<form>
-									<div class="col-sm-8 ">
-										<label class="studentinput" for="file" style="margin-left: 185px;width: 200px;text-align: center">选择代码文件</label>
-										<br><br>
-										<input type="file" id="file" style="position:absolute;clip:rect(0 0 0 0);" onchange="handleFile()">
-									</div>
-									<div class="clearfix"></div>
-									<div class="col-sm-8 ">
-										<input type="submit" class="studentinput" style="width: 200px;margin-left: 185px" value="提交" onclick="myFunction()">
-										<br><br>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="content1">
-				<div class="fo-top-dj">
-					<div class="content tab">
-						<br><br>
-						<div class="fo-top">
-							<div class="form-group">
-								<label  class="col-sm-2 control-label">上传文档文件:</label>
-								<div>
-									<textarea  id="fileName1" style="height:100px;width:500px;border:1px solid black; outline: none" readonly></textarea>
-								</div>
-								<form>
-									<div class="col-sm-8 ">
-										<label class="studentinput" for="file1" style="margin-left: 185px;width: 200px;text-align: center">选择文档文件</label>
-										<br><br>
-										<input type="file" id="file1" style="position:absolute;clip:rect(0 0 0 0);" onchange="handleFile1()">
-									</div>
-									<div class="clearfix"></div>
-									<div class="col-sm-8 ">
-										<input type="submit" class="studentinput" style="width: 200px;margin-left: 185px" value="提交" onclick="myFunction()">
-										<br><br>
-									</div>
-								</form>
+                                <div>
+									<a href="StuDownloadComResource.html" class="studentinput" style="width: 200px;margin-left: 200px;text-align: center">企业资源</a>
+									<a href="StuDownloadTeamResource.html" class="studentinput" style="width: 200px;margin-left: 200px;text-align: center">团队资源</a>
+                                </div>
 							</div>
 						</div>
 					</div>
@@ -165,7 +110,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-
 	<div class="sidebar-menu">
 		<header class="logo1">
 			<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
@@ -173,12 +117,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
 		<div class="menu">
 			<ul id="menu" >
-				<li><a href="MyHomepage.html"><span>我的主页</span></a></li>
-				<li><a href="MyInternship.html"><span>我的实习</span></a></li>
-				<li><a href="MyTeam.html"><span>我的团队</span></a></li>
-				<li><a href="MyLog.html"><span>日志</span></a></li>
-				<li><a href="MyResource.html"><span>上传资源</span></a></li>
-				<li><a href="MyDownload.html"><span>下载资源</span></a></li>
+				<li><a href="StuHomepage.html"><span>我的主页</span></a></li>
+				<li><a href="StuInternship.html"><span>我的实习</span></a></li>
+				<li><a href="StuTeam.html"><span>我的团队</span></a></li>
+				<li><a href="StuLog.html"><span>日志</span></a></li>
+				<li><a href="StuResource.html"><span>上传资源</span></a></li>
+				<li><a href="StuDownload.html"><span>下载资源</span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -202,20 +146,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 		toggle = !toggle;
 	});
-</script>
-<script>
-	var file = document.getElementById("file");
-	var fileName = document.getElementById("fileName");
-	function handleFile(){
-		fileName.value = file.value;
-	};
-</script>
-<script>
-	var file1 = document.getElementById("file1");
-	var fileName1 = document.getElementById("fileName1");
-	function handleFile1(){
-		fileName1.value = file1.value;
-	};
 </script>
 </body>
 </html>

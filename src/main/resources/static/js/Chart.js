@@ -1850,21 +1850,21 @@
 			var yPadding = height > 30 ? 5 : 2;
 
 			var leftBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position == "left";
+				return box.options.IndexFindPosition == "left";
 			});
 			var rightBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position == "right";
+				return box.options.IndexFindPosition == "right";
 			});
 			var topBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position == "top";
+				return box.options.IndexFindPosition == "top";
 			});
 			var bottomBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position == "bottom";
+				return box.options.IndexFindPosition == "bottom";
 			});
 
 			// Boxes that overlay the chartarea such as the radialLinear scale
 			var chartAreaBoxes = helpers.where(chartInstance.boxes, function(box) {
-				return box.options.position == "chartArea";
+				return box.options.IndexFindPosition == "chartArea";
 			});
 
 			function fullWidthSorter(a, b) {
@@ -2358,7 +2358,7 @@
 
 		// Shared Methods
 		isHorizontal: function() {
-			return this.options.position == "top" || this.options.position == "bottom";
+			return this.options.IndexFindPosition == "top" || this.options.IndexFindPosition == "bottom";
 		},
 
 		// Actualy draw the legend on the canvas
@@ -2816,7 +2816,7 @@
 
 		// Shared Methods
 		isHorizontal: function() {
-			return this.options.position === "top" || this.options.position === "bottom";
+			return this.options.IndexFindPosition === "top" || this.options.IndexFindPosition === "bottom";
 		},
 		isFullWidth: function() {
 			return (this.options.fullWidth);
@@ -2917,8 +2917,8 @@
 
 				if (this.isHorizontal()) {
 					setContextLineSettings = true;
-					var yTickStart = this.options.position === "bottom" ? this.top : this.bottom - 10;
-					var yTickEnd = this.options.position === "bottom" ? this.top + 10 : this.bottom;
+					var yTickStart = this.options.IndexFindPosition === "bottom" ? this.top : this.bottom - 10;
+					var yTickEnd = this.options.IndexFindPosition === "bottom" ? this.top + 10 : this.bottom;
 					skipRatio = false;
 
 					if (((longestRotatedLabel / 2) + this.options.ticks.autoSkipPadding) * this.ticks.length > (this.width - (this.paddingLeft + this.paddingRight))) {
@@ -2984,11 +2984,11 @@
 
 						if (this.options.ticks.display) {
 							this.ctx.save();
-							this.ctx.translate(xLabelValue, (isRotated) ? this.top + 12 : this.options.position === "top" ? this.bottom - 10 : this.top + 10);
+							this.ctx.translate(xLabelValue, (isRotated) ? this.top + 12 : this.options.IndexFindPosition === "top" ? this.bottom - 10 : this.top + 10);
 							this.ctx.rotate(helpers.toRadians(this.labelRotation) * -1);
 							this.ctx.font = labelFont;
 							this.ctx.textAlign = (isRotated) ? "right" : "center";
-							this.ctx.textBaseline = (isRotated) ? "middle" : this.options.position === "top" ? "bottom" : "top";
+							this.ctx.textBaseline = (isRotated) ? "middle" : this.options.IndexFindPosition === "top" ? "bottom" : "top";
 							this.ctx.fillText(label, 0, 0);
 							this.ctx.restore();
 						}
@@ -3002,15 +3002,15 @@
 						this.ctx.font = helpers.fontString(this.options.scaleLabel.fontSize, this.options.scaleLabel.fontStyle, this.options.scaleLabel.fontFamily);
 
 						scaleLabelX = this.left + ((this.right - this.left) / 2); // midpoint of the width
-						scaleLabelY = this.options.position === 'bottom' ? this.bottom - (this.options.scaleLabel.fontSize / 2) : this.top + (this.options.scaleLabel.fontSize / 2);
+						scaleLabelY = this.options.IndexFindPosition === 'bottom' ? this.bottom - (this.options.scaleLabel.fontSize / 2) : this.top + (this.options.scaleLabel.fontSize / 2);
 
 						this.ctx.fillText(this.options.scaleLabel.labelString, scaleLabelX, scaleLabelY);
 					}
 
 				} else {
 					setContextLineSettings = true;
-					var xTickStart = this.options.position === "right" ? this.left : this.right - 5;
-					var xTickEnd = this.options.position === "right" ? this.left + 5 : this.right;
+					var xTickStart = this.options.IndexFindPosition === "right" ? this.left : this.right - 5;
+					var xTickEnd = this.options.IndexFindPosition === "right" ? this.left + 5 : this.right;
 
 					helpers.each(this.ticks, function(label, index) {
 						// If the callback returned a null or undefined value, do not draw this line
@@ -3058,7 +3058,7 @@
 
 							this.ctx.save();
 
-							if (this.options.position === "left") {
+							if (this.options.IndexFindPosition === "left") {
 								if (this.options.ticks.mirror) {
 									xLabelValue = this.right + this.options.ticks.padding;
 									this.ctx.textAlign = "left";
@@ -3088,9 +3088,9 @@
 
 					if (this.options.scaleLabel.display) {
 						// Draw the scale label
-						scaleLabelX = this.options.position === 'left' ? this.left + (this.options.scaleLabel.fontSize / 2) : this.right - (this.options.scaleLabel.fontSize / 2);
+						scaleLabelX = this.options.IndexFindPosition === 'left' ? this.left + (this.options.scaleLabel.fontSize / 2) : this.right - (this.options.scaleLabel.fontSize / 2);
 						scaleLabelY = this.top + ((this.bottom - this.top) / 2);
-						var rotation = this.options.position === 'left' ? -0.5 * Math.PI : 0.5 * Math.PI;
+						var rotation = this.options.IndexFindPosition === 'left' ? -0.5 * Math.PI : 0.5 * Math.PI;
 
 						this.ctx.save();
 						this.ctx.translate(scaleLabelX, scaleLabelY);
@@ -3110,11 +3110,11 @@
 				var x1 = this.left, x2 = this.right, y1 = this.top, y2 = this.bottom;
 
 				if (this.isHorizontal()) {
-					y1 = y2 = this.options.position === 'top' ? this.bottom : this.top;
+					y1 = y2 = this.options.IndexFindPosition === 'top' ? this.bottom : this.top;
 					y1 += helpers.aliasPixel(this.ctx.lineWidth);
 					y2 += helpers.aliasPixel(this.ctx.lineWidth);
 				} else {
-					x1 = x2 = this.options.position === 'left' ? this.right : this.left;
+					x1 = x2 = this.options.IndexFindPosition === 'left' ? this.right : this.left;
 					x1 += helpers.aliasPixel(this.ctx.lineWidth);
 					x2 += helpers.aliasPixel(this.ctx.lineWidth);
 				}
@@ -3311,7 +3311,7 @@
 
 		// Shared Methods
 		isHorizontal: function() {
-			return this.options.position == "top" || this.options.position == "bottom";
+			return this.options.IndexFindPosition == "top" || this.options.IndexFindPosition == "bottom";
 		},
 
 		// Actualy draw the title block on the canvas
@@ -3339,9 +3339,9 @@
 
 					// Title
 					if (this.options.display) {
-						titleX = this.options.position == 'left' ? this.left + (this.options.fontSize / 2) : this.right - (this.options.fontSize / 2);
+						titleX = this.options.IndexFindPosition == 'left' ? this.left + (this.options.fontSize / 2) : this.right - (this.options.fontSize / 2);
 						titleY = this.top + ((this.bottom - this.top) / 2);
-						var rotation = this.options.position == 'left' ? -0.5 * Math.PI : 0.5 * Math.PI;
+						var rotation = this.options.IndexFindPosition == 'left' ? -0.5 * Math.PI : 0.5 * Math.PI;
 
 						ctx.save();
 						ctx.translate(titleX, titleY);
@@ -5661,7 +5661,7 @@
 			}
 			this.ticks.push(this.options.ticks.max !== undefined ? this.options.ticks.max : niceMax);
 
-			if (this.options.position == "left" || this.options.position == "right") {
+			if (this.options.IndexFindPosition == "left" || this.options.IndexFindPosition == "right") {
 				// We are in a vertical orientation. The top value is the highest. So reverse the array
 				this.ticks.reverse();
 			}
@@ -5847,7 +5847,7 @@
 			var lastTick = this.options.ticks.max !== undefined ? this.options.ticks.max : tickVal;
 			this.tickValues.push(lastTick);
 
-			if (this.options.position == "left" || this.options.position == "right") {
+			if (this.options.IndexFindPosition == "left" || this.options.IndexFindPosition == "right") {
 				// We are in a vertical orientation. The top value is the highest. So reverse the array
 				this.tickValues.reverse();
 			}

@@ -71,10 +71,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</div>
 					<div class="top_left">
-						<h2><a href="home.html" style="color: indianred">退出登录</a></h2>
+						<h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
 					</div>
 					<div class="top_left">
-						<h2><span></span> 用户:<a href="CompanyHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+						<h2><span></span> 用户:<a href="CompHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -100,21 +100,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   <div class="fo-top-dj">
 				   <h3 class="sub-tittle">主页:</h3>
 				   <div class="content tab">
-				      <div class="fo-top showing">
-				          <div class="form-group">
-                          	   <label  class="col-sm-2 control-label">企业图片:</label>
-                          	   <div class="col-sm-8 ">
-                          			<img id="img" src="images/imgr2.jpg" alt="">
-                          	   </div>
-                          	   <div class="clearfix"></div>
-                           </div>
-                       </div>
 				   <div>
+					   <form>
+					   <div class="fo-top">
+						   <div class="form-group">
+							   <label  class="col-sm-2 control-label">企业图片:</label>
+							   <div class="col-sm-8 ">
+								   <div>
+									   <input type="file" id="upimg" accept="image/*" onchange="upLoad()">
+									   <div class="showimg">
+										   <img id="img" src="images/tx_1.jpg" alt="">
+									   </div>
+									   <div class="right-w3l" style="width: 200px;">
+										   <label for="upimg"class="studentinput" style="width: 200px">选取文件</label>
+									   </div>
+								   </div>
+							   </div>
+							   <div class="clearfix"></div>
+						   </div>
+					   </div>
 					   <div class="fo-top">
 						   <div class="form-group">
 							   <label  class="col-sm-2 control-label">企业名称:</label>
 							   <div class="col-sm-8 ">
-								   <label type="text" class="form-control1" style="border:0px;background:rgba(0, 0, 0, 0); ">****</label>
+								   <input type="text" class="form-control1" value="***" style="height: 35px;width:200px">
 							   </div>
 							   <div class="clearfix"></div>
 						   </div>
@@ -122,20 +131,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					   <div class="fo-top">
 						   <div class="form-group">
 							   <label  class="col-sm-2 control-label">企业描述:</label>
-							   <div class="col-sm-8 ctl">
-								   <label type="text" class="form-control1" style="border:0px;background:rgba(0, 0, 0, 0); ">计算机**</label>
+							   <div class="col-sm-8 ">
+								   <textarea class="form-control1" value="123" style="height: 100px;width:500px"></textarea>
 							   </div>
 							   <div class="clearfix"></div>
 						   </div>
 					   </div>
-					   <div class="fo-top">
-						   <div class="form-group">
-							   <label  class="col-sm-2 control-label">企业提供项目:</label>
-							   <div class="col-sm-8 ">
-								   <textarea  id="textarea1" class="form-control1" style="height:600px;border:0px;outline:none;background:rgba(0, 0, 0, 0)">VR***、**平台开发</textarea>
-							   </div>
-							   <div class="clearfix"></div>
-						   </div>
+						   <input type="submit" class="studentinput" value="保存" style="width: 200px;margin-left: 200px" onclick="myFunction()">
+					     </form>
 					   </div>
 				   </div>
 			   </div>
@@ -180,8 +183,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
                 <div class="menu">
                     <ul id="menu">
-                        <li><a href="CompanyHomepage.html">企业主页</a> </li>
-                        <li><a href="CompProject.html"><span>实训项目</span></a></li>
+                        <li><a href="CompHomepage.html">企业主页</a> </li>
+                        <li><a href="CompInternship.html"><span>实训项目</span></a></li>
                         <li><a href="ProjectResource.html"><span>实训资源</span></a></li>
                         <li><a href="CompTeam.html"><span>实训团队</span></a></li>
                     </ul>
@@ -190,6 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   </div>
 	   <div class="clearfix"></div>
    </div>
+
    <script>
 	   var toggle = true;
 
@@ -209,5 +213,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   toggle = !toggle;
 	   });
    </script>
+
+   <script>
+       function upLoad(){
+           var fileInput = document.getElementById("upimg");
+           var file = fileInput.files[0];
+               //创建读取文件的对象
+           var reader = new FileReader();
+               //创建文件读取相关的变量
+           var imgFile;
+               //为文件读取成功设置事件
+           reader.onload=function(e) {
+                   // alert('文件读取完成');
+           imgFile = e.target.result;
+           console.log(imgFile);
+           $("#img").attr('src',imgFile);
+       };
+
+               //正式读取文件
+            reader.readAsDataURL(file);
+           }
+   </script>
+		<script>
+			function myFunction() {
+				alert("保存成功")
+			}
+		</script>
 </body>
 </html>

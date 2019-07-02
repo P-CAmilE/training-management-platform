@@ -923,7 +923,7 @@ if ( typeof Object.create !== "function" ) {
 
 				$(this).css(base.removeTransition());
 
-				var position = $(this).position();
+				var position = $(this).IndexFindPosition();
 				locals.relativePos = position.left;
 				
 				locals.offsetX = getTouches(event).x - position.left;

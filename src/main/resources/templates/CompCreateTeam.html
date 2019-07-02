@@ -33,16 +33,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="header_top">
                     <div class="top_right">
                         <ul>
-                            <li><a href="StudentIndex.html">首页</a></li>|
-                            <li><a href="FindCompany.html">找公司</a></li>|
-                            <li><a href="FindPosition.html">找职位</a></li>
+                            <li><a href="CompIndex.html">首页</a></li>|
+                            <li><a href="CompFindCompany.html">找公司</a></li>|
+                            <li><a href="CompFindPosition.html">找职位</a></li>
                         </ul>
                     </div>
                     <div class="top_left">
-                        <h2><a href="home.html" style="color: indianred">退出登录</a></h2>
+                        <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="MyHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a href="CompHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -64,82 +64,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
             </div>
-<!--            //search-->
+            <!--//search-->
             <div class="content1">
                 <div class="fo-top-dj">
                     <h3 class="sub-tittle">团队详情:</h3><br>
                     <div class="content tab">
-                        <div class="registration">
-                            <div class="registration_left">
-<!--                                input script-->
-                                <script>
-                                    (function() {
-
-                                        // Create input element for testing
-                                        var inputs = document.createElement('input');
-
-                                        // Create the supports object
-                                        var supports = {};
-
-                                        supports.autofocus   = 'autofocus' in inputs;
-                                        supports.required    = 'required' in inputs;
-                                        supports.placeholder = 'placeholder' in inputs;
-
-                                        // Fallback for autofocus attribute
-                                        if(!supports.autofocus) {
-
-                                        }
-
-                                        // Fallback for required attribute
-                                        if(!supports.required) {
-
-                                        }
-
-                                        // Fallback for placeholder attribute
-                                        if(!supports.placeholder) {
-
-                                        }
-
-                                        // Change text inside send button on submit
-                                        var send = document.getElementById('register-submit');
-                                        if(send) {
-                                            send.onclick = function () {
-                                                this.innerHTML = '...Sending';
-                                            }
-                                        }
-
-                                    })();
-                                </script>
-<!--                                //input script-->
-                                <div class="registration_form">
-                                    <!-- Form -->
-                                    <form>
-                                        <div>
-                                            <label class="create_project">
-                                                <input placeholder="团队名称:" type="text" tabindex="1" required="" autofocus="" >
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">
-                                                <input placeholder="团队加入的实训" type="text" tabindex="4" required="" >
-                                            </label>
-                                        </div>
-                                        <br>
-                                        <div>
-                                            <input type="submit" style="margin-left: 100px" value="创建">
-                                            <a href="MyTeam.html" style="margin-left:100px">返回</a>
-                                        </div>
-                                        <br>
-                                    </form>
-<!--                                    //Form-->
+                        <form>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">学校名称:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="text" class="form-control1" value="123" style="height: 35px;width:200px" >
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="clearfix"></div>
-                        </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">团队名称:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="text" class="form-control1" value="123" style="height: 35px;width:200px" >
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">团队信息:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px"></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <br>
+                            <div>
+                                <input type="submit" class="studentinput" style="width: 200px;margin-left: 200px" value="创建" onclick="myFunction()">
+                                <a href="CompTeam.html" class="studentinput" style="width: 200px;margin-left: 200px"><span style="color: white;padding-left: 65px">返回</span></a>
+                            </div>
+                            <br>
+                        </form>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
-<!--            bottom part-->
+        </div>
             <div class="content">
                 <div class="clearfix"></div>
                 <div class="clearfix"></div>
@@ -169,24 +138,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="footer">
                         <div class="col-md-3 cust">
                             <h4>CUSTOMER CARE</h4>
-                            <li><a href="MyResource.html">Help Center</a></li>
+                            <li><a href="MyCode.html">Help Center</a></li>
                             <li><a href="MySummary.html">FAQ</a></li>
-                            <li><a href="MyDownload.html">How To Buy</a></li>
-                            <li><a href="MyLog.html">Delivery</a></li>
+                            <li><a href="MyReport.html">How To Buy</a></li>
+                            <li><a href="StuLog.html">Delivery</a></li>
                         </div>
                         <div class="col-md-2 abt">
                             <h4>ABOUT US</h4>
                             <li><a href="products.html">Our Stories</a></li>
                             <li><a href="products.html">Press</a></li>
                             <li><a href="MySummary.html">Career</a></li>
-                            <li><a href="MyResource.html">Contact</a></li>
+                            <li><a href="MyCode.html">Contact</a></li>
                         </div>
                         <div class="col-md-2 myac">
                             <h4>MY ACCOUNT</h4>
                             <li><a href="register.html">Register</a></li>
-                            <li><a href="MyLog.html">My Cart</a></li>
-                            <li><a href="MyLog.html">Order History</a></li>
-                            <li><a href="MyDownload.html">Payment</a></li>
+                            <li><a href="StuLog.html">My Cart</a></li>
+                            <li><a href="StuLog.html">Order History</a></li>
+                            <li><a href="MyReport.html">Payment</a></li>
                         </div>
                         <div class="col-md-5 our-st">
                             <div class="our-left">
@@ -211,14 +180,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </header>
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
-            <ul id="menu" >
-                <li><a href="MyHomepage.html"><span>我的主页</span></a></li>
-                <li><a href="MyInternship.html"><span>我的实习</span></a></li>
-                <li><a href="MyTeam.html"><span>我的团队</span></a></li>
-                <li><a href="MyLog.html"><span>日志</span></a></li>
-                <li><a href="MyResource.html"><span>上传资源</span></a></li>
-                <li><a href="MyDownload.html"><span>下载资源</span></a></li>
-                <li><a href="MySummary.html"><span>我的总结</span></a></li>
+            <ul id="menu">
+                <li><a href="CompHomepage.html"><span>企业主页</span></a></li>
+                <li><a href="CompInternship.html"><span>实训项目</span></a></li>
+                <li><a href="ProjectResource.html"><span>实训资源</span></a></li>
+                <li><a href="CompTeam.html"><span>实训团队</span></a></li>
             </ul>
         </div>
     </div>
@@ -243,5 +209,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             toggle = !toggle;
         });
     </script>
+<script>
+    function myFunction() {
+        alert("创建成功")
+    }
+</script>
 </body>
 </html>

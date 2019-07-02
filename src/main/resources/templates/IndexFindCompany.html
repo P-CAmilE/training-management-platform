@@ -2,10 +2,12 @@
 <html lang="zxx">
 
 <head>
-    <title>实训平台-选职位</title>
+    <title>实训平台-选公司</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content=""/>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/choice_bar.js"></script>
     <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -16,46 +18,46 @@
         }
     </script>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
 </head>
 
 <body>
-    <!-- header -->
+<!-- header -->
     <header>
         <div class="container">
             <!-- nav -->
             <nav class="navbar navbar-expand-lg navbar-light py-4">
                 <!-- logo -->
                 <h1>
-                    <a class="navbar-brand" href="home.html">
+                    <a class="navbar-brand" href="IndexHome.html">
                         实训管理平台
                     </a>
                 </h1>
                 <!-- //logo -->
                 <button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- main nav -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-lg-auto text-center">
                         <li class="nav-item mr-lg-3">
-                            <a class="nav-link" href="home.html">主页
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item mr-lg-3">
-                            <a class="nav-link" href="company.html">选公司
+                            <a class="nav-link" href="IndexHome.html">主页
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item active mr-lg-3">
-                            <a class="nav-link" href="position.html">选职位
+                            <a class="nav-link" href="IndexFindCompany.html">选公司
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mr-lg-3">
+                            <a class="nav-link" href="IndexFindPosition.html">选职位
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -87,7 +89,7 @@
         <div class="container">
             <div class="agileinfo-inner">
                 <h3 class="text-center text-white">
-                    To Find Your Position
+                    To Find Your Company
                 </h3>
             </div>
         </div>
@@ -97,13 +99,12 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="home.html">主页</a>
+                <a href="IndexHome.html">主页</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">选职位</li>
+            <li class="breadcrumb-item active" aria-current="page">选公司</li>
         </ol>
     </nav>
     <!-- //breadcrumbs -->
-
     <!--choice bar!-->
     <div id="filter" class="navbar">
         <dl>
@@ -140,7 +141,7 @@
         </dl>
         <dl>
             <dt>行业领域：</dt>
-            <dd><div><a>全部</a></div></dd>
+            <dd><div><a>不限</a></div></dd>
             <dd><div><a>计算机通信</a></div></dd>
             <dd><div><a>网络/信息安全</a></div></dd>
             <dd><div><a>人工智能</a></div></dd>
@@ -150,163 +151,208 @@
             <dd><div><a>其他</a></div></dd>
         </dl>
         <dl>
-            <dt>工资范围：</dt>
-            <dd><div><a>5k以下</a></div></dd>
-            <dd><div><a>5k-10k</a></div></dd>
-            <dd><div><a>10k-15k</a></div></dd>
-            <dd><div><a>15k-20k</a></div></dd>
-            <dd><div><a>20k-30k</a></div></dd>
-            <dd><div><a>30k-50k</a></div></dd>
-            <dd><div><a>50k以上</a></div></dd>
+            <dt>融资阶段：</dt>
+            <dd><div><a>不限</a></div></dd>
+            <dd><div><a>未融资</a></div></dd>
+            <dd><div><a>天使轮</a></div></dd>
+            <dd><div><a>A轮</a></div></dd>
+            <dd><div><a>B轮</a></div></dd>
+            <dd><div><a>C轮</a></div></dd>
+            <dd><div><a>D轮以上</a></div></dd>
+            <dd><div><a>上市公司</a></div></dd>
+            <dd><div><a>不需要融资</a></div></dd>
         </dl>
     </div>
     <!--//choice bar!-->
+
     <!-- blog -->
     <div class="container pt-3">
         <div class="row py-sm-5">
             <!-- left grid -->
             <div class="col-lg-9">
-                <!-- blog grid -->
-                <div class="card">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <a href="PositionDetail.html">
-                                <img class="card-img-bottom" src="images/imgr4.jpg" alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
+                <div class="row">
+                    <!-- blog grid -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header p-0">
+                                <a href="IndexCompDetail.html">
+                                    <img class="card-img-bottom" src="images/img2.jpg" alt="Card image cap">
+                                </a>
+                            </div>
                             <div class="card-body">
-                                <div class="d-sm-flex justify-content-between border-bottom py-2">
-                                    <h5 class="blog-title card-title font-weight-bold">
-                                        <a href="PositionDetail.html">Blog Title</a>
+                                <div class="d-flex flex-column  border-bottom">
+                                    <h5 class="blog-title card-title font-weight-bold m-0">
+                                        <a href="IndexCompDetail.html">Blog Title</a>
                                     </h5>
-                                    <div class="blog_w3icon">
-                                        <span>
-                                            <i class="fas fa-user mr-2"></i>Stella</span>
-                                        <span class="ml-3">
-                                            <i class="fab fa-servicestack mr-2"></i>Funding Trends</span>
+                                    <div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Stella</span>
                                     </div>
                                 </div>
                                 <p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
-                                    nibh pulvinar a. Pellentesque in ipsum id orci porta sed magna dictum dapibus.</p>
-                                <a href="PositionDetail.html" class="blog-btn text-dark">Read more</a>
-                                <p class="card-text">
+                                    nibh pulvinar a.</p>
+                                <a href="IndexCompDetail.html" class="blog-btn text-dark">Read more</a>
+                                <p class="card-text text-right">
                                     <small class="text-muted">Last updated 3 mins ago</small>
                                 </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- //blog grid -->
-                <!-- blog grid -->
-                <div class="card my-5">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <a href="PositionDetail.html">
-                                <img class="card-img-bottom" src="images/imgr3.jpg" alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
+                    <!-- //blog grid -->
+                    <!-- blog grid -->
+                    <div class="col-md-4 my-md-0 my-5">
+                        <div class="card">
+                            <div class="card-header p-0">
+                                <a href="IndexCompDetail.html">
+                                    <img class="card-img-bottom" src="images/img5.jpg" alt="Card image cap">
+                                </a>
+                            </div>
                             <div class="card-body">
-                                <div class="d-sm-flex justify-content-between border-bottom py-2">
-                                    <h5 class="blog-title card-title font-weight-bold">
-                                        <a href="PositionDetail.html">Blog Title</a>
+                                <div class="d-flex flex-column  border-bottom">
+                                    <h5 class="blog-title card-title font-weight-bold m-0">
+                                        <a href="IndexCompDetail.html">Blog Title</a>
                                     </h5>
-                                    <div class="blog_w3icon">
-                                        <span>
-                                            <i class="fas fa-user mr-2"></i>Stella</span>
-                                        <span class="ml-3">
-                                            <i class="fab fa-servicestack mr-2"></i>Quality Resourcing</span>
+                                    <div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Mark</span>
                                     </div>
                                 </div>
                                 <p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
-                                    nibh pulvinar a. Pellentesque in ipsum id orci porta sed magna dictum dapibus.</p>
-                                <a href="PositionDetail.html" class="blog-btn text-dark">Read more</a>
-                                <p class="card-text">
+                                    nibh pulvinar a.</p>
+                                <a href="IndexCompDetail.html" class="blog-btn text-dark">Read more</a>
+                                <p class="card-text text-right">
+                                    <small class="text-muted">Last updated 18 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //blog grid -->
+                    <!-- blog grid -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header p-0">
+                                <a href="IndexCompDetail.html">
+                                    <img class="card-img-bottom" src="images/img4.jpg" alt="Card image cap">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex flex-column  border-bottom">
+                                    <h5 class="blog-title card-title font-weight-bold m-0">
+                                        <a href="IndexCompDetail.html">Blog Title</a>
+                                    </h5>
+                                    <div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Mercy</span>
+                                    </div>
+                                </div>
+                                <p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
+                                    nibh pulvinar a.</p>
+                                <a href="IndexCompDetail.html" class="blog-btn text-dark">Read more</a>
+                                <p class="card-text text-right">
                                     <small class="text-muted">Last updated 15 mins ago</small>
                                 </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- //blog grid -->
-                <!-- blog grid -->
-                <div class="card">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <a href="PositionDetail.html">
-                                <img class="card-img-bottom" src="images/imgr2.jpg" alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
+                    <!-- //blog grid -->
+                    <!-- blog grid -->
+                    <div class="col-md-4 mt-5">
+                        <div class="card">
+                            <div class="card-header p-0">
+                                <a href="IndexCompDetail.html">
+                                    <img class="card-img-bottom" src="images/img5.jpg" alt="Card image cap">
+                                </a>
+                            </div>
                             <div class="card-body">
-                                <div class="d-sm-flex justify-content-between border-bottom py-2">
-                                    <h5 class="blog-title card-title font-weight-bold">
-                                        <a href="PositionDetail.html">Blog Title</a>
+                                <div class="d-flex flex-column  border-bottom">
+                                    <h5 class="blog-title card-title font-weight-bold m-0">
+                                        <a href="IndexCompDetail.html">Blog Title</a>
                                     </h5>
-                                    <div class="blog_w3icon">
-                                        <span>
-                                            <i class="fas fa-user mr-2"></i>Stella</span>
-                                        <span class="ml-3">
-                                            <i class="fab fa-servicestack mr-2"></i>Inventory Tracking</span>
+                                    <div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Mary</span>
                                     </div>
                                 </div>
                                 <p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
-                                    nibh pulvinar a. Pellentesque in ipsum id orci porta sed magna dictum dapibus.</p>
-                                <a href="PositionDetail.html" class="blog-btn text-dark">Read more</a>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 3 hrs ago</small>
+                                    nibh pulvinar a.</p>
+                                <a href="IndexCompDetail.html" class="blog-btn text-dark">Read more</a>
+                                <p class="card-text text-right">
+                                    <small class="text-muted">Last updated 25 mins ago</small>
                                 </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- //blog grid -->
-                <!-- blog grid -->
-                <div class="card my-5">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <a href="PositionDetail.html">
-                                <img class="card-img-bottom" src="images/imgr5.jpg" alt="Card image cap">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
+                    <!-- //blog grid -->
+                    <!-- blog grid -->
+                    <div class="col-md-4 mt-5">
+                        <div class="card">
+                            <div class="card-header p-0">
+                                <a href="IndexCompDetail.html">
+                                    <img class="card-img-bottom" src="images/img3.jpg" alt="Card image cap">
+                                </a>
+                            </div>
                             <div class="card-body">
-                                <div class="d-sm-flex justify-content-between border-bottom py-2">
-                                    <h5 class="blog-title card-title font-weight-bold">
-                                        <a href="PositionDetail.html">Blog Title</a>
+                                <div class="d-flex flex-column  border-bottom">
+                                    <h5 class="blog-title card-title font-weight-bold m-0">
+                                        <a href="IndexCompDetail.html">Blog Title</a>
                                     </h5>
-                                    <div class="blog_w3icon">
-                                        <span>
-                                            <i class="fas fa-user mr-2"></i>Stella</span>
-                                        <span class="ml-3">
-                                            <i class="fab fa-servicestack mr-2"></i>Financial Planning</span>
+                                    <div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Jack</span>
                                     </div>
                                 </div>
                                 <p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
-                                    nibh pulvinar a. Pellentesque in ipsum id orci porta sed magna dictum dapibus.</p>
-                                <a href="PositionDetail.html" class="blog-btn text-dark">Read more</a>
-                                <p class="card-text">
-                                    <small class="text-muted">Last updated 5 hrs ago</small>
+                                    nibh pulvinar a.</p>
+                                <a href="IndexCompDetail.html" class="blog-btn text-dark">Read more</a>
+                                <p class="card-text text-right">
+                                    <small class="text-muted">Last updated 33 mins ago</small>
                                 </p>
                             </div>
                         </div>
                     </div>
+                    <!-- //blog grid -->
+                    <!-- blog grid -->
+                    <div class="col-md-4 mt-5 mb-md-0 mb-5">
+                        <div class="card">
+                            <div class="card-header p-0">
+                                <a href="IndexCompDetail.html">
+                                    <img class="card-img-bottom" src="images/img2.jpg" alt="Card image cap">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex flex-column  border-bottom">
+                                    <h5 class="blog-title card-title font-weight-bold m-0">
+                                        <a href="IndexCompDetail.html">Blog Title</a>
+                                    </h5>
+                                    <div class="blog_w3icon my-3 border-0">
+                                            <span>
+                                                <i class="fas fa-user mr-2"></i>Micky</span>
+                                    </div>
+                                </div>
+                                <p class="card-text mt-3">Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt
+                                    nibh pulvinar a.</p>
+                                <a href="IndexCompDetail.html" class="blog-btn text-dark">Read more</a>
+                                <p class="card-text text-right">
+                                    <small class="text-muted">Last updated 43 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //blog grid -->
                 </div>
-                <!-- //blog grid -->
             </div>
             <!-- //left grid -->
             <!-- right grid -->
             <div class="col-lg-3 sidebar_wthree">
                 <!-- Search Widget -->
                 <div class="card mb-4">
-                    <h5 class="card-header">Search</h5>
+                    <h5 class="card-header">搜索</h5>
                     <div class="card-body">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="搜索...">
+                            <input type="text" class="form-control" placeholder="Search...">
                             <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="button">Go!</button>
-                            </span>
+                                    <button class="btn btn-secondary" type="button">Go!</button>
+                                </span>
                         </div>
                     </div>
                 </div>
@@ -325,12 +371,12 @@
                     <h5 class="card-header">最新发布</h5>
                     <div class="row mt-3">
                         <div class="col-4">
-                            <a href="PositionDetail.html">
+                            <a href="IndexCompDetail.html">
                                 <img class="card-img-bottom" src="images/img2.jpg" alt="Card image cap">
                             </a>
                         </div>
                         <div class="col-8 pl-0">
-                            <a href="PositionDetail.html">eveniie arcet ut moles morbi dapiti</a>
+                            <a href="IndexCompDetail.html">eveniie arcet ut moles morbi dapiti</a>
                             <p class="card-text">
                                 <small class="text-muted">26 April,2018</small>
                             </p>
@@ -338,12 +384,12 @@
                     </div>
                     <div class="row my-3">
                         <div class="col-4">
-                            <a href="PositionDetail.html">
+                            <a href="IndexCompDetail.html">
                                 <img class="card-img-bottom" src="images/img5.jpg" alt="Card image cap">
                             </a>
                         </div>
                         <div class="col-8 pl-0">
-                            <a href="PositionDetail.html">eveniie arcet ut moles morbi dapiti</a>
+                            <a href="IndexCompDetail.html">eveniie arcet ut moles morbi dapiti</a>
                             <p class="card-text">
                                 <small class="text-muted">1 May, 2018</small>
                             </p>
@@ -351,12 +397,12 @@
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <a href="PositionDetail.html">
+                            <a href="IndexCompDetail.html">
                                 <img class="card-img-bottom" src="images/img4.jpg" alt="Card image cap">
                             </a>
                         </div>
                         <div class="col-8 pl-0">
-                            <a href="PositionDetail.html">eveniie arcet ut moles morbi dapiti</a>
+                            <a href="IndexCompDetail.html">eveniie arcet ut moles morbi dapiti</a>
                             <p class="card-text">
                                 <small class="text-muted">10 May 2018</small>
                             </p>
@@ -364,20 +410,20 @@
                     </div>
                     <div class="row my-3">
                         <div class="col-4">
-                            <a href="PositionDetail.html">
+                            <a href="IndexCompDetail.html">
                                 <img class="card-img-bottom" src="images/img3.jpg" alt="Card image cap">
                             </a>
                         </div>
                         <div class="col-8 pl-0">
-                            <a href="PositionDetail.html">eveniie arcet ut moles morbi dapiti</a>
+                            <a href="IndexCompDetail.html">eveniie arcet ut moles morbi dapiti</a>
                             <p class="card-text">
                                 <small class="text-muted">12 May 2018</small>
                             </p>
                         </div>
                     </div>
                 </div>
-                <!-- /right grid -->
             </div>
+            <!-- //right grid -->
         </div>
     </div>
     <!-- //blog -->
@@ -421,7 +467,7 @@
                 <!-- footer grid1 -->
                 <div class="col-lg-3 col-sm-6">
                     <h2>
-                        <a class="navbar-brand" href="home.html">
+                        <a class="navbar-brand" href="IndexHome.html">
                             高校实训管理
                         </a>
                     </h2>
@@ -444,22 +490,22 @@
                     <h3 class="mb-3">our services</h3>
                     <ul class="list-agileits">
                         <li>
-                            <a href="home.html">
+                            <a href="IndexHome.html">
                                 关于本平台
                             </a>
                         </li>
                         <li class="my-3">
-                            <a href="company.html">
+                            <a href="IndexFindCompany.html">
                                 公司信息
                             </a>
                         </li>
                         <li class="mb-3">
-                            <a href="position.html">
+                            <a href="IndexFindPosition.html">
                                 职位信息
                             </a>
                         </li>
                         <li>
-                            <a href="contact.html">
+                            <a href="IndexContact.html">
                                 联系我们
                             </a>
                         </li>
@@ -471,17 +517,17 @@
                     <h3 class="mb-3">Navigation</h3>
                     <ul class="list-agileits">
                         <li>
-                            <a href="home.html">
+                            <a href="IndexHome.html">
                                 主页
                             </a>
                         </li>
                         <li class="my-3">
-                            <a href="company.html">
+                            <a href="IndexFindCompany.html">
                                 选公司
                             </a>
                         </li>
                         <li class="mb-3">
-                            <a href="position.html">
+                            <a href="IndexFindPosition.html">
                                 选职位
                             </a>
                         </li>
@@ -575,7 +621,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">用户</label>
+                            <label for="recipient-name1" class="col-form-label">用户</label>
                             <input type="text" class="form-control border" placeholder="请输入用户名、手机号或邮箱 " name="Name" id="recipient-name1" required="">
                         </div>
                         <div class="form-group">
@@ -615,11 +661,11 @@
                 <div class="modal-body">
                     <form action="CompIndex.html" method="post">
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">用户名</label>
+                            <label for="recipient-name2" class="col-form-label">用户名</label>
                             <input type="text" class="form-control border" placeholder="请输入用户名、手机号或邮箱 " name="Name" id="recipient-name2" required="">
                         </div>
                         <div class="form-group">
-                            <label for="password" class="col-form-label">密码</label>
+                            <label for="password4" class="col-form-label">密码</label>
                             <input type="password" class="form-control border" placeholder=" " name="Password" id="password4" required="">
                         </div>
                         <div class="right-w3l">
@@ -628,7 +674,7 @@
                         <div class="row sub-w3l my-3">
                             <div class="col sub-agile">
                                 <input type="checkbox" id="brand2" value="">
-                                <label for="brand2" class="text-muted">
+                                <label for="brand1" class="text-muted">
                                     <span></span>记住密码</label>
                             </div>
                             <div class="col forgot-w3l text-right text-dark">
@@ -676,7 +722,7 @@
                         <div class="sub-w3l">
                             <div class="sub-agile">
                                 <input type="checkbox" id="brand3" value="">
-                                <label for="brand3" class="mb-3">
+                                <label for="brand2" class="mb-3">
                                     <span></span>我同意<a href="#" data-toggle="modal" data-target="#exampleModal5">条款和条件</a></label>
                             </div>
                         </div>
@@ -744,7 +790,26 @@
     <!-- js-->
     <script src="js/jquery-2.2.3.min.js"></script>
     <!--  magnific-popup  -->
-    <!-- <script src="js/jquery.magnific-popup.js"></script> -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script>
+        //script for magnific pop up (about section)
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+        });
+    </script>
+    <!-- counter -->
+    <script src="js/counter.js">
+    </script>
     <!-- move-top -->
     <script src="js/move-top.js"></script>
     <!-- easing -->

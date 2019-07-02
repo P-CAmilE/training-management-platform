@@ -24,39 +24,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/light.js"></script>
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/pie-chart.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#demo-pie-1').pieChart({
-                barColor: '#3bb2d0',
-                trackColor: '#eee',
-                lineCap: 'round',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-
-            $('#demo-pie-2').pieChart({
-                barColor: '#fbb03b',
-                trackColor: '#eee',
-                lineCap: 'butt',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-
-            $('#demo-pie-3').pieChart({
-                barColor: '#ed6498',
-                trackColor: '#eee',
-                lineCap: 'square',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-        });
-    </script>
 </head>
 <body>
 <div class="page-container">
@@ -72,10 +39,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                     </div>
                     <div class="top_left">
-                        <h2><a href="home.html" style="color: indianred">退出登录</a></h2>
+                        <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="CompanyHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a href="CompHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -99,47 +66,70 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="content1">
                 <div class="fo-top-dj">
-                    <h3 class="sub-tittle">实训资源:</h3><br>
+                    <h3 class="sub-tittle">我的资源:</h3>
                     <div class="content tab">
                         <div class="fo-top">
                             <div class="form-group">
-                                <label  class="col-sm-2 control-label">资源列表:</label>
-                                <br><br>
-                                <div>
-                                    <label class="create_project">
-                                        <textarea  class="form-control1" style="height:300px;width:600px;border:solid 1px grey" readonly></textarea>
-                                    </label>
+                                <label  class="col-sm-2 control-label">上传资源记录：</label>
+                                <div class="col-sm-8 ">
+                                    <textarea  class="form-control1" style="height:200px;border:0px;outline:none;background:rgba(0, 0, 0, 0)" readonly>1.txt</textarea>
                                 </div>
-                                <br><br><br>
-                                <form>
-                                    <div>
-                                        <input type="file" id="upresource" accept="/*" onchange="upLoad()">
-                                        <label class="ui_button" for="upresource"style="height:45px;width:120px;margin-left: 150px">
-                                            <p>点击上传资源</p>
-                                        </label>
-                                    </div>
-                                </form>
                                 <div class="clearfix"></div>
                             </div>
-                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content1">
+                <div class="fo-top-dj">
+                    <div class="content tab">
+                        <br><br>
+                        <div class="fo-top">
                             <div class="form-group">
-                                <label  class="col-sm-2 control-label">模板列表:</label>
-                                <br><br>
-                                <div>
-                                    <label class="create_project">
-                                        <textarea  class="form-control1" style="height:300px;width:600px;border:solid 1px grey" readonly></textarea>
-                                    </label>
+                                <label  class="col-sm-2 control-label">上传模板文件:</label>
+                                <div class="col-sm-8 ">
+                                    <textarea  id="fileName" style="height:100px;width:500px;border:1px solid black; outline: none" readonly></textarea>
                                 </div>
                                 <br><br><br>
                                 <form>
-                                    <div>
-                                        <input type="file" id="updemo" accept="/*" onchange="upLoad()">
-                                        <label class="ui_button" for="updemo"style="height:45px;width:120px;margin-left: 150px">
-                                            <p>点击上传模板</p>
-                                        </label>
+                                    <div class="col-sm-8 ">
+                                        <label class="studentinput" for="file" style="margin-left: 185px;width: 200px;text-align: center">选择模板文件</label>
+                                        <br><br>
+                                        <input type="file" id="file" style="position:absolute;clip:rect(0 0 0 0);" onchange="handleFile()">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-sm-8 ">
+                                        <input type="submit" class="studentinput" style="width: 200px;margin-left: 185px" value="提交" onclick="myFunction()">
+                                        <br><br>
                                     </div>
                                 </form>
-                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content1">
+                <div class="fo-top-dj">
+                    <div class="content tab">
+                        <br><br>
+                        <div class="fo-top">
+                            <div class="form-group">
+                                <label  class="col-sm-2 control-label">上传文档文件:</label>
+                                <div>
+                                    <textarea  id="fileName1" style="height:100px;width:500px;border:1px solid black; outline: none" readonly></textarea>
+                                </div>
+                                <form>
+                                    <div class="col-sm-8 ">
+                                        <label class="studentinput" for="file1" style="margin-left: 185px;width: 200px;text-align: center">选择文档文件</label>
+                                        <br><br>
+                                        <input type="file" id="file1" style="position:absolute;clip:rect(0 0 0 0);" onchange="handleFile1()">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-sm-8 ">
+                                        <input type="submit" class="studentinput" style="width: 200px;margin-left: 185px" value="提交" onclick="myFunction()">
+                                        <br><br>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -174,24 +164,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="footer">
                         <div class="col-md-3 cust">
                             <h4>CUSTOMER CARE</h4>
-                            <li><a href="MyResource.html">Help Center</a></li>
+                            <li><a href="MyCode.html">Help Center</a></li>
                             <li><a href="MySummary.html">FAQ</a></li>
-                            <li><a href="MyDownload.html">How To Buy</a></li>
-                            <li><a href="MyLog.html">Delivery</a></li>
+                            <li><a href="MyReport.html">How To Buy</a></li>
+                            <li><a href="StuLog.html">Delivery</a></li>
                         </div>
                         <div class="col-md-2 abt">
                             <h4>ABOUT US</h4>
                             <li><a href="products.html">Our Stories</a></li>
                             <li><a href="products.html">Press</a></li>
                             <li><a href="MySummary.html">Career</a></li>
-                            <li><a href="MyResource.html">Contact</a></li>
+                            <li><a href="MyCode.html">Contact</a></li>
                         </div>
                         <div class="col-md-2 myac">
                             <h4>MY ACCOUNT</h4>
                             <li><a href="register.html">Register</a></li>
-                            <li><a href="MyLog.html">My Cart</a></li>
-                            <li><a href="MyLog.html">Order History</a></li>
-                            <li><a href="MyDownload.html">Payment</a></li>
+                            <li><a href="StuLog.html">My Cart</a></li>
+                            <li><a href="StuLog.html">Order History</a></li>
+                            <li><a href="MyReport.html">Payment</a></li>
                         </div>
                         <div class="col-md-5 our-st">
                             <div class="our-left">
@@ -215,8 +205,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
             <ul id="menu">
-                <li><a href="CompanyHomepage.html"><span>企业主页</span></a></li>
-                <li><a href="CompProject.html"><span>实训项目</span></a></li>
+                <li><a href="CompHomepage.html"><span>企业主页</span></a></li>
+                <li><a href="CompInternship.html"><span>实训项目</span></a></li>
                 <li><a href="ProjectResource.html"><span>实训资源</span></a></li>
                 <li><a href="CompTeam.html"><span>实训团队</span></a></li>
             </ul>
@@ -241,6 +231,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             toggle = !toggle;
         });
+    </script>
+    <script>
+    	var file1 = document.getElementById("file1");
+    	var fileName1 = document.getElementById("fileName1");
+    	function handleFile1(){
+    		fileName1.value = file1.value;
+    	};
+    </script>
+    <script>
+        var file2 = document.getElementById("file2");
+        var fileName2 = document.getElementById("fileName2");
+        function handleFile2(){
+        	fileName2.value = file2.value;
+        };
     </script>
 </body>
 </html>
