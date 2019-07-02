@@ -1,7 +1,7 @@
 package com.mycharge.trainingmanagementplatform.controller;
 
 
-import com.mycharge.trainingmanagementplatform.model.MyObject;
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ public class LogController {
     private LogService logService;
 
     @PostMapping("/login")
-    public Result userLogIn(@RequestBody MyObject myObject, HttpServletResponse response) {
-        Cookie cookie1=new Cookie("username",(String) myObject.get("username"));
+    public Result userLogIn(@RequestBody JSONObject object, HttpServletResponse response) {
+        Cookie cookie1=new Cookie("username", object.getString("username"));
         cookie1.setPath("/");// 这个要设置
         cookie1.setMaxAge(365 * 24 * 60 * 60);
         response.addCookie(cookie1);
@@ -27,9 +27,9 @@ public class LogController {
     }
 
     @PostMapping("/register")
-    public void userRegister(@RequestBody MyObject myObject){
+    public void userRegister(@RequestBody JSONObject object){
 
-        logService.register(myObject);
+        logService.register(object);
 
     }
 

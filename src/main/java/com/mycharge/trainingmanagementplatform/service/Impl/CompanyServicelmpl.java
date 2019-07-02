@@ -1,7 +1,7 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.CompanyMapper;
-import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,10 @@ public class CompanyServicelmpl implements CompanyService  {
     CompanyMapper mapper;
 
     @Override
-    public Result insert(MyObject myObject) {
+    public Result insert(JSONObject object) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",mapper.insert(myObject));
+            res.put("data",mapper.insert(object));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -26,10 +26,10 @@ public class CompanyServicelmpl implements CompanyService  {
     }
 
     @Override
-    public Result find(MyObject myObject) {
+    public Result find(JSONObject object) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",mapper.find(myObject));
+            res.put("data",mapper.find(object));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -38,10 +38,10 @@ public class CompanyServicelmpl implements CompanyService  {
     }
 
     @Override
-    public Result update(MyObject myObject) {
+    public Result update(JSONObject object) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",mapper.update(myObject));
+            res.put("data",mapper.update(object));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -50,10 +50,10 @@ public class CompanyServicelmpl implements CompanyService  {
     }
 
     @Override
-    public Result delete(MyObject myObject) {
+    public Result delete(JSONObject object) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",mapper.delete(myObject));
+            res.put("data",mapper.delete(object));
             return res;
         }catch (Exception e){
             e.printStackTrace();

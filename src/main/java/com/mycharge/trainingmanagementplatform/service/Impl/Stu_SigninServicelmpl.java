@@ -1,8 +1,8 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.Stu_SigninMapper;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.service.Stu_SigninService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +19,11 @@ public class Stu_SigninServicelmpl implements Stu_SigninService {
     Stu_SigninMapper mapper;
 
     @Override
-    public Result signin(MyObject myObject) {
+    public Result signin(JSONObject object) {
         Result res;
         try {
-            myObject.put("time",dateFormat.format(new Date()));
-            mapper.signin(myObject);
+            object.put("time",dateFormat.format(new Date()));
+            mapper.signin(object);
         }catch (Exception  e){
              res = Result.getResult(0);
              res.put("msg",e.getMessage());
@@ -33,11 +33,11 @@ public class Stu_SigninServicelmpl implements Stu_SigninService {
     }
 
     @Override
-    public Result find(MyObject myObject) {
+    public Result find(JSONObject object) {
         Result res;
-        List<MyObject> list;
+        List<JSONObject> list;
         try {
-            list=mapper.find(myObject);
+            list=mapper.find(object);
         }catch (Exception e){
             res=Result.getResult(0);
             res.put("msg",e.getMessage());

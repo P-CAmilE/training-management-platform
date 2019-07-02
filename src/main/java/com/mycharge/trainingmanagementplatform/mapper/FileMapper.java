@@ -1,10 +1,9 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-import com.mycharge.trainingmanagementplatform.model.MyObject;
-import org.apache.ibatis.annotations.Mapper;
+import com.alibaba.fastjson.JSONObject;
 
 public interface FileMapper {
 
-    public int upload(MyObject myObject);
+    public int upload(JSONObject object);
 
 }

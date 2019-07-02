@@ -1,12 +1,12 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-import com.mycharge.trainingmanagementplatform.model.MyObject;
+import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
 public interface Stu_SigninMapper {
 
-    public int signin(MyObject myObject);
+    public int signin(JSONObject object);
 
-    public List<MyObject> find(MyObject myObject);
+    public List<JSONObject> find(JSONObject object);
 }

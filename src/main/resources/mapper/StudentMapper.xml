@@ -15,7 +15,7 @@
         </where>
     </sql>
 
-    <insert id="insert"  useGeneratedKeys="true" keyProperty="stu_id" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject">
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="stu_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert student_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="stu_name != null">stu_name,</if>
@@ -34,12 +34,12 @@
         </trim>
     </insert>
 
-    <select id="find" resultType="com.mycharge.trainingmanagementplatform.model.MyObject" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject" >
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
         select * from student_info
         <include refid="simple_trim"></include>
     </select>
 
-    <update id="update" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject">
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update student_info
         <set>
             <if test="new_name != null and new_name != ''">stu_name = #{new_name},</if>
@@ -50,7 +50,7 @@
         </set>
         <include refid="simple_trim"></include>
     </update>
-    <delete id="delete" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject">
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
         delete from student_info
         <include refid="simple_trim"></include>
     </delete>

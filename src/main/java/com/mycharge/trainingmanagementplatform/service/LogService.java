@@ -1,15 +1,12 @@
 package com.mycharge.trainingmanagementplatform.service;
 
-
-import com.mycharge.trainingmanagementplatform.model.MyObject;
-
-import javax.servlet.http.HttpServletResponse;
+import com.alibaba.fastjson.JSONObject;
 
 public interface LogService {
 
-    public int login(MyObject myObject);
+    public int login(JSONObject object);
 
-    public int register(MyObject myObject);
+    public int register(JSONObject object);
 
 
 }

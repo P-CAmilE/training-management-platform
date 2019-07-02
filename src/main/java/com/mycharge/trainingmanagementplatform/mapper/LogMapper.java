@@ -1,17 +1,16 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-import org.apache.ibatis.annotations.Param;
-import com.mycharge.trainingmanagementplatform.model.*;
+import com.alibaba.fastjson.JSONObject;
 
 public interface LogMapper {
 
-    public int studentLogIn(MyObject myObject);
+    public int studentLogIn(JSONObject object);
 
-    public int teacherLogIn(MyObject myObject);
+    public int teacherLogIn(JSONObject object);
 
-    public int companyLogIn(MyObject myObject);
+    public int companyLogIn(JSONObject object);
 
-    public int studentRegister(MyObject myObject);
+    public int studentRegister(JSONObject object);
 
-    public int companyRegister(MyObject myObject);
+    public int companyRegister(JSONObject object);
 }

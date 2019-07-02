@@ -1,7 +1,7 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.FileMapper;
-import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +42,9 @@ public class FileServicelmpl implements FileService {
             file.transferTo(dir);
             //插入数据库
 
-            MyObject myObject = MyObject.getObject();
-            myObject.put("path",dir.getPath());
-            mapper.upload(myObject);
+            JSONObject object = new JSONObject();
+            object.put("path",dir.getPath());
+            mapper.upload(object);
             return  Result.getResult(1);
         }catch (IOException e){
             e.printStackTrace();

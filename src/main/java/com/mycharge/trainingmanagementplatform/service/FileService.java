@@ -1,6 +1,5 @@
 package com.mycharge.trainingmanagementplatform.service;
 
-import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import org.springframework.web.multipart.MultipartFile;
 

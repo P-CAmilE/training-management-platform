@@ -1,6 +1,6 @@
 package com.mycharge.trainingmanagementplatform.controller;
 
-import com.mycharge.trainingmanagementplatform.model.MyObject;
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,23 +16,23 @@ public class CompanyController {
     CompanyService service;
 
     @RequestMapping("/insert")
-    public Result insert(@RequestBody MyObject myObject){
-        return service.insert(myObject);
+    public Result insert(@RequestBody JSONObject object){
+        return service.insert(object);
     }
 
     @RequestMapping("/find")
-    public Result find(@RequestBody MyObject myObject){
-        return service.find(myObject);
+    public Result find(@RequestBody JSONObject object){
+        return service.find(object);
 
     }
     @RequestMapping("/update")
-    public Result update(@RequestBody MyObject myObject){
-        return service.update(myObject);
+    public Result update(@RequestBody JSONObject object){
+        return service.update(object);
     }
 
     @RequestMapping("/delete")
-    public Result delete(@RequestBody MyObject myObject){
-        return service.delete(myObject);
+    public Result delete(@RequestBody JSONObject JSONObject){
+        return service.delete(JSONObject);
     }
 
 }

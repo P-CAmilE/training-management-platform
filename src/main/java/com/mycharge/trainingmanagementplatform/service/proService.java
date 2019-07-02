@@ -1,14 +1,14 @@
 package com.mycharge.trainingmanagementplatform.service;
 
-import com.mycharge.trainingmanagementplatform.model.MyObject;
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 
 public interface proService {
-    public Result insert(MyObject myObject);
+    public Result insert(JSONObject object);
 
-    public Result find(MyObject myObject);
+    public Result find(JSONObject object);
 
-    public Result update(MyObject myObject);
+    public Result update(JSONObject object);
 
-    public Result delete(MyObject myObject);
+    public Result delete(JSONObject object);
 }

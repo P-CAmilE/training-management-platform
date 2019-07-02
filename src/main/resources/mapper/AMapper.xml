@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mycharge.trainingmanagementplatform.mapper.AMapper">
 
-    <insert id="save"  useGeneratedKeys="true" keyProperty="aid" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject">
+    <insert id="save"  useGeneratedKeys="true" keyProperty="aid" parameterType="com.alibaba.fastjson.JSONObject">
         insert A (aname) values (#{aname})
     </insert>
 
-    <select id="findByAname" resultType="com.mycharge.trainingmanagementplatform.model.MyObject" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject" >
+    <select id="findByAname" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
         select * from A
         <where>
             <if test="aid != null">

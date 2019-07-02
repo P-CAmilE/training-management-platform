@@ -1,15 +1,15 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-import com.mycharge.trainingmanagementplatform.model.MyObject;
+import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
 public interface Mapper {
-    public int insert(MyObject myObject);
+    public int insert(JSONObject object);
 
-    public List<MyObject> find(MyObject myObject);
+    public List<JSONObject> find(JSONObject object);
 
-    public int update(MyObject myObject);
+    public int update(JSONObject object);
 
-    public int delete(MyObject myObject);
+    public int delete(JSONObject object);
 }

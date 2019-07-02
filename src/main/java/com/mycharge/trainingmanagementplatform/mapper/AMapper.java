@@ -1,13 +1,11 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-import com.mycharge.trainingmanagementplatform.model.MyObject;
-import org.apache.ibatis.annotations.*;
-
+import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
 public interface AMapper {
-    public int save(MyObject myObject) throws Exception;
+    public int save(JSONObject object) throws Exception;
 
-    public List<MyObject> findByAname(MyObject myObject) throws Exception;
+    public List<JSONObject> findByAname(JSONObject object) throws Exception;
 }

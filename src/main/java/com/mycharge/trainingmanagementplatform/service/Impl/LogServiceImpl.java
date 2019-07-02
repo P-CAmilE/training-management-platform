@@ -1,7 +1,7 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.LogMapper;
-import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,13 +13,13 @@ public class LogServiceImpl implements LogService {
     private LogMapper logMapper;
 
     @Override
-    public int login(MyObject myObject) {
-        int usertype=(int)myObject.get("usertype");
+    public int login(JSONObject object) {
+        int usertype=object.getInteger("usertype");
 
         switch (usertype){
-            case 0: logMapper.studentLogIn(myObject);break;
-            case 1: logMapper.companyLogIn(myObject);break;
-            case 2: logMapper.teacherLogIn(myObject);break;
+            case 0: logMapper.studentLogIn(object);break;
+            case 1: logMapper.companyLogIn(object);break;
+            case 2: logMapper.teacherLogIn(object);break;
         }
 
 
@@ -27,12 +27,12 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
-    public int register(MyObject myObject) {
-        int usertype=(int)myObject.get("usertype");
+    public int register(JSONObject object) {
+        int usertype=object.getInteger("usertype");
         if(usertype == 0)
-            logMapper.studentRegister(myObject);
+            logMapper.studentRegister(object);
         else if(usertype == 1)
-            logMapper.companyRegister(myObject);
+            logMapper.companyRegister(object);
 
         return 0;
     }

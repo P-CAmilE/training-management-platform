@@ -1,7 +1,7 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.AMapper;
-import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.AService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,9 @@ public class AServicelmpl implements AService {
     AMapper mapper;
 
     @Override
-    public Result save(MyObject myObject){
+    public Result save(JSONObject object){
         try {
-            mapper.save(myObject);
+            mapper.save(object);
         }catch (Exception  e){
             return Result.getResult(0);
         }
@@ -27,10 +27,10 @@ public class AServicelmpl implements AService {
     }
 
     @Override
-    public Result findByAname(MyObject myObject){
-        List<MyObject> list;
+    public Result findByAname(JSONObject object){
+        List<JSONObject> list;
         try {
-            list=mapper.findByAname(myObject);
+            list=mapper.findByAname(object);
         }catch (Exception e){
             return Result.getResult(0);
         }
