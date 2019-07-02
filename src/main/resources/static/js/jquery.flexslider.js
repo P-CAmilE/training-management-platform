@@ -924,7 +924,7 @@
         sliderOffset = (reverse) ? slider.count - 1 - slider.currentSlide + slider.cloneOffset : slider.currentSlide + slider.cloneOffset;
         // VERTICAL:
         if (vertical && !carousel) {
-          slider.container.height((slider.count + slider.cloneCount) * 200 + "%").css("position", "absolute").width("100%");
+          slider.container.height((slider.count + slider.cloneCount) * 200 + "%").css("static.position", "absolute").width("100%");
           setTimeout(function(){
             slider.newSlides.css({"display": "block"});
             slider.doMath();

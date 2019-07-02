@@ -1,13 +1,10 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-import com.mycharge.trainingmanagementplatform.model.MyFile;
+import com.mycharge.trainingmanagementplatform.model.MyObject;
 import org.apache.ibatis.annotations.Mapper;
 
-
-@Mapper
 public interface FileMapper {
-    //插入一行
-    public void upload(MyFile myFile);
 
+    public int upload(MyObject myObject);
 
 }

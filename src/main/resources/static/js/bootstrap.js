@@ -3346,7 +3346,7 @@ var ScrollSpy = function ($$$1) {
   };
   var OffsetMethod = {
     OFFSET: 'offset',
-    POSITION: 'position'
+    POSITION: 'static.position'
     /**
      * ------------------------------------------------------------------------
      * Class Definition

@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class MyObject extends HashMap<String, Object> {
     private MyObject(){}
 
-    static public MyObject getTerm(String type){
+    static public MyObject getObject(){
         MyObject myObject = new MyObject();
         //..
         return myObject;

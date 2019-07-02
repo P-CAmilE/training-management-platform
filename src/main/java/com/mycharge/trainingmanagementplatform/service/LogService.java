@@ -1,11 +1,15 @@
 package com.mycharge.trainingmanagementplatform.service;
 
 
+import com.mycharge.trainingmanagementplatform.model.MyObject;
+
+import javax.servlet.http.HttpServletResponse;
+
 public interface LogService {
 
-    public int login(String username, String password, int usertype);
+    public int login(MyObject myObject);
 
-    public int register(String username, String password, int usertype, String email);
+    public int register(MyObject myObject);
 
 
 }

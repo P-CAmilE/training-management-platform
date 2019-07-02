@@ -1,6 +1,7 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
 import com.mycharge.trainingmanagementplatform.mapper.LogMapper;
+import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,24 +13,26 @@ public class LogServiceImpl implements LogService {
     private LogMapper logMapper;
 
     @Override
-    public int login(String username, String password,int usertype) {
+    public int login(MyObject myObject) {
+        int usertype=(int)myObject.get("usertype");
 
-        if(usertype == 0)
-            logMapper.studentLogIn(username, password);
-        else if (usertype == 2)
-            logMapper.teacherLogIn(username,password);
-        else if (usertype == 1)
-            logMapper.companyLogIn(username, password);
+        switch (usertype){
+            case 0: logMapper.studentLogIn(myObject);break;
+            case 1: logMapper.companyLogIn(myObject);break;
+            case 2: logMapper.teacherLogIn(myObject);break;
+        }
+
 
         return 0;
     }
 
     @Override
-    public int register(String username, String password, int usertype, String email) {
+    public int register(MyObject myObject) {
+        int usertype=(int)myObject.get("usertype");
         if(usertype == 0)
-            logMapper.studentRegister(username, password, email);
+            logMapper.studentRegister(myObject);
         else if(usertype == 1)
-            logMapper.companyRegister(username,password,email);
+            logMapper.companyRegister(myObject);
 
         return 0;
     }

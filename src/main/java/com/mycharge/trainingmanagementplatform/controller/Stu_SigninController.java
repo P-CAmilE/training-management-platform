@@ -23,7 +23,7 @@ public class Stu_SigninController {
     }
 
     @RequestMapping("/find")
-    public Result findBySid (@RequestBody MyObject myObject){
-        return service.findBySid_Date(myObject);
+    public Result find(@RequestBody MyObject myObject){
+        return service.find(myObject);
     }
 }

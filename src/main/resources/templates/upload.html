@@ -9,11 +9,10 @@ $("#img").attr("src", "http://localhost:8080/download?filename=1.png");
 }
 
 function a(){
-    alert("a");
     var formdata=new FormData();
     formdata.append("file",$("#file")[0].files[0]);
     formdata.append("username","xxx");
-
+    //formdata.append("storage_Name","aaa")
 
     $.ajax({
         type: "post",
@@ -22,18 +21,13 @@ function a(){
         processData: false,
         data: formdata,//传过来
         dataType: 'json',
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function (data) {
-            $('#'+id+"1").val(data.url);//在隐藏的hidden中返回文件的路径
-            $('#'+id+"2").attr('src',data.url);//改变当前的显示图片
-
+        success: function (res) {
+            alert(res.type);
         }
     });
 }
-$("#bu1").onclick(function () {
 
+$("#bu1").onclick(function () {
 });
 
 function f() {
@@ -70,7 +64,7 @@ function f() {
 
 <button id="bu1" onclick="f()" >显示图片</button>
 <br>
-<img id="img" >
+<img id="img" src="http://localhost:8080/download?filename=1.png&username">
 
 </body>
 

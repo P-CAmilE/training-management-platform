@@ -5,13 +5,13 @@ import com.mycharge.trainingmanagementplatform.model.*;
 
 public interface LogMapper {
 
-    public Student studentLogIn(@Param("username") String username, @Param("password") String password);
+    public int studentLogIn(MyObject myObject);
 
-    public Teacher teacherLogIn(@Param("username") String username, @Param("password") String password);
+    public int teacherLogIn(MyObject myObject);
 
-    public Company companyLogIn(@Param("username") String username, @Param("password") String password);
+    public int companyLogIn(MyObject myObject);
 
-    public int studentRegister(@Param("username") String username, @Param("password") String password, @Param("email") String email);
+    public int studentRegister(MyObject myObject);
 
-    public int companyRegister(@Param("username") String username, @Param("password") String password, @Param("email") String email);
+    public int companyRegister(MyObject myObject);
 }

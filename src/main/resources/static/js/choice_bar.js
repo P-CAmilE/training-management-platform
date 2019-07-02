@@ -21,10 +21,11 @@ $(function () {
         });
 
         $(this).attr("class", "seled");
-
-        alert(RetSelecteds()); //返回选中结果
+        RetSelecteds();
+        alert("aaa"); //返回选中结果
     });
-    alert(RetSelecteds()); //返回选中结果
+    RetSelecteds();
+    alert("bbb"); //返回选中结果
 });
 
 function RetSelecteds() {

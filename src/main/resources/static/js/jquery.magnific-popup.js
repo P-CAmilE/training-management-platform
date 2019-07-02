@@ -1028,7 +1028,7 @@ $.magnificPopup.registerModule(INLINE_NS, {
 
 					mfp.updateStatus('ready');
 				} else {
-					mfp.updateStatus('error', inlineSt.tNotFound);
+					mfp.updateStatus('static.error', inlineSt.tNotFound);
 					el = $('<div>');
 				}
 
@@ -1112,7 +1112,7 @@ $.magnificPopup.registerModule(AJAX_NS, {
 				error: function() {
 					_removeAjaxCursor();
 					item.finished = item.loadError = true;
-					mfp.updateStatus('error', mfp.st.ajax.tError.replace('%url%', item.src));
+					mfp.updateStatus('static.error', mfp.st.ajax.tError.replace('%url%', item.src));
 				}
 			}, mfp.st.ajax.settings);
 
@@ -1308,7 +1308,7 @@ $.magnificPopup.registerModule('image', {
 						item.img.off('.mfploader');
 						if(item === mfp.currItem){
 							mfp._onImageHasSize(item);
-							mfp.updateStatus('error', imgSt.tError.replace('%url%', item.src) );
+							mfp.updateStatus('static.error', imgSt.tError.replace('%url%', item.src) );
 						}
 
 						item.hasSize = true;
@@ -1323,7 +1323,7 @@ $.magnificPopup.registerModule('image', {
 			if(el.length) {
 				var img = document.createElement('img');
 				img.className = 'mfp-img';
-				item.img = $(img).on('load.mfploader', onLoadComplete).on('error.mfploader', onLoadError);
+				item.img = $(img).on('load.mfploader', onLoadComplete).on('static.error.mfploader', onLoadError);
 				img.src = item.src;
 
 				// without clone() "error" event is not firing when IMG is replaced by new IMG
@@ -1348,7 +1348,7 @@ $.magnificPopup.registerModule('image', {
 
 				if(item.loadError) {
 					template.addClass('mfp-loading');
-					mfp.updateStatus('error', imgSt.tError.replace('%url%', item.src) );
+					mfp.updateStatus('static.error', imgSt.tError.replace('%url%', item.src) );
 				} else {
 					template.removeClass('mfp-loading');
 					mfp.updateStatus('ready');
@@ -1837,7 +1837,7 @@ $.magnificPopup.registerModule('gallery', {
 			if(item.type === 'image') {
 				item.img = $('<img class="mfp-img" />').on('load.mfploader', function() {
 					item.hasSize = true;
-				}).on('error.mfploader', function() {
+				}).on('static.error.mfploader', function() {
 					item.hasSize = true;
 					item.loadError = true;
 					_mfpTrigger('LazyLoadError', item);

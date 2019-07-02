@@ -4,9 +4,6 @@ import com.mycharge.trainingmanagementplatform.model.MyObject;
 
 import java.util.List;
 
-public interface Stu_SigninMapper {
+public interface CompanyMapper extends  Mapper{
 
-    public int signin(MyObject myObject);
-
-    public List<MyObject> find(MyObject myObject);
 }

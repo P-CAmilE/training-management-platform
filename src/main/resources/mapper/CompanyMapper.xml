@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.CompanyMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="com_id != null">com_id = #{com_id,jdbcType=INTEGER}</if>
+            <if test="com_name != null">and com_name = #{com_name,jdbcType=VARCHAR}</if>
+            <if test="com_account != null">and com_account = #{com_account,jdbcType=VARCHAR}</if>
+            <if test="com_password != null">and com_password = #{com_password,jdbcType=VARCHAR}</if>
+            <if test="com_email != null">and com_email = #{com_email,jdbcType=VARCHAR}</if>
+            <if test="com_image_path != null">and com_image_path = #{com_image_path,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="com_id" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject">
+        insert company_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="com_name != null">com_name,</if>
+            <if test="com_account != null">com_account,</if>
+            <if test="com_password != null">com_password,</if>
+            <if test="com_email != null">com_email,</if>
+            <if test="com_image_path != null">com_image_path,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="com_id != null">#{com_id,jdbcType=INTEGER},</if>
+            <if test="com_name != null">#{com_name,jdbcType=VARCHAR},</if>
+            <if test="com_account != null">#{com_account,jdbcType=VARCHAR},</if>
+            <if test="com_password != null">#{com_password,jdbcType=VARCHAR},</if>
+            <if test="com_email != null">#{com_email,jdbcType=VARCHAR},</if>
+            <if test="com_image_path != null">#{com_image_path,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.mycharge.trainingmanagementplatform.model.MyObject" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject" >
+        select * from company_info
+     <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject">
+        update company_info
+        <set>
+            <if test="new_name != null and new_name != ''">com_name = #{new_name},</if>
+            <if test="new_account != null and new_account != ''">com_account = #{new_account}</if>
+            <if test="new_password != null and new_password != ''">com_password = #{new_password}</if>
+            <if test="new_email != null and new_email != ''">com_email = #{new_email}</if>
+            <if test="new_image_path != null and new_image_path != ''">com_image_path = #{new_image_path}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+    <delete id="delete" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject">
+        delete from company_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>

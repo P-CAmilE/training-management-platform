@@ -1,17 +1,12 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
-import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.AMapper;
-import com.mycharge.trainingmanagementplatform.model.A;
 import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.AService;
-import org.apache.ibatis.type.JdbcType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
-import java.sql.SQLTimeoutException;
 import java.util.List;
 
 @Service

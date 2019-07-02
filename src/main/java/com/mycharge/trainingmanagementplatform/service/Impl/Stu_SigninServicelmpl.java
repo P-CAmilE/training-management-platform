@@ -22,7 +22,6 @@ public class Stu_SigninServicelmpl implements Stu_SigninService {
     public Result signin(MyObject myObject) {
         Result res;
         try {
-            //stu_signin.setTime(dateFormat.format(new Date()));
             myObject.put("time",dateFormat.format(new Date()));
             mapper.signin(myObject);
         }catch (Exception  e){
@@ -34,11 +33,11 @@ public class Stu_SigninServicelmpl implements Stu_SigninService {
     }
 
     @Override
-    public Result findBySid_Date(MyObject myObject) {
+    public Result find(MyObject myObject) {
         Result res;
         List<MyObject> list;
         try {
-            list=mapper.findBySid_Date(myObject);
+            list=mapper.find(myObject);
         }catch (Exception e){
             res=Result.getResult(0);
             res.put("msg",e.getMessage());

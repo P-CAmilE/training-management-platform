@@ -1,5 +1,7 @@
 package com.mycharge.trainingmanagementplatform.service;
 
+import com.mycharge.trainingmanagementplatform.model.MyObject;
+import com.mycharge.trainingmanagementplatform.model.Result;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public interface FileService {
-    public String upload(MultipartFile file, HttpServletRequest request) throws IOException;
+    public Result upload(MultipartFile file, HttpServletRequest request,HttpServletResponse response);
 
-    public void download(HttpServletRequest request, HttpServletResponse response)throws Exception;
+    public void download(HttpServletRequest request, HttpServletResponse response);
 }

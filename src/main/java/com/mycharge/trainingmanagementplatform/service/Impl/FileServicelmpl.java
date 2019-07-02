@@ -1,7 +1,8 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
 import com.mycharge.trainingmanagementplatform.mapper.FileMapper;
-import com.mycharge.trainingmanagementplatform.model.MyFile;
+import com.mycharge.trainingmanagementplatform.model.MyObject;
+import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,41 +15,50 @@ import java.io.*;
 @Service
 public class FileServicelmpl implements FileService {
     @Autowired
-    FileMapper fileMapper;
+    FileMapper mapper;
 
     private String path="d:/upload/";//下载路径
-
     //上传
     @Override
-    public String upload(MultipartFile file, HttpServletRequest request) throws IOException {
-        //String path = request.getSession().getServletContext().getRealPath("upload");
-        String fileName = file.getOriginalFilename();
-        String username= request.getParameter("username");
-        File dir = new File(path+username+"/",fileName);
+    public Result upload(MultipartFile file, HttpServletRequest request ,HttpServletResponse response){
+        try {
+            //String path = request.getSession().getServletContext().getRealPath("upload");
+            String fileName = file.getOriginalFilename();
+            String username = request.getParameter("username");
 
-        if(!dir.getParentFile().exists()){
-            dir.getParentFile().mkdir();
+            //如果指定储存文件名
+            String storage_Name = request.getParameter("storage_Name");
+            if(storage_Name!=null){
+                fileName=storage_Name;
+            }
+
+            File dir = new File(path + username + "/", fileName);
+            if (!dir.getParentFile().exists()) {
+                dir.getParentFile().mkdir();
+            }
+            if (!dir.exists()) {
+                dir.createNewFile();
+            }
+            file.transferTo(dir);
+            //插入数据库
+
+            MyObject myObject = MyObject.getObject();
+            myObject.put("path",dir.getPath());
+            mapper.upload(myObject);
+            return  Result.getResult(1);
+        }catch (IOException e){
+            e.printStackTrace();
+            return  Result.getResult(0);
         }
-        if(!dir.exists()){
-            dir.createNewFile();
-        }
-        file.transferTo(dir);
-
-        //插入数据库
-        MyFile myFile = new MyFile();
-        myFile.setFid(null);
-        myFile.setPath(dir.getPath());
-        fileMapper.upload(myFile);
-
-        return  fileName;
     }
 
     //下载
     @Override
-    public void download(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public void download(HttpServletRequest request, HttpServletResponse response){
         try {
+            String username = request.getParameter("username");;
             String fileName = request.getParameter("filename");;
-            String filePath = path+ fileName;;
+            String filePath = path+username+"/"+fileName;
             InputStream bis = new BufferedInputStream(new FileInputStream(new File(filePath)));
             response.addHeader("Content-Disposition", "attachment;filename=" + fileName);
             response.setContentType("multipart/form-data");
@@ -59,7 +69,7 @@ public class FileServicelmpl implements FileService {
                 out.flush();
             }
             out.close();
-        }catch (FileNotFoundException e){
+        }catch (IOException e){
             e.printStackTrace();
         }
     }

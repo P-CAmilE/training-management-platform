@@ -8,12 +8,8 @@
         insert stu_signin (sid,time) values (#{sid},#{time})
     </insert>
 
-    <select id="findBySid" resultType="com.mycharge.trainingmanagementplatform.model.MyObject" >
-        select * from stu_signin where sid=#{sid，JdbcType=INTEGER}
 
-    </select>
-
-    <select id="findBySid_Date" resultType="com.mycharge.trainingmanagementplatform.model.MyObject">
+    <select id="find" resultType="com.mycharge.trainingmanagementplatform.model.MyObject">
         select * from stu_signin
         <where>
             <if test="sid != null">
