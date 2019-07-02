@@ -1,5 +1,6 @@
 package com.mycharge.trainingmanagementplatform.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.*;
 import com.mycharge.trainingmanagementplatform.service.LogService;
 import com.sun.deploy.net.HttpResponse;
@@ -21,27 +22,15 @@ public class LogController {
 
     @PostMapping("/login")
     @ResponseBody
-    public MSG logIn(@RequestBody MyObject myObject, HttpServletResponse response){
-
-
-
-        MSG loginMSG = logService.login((String)myObject.get("username"),
-                (String)myObject.get("password"), (Integer) myObject.get("usertype"));
-
-        Cookie accountCookie = new Cookie("useraccount",String.valueOf(loginMSG.get("useraccount")));
-
-        accountCookie.setPath("/usercookie");
-
-        response.addCookie(accountCookie);
-
-        return loginMSG;
+    public Result logIn(@RequestBody JSONObject jsonObject, HttpServletResponse response){
+        Result loginResult = logService.login(jsonObject, response);
+        return loginResult;
     }
 
     @PostMapping(value = "/register")
     @ResponseBody
-    public MSG userRegister(@RequestBody MyObject myObject){
-        MSG registerMSG = logService.register((String)myObject.get("username"), (String)myObject.get("password"),
-                (Integer) myObject.get("usertype"), (String)myObject.get("useremail"));
-        return registerMSG;
+    public Result userRegister(@RequestBody JSONObject jsonObject, HttpServletResponse response){
+        Result registerResult = logService.register(jsonObject, response);
+        return registerResult;
     }
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.Stu_SigninMapper">
+
+    <insert id="signin" useGeneratedKeys="true" keyProperty="id" parameterType="com.mycharge.trainingmanagementplatform.model.MyObject">
+        insert stu_signin (sid,time) values (#{sid},#{time})
+    </insert>
+
+
+    <select id="find" resultType="com.mycharge.trainingmanagementplatform.model.MyObject">
+        select * from stu_signin
+        <where>
+            <if test="sid != null">
+                sid = #{sid,jdbcType=INTEGER}
+            </if>
+            <if test="from != null">
+                and time &gt;= #{from,jdbcType=TIME}
+            </if>
+            <if test="to != null">
+                and time &lt;= #{to,jdbcType=TIME}
+            </if>
+        </where>
+    </select>
+</mapper>

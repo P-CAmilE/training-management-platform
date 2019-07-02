@@ -2,7 +2,6 @@ var host="127.0.0.1:8080"
 
 
 $("#company_login").click(function(){
-    alert($("#recipient-name2").val());
     var username = $("#recipient-name2").val();
     var password = $("#password4").val();
     $.ajax({
@@ -11,12 +10,12 @@ $("#company_login").click(function(){
         dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
-            "username":username,
-            "password": password,
-            "usertype": 1
+            "com_account":username,
+            "com_password": password,
+            "user_type": 1
         }),
         success:function(data){
-            if(data.logstate == "1"){ window.location.href="CompIndex";}
+            if(data.type == "success"){ window.location.href="CompIndex";}
             alert(data.msg);
         },
         error:function () {
@@ -28,7 +27,6 @@ $("#company_login").click(function(){
 
 
 $("#student_login").click(function(){
-    alert($("#recipient-name").val());
     var username = $("#recipient-name").val();
     var password = $("#password").val();
 
@@ -38,12 +36,12 @@ $("#student_login").click(function(){
         // dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data: JSON.stringify({
-            "username": username,
-            "password": password,
-            "usertype": 0
+            "stu_account": username,
+            "stu_password": password,
+            "user_type": 0
         }),
         success:function(data){
-            if(data.logstate == "1"){ window.location.href="StudentIndex";}
+            if(data.type == "success"){ window.location.href="StudentIndex";}
             alert(data.msg);
         },
         error: function () {
@@ -53,7 +51,6 @@ $("#student_login").click(function(){
 
 })
 $("#register").click(function(){
-    alert($("#recipient-name3").val());
     var username = $("#recipient-name3").val();
     var password = $("#password1").val();
     var useremail = $("#recipient-email").val();
@@ -67,13 +64,13 @@ $("#register").click(function(){
         data :  JSON.stringify({
             "username":username,
             "password": password,
-            "usertype": 0,
+            "user_type": 0,
             "useremail": useremail
 
         }),
         success:function(data){
-            if(data.getParameter("logstate") == "1"){ window.location.href="CompIndex";}
-            else if(data.logstate == "0"){ window.location.href="StudentIndex";}
+            if(data.type == "1"){ window.location.href="CompIndex";}
+            else if(data.type == "0"){ window.location.href="StudentIndex";}
             alert(data.msg);
         },
         error:function () {
