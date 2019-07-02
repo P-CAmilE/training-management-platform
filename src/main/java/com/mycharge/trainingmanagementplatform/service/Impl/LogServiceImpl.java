@@ -27,10 +27,12 @@ public class LogServiceImpl implements LogService {
         if(user != null){
             msg.put("msg","登陆成功");
             msg.put("logstate","1");
+            msg.put("useraccount",user.getUserAccount());
             return msg;
         } else {
             msg.put("msg","账号或者密码错误");
             msg.put("logstate","0");
+            msg.put("useraccount",null);
             return msg;
         }
     }

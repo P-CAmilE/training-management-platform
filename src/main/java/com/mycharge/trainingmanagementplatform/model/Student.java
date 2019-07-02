@@ -28,4 +28,9 @@ public class Student implements User{
     public void setStuEmail(String stuEmail) {
         this.stuEmail = stuEmail;
     }
+
+    @Override
+    public String getUserAccount() {
+        return this.stuAccount;
+    }
 }

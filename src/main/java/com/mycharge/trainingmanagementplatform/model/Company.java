@@ -28,4 +28,9 @@ public class Company implements User{
     public void setComEmail(String comEmail) {
         this.comEmail = comEmail;
     }
+
+    @Override
+    public String getUserAccount() {
+        return this.comAccount;
+    }
 }

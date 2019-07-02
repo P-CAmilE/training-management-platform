@@ -29,4 +29,9 @@ public class Teacher implements  User{
     public void setTeaEmail(String teaEmail) {
         this.teaEmail = teaEmail;
     }
+
+    @Override
+    public String getUserAccount() {
+        return this.teaAccount;
+    }
 }
