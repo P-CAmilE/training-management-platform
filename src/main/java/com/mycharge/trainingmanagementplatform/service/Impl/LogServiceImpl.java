@@ -13,25 +13,36 @@ public class LogServiceImpl implements LogService {
     private LogMapper logMapper;
 
     @Override
-    public User login(String username, String password,int usertype) {
+    public MSG login(String username, String password,int usertype) {
 
         User user = null;
+        MSG msg = MSG.newMessage();
+
         if(usertype == 0)
-            user = logMapper.studentLogIn(username, password);
-        else if (usertype == 2)
-            user = logMapper.teacherLogIn(username,password);
+            user = (Student)logMapper.studentLogIn(username, password);
         else if (usertype == 1)
+            user = logMapper.companyLogIn(username,password);
+        else if (usertype == 2)
             user = logMapper.companyLogIn(username, password);
-        return user;
+        if(user != null){
+            msg.put("msg","登陆成功");
+            msg.put("logstate","1");
+            return msg;
+        } else {
+            msg.put("msg","账号或者密码错误");
+            msg.put("logstate","0");
+            return msg;
+        }
     }
 
     @Override
-    public int register(String username, String password, int usertype, String email) {
+    public MSG register(String username, String password, int usertype, String email) {
+
         if(usertype == 0)
             logMapper.studentRegister(username, password, email);
         else if(usertype == 1)
             logMapper.companyRegister(username,password,email);
-
-        return 0;
+        MSG msg = MSG.newMessage("msg",(Object)"注册成功");
+        return msg;
     }
 }

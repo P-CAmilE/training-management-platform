@@ -8,7 +8,7 @@ $("#company_login").click(function(){
     $.ajax({
         url: "/login",
         type: "POST",
-        // dataType : "json",
+        dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
             "username":username,
@@ -16,11 +16,11 @@ $("#company_login").click(function(){
             "usertype": 1
         }),
         success:function(data){
-            alert("company log in");
-            window.location.href="CompIndex"
+            if(data.logstate == "1"){ window.location.href="CompIndex";}
+            alert(data.msg);
         },
         error:function () {
-            alert("error")
+            alert("ajax error");
         }
     });
 
@@ -35,7 +35,6 @@ $("#student_login").click(function(){
     $.ajax({
         url: "/login",
         type: "POST",
-
         // dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data: JSON.stringify({
@@ -44,12 +43,11 @@ $("#student_login").click(function(){
             "usertype": 0
         }),
         success:function(data){
-            alert("student log in");
-            window.location.href="StudentIndex"
+            if(data.logstate == "1"){ window.location.href="StudentIndex";}
+            alert(data.msg);
         },
         error: function () {
-            alert("error");
-
+            alert("ajax error");
         }
     });
 
@@ -74,12 +72,12 @@ $("#register").click(function(){
 
         }),
         success:function(data){
-            alert(data);
-            window.location.href="StudentIndex"
+            if(data.getParameter("logstate") == "1"){ window.location.href="CompIndex";}
+            else if(data.logstate == "0"){ window.location.href="StudentIndex";}
+            alert(data.msg);
         },
         error:function () {
-            alert("error");
-
+            alert("ajax error");
         }
     });
 

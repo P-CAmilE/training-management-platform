@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="zxx">
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>实训平台-主页</title>
@@ -474,7 +474,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-				
+						<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label">用户名</label>
 							<input type="text" class="form-control border" placeholder="请输入用户名、手机号或邮箱 " name="Name" id="recipient-name" required="">

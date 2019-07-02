@@ -15,4 +15,6 @@ public interface LogMapper {
 
     public int companyRegister(@Param("username") String username, @Param("password") String password, @Param("email") String email);
 
+
+
 }

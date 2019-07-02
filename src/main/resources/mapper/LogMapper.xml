@@ -38,8 +38,8 @@
         insert student_info (stu_account,stu_password, stu_email) values (#{username},#{password}, #{email})
     </insert>
 
-    <insert id="teacherRegister">
-        insert teacher_info (tea_account,tea_password, tea_email) values (#{username},#{password}, #{email})
+    <insert id="companyRegister">
+        insert company_info (com_account,com_password, com_email) values (#{username},#{password}, #{email})
     </insert>
 
 </mapper>
