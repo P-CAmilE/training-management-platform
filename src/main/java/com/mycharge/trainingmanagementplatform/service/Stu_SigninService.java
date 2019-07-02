@@ -9,4 +9,6 @@ public interface Stu_SigninService {
 
     //查询某学生某时间段的签到记录
     public Result findBySid_Date (MyObject myObject);
+
+
 }
