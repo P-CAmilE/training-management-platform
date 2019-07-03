@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <head>
-    <title>实训平台-企业-实训团队</title>
+    <title>实训平台-教师-查看代码</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -24,39 +24,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/light.js"></script>
     <script src="js/jquery-1.10.2.min.js"></script>
     <script src="js/pie-chart.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#demo-pie-1').pieChart({
-                barColor: '#3bb2d0',
-                trackColor: '#eee',
-                lineCap: 'round',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-
-            $('#demo-pie-2').pieChart({
-                barColor: '#fbb03b',
-                trackColor: '#eee',
-                lineCap: 'butt',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-
-            $('#demo-pie-3').pieChart({
-                barColor: '#ed6498',
-                trackColor: '#eee',
-                lineCap: 'square',
-                lineWidth: 8,
-                onStep: function (from, to, percent) {
-                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
-                }
-            });
-        });
-    </script>
 </head>
 <body>
 <div class="page-container">
@@ -64,90 +31,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="inner-content">
             <div class="header-section navbar" >
                 <div class="header_top">
+                	<div class="top_right">
+						<ul>
+							<li><a href="TeacherIndex.html">首页</a></li>|
+							<li><a href="TeacherFindCompany.html">找公司</a></li>|
+							<li><a href="TeacherFindPosition.html">找职位</a></li>
+						</ul>
+					</div>
                     <div class="top_left">
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="CompHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a href="TeacherHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="header_bg">
-                <div class="header">
-                    <div class="head-t">
-                        <div class="header_right">
-                            <div class="search">
-                                <form>
-                                    <input type="text" value="" placeholder="search...">
-                                    <input type="submit" value="">
-                                </form>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-            </div>
             <div class="content1">
                 <div class="fo-top-dj">
-                    <h3 class="sub-tittle">实训团队:</h3><br>
-                    <a class="ui_button" href="CompCreateTeam.html" style="width:90px;margin-left:1000px;margin-right: 20px;background-color:#B52E31 ">创建团队</a>
+                    <h3 class="sub-tittle">团队上传的代码与文档:</h3>
                     <div class="content tab">
                         <div class="fo-top">
                             <div class="form-group">
-                                <label  class="col-sm-2 control-label">团队列表:</label>
-                                <br><br>
-                                <div class="grids_of_4">
-                                    <div class="grid1_of_4">
-                                        <div class="content_box"><a href="CompTeamInfo.html">
-                                            <img src="images/t1.jpg" class="img-responsive" alt="">
-                                        </a>
-                                            <h4><a href="CompTeamInfo.html"> 团队1</a></h4>
-                                            <div class="grid_1 simpleCart_shelfItem">
-                                                <div class="item_add"><span class="item_price"><a href="CompTeamInfo.html" onclick="saved()">查看团队</a></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="grid1_of_4">
-                                        <div class="content_box"><a href="#">
-                                            <img src="images/t2.jpg" class="img-responsive" alt="">
-                                        </a>
-                                            <h4><a href="#"> 团队2</a></h4>
-                                            <div class="grid_1 simpleCart_shelfItem">
-                                                <div class="item_add"><span class="item_price"><a href="#" onclick="saved()">查看团队</a></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="grid1_of_4">
-                                        <div class="content_box"><a href="#">
-                                            <img src="images/t3.jpg" class="img-responsive" alt="">
-                                        </a>
-                                            <h4><a href="#"> 团队3</a></h4>
-                                            <div class="grid_1 simpleCart_shelfItem">
-                                                <div class="item_add"><span class="item_price"><a href="#" onclick="saved()">查看团队</a></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="grid1_of_4">
-                                        <div class="content_box"><a href="#">
-                                            <img src="images/t4.jpg" class="img-responsive" alt="">
-                                        </a>
-                                            <h4><a href="#"> 团队4</a></h4>
-                                            <div class="grid_1 simpleCart_shelfItem">
-                                                <div class="item_add"><span class="item_price"><a href="#" onclick="saved()">查看团队</a></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
+                                <div class="hover1">
+                                <label type="text" class="form-control1" style="border:0px;background:rgba(0, 0, 0, 0); margin-left: 100px" onclick="myFunction()">ppt模板：111.ppt</label>
+                                <label type="text" class="form-control1" style="border:0px;background:rgba(0, 0, 0, 0); margin-left: 100px" onclick="myFunction()">实验报告模板：112.word</label>
+                                <label type="text" class="form-control1" style="border:0px;background:rgba(0, 0, 0, 0); margin-left: 100px" onclick="myFunction()">实验总结模板：113.word</label>
                                 <div class="clearfix"></div>
+                                </div>
+                                <br><br><br>
+                                <a href="javascript:history.go(-1)" class="studentinput" style="width: 200px;margin-left: 100px"><span style="color: white;padding-left: 65px">返回</span></a>
                             </div>
                         </div>
+                        <br><br><br>
                     </div>
                 </div>
             </div>
+            <!--bottom part-->
             <div class="content">
                 <div class="clearfix"></div>
                 <div class="clearfix"></div>
@@ -177,9 +98,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="footer">
                         <div class="col-md-3 cust">
                             <h4>CUSTOMER CARE</h4>
-                            <li><a href="MyCode.html">Help Center</a></li>
+                            <li><a href="StuResource.html">Help Center</a></li>
                             <li><a href="MySummary.html">FAQ</a></li>
-                            <li><a href="MyReport.html">How To Buy</a></li>
+                            <li><a href="StuDownload.html">How To Buy</a></li>
                             <li><a href="StuLog.html">Delivery</a></li>
                         </div>
                         <div class="col-md-2 abt">
@@ -187,14 +108,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="products.html">Our Stories</a></li>
                             <li><a href="products.html">Press</a></li>
                             <li><a href="MySummary.html">Career</a></li>
-                            <li><a href="MyCode.html">Contact</a></li>
+                            <li><a href="StuResource.html">Contact</a></li>
                         </div>
                         <div class="col-md-2 myac">
                             <h4>MY ACCOUNT</h4>
                             <li><a href="register.html">Register</a></li>
                             <li><a href="StuLog.html">My Cart</a></li>
                             <li><a href="StuLog.html">Order History</a></li>
-                            <li><a href="MyReport.html">Payment</a></li>
+                            <li><a href="StuDownload.html">Payment</a></li>
                         </div>
                         <div class="col-md-5 our-st">
                             <div class="our-left">
@@ -209,22 +130,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
             </div>
+            <!--//bottom part-->
         </div>
     </div>
+    <!-- side bar-->
     <div class="sidebar-menu">
         <header class="logo1">
             <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
         </header>
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
-            <ul id="menu">
-                <li><a href="CompHomepage.html"><span>企业主页</span></a></li>
-                <li><a href="CompInternship.html"><span>实训项目</span></a></li>
-                <li><a href="CompProjectResource.html"><span>实训资源</span></a></li>
-                <li><a href="CompTeam.html"><span>实训团队</span></a></li>
+        <div class="menu">
+            <ul id="menu" >
+                <li><a href="TeacherHomepage.html"><span>教师主页</span></a></li>
+                <li><a href="TeacherInternPlan.html"><span>实习计划</span></a></li>
+                <li><a href="TeacherSelectedIntern.html"><span>已选项目</span></a></li>
+                <li><a href="TeacherViewTeam.html"><span>团队</span></a></li>
+                <li><a href="TeacherMark.html"><span>评分</span></a></li>
+                <li><a href="TeacherRecord.html"><span>写记录</span></a></li>
             </ul>
         </div>
+        </div>
     </div>
+    <!--    //side bar-->
     <script>
         var toggle = true;
 
@@ -244,6 +172,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             toggle = !toggle;
         });
+    </script>
+    <script>
+        function myFunction() {
+            alert("正在下载")
+        }
     </script>
 </body>
 </html>

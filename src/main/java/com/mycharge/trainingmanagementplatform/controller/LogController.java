@@ -46,7 +46,7 @@ public class LogController {
             Company company = (Company) logService.login(jsonObject.getString("username"),
                     jsonObject.getString("password"), jsonObject.getInteger("usertype"));
             System.out.print(company.getComAccount());
-//            return "CompIndex.html";
+//            return "CompHomepage.html";
         }
         else if (jsonObject.getInteger("usertype") == 2){
 

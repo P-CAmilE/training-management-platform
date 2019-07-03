@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <head>
-    <title>实训平台-查看团队</title>
+    <title>实训平台-教师-团队信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -31,6 +31,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="inner-content">
             <div class="header-section navbar" >
                 <div class="header_top">
+                	<div class="top_right">
+						<ul>
+							<li><a href="TeacherIndex.html">首页</a></li>|
+							<li><a href="TeacherFindCompany.html">找公司</a></li>|
+							<li><a href="TeacherFindPosition.html">找职位</a></li>
+						</ul>
+					</div>
                     <div class="top_left">
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
@@ -41,111 +48,74 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="header_bg">
-                <div class="header">
-                    <div class="head-t">
-                        <div class="header_right">
-                            <div class="search">
-                                <form>
-                                    <input type="text" value="" placeholder="search...">
-                                    <input type="submit" value="">
-                                </form>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-            </div>
-            <!--            //search-->
             <div class="content1">
                 <div class="fo-top-dj">
                     <h3 class="sub-tittle">团队详情:</h3><br>
                     <div class="content tab">
-                        <div class="registration">
-                            <div class="registration_left">
-                                <!--                                script input-->
-                                <script>
-                                    (function() {
-
-                                        // Create input element for testing
-                                        var inputs = document.createElement('input');
-
-                                        // Create the supports object
-                                        var supports = {};
-
-                                        supports.autofocus   = 'autofocus' in inputs;
-                                        supports.required    = 'required' in inputs;
-                                        supports.placeholder = 'placeholder' in inputs;
-
-                                        // Fallback for autofocus attribute
-                                        if(!supports.autofocus) {
-
-                                        }
-
-                                        // Fallback for required attribute
-                                        if(!supports.required) {
-
-                                        }
-
-                                        // Fallback for placeholder attribute
-                                        if(!supports.placeholder) {
-
-                                        }
-
-                                        // Change text inside send button on submit
-                                        var send = document.getElementById('register-submit');
-                                        if(send) {
-                                            send.onclick = function () {
-                                                this.innerHTML = '...Sending';
-                                            }
-                                        }
-
-                                    })();
-                                </script>
-                                <!--                                //script input-->
-                                <div class="registration_form">
-                                    <!-- Form -->
-                                    <form>
-                                        <div>
-                                            <label class="create_project">团队名称：
-                                                <input placeholder="" type="text" tabindex="1" required="" autofocus="" readonly>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">团队人数：
-                                                <input placeholder="" type="text" tabindex="2" required="" autofocus="" readonly>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">团队成员：
-                                                <textarea placeholder="" tabindex="3" required="" autofocus="" class="form-control1" style="height:300px;width:400px;border:solid 1px grey" readonly></textarea>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">团队创建时间：
-                                                <input placeholder="" type="date" tabindex="4" required="" readonly>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="create_project">团队参与的实训：
-                                                <input placeholder="" tabindex="5" required="" readonly>
-                                            </label>
-                                        </div>
-                                        <br>
-                                        <div>
-                                            <a href="javascript:history.go(-1)" style="margin-left:100px">返回</a>
-                                        </div>
-                                        <br>
-                                    </form>
+                        <form>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">团队名称:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="text" class="form-control1" value="123456" style="height: 35px;width:200px" readonly>
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="clearfix"></div>
-                        </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">团队人数:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="text" class="form-control1" value="123" style="height: 35px;width:200px" readonly>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">团队描述:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px" readonly></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">团队成员:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea class="form-control1" value="123" style="height: 150px;width:500px" readonly></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">团队创建日期:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="date" class="form-control1" style="height: 35px;width: 200px" readonly/>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">团队参与的实训:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="text" class="form-control1" value="123" style="height: 35px;width:200px" readonly>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <br>
+                            <a href="javascript:history.go(-1)" class="studentinput" style="width: 200px;margin-left: 200px"><span style="color: white;padding-left: 65px">返回</span></a>
+                            <br>
+                        </form>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
-            <!--            bottom part-->
+            <!--bottom part-->
             <div class="content">
                 <div class="clearfix"></div>
                 <div class="clearfix"></div>
@@ -207,23 +177,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
             </div>
-            <!--            //bottom part-->
+            <!--//bottom part-->
         </div>
     </div>
-    <!--    side bar-->
+    <!-- side bar-->
     <div class="sidebar-menu">
         <header class="logo1">
             <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
         </header>
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
+        <div class="menu">
             <ul id="menu" >
-                <li><a href="TeacherHomepage.html"><span>我的主页</span></a></li>
-                <li><a href="TeacherCheckIntership.html"><span>查看实习</span></a></li>
-                <li><a href="TeacherCheckTeam.html"><span>团队</span></a></li>
-                <li><a href="TeacherCheckStudent.html"><span>学生动态</span></a></li>
-                <li><a href="TeacherGiveScore.html"><span>评分评价</span></a></li>
+                <li><a href="TeacherHomepage.html"><span>教师主页</span></a></li>
+                <li><a href="TeacherInternPlan.html"><span>实习计划</span></a></li>
+                <li><a href="TeacherSelectedIntern.html"><span>已选项目</span></a></li>
+                <li><a href="TeacherViewTeam.html"><span>团队</span></a></li>
+                <li><a href="TeacherMark.html"><span>评分</span></a></li>
+                <li><a href="TeacherRecord.html"><span>写记录</span></a></li>
             </ul>
+        </div>
         </div>
     </div>
     <!--    //side bar-->
