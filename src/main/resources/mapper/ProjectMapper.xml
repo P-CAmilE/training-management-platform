@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.ProjectMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="pro_id != null">pro_id = #{pro_id,jdbcType=INTEGER}</if>
+            <if test="pro_name != null">and pro_name = #{pro_name,jdbcType=VARCHAR}</if>
+            <if test="pro_start_date != null">and pro_start_date = #{pro_start_date,jdbcType=TIME}</if>
+            <if test="pro_end_date != null">and pro_end_date = #{pro_end_date,jdbcType=TIME}</if>
+            <if test="from != null">and pro_start_date &gt;= #{from,jdbcType=TIME}</if>
+            <if test="to != null">and pro_end_date &lt;= #{to,jdbcType=TIME}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="pro_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert project_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pro_name != null">pro_name,</if>
+            <if test="pro_start_date != null">pro_start_date,</if>
+            <if test="pro_end_date != null">pro_end_date,</if>
+            <if test="pro_description != null">pro_description,</if>
+            <if test="pro_process != null">pro_process,</if>
+            <if test="pro_judge != null">pro_judge,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pro_name != null">#{pro_name,jdbcType=INTEGER},</if>
+            <if test="pro_start_date != null">#{pro_start_date,jdbcType=TIME},</if>
+            <if test="pro_end_date != null">#{pro_end_date,jdbcType=TIME},</if>
+            <if test="pro_description != null">#{pro_description,jdbcType=INTEGER},</if>
+            <if test="pro_process != null">#{pro_process,jdbcType=INTEGER},</if>
+            <if test="pro_judge != null">#{pro_judge,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from project_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update project_info
+        <set>
+            <if test="new_name != null">pro_name = #{new_name}</if>
+            <if test="new_start_date != null">pro_start_date = #{new_start_date}</if>
+            <if test="new_end_date != null">pro_end_date = #{new_end_date}</if>
+            <if test="new_description != null">pro_description = #{new_description}</if>
+            <if test="new_process != null">pro_process = #{new_process}</if>
+            <if test="new_judge != null">pro_judge = #{new_judge}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from project_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>

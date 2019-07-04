@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.FileMapper">
+
+    <insert id="upload"  useGeneratedKeys="true" keyProperty="fid" parameterType="com.alibaba.fastjson.JSONObject">
+        insert file (path) values (#{path})
+    </insert>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from file where fid=(#fid)
+    </delete>
+</mapper>

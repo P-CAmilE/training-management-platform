@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.StudentMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
+            <if test="stu_name != null">and stu_name = #{stu_name,jdbcType=VARCHAR}</if>
+            <if test="stu_account != null">and stu_account = #{stu_account,jdbcType=VARCHAR}</if>
+            <if test="stu_password != null">and stu_password = #{stu_password,jdbcType=VARCHAR}</if>
+            <if test="stu_email != null">and stu_email = #{stu_email,jdbcType=VARCHAR}</if>
+            <if test="stu_image_path != null">and stu_image_path = #{stu_image_path,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="stu_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert student_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stu_name != null">stu_name,</if>
+            <if test="stu_account != null">stu_account,</if>
+            <if test="stu_password != null">stu_password,</if>
+            <if test="stu_email != null">stu_email,</if>
+            <if test="stu_image_path != null">stu_image_path,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">#{stu_id,jdbcType=INTEGER},</if>
+            <if test="stu_name != null">#{stu_name,jdbcType=VARCHAR},</if>
+            <if test="stu_account != null">#{stu_account,jdbcType=VARCHAR},</if>
+            <if test="stu_password != null">#{stu_password,jdbcType=VARCHAR},</if>
+            <if test="stu_email != null">#{stu_email,jdbcType=VARCHAR},</if>
+            <if test="stu_image_path != null">#{stu_image_path,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from student_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update student_info
+        <set>
+            <if test="new_name != null and new_name != ''">stu_name = #{new_name},</if>
+            <if test="new_account != null and new_account != ''">stu_account = #{new_account}</if>
+            <if test="new_password != null and new_password != ''">stu_password = #{new_password}</if>
+            <if test="new_email != null and new_email != ''">stu_email = #{new_email}</if>
+            <if test="new_image_path != null and new_image_path != ''">stu_image_path = #{new_image_path}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from student_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>

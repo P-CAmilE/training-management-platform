@@ -1,11 +1,12 @@
 package com.mycharge.trainingmanagementplatform.service;
 
+import com.alibaba.fastjson.JSONObject;
 
 public interface LogService {
 
-    public int login(String username, String password, int usertype);
+    public int login(JSONObject object);
 
-    public int register(String username, String password, int usertype, String email);
+    public int register(JSONObject object);
 
 
 }
