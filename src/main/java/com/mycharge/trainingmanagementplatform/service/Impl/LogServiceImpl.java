@@ -1,6 +1,6 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
-import com.alibaba.fastjson.JSON;
+
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.*;
 import com.mycharge.trainingmanagementplatform.mapper.StudentMapper;
@@ -11,6 +11,7 @@ import com.mycharge.trainingmanagementplatform.model.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -22,25 +23,25 @@ public class LogServiceImpl implements LogService {
     private TeacherMapper teacherMapper;
     @Autowired
     private CompanyMapper companyMapper;
+    @Autowired
+    private AccountMapper accountMapper;
 
     //登陆
     @Override
     public Result login(JSONObject jsonObject, HttpServletResponse response) {
         try {
             Result res;
-            List<JSONObject> userList = findUser(jsonObject);
+            List<JSONObject> userList = accountMapper.find(jsonObject);
             if(!userList.isEmpty()){
                 res = Result.getResult(1);
-                Cookie accountCookie = new Cookie("useraccount",String.valueOf(jsonObject.get("useraccount")));
-                accountCookie.setPath("/usercookie");
+                Cookie accountCookie = new Cookie("acc_id",userList.get(0).getInteger("acc_id")+"");
+//                accountCookie.setPath("/usercookie");
                 response.addCookie(accountCookie);
                 res.put("msg","登陆成功");
-                res.put("state","1");
             }
             else {
                 res = Result.getResult(0);
                 res.put("msg","账号或者密码错误");
-                res.put("state","0");
             }
             return res;
         } catch (Exception e) {
@@ -54,16 +55,17 @@ public class LogServiceImpl implements LogService {
     public Result register(JSONObject jsonObject, HttpServletResponse response) {
         try {
             Result res;
-            List<JSONObject> userList = findUser(jsonObject);
+            JSONObject account = new JSONObject();
+            account.put("account",jsonObject.getString("account"));
+            List<JSONObject> userList = accountMapper.find(account);
             if(userList.isEmpty()){
                 res = Result.getResult(1);
-                int i = insertUser(jsonObject);
+                insertUser(jsonObject);
                 res.put("msg","注册成功");
-                res.put("state","1");
+                res.put("usertype",jsonObject.getString("user_type"));
             } else {
                 res = Result.getResult(0);
                 res.put("msg","账号已存在，请重新输入");
-                res.put("state","0");
             }
             return res;
         } catch (Exception e) {
@@ -72,31 +74,29 @@ public class LogServiceImpl implements LogService {
         }
     }
 
-    List<JSONObject> findUser(JSONObject jsonObject){
-        List<JSONObject> userList;
-        if(jsonObject.getInteger("user_type") == 0)
-            userList = studentMapper.find(jsonObject);
-        else if(jsonObject.getInteger("user_type") == 1)
-            userList = companyMapper.find(jsonObject);
-        else if(jsonObject.getInteger("user_type") == 2)
-            userList = teacherMapper.find(jsonObject);
-        else
-            userList = teacherMapper.find(jsonObject);
-        return userList;
 
-    }
+    void insertUser(JSONObject jsonObject) throws SQLException {
+        accountMapper.insert(jsonObject);
+        JSONObject user = new JSONObject();
+        if(jsonObject.getString("user_type").equals("student")){
 
-    int insertUser(JSONObject jsonObject){
-        int i;
-        if(jsonObject.getInteger("user_type") == 0)
-            i = studentMapper.insert(jsonObject);
-        else if(jsonObject.getInteger("user_type") == 1)
-            i = companyMapper.insert(jsonObject);
-        else if(jsonObject.getInteger("user_type") == 2)
-            i = teacherMapper.insert(jsonObject);
-        else
-            i = teacherMapper.insert(jsonObject);
-        return i;
+            user.put("stu_account",jsonObject.getString("account"));
+            user.put("stu_email", jsonObject.getString("user_email"));
+            studentMapper.insert(user);
+        }
+
+        else if(jsonObject.getString("user_type").equals("company")){
+            user.put("com_account",jsonObject.getString("account"));
+            user.put("com_email", jsonObject.getString("user_email"));
+            companyMapper.insert(user);
+        }
+
+        else if(jsonObject.getString("user_type").equals("teacher")){
+            user.put("tea_account",jsonObject.getString("account"));
+            user.put("tea_email", jsonObject.getString("user_email"));
+            teacherMapper.insert(user);
+        }
+
     }
 
 }

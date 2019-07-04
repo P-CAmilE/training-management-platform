@@ -3,7 +3,6 @@ package com.mycharge.trainingmanagementplatform.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.*;
-
 import javax.servlet.http.HttpServletResponse;
 
 public interface LogService {
