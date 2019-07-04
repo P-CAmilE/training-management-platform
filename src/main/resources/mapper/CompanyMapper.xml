@@ -12,6 +12,7 @@
             <if test="com_password != null">and com_password = #{com_password,jdbcType=VARCHAR}</if>
             <if test="com_email != null">and com_email = #{com_email,jdbcType=VARCHAR}</if>
             <if test="com_image_path != null">and com_image_path = #{com_image_path,jdbcType=VARCHAR}</if>
+            <if test="com_description != null">and com_image_path = #{com_description,jdbcType=VARCHAR}</if>
         </where>
     </sql>
 
@@ -25,12 +26,12 @@
             <if test="com_image_path != null">com_image_path,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="com_id != null">#{com_id,jdbcType=INTEGER},</if>
             <if test="com_name != null">#{com_name,jdbcType=VARCHAR},</if>
             <if test="com_account != null">#{com_account,jdbcType=VARCHAR},</if>
             <if test="com_password != null">#{com_password,jdbcType=VARCHAR},</if>
             <if test="com_email != null">#{com_email,jdbcType=VARCHAR},</if>
             <if test="com_image_path != null">#{com_image_path,jdbcType=VARCHAR},</if>
+            <if test="com_description != null">#{com_description,jdbcType=VARCHAR},</if>
         </trim>
     </insert>
 
@@ -47,6 +48,7 @@
             <if test="new_password != null and new_password != ''">com_password = #{new_password}</if>
             <if test="new_email != null and new_email != ''">com_email = #{new_email}</if>
             <if test="new_image_path != null and new_image_path != ''">com_image_path = #{new_image_path}</if>
+            <if test="new_description != null and new_description != ''">com_description = #{new_description}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

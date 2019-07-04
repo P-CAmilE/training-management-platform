@@ -24,27 +24,32 @@ public class FileServicelmpl implements FileService {
         try {
             //String path = request.getSession().getServletContext().getRealPath("upload");
             String fileName = file.getOriginalFilename();
-            String username = request.getParameter("username");
-
+            String account = request.getParameter("account");
             //如果指定储存文件名
-            String storage_Name = request.getParameter("storage_Name");
-            if(storage_Name!=null){
-                fileName=storage_Name;
+            String storage_name = request.getParameter("storage_name");
+            if(storage_name!=null){
+                fileName=storage_name;
             }
 
-            File dir = new File(path + username + "/", fileName);
+            File dir = new File(path + account + "/", fileName);
             if (!dir.getParentFile().exists()) {
                 dir.getParentFile().mkdir();
             }
+
             if (!dir.exists()) {
                 dir.createNewFile();
+                //插入数据库
+                JSONObject object = new JSONObject();
+                object.put("path",dir.getPath());
+                mapper.upload(object);
             }
-            file.transferTo(dir);
-            //插入数据库
 
-            JSONObject object = new JSONObject();
-            object.put("path",dir.getPath());
-            mapper.upload(object);
+            FileWriter fileWriter =new FileWriter(dir);
+            fileWriter.write("");
+            fileWriter.flush();
+            fileWriter.close();
+            file.transferTo(dir);
+
             return  Result.getResult(1);
         }catch (IOException e){
             e.printStackTrace();
@@ -56,9 +61,9 @@ public class FileServicelmpl implements FileService {
     @Override
     public void download(HttpServletRequest request, HttpServletResponse response){
         try {
-            String username = request.getParameter("username");;
+            String account = request.getParameter("account");;
             String fileName = request.getParameter("filename");;
-            String filePath = path+username+"/"+fileName;
+            String filePath = path+account+"/"+fileName;
             InputStream bis = new BufferedInputStream(new FileInputStream(new File(filePath)));
             response.addHeader("Content-Disposition", "attachment;filename=" + fileName);
             response.setContentType("multipart/form-data");
@@ -69,8 +74,21 @@ public class FileServicelmpl implements FileService {
                 out.flush();
             }
             out.close();
+            bis.close();
         }catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public Result delete(JSONObject object) {
+        try{
+            Result res=Result.getResult(1);
+            res.put("data",mapper.delete(object));
+            return res;
+        }catch (Exception e){
+            e.printStackTrace();
+            return  Result.getResult(0);
         }
     }
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.TeamMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="team_id != null">team_id = #{team_id,jdbcType=INTEGER}</if>
+            <if test="team_name != null">and team_name = #{team_name,jdbcType=VARCHAR}</if>
+            <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
+            <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
+            <if test="com_id != null">and com_id = #{com_id,jdbcType=INTEGER}</if>
+            <if test="tea_description != null">and tea_description = #{tea_description,jdbcType=VARCHAR}</if>
+            <if test="team_score != null">and team_score = #{team_score,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="team_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert team_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="team_name != null">team_name,</if>
+            <if test="pro_id != null">pro_id,</if>
+            <if test="sch_id != null">sch_id,</if>
+            <if test="com_id != null">com_id,</if>
+            <if test="tea_description != null">tea_description,</if>
+            <if test="team_score != null">team_score,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="team_name != null">#{team_name,jdbcType=VARCHAR},</if>
+            <if test="pro_id != null">#{pro_id,jdbcType=INTEGER},</if>
+            <if test="sch_id != null">#{sch_id,jdbcType=INTEGER},</if>
+            <if test="com_id != null">#{com_id,jdbcType=INTEGER},</if>
+            <if test="tea_description != null">#{tea_description,jdbcType=VARCHAR},</if>
+            <if test="team_score != null">#{team_score,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from team_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update team_info
+        <set>
+            <if test="new_name != null and new_name != ''">team_name = #{new_name},</if>
+            <if test="new_pro_id != null and new_pro_id != ''">pro_id = #{new_pro_id}</if>
+            <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id}</if>
+            <if test="new_com_id != null and new_com_id != ''">com_id = #{new_com_id}</if>
+            <if test="new_tea_description != null and new_tea_description != ''">tea_description = #{new_tea_description}</if>
+            <if test="new_team_score != null and team_score != ''">team_score = #{team_score}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from team_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>

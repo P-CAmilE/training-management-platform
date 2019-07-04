@@ -1,5 +1,6 @@
 package com.mycharge.trainingmanagementplatform.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,4 +12,6 @@ public interface FileService {
     public Result upload(MultipartFile file, HttpServletRequest request,HttpServletResponse response);
 
     public void download(HttpServletRequest request, HttpServletResponse response);
+
+    public Result delete(JSONObject object);
 }

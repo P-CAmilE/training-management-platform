@@ -8,4 +8,7 @@
         insert file (path) values (#{path})
     </insert>
 
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from file where fid=(#fid)
+    </delete>
 </mapper>

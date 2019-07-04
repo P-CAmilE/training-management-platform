@@ -1,5 +1,6 @@
 package com.mycharge.trainingmanagementplatform.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,10 @@ public class FileController {
             service.download(request,response);
     }
 
+    @RequestMapping(value = "/delete",method = RequestMethod.POST)
+    public Result delete(JSONObject object){
+        return service.delete(object);
+    }
 
 
 }

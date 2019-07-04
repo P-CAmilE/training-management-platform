@@ -10,7 +10,7 @@ spring:
     mode: HTML
     suffix: .html
     encoding: utf-8
-    cache: false
+    cache: true
 
 #  mvc:
 #    static-path-pattern: /static/**

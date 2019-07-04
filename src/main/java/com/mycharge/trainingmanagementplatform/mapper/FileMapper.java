@@ -6,4 +6,5 @@ public interface FileMapper {
 
     public int upload(JSONObject object);
 
+    public int delete(JSONObject object);
 }
