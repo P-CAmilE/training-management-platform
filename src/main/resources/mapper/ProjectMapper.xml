@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.ProjectMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="pro_id != null">pro_id = #{pro_id,jdbcType=INTEGER}</if>
+            <if test="pro_name != null">and pro_name = #{pro_name,jdbcType=VARCHAR}</if>
+            <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
+            <if test="pro_description != null">and pro_description = #{pro_description,jdbcType=VARCHAR}</if>
+            <if test="pro_judge != null">and pro_judge &gt;= #{pro_judge,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="pro_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert project_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pro_name != null">pro_name,</if>
+            <if test="plan_id != null">plan_id,</if>
+            <if test="pro_description != null">pro_description,</if>
+            <if test="pro_judge != null">pro_judge,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pro_name != null">#{pro_name,jdbcType=VARCHAR},</if>
+            <if test="plan_id != null">#{plan_id,jdbcType=INTEGER},</if>
+            <if test="pro_description != null">#{pro_description,jdbcType=VARCHAR},</if>
+            <if test="pro_judge != null">#{pro_judge,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from project_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update project_info
+        <set>
+            <if test="new_pro_name != null">pro_name = #{new_pro_name,jdbcType=VARCHAR},</if>
+            <if test="new_plan_id != null">plan_id = #{new_plan_id,jdbcType=INTEGER},</if>
+            <if test="new_pro_description != null">pro_description = #{new_pro_description,jdbcType=VARCHAR},</if>
+            <if test="new_pro_judge != null">pro_judge = #{new_pro_judge,jdbcType=VARCHAR},</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from project_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>

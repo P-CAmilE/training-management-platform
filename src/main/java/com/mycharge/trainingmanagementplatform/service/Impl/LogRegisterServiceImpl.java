@@ -4,19 +4,18 @@ package com.mycharge.trainingmanagementplatform.service.Impl;
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.*;
 import com.mycharge.trainingmanagementplatform.mapper.StudentMapper;
-import com.mycharge.trainingmanagementplatform.service.LogService;
+import com.mycharge.trainingmanagementplatform.service.LogRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.mycharge.trainingmanagementplatform.model.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Service
-public class LogServiceImpl implements LogService {
+public class LogRegisterServiceImpl implements LogRegisterService {
 
     @Autowired
     private StudentMapper studentMapper;

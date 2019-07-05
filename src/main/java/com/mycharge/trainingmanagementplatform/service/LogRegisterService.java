@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.*;
 import javax.servlet.http.HttpServletResponse;
 
-public interface LogService {
+public interface LogRegisterService {
 
     public Result login(JSONObject jsonObject, HttpServletResponse response);
 

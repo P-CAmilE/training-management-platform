@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.ResourceMapper">
+
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="resource_id != null">resource_id = #{resource_id,jdbcType=INTEGER}</if>
+            <if test="resource_name != null">and resource_name = #{resource_name,jdbcType=VARCHAR}</if>
+            <if test="owner_id != null">and owner_id = #{owner_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <insert id="upload"  useGeneratedKeys="true" keyProperty="resource_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert resource_info (resource_name,resource_path,owner_id) values (#{resource_name},#{resource_path},#{owner_id})
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject">
+        select * from resource_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from resource_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>

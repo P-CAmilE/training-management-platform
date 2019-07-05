@@ -2,12 +2,11 @@ package com.mycharge.trainingmanagementplatform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.*;
-import com.mycharge.trainingmanagementplatform.service.LogService;
+import com.mycharge.trainingmanagementplatform.service.LogRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 @CrossOrigin
@@ -15,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LogController {
 
     @Autowired
-    private LogService logService;
+    private LogRegisterService logService;
 
     @PostMapping("/login")
     @ResponseBody

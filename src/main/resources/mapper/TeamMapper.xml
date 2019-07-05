@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.TeamMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="team_id != null">team_id = #{team_id,jdbcType=INTEGER}</if>
+            <if test="team_name != null">and team_name = #{team_name,jdbcType=VARCHAR}</if>
+            <if test="team_github != null">and team_github = #{team_github,jdbcType=VARCHAR}</if>
+            <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="team_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert team_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="team_name != null">team_name,</if>
+            <if test="team_github != null">team_github,</if>
+            <if test="pro_id != null">pro_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="team_name != null">#{team_name,jdbcType=VARCHAR},</if>
+            <if test="team_github != null">#{team_github,jdbcType=VARCHAR},</if>
+            <if test="pro_id != null">#{pro_id,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from team_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update team_info
+        <set>
+            <if test="new_team_name != null">team_name = #{new_team_name,jdbcType=VARCHAR},</if>
+            <if test="new_team_github != null">team_github = #{new_team_github,jdbcType=VARCHAR},</if>
+            <if test="new_pro_id != null">pro_id = #{new_pro_id,jdbcType=INTEGER},</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from team_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>
