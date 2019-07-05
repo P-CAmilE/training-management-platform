@@ -31,6 +31,7 @@ public class Msg_WS extends WebSocket{
             for (JSONObject oj : msg_list) {
                 if (oj.getString("to").equals(uid)) {
                     br.sendText(oj.toJSONString());
+                    msg_list.remove(oj);
                 }
             }
         }catch (IOException e) {
@@ -75,6 +76,8 @@ public class Msg_WS extends WebSocket{
             String from = object.getString("from");
             String msg = object.getString("msg");
 
+            log.info(object.toJSONString());
+
             //发送给to指定的用户，如果不在线则把消息存到消息队列
             Boolean is_online=false;
             for (WebSocket webSocketServer : online) {
@@ -86,9 +89,6 @@ public class Msg_WS extends WebSocket{
             if(!is_online){
                 msg_list.add(object);
             }
-
-
-
         } catch (JSONException | IOException e) {
         e.printStackTrace();
     }

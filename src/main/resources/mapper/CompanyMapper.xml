@@ -44,11 +44,11 @@
         update company_info
         <set>
             <if test="new_name != null and new_name != ''">com_name = #{new_name},</if>
-            <if test="new_account != null and new_account != ''">com_account = #{new_account}</if>
-            <if test="new_password != null and new_password != ''">com_password = #{new_password}</if>
-            <if test="new_email != null and new_email != ''">com_email = #{new_email}</if>
-            <if test="new_image_path != null and new_image_path != ''">com_image_path = #{new_image_path}</if>
-            <if test="new_description != null and new_description != ''">com_description = #{new_description}</if>
+            <if test="new_account != null and new_account != ''">com_account = #{new_account},</if>
+            <if test="new_password != null and new_password != ''">com_password = #{new_password},</if>
+            <if test="new_email != null and new_email != ''">com_email = #{new_email},</if>
+            <if test="new_image_path != null and new_image_path != ''">com_image_path = #{new_image_path},</if>
+            <if test="new_description != null and new_description != ''">com_description = #{new_description},</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

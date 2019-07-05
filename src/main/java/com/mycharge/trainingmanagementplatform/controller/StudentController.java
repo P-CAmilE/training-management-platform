@@ -16,6 +16,8 @@ public class StudentController {
     @Autowired
     StudentService service;
 
+    //todo:权限控制
+
     @RequestMapping("/insert")
     public Result insert(@RequestBody JSONObject object){
         return service.insert(object);

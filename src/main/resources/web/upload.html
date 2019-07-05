@@ -5,7 +5,7 @@ pageEncoding="UTF-8"%>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 function xxx(){
-$("#img").attr("src", "http://localhost:8080/download?filename=1.png");
+$("#img").attr("src", "http://localhost:8080/file/download?filename=1.png");
 }
 
 function a(){
@@ -16,7 +16,7 @@ function a(){
 
     $.ajax({
         type: "post",
-        url: "http://localhost:8080/upload",
+        url: "http://localhost:8080/file/upload",
         contentType: false,
         processData: false,
         data: formdata,//传过来

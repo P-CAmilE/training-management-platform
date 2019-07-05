@@ -1,17 +1,18 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
+
 import com.alibaba.fastjson.JSONObject;
-import com.mycharge.trainingmanagementplatform.mapper.ProjectMapper;
+import com.mycharge.trainingmanagementplatform.mapper.MessageMapper;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.service.ProjectService;
+import com.mycharge.trainingmanagementplatform.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProjectServicelmpl implements ProjectService {
+public class MessageServicelmpl implements MessageService {
 
     @Autowired
-    ProjectMapper mapper;
+    MessageMapper mapper;
 
     @Override
     public Result insert(JSONObject object) {
@@ -52,7 +53,6 @@ public class ProjectServicelmpl implements ProjectService {
     @Override
     public Result delete(JSONObject object) {
         try{
-            //todo:权限控制
             Result res = Result.getResult(1);
             res.put("data",mapper.delete(object));
             return res;
@@ -61,5 +61,4 @@ public class ProjectServicelmpl implements ProjectService {
             return Result.getResult(0);
         }
     }
-
 }

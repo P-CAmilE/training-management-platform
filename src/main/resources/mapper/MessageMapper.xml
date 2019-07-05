@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.MessageMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="msg_id != null">team_id = #{msg_id,jdbcType=INTEGER}</if>
+            <if test="msg_context != null">and msg_context = #{msg_context,jdbcType=VARCHAR}</if>
+            <if test="from_id != null">and from_id = #{from_id,jdbcType=INTEGER}</if>
+            <if test="to_id != null">and to_id = #{to_id,jdbcType=INTEGER}</if>
+            <if test="msg_title != null">and msg_title = #{msg_title,jdbcType=VARCHAR}</if>
+            <if test="msg_date != null">and msg_date = #{msg_date,jdbcType=TIME}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="msg_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert message_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="msg_context != null">msg_context,</if>
+            <if test="from_id != null">from_id,</if>
+            <if test="to_id != null">to_id,</if>
+            <if test="msg_title != null">msg_title,</if>
+            <if test="msg_date != null">msg_date,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="msg_context != null">#{msg_context,jdbcType=VARCHAR},</if>
+            <if test="from_id != null">#{from_id,jdbcType=INTEGER},</if>
+            <if test="to_id != null">#{to_id,jdbcType=INTEGER},</if>
+            <if test="msg_title != null">#{msg_title,jdbcType=VARCHAR},</if>
+            <if test="msg_date != null">#{msg_date,jdbcType=TIME},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from message_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update message_info
+        <set>
+            <if test="new_msg_context != null">msg_context = #{new_msg_context,jdbcType=VARCHAR},</if>
+            <if test="new_from_id != null">from_id = #{new_from_id,jdbcType=INTEGER},</if>
+            <if test="new_to_id != null">to_id = #{new_to_id,jdbcType=INTEGER},</if>
+            <if test="new_msg_title != null">msg_title = #{new_msg_title,jdbcType=VARCHAR},</if>
+            <if test="msg_date != null">msg_date = #{msg_date,jdbcType=TIME}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from message_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>

@@ -2,23 +2,20 @@ package com.mycharge.trainingmanagementplatform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.service.FileService;
+import com.mycharge.trainingmanagementplatform.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
 
-@CrossOrigin
 @RestController
-@RequestMapping("/file")
-public class FileController {
+@RequestMapping("/resource")
+public class ResoureController {
 
     @Autowired
-    FileService service;
+    ResourceService service;
 
     @RequestMapping(value="/upload",method= RequestMethod.POST)
     public Result upload(MultipartFile file, HttpServletRequest request,HttpServletResponse response){
@@ -32,10 +29,13 @@ public class FileController {
     }
 
     @RequestMapping(value = "/delete",method = RequestMethod.POST)
-    public Result delete(JSONObject object){
+    public Result delete(@RequestBody JSONObject object){
         return service.delete(object);
     }
 
-
+    @RequestMapping("/find")
+    public Result find(@RequestBody JSONObject object){
+        return service.find(object);
+    }
 }
 

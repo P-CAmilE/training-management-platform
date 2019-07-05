@@ -8,10 +8,9 @@
         <where>
             <if test="pro_id != null">pro_id = #{pro_id,jdbcType=INTEGER}</if>
             <if test="pro_name != null">and pro_name = #{pro_name,jdbcType=VARCHAR}</if>
-            <if test="pro_start_date != null">and pro_start_date = #{pro_start_date,jdbcType=TIME}</if>
-            <if test="pro_end_date != null">and pro_end_date = #{pro_end_date,jdbcType=TIME}</if>
-            <if test="from != null">and pro_start_date &gt;= #{from,jdbcType=TIME}</if>
-            <if test="to != null">and pro_end_date &lt;= #{to,jdbcType=TIME}</if>
+            <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
+            <if test="pro_description != null">and pro_description = #{pro_description,jdbcType=VARCHAR}</if>
+            <if test="pro_judge != null">and pro_judge &gt;= #{pro_judge,jdbcType=VARCHAR}</if>
         </where>
     </sql>
 
@@ -19,19 +18,15 @@
         insert project_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="pro_name != null">pro_name,</if>
-            <if test="pro_start_date != null">pro_start_date,</if>
-            <if test="pro_end_date != null">pro_end_date,</if>
+            <if test="plan_id != null">plan_id,</if>
             <if test="pro_description != null">pro_description,</if>
-            <if test="pro_process != null">pro_process,</if>
             <if test="pro_judge != null">pro_judge,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="pro_name != null">#{pro_name,jdbcType=INTEGER},</if>
-            <if test="pro_start_date != null">#{pro_start_date,jdbcType=TIME},</if>
-            <if test="pro_end_date != null">#{pro_end_date,jdbcType=TIME},</if>
-            <if test="pro_description != null">#{pro_description,jdbcType=INTEGER},</if>
-            <if test="pro_process != null">#{pro_process,jdbcType=INTEGER},</if>
-            <if test="pro_judge != null">#{pro_judge,jdbcType=INTEGER},</if>
+            <if test="pro_name != null">#{pro_name,jdbcType=VARCHAR},</if>
+            <if test="plan_id != null">#{plan_id,jdbcType=INTEGER},</if>
+            <if test="pro_description != null">#{pro_description,jdbcType=VARCHAR},</if>
+            <if test="pro_judge != null">#{pro_judge,jdbcType=VARCHAR},</if>
         </trim>
     </insert>
 
@@ -43,12 +38,10 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update project_info
         <set>
-            <if test="new_name != null">pro_name = #{new_name}</if>
-            <if test="new_start_date != null">pro_start_date = #{new_start_date}</if>
-            <if test="new_end_date != null">pro_end_date = #{new_end_date}</if>
-            <if test="new_description != null">pro_description = #{new_description}</if>
-            <if test="new_process != null">pro_process = #{new_process}</if>
-            <if test="new_judge != null">pro_judge = #{new_judge}</if>
+            <if test="new_pro_name != null">pro_name = #{new_pro_name,jdbcType=VARCHAR},</if>
+            <if test="new_plan_id != null">plan_id = #{new_plan_id,jdbcType=INTEGER},</if>
+            <if test="new_pro_description != null">pro_description = #{new_pro_description,jdbcType=VARCHAR},</if>
+            <if test="new_pro_judge != null">pro_judge = #{new_pro_judge,jdbcType=VARCHAR},</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

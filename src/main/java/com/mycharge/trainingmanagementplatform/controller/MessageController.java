@@ -2,16 +2,18 @@ package com.mycharge.trainingmanagementplatform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.service.LogService;
+import com.mycharge.trainingmanagementplatform.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Log")
-public class LogController {
+@RequestMapping("/message")
+public class MessageController {
 
     @Autowired
-    LogService service;
+    MessageService service;
 
     //todo:权限控制
 

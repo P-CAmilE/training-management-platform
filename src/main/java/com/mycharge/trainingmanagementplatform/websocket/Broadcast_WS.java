@@ -85,11 +85,13 @@ public class Broadcast_WS extends WebSocket{
 
             JSONObject object=JSON.parseObject(info);
             log.info(object.toJSONString());
-            List<JSONObject> list= ws.mapper.find(object);
+            List<JSONObject> list= ws.mapper.find(object);//学生列表
 
             String msg=object.getString("msg");
 
-            //广播给指定的用户，如果不在线则把消息存到消息队列
+            log.info(object.toJSONString());
+
+            //广播给指定的用户（所有学生），如果不在线则把消息存到消息队列
             for (JSONObject oj : list) {
                 String id = oj.getString("stu_account");
                 boolean is_online=false;
@@ -98,8 +100,10 @@ public class Broadcast_WS extends WebSocket{
                         webSocketServer.session.getBasicRemote().sendText(object.toJSONString());
                         is_online=true;
                     }
+                    //不在线
                     if(!is_online){
-                        msg_list.add(object);
+                        object.put("to",oj.getString("stu_account"));
+                        WebSocket.addMsg(object);
                     }
                 }
             }
@@ -120,4 +124,5 @@ public class Broadcast_WS extends WebSocket{
     public static synchronized void subOnlineCount() {
         Msg_WS.onlineCount--;
     }
+
 }

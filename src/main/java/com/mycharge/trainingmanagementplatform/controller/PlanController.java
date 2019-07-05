@@ -2,16 +2,18 @@ package com.mycharge.trainingmanagementplatform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.service.LogService;
+import com.mycharge.trainingmanagementplatform.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/Log")
-public class LogController {
+@RequestMapping("/plan")
+public class PlanController {
 
     @Autowired
-    LogService service;
+    PlanService service;
 
     //todo:权限控制
 
@@ -23,8 +25,8 @@ public class LogController {
     @RequestMapping("/find")
     public Result find(@RequestBody JSONObject object){
         return service.find(object);
-    }
 
+    }
     @RequestMapping("/update")
     public Result update(@RequestBody JSONObject object){
         return service.update(object);
@@ -34,4 +36,5 @@ public class LogController {
     public Result delete(@RequestBody JSONObject JSONObject){
         return service.delete(JSONObject);
     }
+
 }
