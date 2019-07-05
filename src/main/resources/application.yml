@@ -5,8 +5,7 @@ spring:
     password: WeCharge46
     driver-class-name: com.mysql.cj.jdbc.Driver
   resources:
-    static-locations:
-      classpath: /static/
+    static-locations: classpath:/static/
   thymeleaf:
     cache: false
     prefix:

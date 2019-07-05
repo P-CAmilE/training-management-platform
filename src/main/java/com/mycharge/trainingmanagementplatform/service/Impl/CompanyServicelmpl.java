@@ -1,9 +1,7 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.CompanyMapper;
-import com.mycharge.trainingmanagementplatform.model.MyObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;

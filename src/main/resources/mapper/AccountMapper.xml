@@ -20,7 +20,6 @@
             <if test="user_type != null">user_type,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="acc_id != null">#{acc_id,jdbcType=INTEGER},</if>
             <if test="account != null">#{account,jdbcType=VARCHAR},</if>
             <if test="password != null">#{password,jdbcType=VARCHAR},</if>
             <if test="user_type != null">#{user_type,jdbcType=VARCHAR},</if>

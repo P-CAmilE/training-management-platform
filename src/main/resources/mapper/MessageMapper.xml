@@ -45,7 +45,7 @@
             <if test="new_from_id != null">from_id = #{new_from_id,jdbcType=INTEGER},</if>
             <if test="new_to_id != null">to_id = #{new_to_id,jdbcType=INTEGER},</if>
             <if test="new_msg_title != null">msg_title = #{new_msg_title,jdbcType=VARCHAR},</if>
-            <if test="msg_date != null">msg_date = #{msg_date,jdbcType=TIME}</if>
+            <if test="new_msg_date != null">msg_date = #{new_msg_date,jdbcType=TIME}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

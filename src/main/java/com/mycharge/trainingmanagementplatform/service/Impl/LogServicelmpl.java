@@ -1,24 +1,24 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
+
 import com.alibaba.fastjson.JSONObject;
-import com.mycharge.trainingmanagementplatform.mapper.SchoolMapper;
+import com.mycharge.trainingmanagementplatform.mapper.LogMapper;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.service.SchoolSerivice;
+import com.mycharge.trainingmanagementplatform.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SchoolServiceImpl implements SchoolSerivice {
+public class LogServicelmpl implements LogService {
 
     @Autowired
-    private SchoolMapper schoolMapper;
-
+    LogMapper mapper;
 
     @Override
-    public Result insert(JSONObject jsonObject) {
+    public Result insert(JSONObject object) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",schoolMapper.insert(jsonObject));
+            res.put("data",mapper.insert(object));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -27,10 +27,10 @@ public class SchoolServiceImpl implements SchoolSerivice {
     }
 
     @Override
-    public Result find(JSONObject jsonObject) {
+    public Result find(JSONObject object) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",schoolMapper.find(jsonObject));
+            res.put("data",mapper.find(object));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -39,10 +39,10 @@ public class SchoolServiceImpl implements SchoolSerivice {
     }
 
     @Override
-    public Result update(JSONObject jsonObject) {
+    public Result update(JSONObject object) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",schoolMapper.update(jsonObject));
+            res.put("data",mapper.update(object));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -51,10 +51,10 @@ public class SchoolServiceImpl implements SchoolSerivice {
     }
 
     @Override
-    public Result delete(JSONObject jsonObject) {
+    public Result delete(JSONObject object) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",schoolMapper.delete(jsonObject));
+            res.put("data",mapper.delete(object));
             return res;
         }catch (Exception e){
             e.printStackTrace();

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.LogMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="user_id != null">user_id = #{user_id,jdbcType=INTEGER}</if>
+            <if test="log_context != null">and log_context = #{log_context,jdbcType=VARCHAR}</if>
+            <if test="log_date != null">and log_date = #{log_date,jdbcType=TIME}</if>
+        </where>
+    </sql>
+
+    <insert id="insert" parameterType="com.alibaba.fastjson.JSONObject">
+        insert log_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null">user_id,</if>
+            <if test="log_context != null">log_context,</if>
+            <if test="log_date != null">log_date,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="user_id != null">#{user_id,jdbcType=INTEGER},</if>
+            <if test="log_context != null">#{log_context,jdbcType=VARCHAR},</if>
+            <if test="log_date != null">#{log_date,jdbcType=TIME},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from log_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update log_info
+        <set>
+            <if test="new_user_id != null">user_id = #{new_user_id,jdbcType=INTEGER},</if>
+            <if test="new_log_context != null">log_context = #{new_log_context,jdbcType=VARCHAR},</if>
+            <if test="new_log_date != null">log_date = #{new_log_date,jdbcType=TIME},</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from log_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>
