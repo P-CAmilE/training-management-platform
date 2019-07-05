@@ -18,23 +18,23 @@ public class CompanyController {
     //todo:权限控制
 
     @RequestMapping("/insert")
-    public Result insert(@RequestBody JSONObject object){
-        return service.insert(object);
+    public Result insert(@RequestBody JSONObject myObject){
+        return service.insert(myObject);
     }
 
     @RequestMapping("/find")
-    public Result find(@RequestBody JSONObject object){
-        return service.find(object);
+    public Result find(@RequestBody JSONObject myObject){
+        return service.find(myObject);
 
     }
     @RequestMapping("/update")
-    public Result update(@RequestBody JSONObject object){
-        return service.update(object);
+    public Result update(@RequestBody JSONObject myObject){
+        return service.update(myObject);
     }
 
     @RequestMapping("/delete")
-    public Result delete(@RequestBody JSONObject JSONObject){
-        return service.delete(JSONObject);
+    public Result delete(@RequestBody JSONObject myObject){
+        return service.delete(myObject);
     }
 
 }

@@ -1,9 +1,4 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-public interface StudentMapper extends Mapper{
-
-
-
-
-
+public interface AccountMapper extends Mapper {
 }

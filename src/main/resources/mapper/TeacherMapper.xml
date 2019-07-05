@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.TeacherMapper">
+
+    <sql id="simple_trim">
+        <where>
+            <if test="tea_name != null">tea_name = #{tea_name,jdbcType=VARCHAR}</if>
+            <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
+            <if test="com_id != null">and com_id = #{com_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="tea_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert teacher_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="tea_id != null">tea_id,</if>
+            <if test="tea_name != null">tea_name,</if>
+            <if test="sch_id != null">sch_id,</if>
+            <if test="com_id != null">com_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="tea_id != null">#{tea_id,jdbcType=INTEGER},</if>
+            <if test="tea_name != null">#{tea_name,jdbcType=VARCHAR},</if>
+            <if test="sch_id != null">#{sch_id,jdbcType=INTEGER},</if>
+            <if test="com_id != null">#{com_id,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from teacher_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update teacher_info
+        <set>
+            <if test="new_tea_name != null and new_tea_name != ''">tea_name = #{new_tea_name},</if>
+            <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id},</if>
+            <if test="new_com_id != null and new_com_id != ''">com_id = #{new_com_id},</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from teacher_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>
+
+
+

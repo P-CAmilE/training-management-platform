@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 public class CompanyServicelmpl implements CompanyService  {
 
     @Autowired
-    CompanyMapper mapper;
+    private CompanyMapper mapper;
 
     @Override
-    public Result insert(JSONObject object) {
+    public Result insert(JSONObject jsonObject) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",mapper.insert(object));
+            res.put("data",mapper.insert(jsonObject));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -26,10 +26,10 @@ public class CompanyServicelmpl implements CompanyService  {
     }
 
     @Override
-    public Result find(JSONObject object) {
+    public Result find(JSONObject jsonObject) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",mapper.find(object));
+            res.put("data",mapper.find(jsonObject));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -38,10 +38,10 @@ public class CompanyServicelmpl implements CompanyService  {
     }
 
     @Override
-    public Result update(JSONObject object) {
+    public Result update(JSONObject jsonObject) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",mapper.update(object));
+            res.put("data",mapper.update(jsonObject));
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -50,10 +50,10 @@ public class CompanyServicelmpl implements CompanyService  {
     }
 
     @Override
-    public Result delete(JSONObject object) {
+    public Result delete(JSONObject jsonObject) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",mapper.delete(object));
+            res.put("data",mapper.delete(jsonObject));
             return res;
         }catch (Exception e){
             e.printStackTrace();

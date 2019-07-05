@@ -1,4 +1,6 @@
 package com.mycharge.trainingmanagementplatform.service;
 
-public interface TeamService extends proService{
+import com.mycharge.trainingmanagementplatform.service.proService;
+
+public interface TeamService extends proService {
 }

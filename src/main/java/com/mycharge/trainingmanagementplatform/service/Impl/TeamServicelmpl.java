@@ -1,7 +1,6 @@
 package com.mycharge.trainingmanagementplatform.service.Impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mycharge.trainingmanagementplatform.mapper.CompanyMapper;
 import com.mycharge.trainingmanagementplatform.mapper.TeamMapper;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.TeamService;

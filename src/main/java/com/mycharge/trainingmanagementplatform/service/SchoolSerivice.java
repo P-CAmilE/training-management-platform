@@ -1,5 +1,4 @@
 package com.mycharge.trainingmanagementplatform.service;
 
-public interface StudentService extends proService {
-
+public interface SchoolSerivice extends proService{
 }
