@@ -12,6 +12,7 @@ import com.mycharge.trainingmanagementplatform.model.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class LogServiceImpl implements LogService {
     @Autowired
     private TeacherMapper teacherMapper;
     @Autowired
-    private CompanyMapper companyMapper;
+    private AdministratorMapper administratorMapper;
     @Autowired
     private AccountMapper accountMapper;
 
@@ -34,9 +35,25 @@ public class LogServiceImpl implements LogService {
             List<JSONObject> userList = accountMapper.find(jsonObject);
             if(!userList.isEmpty()){
                 res = Result.getResult(1);
-                Cookie accountCookie = new Cookie("acc_id",userList.get(0).getInteger("acc_id")+"");
-//                accountCookie.setPath("/usercookie");
+                Cookie idCookie = new Cookie("acc_id",userList.get(0).getInteger("acc_id")+"");
+                Cookie accountCookie = null;
+                if(userList.get(0).getString("user_type").equals("student")){
+                   accountCookie = new Cookie("account",userList.get(0).getString("account"));
+                   idCookie.setPath("/");
+                    accountCookie.setPath("/");
+                }
+                else if (userList.get(0).getString("user_type").equals("admin")){
+                    accountCookie = new Cookie("account",userList.get(0).getString("account"));
+                    idCookie.setPath("/");
+                    accountCookie.setPath("/");
+                }
+                else if(userList.get(0).getString("user_type").equals("teacher")){
+                    accountCookie = new Cookie("account",userList.get(0).getString("account"));
+                    accountCookie.setPath("/");
+                    idCookie.setPath("/");
+                }
                 response.addCookie(accountCookie);
+                response.addCookie(idCookie);
                 res.put("msg","登陆成功");
             }
             else {
@@ -53,50 +70,62 @@ public class LogServiceImpl implements LogService {
     //注册
     @Override
     public Result register(JSONObject jsonObject, HttpServletResponse response) {
+        Result res;
         try {
-            Result res;
-            JSONObject account = new JSONObject();
-            account.put("account",jsonObject.getString("account"));
-            List<JSONObject> userList = accountMapper.find(account);
-            if(userList.isEmpty()){
-                res = Result.getResult(1);
-                insertUser(jsonObject);
-                res.put("msg","注册成功");
-                res.put("usertype",jsonObject.getString("user_type"));
-            } else {
-                res = Result.getResult(0);
-                res.put("msg","账号已存在，请重新输入");
+            int i = insertUser(jsonObject);
+            Cookie idCookie = new Cookie("acc_id",i + "");
+            Cookie accountCookie = null;
+            if(jsonObject.getString("user_type").equals("student")){
+                accountCookie = new Cookie("account",jsonObject.getString("account"));
+                idCookie.setPath("/");
+                accountCookie.setPath("/");
             }
+            else if (jsonObject.getString("user_type").equals("admin")){
+                accountCookie = new Cookie("account",jsonObject.getString("account"));
+                idCookie.setPath("/");
+                accountCookie.setPath("/js/");
+            }
+            else if(jsonObject.getString("user_type").equals("teacher")){
+                accountCookie = new Cookie("account",jsonObject.getString("account"));
+                accountCookie.setPath("/js/");
+                idCookie.setPath("/");
+            }
+            response.addCookie(accountCookie);
+            response.addCookie(idCookie);
+            res = Result.getResult(1);
+            res.put("msg","注册成功");
             return res;
-        } catch (Exception e) {
+        } catch (SQLIntegrityConstraintViolationException e) {
+            e.printStackTrace();
+            res = Result.getResult(0);
+            res.put("msg","账号已存在，请重新输入");
+            return res;
+        }catch (Exception e) {
             e.printStackTrace();
             return Result.getResult(0);
         }
     }
 
-
-    void insertUser(JSONObject jsonObject) throws SQLException {
+    ///插入账号，返回账号id
+    int insertUser(JSONObject jsonObject) throws SQLIntegrityConstraintViolationException{
         accountMapper.insert(jsonObject);
+        int i = accountMapper.find(jsonObject).get(0).getInteger("acc_id");
         JSONObject user = new JSONObject();
         if(jsonObject.getString("user_type").equals("student")){
-
-            user.put("stu_account",jsonObject.getString("account"));
-            user.put("stu_email", jsonObject.getString("user_email"));
+            jsonObject.put("stu_id",i);
             studentMapper.insert(user);
         }
 
-        else if(jsonObject.getString("user_type").equals("company")){
-            user.put("com_account",jsonObject.getString("account"));
-            user.put("com_email", jsonObject.getString("user_email"));
-            companyMapper.insert(user);
+        else if(jsonObject.getString("user_type").equals("admin")){
+            jsonObject.put("admin_id",i);
+            administratorMapper.insert(user);
         }
 
         else if(jsonObject.getString("user_type").equals("teacher")){
-            user.put("tea_account",jsonObject.getString("account"));
-            user.put("tea_email", jsonObject.getString("user_email"));
+            jsonObject.put("tea_id",i);
             teacherMapper.insert(user);
         }
-
+        return i;
     }
 
 }

@@ -8,16 +8,7 @@
         <where>
             <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
             <if test="stu_name != null">and stu_name = #{stu_name,jdbcType=VARCHAR}</if>
-            <if test="stu_account != null">and stu_account = #{stu_account,jdbcType=VARCHAR}</if>
-            <if test="stu_email != null">and stu_email = #{stu_email,jdbcType=VARCHAR}</if>
-            <if test="stu_image_path != null">and stu_image_path = #{stu_image_path,jdbcType=VARCHAR}</if>
-        </where>
-    </sql>
-
-    <sql id="simple_trim1">
-        <where>
-            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
-            <if test="pro_name != null">pro_name = #{pro_name,jdbcType=VARCHER}</if>
+            <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
 
         </where>
     </sql>
@@ -25,17 +16,14 @@
     <insert id="insert"  useGeneratedKeys="true" keyProperty="stu_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert student_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">stu_id,</if>
             <if test="stu_name != null">stu_name,</if>
-            <if test="stu_account != null">stu_account,</if>
-            <if test="stu_email != null">stu_email,</if>
-            <if test="stu_image_path != null">stu_image_path,</if>
+            <if test="sch_id != null">sch_id,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="stu_id != null">#{stu_id,jdbcType=INTEGER},</if>
             <if test="stu_name != null">#{stu_name,jdbcType=VARCHAR},</if>
-            <if test="stu_account != null">#{stu_account,jdbcType=VARCHAR},</if>
-            <if test="stu_email != null">#{stu_email,jdbcType=VARCHAR},</if>
-            <if test="stu_image_path != null">#{stu_image_path,jdbcType=VARCHAR},</if>
+            <if test="sch_id != null">#{sch_id,jdbcType=INTEGER},</if>
         </trim>
     </insert>
 
@@ -47,10 +35,8 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update student_info
         <set>
-            <if test="new_name != null and new_name != ''">stu_name = #{new_name},</if>
-            <if test="new_account != null and new_account != ''">stu_account = #{new_account}</if>
-            <if test="new_email != null and new_email != ''">stu_email = #{new_email}</if>
-            <if test="new_image_path != null and new_image_path != ''">stu_image_path = #{new_image_path}</if>
+            <if test="new_stu_name != null and new_stu_name != ''">stu_name = #{new_stu_name},</if>
+            <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>
@@ -59,18 +45,5 @@
         delete from student_info
         <include refid="simple_trim"></include>
     </delete>
-
-
-    <select id="findProject" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select pro_id, pro_name,pro_start_date,pro_end_date,pro_description,pro_process,pro_judge,com_id,team_id from team_student natural join team_info national project_info
-        <include refid="simple_trim1"></include>
-    </select>
-
-    <delete id="exitProject" parameterType="com.alibaba.fastjson.JSONObject">
-        delete from team_info
-        <include refid="simple_trim1"></include>
-    </delete>
-
-
 
 </mapper>

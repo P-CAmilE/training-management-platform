@@ -8,26 +8,18 @@
         <where>
             <if test="com_id != null">com_id = #{com_id,jdbcType=INTEGER}</if>
             <if test="com_name != null">and com_name = #{com_name,jdbcType=VARCHAR}</if>
-            <if test="com_account != null">and com_account = #{com_account,jdbcType=VARCHAR}</if>
-            <if test="com_email != null">and com_email = #{com_email,jdbcType=VARCHAR}</if>
-            <if test="com_image_path != null">and com_image_path = #{com_image_path,jdbcType=VARCHAR}</if>
         </where>
     </sql>
 
     <insert id="insert"  useGeneratedKeys="true" keyProperty="com_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert company_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="com_id != null">com_id,</if>
             <if test="com_name != null">com_name,</if>
-            <if test="com_account != null">com_account,</if>
-            <if test="com_email != null">com_email,</if>
-            <if test="com_image_path != null">com_image_path,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="com_id != null">#{com_id,jdbcType=INTEGER},</if>
             <if test="com_name != null">#{com_name,jdbcType=VARCHAR},</if>
-            <if test="com_account != null">#{com_account,jdbcType=VARCHAR},</if>
-            <if test="com_email != null">#{com_email,jdbcType=VARCHAR},</if>
-            <if test="com_image_path != null">#{com_image_path,jdbcType=VARCHAR},</if>
         </trim>
     </insert>
 
@@ -39,10 +31,7 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update company_info
         <set>
-            <if test="new_name != null and new_name != ''">com_name = #{new_name},</if>
-            <if test="new_account != null and new_account != ''">com_account = #{new_account}</if>
-            <if test="new_email != null and new_email != ''">com_email = #{new_email}</if>
-            <if test="new_image_path != null and new_image_path != ''">com_image_path = #{new_image_path}</if>
+            <if test="new_com_name != null and new_com_name != ''">com_name = #{new_com_name}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

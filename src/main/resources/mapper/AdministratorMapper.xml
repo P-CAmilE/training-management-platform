@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.AdministratorMapper">
+
+    <sql id="simple_trim">
+        <where>
+            <if test="admin_email != null">admin_email = #{admin_email,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="admin_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert administrator_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="admin_id != null">admin_id,</if>
+            <if test="admin_email != null">admin_email,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="admin_id != null">#{acc_id,jdbcType=INTEGER},</if>
+            <if test="admin_email != null">#{account,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from administrator_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update administrator_info
+        <set>
+            <if test="new_admin_email != null and new_admin_email != ''">password = #{new_admin_email}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from administrator_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>
+
+
+

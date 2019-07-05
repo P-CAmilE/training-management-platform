@@ -2,18 +2,18 @@ package com.mycharge.trainingmanagementplatform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.service.CompanyService;
+import com.mycharge.trainingmanagementplatform.service.SchoolSerivice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/company")
-public class CompanyController {
+@RequestMapping("/school")
+public class SchoolController {
 
     @Autowired
-    CompanyService service;
+    SchoolSerivice service;
 
     @RequestMapping("/insert")
     public Result insert(@RequestBody JSONObject myObject){
@@ -34,5 +34,4 @@ public class CompanyController {
     public Result delete(@RequestBody JSONObject myObject){
         return service.delete(myObject);
     }
-
 }

@@ -35,8 +35,8 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update account_info
         <set>
-            <if test="account != null and new_account != ''">account = #{account}</if>
-            <if test="password != null and new_password != ''">password = #{password}</if>
+            <if test="account != null and new_account != ''">account = #{new_account},</if>
+            <if test="password != null and new_password != ''">password = #{new_password}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>
@@ -45,7 +45,6 @@
         delete from account_info
         <include refid="simple_trim"></include>
     </delete>
-
 </mapper>
 
 

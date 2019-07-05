@@ -1,8 +1,7 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-import com.alibaba.fastjson.JSONObject;
-
-import java.util.List;
+        import com.alibaba.fastjson.JSONObject;
+        import java.util.List;
 
 public interface Mapper {
     public int insert(JSONObject jsonObject);
