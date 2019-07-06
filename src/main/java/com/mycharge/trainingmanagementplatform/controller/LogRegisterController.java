@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @CrossOrigin
 @Controller
-public class LogController {
+public class LogRegisterController {
 
     @Autowired
     private LogRegisterService logService;
@@ -25,8 +25,8 @@ public class LogController {
 
     @PostMapping(value = "/register")
     @ResponseBody
-    public Result userRegister(@RequestBody JSONObject jsonObject, HttpServletResponse response){
-        Result registerResult = logService.register(jsonObject, response);
+    public Result userRegister(@RequestBody JSONObject jsonObject){
+        Result registerResult = logService.register(jsonObject);
         return registerResult;
     }
 }

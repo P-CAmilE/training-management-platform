@@ -1,39 +1,48 @@
 package com.mycharge.trainingmanagementplatform.controller;
 
+
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.service.MessageService;
+import com.mycharge.trainingmanagementplatform.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/message")
-public class MessageController {
+@RequestMapping("/team")
+public class TeamController {
 
     @Autowired
-    MessageService service;
+    private TeamService teamService;
 
-    //todo:权限控制
 
     @RequestMapping("/insert")
     public Result insert(@RequestBody JSONObject object){
-        return service.insert(object);
+        return teamService.insert(object);
     }
-
     @RequestMapping("/find")
     public Result find(@RequestBody JSONObject object){
-        return service.find(object);
+        return teamService.find(object);
     }
 
     @RequestMapping("/update")
     public Result update(@RequestBody JSONObject object){
-        return service.update(object);
+        return teamService.update(object);
     }
 
     @RequestMapping("/delete")
     public Result delete(@RequestBody JSONObject object){
-        return service.delete(object);
+        return teamService.delete(object);
+    }
+
+    @RequestMapping("/findPlanProject")
+    public Result findPlanProject(){
+        return teamService.findPlanProject();
+    }
+
+    @RequestMapping("/findStudent")
+    public Result findStudent(@RequestBody JSONObject object){
+        return teamService.findStudent(object);
     }
 }

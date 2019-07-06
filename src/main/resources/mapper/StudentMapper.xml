@@ -6,10 +6,20 @@
     <!--简单的查询条件-->
     <sql id="simple_trim">
         <where>
+            <if test="plan_id != null">plan_id = #{plan_id,jdbcType=INTEGER}</if>
+            <if test="pro_id != null">pro_id = #{pro_id,jdbcType=INTEGER}</if>
             <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
             <if test="stu_name != null">and stu_name = #{stu_name,jdbcType=VARCHAR}</if>
             <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
 
+    <sql id="simple_trim1">
+        <where>
+            <if test="true">stu_id = acc_id</if>
+            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
+            <if test="stu_name != null">and stu_name = #{stu_name,jdbcType=VARCHAR}</if>
+            <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
         </where>
     </sql>
 
@@ -19,24 +29,33 @@
             <if test="stu_id != null">stu_id,</if>
             <if test="stu_name != null">stu_name,</if>
             <if test="sch_id != null">sch_id,</if>
+            <if test="github_account != null">github_account,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="stu_id != null">#{stu_id,jdbcType=INTEGER},</if>
             <if test="stu_name != null">#{stu_name,jdbcType=VARCHAR},</if>
             <if test="sch_id != null">#{sch_id,jdbcType=INTEGER},</if>
+            <if test="github_account != null">#{github_account,jdbcType=VARCHAR},</if>
         </trim>
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from student_info
+        select * from student_info national join school_info, account_info
+        <include refid="simple_trim1"></include>
+    </select>
+
+    <select id="findBySchool" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_id,stu_name from student_info national join plan_info national join project_info
         <include refid="simple_trim"></include>
     </select>
+
 
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update student_info
         <set>
             <if test="new_stu_name != null and new_stu_name != ''">stu_name = #{new_stu_name},</if>
-            <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id}</if>
+            <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id},</if>
+            <if test="new_github_account != null">github_account = #{new_github_account}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

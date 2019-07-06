@@ -28,7 +28,7 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from team_info
+        select * from team_info national join
         <include refid="simple_trim"></include>
     </select>
 
@@ -41,8 +41,29 @@
         </set>
         <include refid="simple_trim"></include>
     </update>
+
     <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
         delete from team_info
         <include refid="simple_trim"></include>
     </delete>
+
+    <insert id="insertTeamStudent"  useGeneratedKeys="true" keyProperty="plan_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert team_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">stu_id,</if>
+            <if test="team_id != null">team_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">#{stu_id,jdbcType=INTEGER},</if>
+            <if test="team_id != null">#{team_id,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+
+    <delete id="deleteTeamStudent" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from team_student
+        <include refid="simple_trim"></include>
+    </delete>
+
+
+
 </mapper>

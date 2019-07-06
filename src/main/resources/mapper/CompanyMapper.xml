@@ -26,6 +26,10 @@
      <include refid="simple_trim"></include>
     </select>
 
+    <select id="findAll" resultType="com.alibaba.fastjson.JSONObject">
+        select * from company_info
+    </select>
+
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update company_info
         <set>

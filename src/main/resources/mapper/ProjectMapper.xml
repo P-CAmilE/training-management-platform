@@ -7,10 +7,10 @@
     <sql id="simple_trim">
         <where>
             <if test="pro_id != null">pro_id = #{pro_id,jdbcType=INTEGER}</if>
-            <if test="pro_name != null">and pro_name = #{pro_name,jdbcType=VARCHAR}</if>
-            <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
-            <if test="pro_description != null">and pro_description = #{pro_description,jdbcType=VARCHAR}</if>
-            <if test="pro_judge != null">and pro_judge &gt;= #{pro_judge,jdbcType=VARCHAR}</if>
+<!--            <if test="pro_name != null">and pro_name = #{pro_name,jdbcType=VARCHAR}</if>-->
+<!--            <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>-->
+<!--            <if test="pro_description != null">and pro_description = #{pro_description,jdbcType=VARCHAR}</if>-->
+<!--            <if test="pro_judge != null">and pro_judge &gt;= #{pro_judge,jdbcType=VARCHAR}</if>-->
         </where>
     </sql>
 
@@ -31,7 +31,7 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from project_info
+        select * from project_info national join plan_info national join national join school_info national join company_info national join project_teacher national join teacher_info
         <include refid="simple_trim"></include>
     </select>
 
@@ -50,4 +50,27 @@
         delete from project_info
         <include refid="simple_trim"></include>
     </delete>
+
+    <insert id="insertProjectTeacher"  useGeneratedKeys="true" keyProperty="plan_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert project_teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pro_id != null">pro_id,</if>
+            <if test="tea_id != null">tea_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pro_id != null">#{pro_id,jdbcType=INTEGER},</if>
+            <if test="tea_id != null">#{tea_id,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+
+    <delete id="deleteProjectTeacher" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from project_teacher
+        <include refid="simple_trim"></include>
+    </delete>
+
+
+    <select id="findName" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select plan_id,plan_name,pro_id,pro_name from project_info national join plan_info
+    </select>
+
 </mapper>
