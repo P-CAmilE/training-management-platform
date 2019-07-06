@@ -13,7 +13,7 @@
         </where>
     </sql>
 
-    <insert id="insert"  useGeneratedKeys="true" keyProperty="stu_id" parameterType="com.alibaba.fastjson.JSONObject">
+    <insert id="insert"  parameterType="com.alibaba.fastjson.JSONObject">
         insert student_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="stu_id != null">stu_id,</if>

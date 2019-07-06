@@ -6,7 +6,7 @@
     <!--简单的查询条件-->
     <sql id="simple_trim">
         <where>
-            <if test="msg_id != null">team_id = #{msg_id,jdbcType=INTEGER}</if>
+            <if test="msg_id != null">msg_id = #{msg_id,jdbcType=INTEGER}</if>
             <if test="msg_context != null">and msg_context = #{msg_context,jdbcType=VARCHAR}</if>
             <if test="from_id != null">and from_id = #{from_id,jdbcType=INTEGER}</if>
             <if test="to_id != null">and to_id = #{to_id,jdbcType=INTEGER}</if>

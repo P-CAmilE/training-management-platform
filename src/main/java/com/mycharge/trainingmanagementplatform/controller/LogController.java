@@ -1,32 +1,40 @@
 package com.mycharge.trainingmanagementplatform.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mycharge.trainingmanagementplatform.model.*;
-import com.mycharge.trainingmanagementplatform.service.LogRegisterService;
+import com.mycharge.trainingmanagementplatform.model.Result;
+import com.mycharge.trainingmanagementplatform.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
-
-@CrossOrigin
-@Controller
+@RestController
+@RequestMapping("/log")
 public class LogController {
 
     @Autowired
-    private LogRegisterService logService;
+    LogService service;
 
-    @PostMapping("/login")
-    @ResponseBody
-    public Result logIn(@RequestBody JSONObject jsonObject, HttpServletResponse response){
-        Result loginResult = logService.login(jsonObject, response);
-        return loginResult;
+    //todo:权限控制
+
+    @RequestMapping("/insert")
+    public Result insert(@RequestBody JSONObject object){
+        return service.insert(object);
     }
 
-    @PostMapping(value = "/register")
-    @ResponseBody
-    public Result userRegister(@RequestBody JSONObject jsonObject, HttpServletResponse response){
-        Result registerResult = logService.register(jsonObject, response);
-        return registerResult;
+    @RequestMapping("/find")
+    public Result find(@RequestBody JSONObject object){
+        return service.find(object);
+
     }
+    @RequestMapping("/update")
+    public Result update(@RequestBody JSONObject object){
+        return service.update(object);
+    }
+
+    @RequestMapping("/delete")
+    public Result delete(@RequestBody JSONObject JSONObject){
+        return service.delete(JSONObject);
+    }
+
 }

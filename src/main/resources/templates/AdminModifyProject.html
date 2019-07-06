@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<head>
+    <title>实训平台-管理员-修改项目信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="css/style1.css" rel='stylesheet' type='text/css' />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- popup box -->
+    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font-awesome icons -->
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <script src="js/amcharts.js"></script>
+    <script src="js/serial.js"></script>
+    <script src="js/light.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/pie-chart.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#demo-pie-1').pieChart({
+                barColor: '#3bb2d0',
+                trackColor: '#eee',
+                lineCap: 'round',
+                lineWidth: 8,
+                onStep: function (from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+
+            $('#demo-pie-2').pieChart({
+                barColor: '#fbb03b',
+                trackColor: '#eee',
+                lineCap: 'butt',
+                lineWidth: 8,
+                onStep: function (from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+
+            $('#demo-pie-3').pieChart({
+                barColor: '#ed6498',
+                trackColor: '#eee',
+                lineCap: 'square',
+                lineWidth: 8,
+                onStep: function (from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="page-container">
+    <div class="left-content">
+        <div class="inner-content">
+            <div class="header-section navbar" >
+                <div class="header_top">
+                    <div class="top_left">
+                        <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
+                    </div>
+                    <div class="top_left">
+                        <h2><span></span> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="content1">
+                <div class="fo-top-dj">
+                    <h3 class="sub-tittle">修改项目:</h3><br>
+                    <div class="content tab">
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">项目名:</label>
+                                    <div class="col-sm-8 ">
+                                        <input type="text" class="form-control1" value="***" style="height: 35px;width:200px">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">计划名:</label>
+                                    <div class="col-sm-8 ">
+                                        <select style="width: 200px;height: 35px">
+                                            <option value="volvo">2019年暑期**</option>
+                                            <option value="saab">2019年寒假**</option>
+                                            <option value="opel">2018年**</option>
+                                        </select>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">项目内容:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px"></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">验收标准:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px"></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">负责老师:</label>
+                                    <div class="col-sm-8 ">
+                                        <a class="studentinput" style="width: 105px"><span style="color: white;text-align: center;" data-toggle="modal" aria-pressed="false" data-target="#exampleModal2">点击选择</span></a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input class="form-control1" style="height: 35px;width:200px;border: none" value="已选择：刘兆生" readonly>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel4">选择老师</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <table border="none" style=" width: 400px;text-align: center;margin-left: 25px">
+                                                    <tr style="border: none;background-color: grey">
+                                                        <th style="width: 100px">选择</th>
+                                                        <th style="width: 100px">教师名</th>
+                                                        <th style="width: 100px">账号</th>
+                                                        <th style="width: 100px">单位</th>
+                                                    </tr>
+                                                    <tr style="border: none">
+                                                        <td><input name="Teacher" type="checkbox" value="刘兆生" /></td>
+                                                        <td><label>刘兆生</label></td>
+                                                        <td><label>12345654321</label></td>
+                                                        <td><label>东方瑞通</label></td>
+                                                    </tr>
+                                                    <tr style="border: none">
+                                                        <td><input name="Teacher" type="checkbox" value="chris" /></td>
+                                                        <td><label>chris</label></td>
+                                                        <td><label>2323245646</label></td>
+                                                        <td><label>凡诺</label></td>
+                                                    </tr>
+                                                </table>
+                                                <br><br>
+                                                <input id="choose" type="submit" class="studentinput" style="width: 100px;margin-left: 100px" value="选择">
+                                                <a class="studentinput" style="width: 100px;margin-left: 50px"><span style="color: white;padding-left: 15px" data-dismiss="modal" aria-label="Close">取消</span></a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div>
+                                <input type="submit" class="studentinput" style="width: 100px;margin-left: 150px" value="确认" onclick="myFunction()">
+                                <a href="javascript:history.go(-1)" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">返回</span></a>
+                            </div>
+                            <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="fo-top-di">
+                    <div class="foot-top">
+                        <div class="col-md-6 s-c">
+                            <li>
+                                <div class="fooll">
+                                    <h1>follow us on</h1>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="social-ic">
+                                    <ul>
+                                        <li><a href="#"><i class="facebok"> </i></a></li>
+                                        <li><a href="#"><i class="twiter"> </i></a></li>
+                                        <li><a href="#"><i class="goog"> </i></a></li>
+                                        <li><a href="#"><i class="be"> </i></a></li>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                </div>
+                            </li>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="footer">
+                        <div class="col-md-3 cust">
+                            <h4>CUSTOMER CARE</h4>
+                            <li><a href="MyCode.html">Help Center</a></li>
+                            <li><a href="MySummary.html">FAQ</a></li>
+                            <li><a href="MyReport.html">How To Buy</a></li>
+                            <li><a href="StuLog.html">Delivery</a></li>
+                        </div>
+                        <div class="col-md-2 abt">
+                            <h4>ABOUT US</h4>
+                            <li><a href="products.html">Our Stories</a></li>
+                            <li><a href="products.html">Press</a></li>
+                            <li><a href="MySummary.html">Career</a></li>
+                            <li><a href="MyCode.html">Contact</a></li>
+                        </div>
+                        <div class="col-md-2 myac">
+                            <h4>MY ACCOUNT</h4>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="StuLog.html">My Cart</a></li>
+                            <li><a href="StuLog.html">Order History</a></li>
+                            <li><a href="MyReport.html">Payment</a></li>
+                        </div>
+                        <div class="col-md-5 our-st">
+                            <div class="our-left">
+                                <h4>OUR STORES</h4>
+                            </div>
+                            <li><i class="add"> </i>Mark peter</li>
+                            <li><i class="phone"> </i>012-586987</li>
+                            <li><a href="mailto:info@example.com"><i class="mail"> </i>info@sitename.com </a></li>
+                        </div>
+                        <div class="clearfix"> </div>
+                        <p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+        <header class="logo1">
+            <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+        </header>
+        <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+        <div class="menu">
+            <ul id="menu">
+                <li><a href="AdminHomepage.html"><span>我的主页</span></a> </li>
+                <li><a href="AdminCheckTeacher.html"><span>教师</span></a></li>
+                <li><a href="AdminCheckStudent.html"><span>学生</span></a></li>
+                <li><a href="AdminCheckPlan.html"><span>计划</span></a></li>
+                <li><a href="AdminCheckProject.html"><span>项目</span></a></li>
+                <li><a href="AdminCheckTeam.html"><span>团队</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function() {
+            if (toggle)
+            {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({"position":"absolute"});
+            }
+            else
+            {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function() {
+                    $("#menu span").css({"position":"relative"});
+                }, 400);
+            }
+
+            toggle = !toggle;
+        });
+    </script>
+    <script>
+	function myFunction() {
+            var answer = confirm("确认要修改吗");
+            if (answer)
+                alert("修改成功");
+            else
+                return false;
+            window.location.href="AdminCheckProjectInfo.html";
+	}
+    </script>
+    <!-- easing -->
+	<script src="js/easing.js"></script>
+	<!-- smooth scroll -->
+	<script src="js/SmoothScroll.min.js"></script>
+	<!--  necessary snippets for few javascript files -->
+	<script src="js/stock.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.js "></script>
+</body>
+</html>

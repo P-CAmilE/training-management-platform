@@ -51,6 +51,11 @@ public class LogRegisterServiceImpl implements LogRegisterService {
                     accountCookie.setPath("/");
                     idCookie.setPath("/");
                 }
+                else if(userList.get(0).getString("user_type").equals("company")){
+                    accountCookie = new Cookie("account",userList.get(0).getString("account"));
+                    accountCookie.setPath("/");
+                    idCookie.setPath("/");
+                }
                 response.addCookie(accountCookie);
                 response.addCookie(idCookie);
                 res.put("msg","登陆成功");
@@ -111,17 +116,17 @@ public class LogRegisterServiceImpl implements LogRegisterService {
         int i = accountMapper.find(jsonObject).get(0).getInteger("acc_id");
         JSONObject user = new JSONObject();
         if(jsonObject.getString("user_type").equals("student")){
-            jsonObject.put("stu_id",i);
+            user.put("stu_id",i);
             studentMapper.insert(user);
         }
 
         else if(jsonObject.getString("user_type").equals("admin")){
-            jsonObject.put("admin_id",i);
+            user.put("admin_id",i);
             administratorMapper.insert(user);
         }
 
         else if(jsonObject.getString("user_type").equals("teacher")){
-            jsonObject.put("tea_id",i);
+            user.put("tea_id",i);
             teacherMapper.insert(user);
         }
         return i;

@@ -7,7 +7,7 @@
     <sql id="simple_trim">
         <where>
             <if test="user_id != null">user_id = #{user_id,jdbcType=INTEGER}</if>
-            <if test="log_context != null">and log_context = #{log_context,jdbcType=VARCHAR}</if>
+            <if test="log_title != null">and log_title = #{log_title,jdbcType=VARCHAR}</if>
             <if test="log_date != null">and log_date = #{log_date,jdbcType=TIME}</if>
         </where>
     </sql>
@@ -16,11 +16,13 @@
         insert log_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="user_id != null">user_id,</if>
+            <if test="log_title != null">log_title,</if>
             <if test="log_context != null">log_context,</if>
             <if test="log_date != null">log_date,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="user_id != null">#{user_id,jdbcType=INTEGER},</if>
+            <if test="log_title != null">#{log_title,jdbcType=VARCHAR},</if>
             <if test="log_context != null">#{log_context,jdbcType=VARCHAR},</if>
             <if test="log_date != null">#{log_date,jdbcType=TIME},</if>
         </trim>

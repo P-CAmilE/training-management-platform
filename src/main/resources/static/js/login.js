@@ -1,7 +1,7 @@
 var host="127.0.0.1:8080"
 
 
-$("#company_login").click(function(){
+$("#company_login").submit(function(){
     var username = $("#recipient-name2").val();
     var password = $("#password4").val();
     $.ajax({
@@ -14,26 +14,23 @@ $("#company_login").click(function(){
             "password": password,
             "user_type": "company"
         }),
-        success:function(data){
-            alert(data.msg);
-            if(data.type == "success"){window.location.href="CompHomepage";}
-
+        success:function(res){
+            alert(res.msg);
+            if(res.type == "success"){window.location.href="CompHomepage";}
         },
         error:function () {
             alert("ajax error")
         }
     });
 
-})
+});
 
-$("#student_login").click(function(){
+$("#student_login").submit(function(){
     var username = $("#recipient-name").val();
     var password = $("#password").val();
-
     $.ajax({
         url: "/login",
         type: "POST",
-
         dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data: JSON.stringify({
@@ -41,24 +38,47 @@ $("#student_login").click(function(){
             "password": password,
             "user_type": "student"
         }),
-        success:function(data){
-            alert(data.msg);
-            if(data.type == "success"){window.location.href="stuHomepage";}
+        success:function(res){
+            alert(res.msg);
+            if(res.type == "success"){window.location.href="StuHomepage";}
 
         },
         error: function () {
             alert("ajax error");
+        }
+    });
+});
 
+$("#teacher_login").submit(function(){
+    var username = $("#recipient-name1").val();
+    var password = $("#password3").val();
+    $.ajax({
+        url: "/login",
+        type: "POST",
+        dataType : "json",
+        contentType: 'application/json;charset=UTF-8',
+        data :  JSON.stringify({
+            "account":username,
+            "password": password,
+            "user_type": "teacher"
+        }),
+        success:function(res){
+            alert(res.msg);
+            if(res.type == "success"){window.location.href="TeacherHomepage";}
+
+        },
+        error:function () {
+            alert("ajax error")
         }
     });
 
-})
-$("#register").click(function(){
+});
+
+$("#register").submit(function(){
     var username = $("#recipient-name3").val();
     var password = $("#password1").val();
     var useremail = $("#recipient-email").val();
     var confirmpassword = $("#password2").val();
-    if(password == confirmpassword){
         $.ajax({
             url: "/register",
             type: "POST",
@@ -84,8 +104,4 @@ $("#register").click(function(){
                 alert("ajax error");
             }
         });
-    }else{
-        alert("两次输入密码不同，请重新输入");
-    }
-
-})
+});

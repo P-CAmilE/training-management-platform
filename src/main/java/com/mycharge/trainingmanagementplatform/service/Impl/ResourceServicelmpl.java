@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.mapper.ResourceMapper;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.ResourceService;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.util.List;
 
 @Service
 public class ResourceServicelmpl implements ResourceService {
@@ -123,15 +125,25 @@ public class ResourceServicelmpl implements ResourceService {
 
     @Override
     public Result delete(JSONObject object) {
+        int del_num=0;//成功删除的数目
         try{
-            File file = new File(mapper.find(object).getString("resource_path"));
-            file.delete();
+            List<JSONObject> list = mapper.find(object);
+
+            for(JSONObject oj:list){
+                File file = new File(oj.getString("resource_path"));
+                file.delete();
+                mapper.delete(object);
+                del_num++;
+            }
+
             Result res=Result.getResult(1);
-            res.put("data",mapper.delete(object));
+            res.put("data",del_num);
             return res;
         }catch (Exception e){
             e.printStackTrace();
-            return  Result.getResult(0);
+            Result res=Result.getResult(0);
+            res.put("data",del_num);
+            return res;
         }
     }
 }
