@@ -44,4 +44,14 @@ public class StudentController {
     public Result findSchool(){
         return service.findSchool();
     }
+
+    @RequestMapping("/scoreForStudent")
+    public Result scoreForStudent(JSONObject jsonObject){
+        return service.scoreForStudent(jsonObject);
+    }
+
+    @RequestMapping("/findByTeacher")
+    public Result findByTeacher(JSONObject jsonObject){
+        return service.findByTeacher(jsonObject);
+    }
 }

@@ -10,12 +10,6 @@
         </where>
     </sql>
 
-    <sql id="simple_trim1">
-    <where>
-        <if test="admin_id != null">admin_id = acc_id</if>
-        <if test="admin_id != null">admin_id = #{admin_id,jdbcType=INTEGER}</if>
-    </where>
-</sql>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="admin_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert administrator_info*
@@ -30,8 +24,8 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from administrator_info,account_info
-        <include refid="simple_trim1"></include>
+        select * from administrator_info inner join account_info on admin_id = acc_id
+        <include refid="simple_trim"></include>
     </select>
 
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">

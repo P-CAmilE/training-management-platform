@@ -38,5 +38,4 @@ public class AdminController {
         return service.delete(object);
     }
 
-
 }

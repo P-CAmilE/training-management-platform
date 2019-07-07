@@ -7,7 +7,7 @@
     <sql id="simple_trim">
         <where>
             <if test="acc_id != null">acc_id = #{acc_id,jdbcType=INTEGER}</if>
-            <if test="account != null">account = #{account,jdbcType=VARCHAR}</if>
+            <if test="account != null">and account = #{account,jdbcType=VARCHAR}</if>
             <if test="password != null">and password = #{password,jdbcType=VARCHAR}</if>
             <if test="user_type != null">and user_type = #{user_type,jdbcType=VARCHAR}</if>
         </where>

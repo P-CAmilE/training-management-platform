@@ -61,21 +61,24 @@ public class ProjectServicelmpl implements ProjectService {
     @Override
     public Result update(JSONObject object) {
         try{
-            Result res = Result.getResult(1);
-            JSONArray jsonArray = object.getJSONArray("tea_id");
-            int proID = object.getInteger("pro_id");
-            if(jsonArray != null){
-                mapper.deleteProjectTeacher(object);
-                for(int i = 0;i < jsonArray.size(); i ++){
-                    JSONObject jsonObject  = new JSONObject();
-                    jsonObject.put("tea_id",jsonArray.get(i));
-                    jsonObject.put("pro_id",proID);
-                    mapper.insertProjectTeacher(jsonObject);
+            if(object.getInteger("pro_id") != null) {
+                Result res = Result.getResult(1);
+                JSONArray jsonArray = object.getJSONArray("tea_id");
+                int proID = object.getInteger("pro_id");
+                if (jsonArray != null) {
+                    mapper.deleteProjectTeacher(object);
+                    for (int i = 0; i < jsonArray.size(); i++) {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("tea_id", jsonArray.get(i));
+                        jsonObject.put("pro_id", proID);
+                        mapper.insertProjectTeacher(jsonObject);
+                    }
                 }
+                res.put("data", mapper.update(object));
+                return res;
+            }else {
+                return Result.getResult(0);
             }
-            res.put("data",mapper.update(object));
-
-            return res;
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);
@@ -111,17 +114,39 @@ public class ProjectServicelmpl implements ProjectService {
         }
     }
 
+
+    @Override
+    public Result findProjectDetail(JSONObject jsonObject) {
+        try{
+            if(jsonObject.getInteger("pro_id") != null) {
+                Result res = Result.getResult(1);
+                res.put("data", mapper.find(jsonObject));
+                res.put("teacher",teacherMapper.findByProject(jsonObject));
+                return res;
+            }else{
+                return Result.getResult(0);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.getResult(0);
+        }
+
+    }
+
     @Override
     public Result findTeacherByPlan(JSONObject jsonObject) {
         try{
-            Result res = Result.getResult(1);
-            res.put("data",teacherMapper.findByPlan(jsonObject));
-            return res;
+            if(jsonObject.getInteger("plan_id") != null) {
+                Result res = Result.getResult(1);
+                res.put("data", teacherMapper.findByPlan(jsonObject));
+                return res;
+            }else{
+                return Result.getResult(0);
+            }
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);
         }
     }
-
 
 }

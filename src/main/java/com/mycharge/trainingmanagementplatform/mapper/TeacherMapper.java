@@ -9,4 +9,6 @@ public interface TeacherMapper extends Mapper {
     public List<JSONObject> findByCompany(JSONObject jsonObject);
     public List<JSONObject> findBySchool(JSONObject jsonObject);
     public List<JSONObject> findByPlan(JSONObject jsonObject);
+    public List<JSONObject> findByProject(JSONObject jsonObject);
+    public List<JSONObject> findByTeam(JSONObject jsonObject);
 }

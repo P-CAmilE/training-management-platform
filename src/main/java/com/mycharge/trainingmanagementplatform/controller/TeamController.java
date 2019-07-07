@@ -45,4 +45,24 @@ public class TeamController {
     public Result findStudent(@RequestBody JSONObject object){
         return teamService.findStudent(object);
     }
+
+    @RequestMapping("/findTeamDetail")
+    public Result findTeamDetail(@RequestBody JSONObject object){
+        return teamService.findTeamDetail(object);
+    }
+
+    @RequestMapping("/findByTeacher")
+    public Result findByTeacher(@RequestBody JSONObject object){
+        return teamService.findByTeacher(object);
+    }
+
+    @RequestMapping("/findByStudent")
+    public Result findByStudent(@RequestBody JSONObject object){
+        return teamService.findByStudent(object);
+    }
+
+    @RequestMapping("/scoreForTeam")
+    public Result scoreForTeam(@RequestBody JSONObject object){
+        return teamService.scoreForTeam(object);
+    }
 }
