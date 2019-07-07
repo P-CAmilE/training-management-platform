@@ -4,41 +4,72 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mycharge.trainingmanagementplatform.mapper.TeacherMapper">
 
-    <sql id="simple_trim">
+    <sql id="simple_trim1">
         <where>
+            <if test="true">tea_id = acc_id</if>
+            <if test="tea_id != null">tea_id = #{tea_id,jdbcType=VARCHAR}</if>
             <if test="tea_name != null">tea_name = #{tea_name,jdbcType=VARCHAR}</if>
-            <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
-            <if test="com_id != null">and com_id = #{com_id,jdbcType=INTEGER}</if>
+            <if test="tea_unit != null">and tea_unit = #{tea_unit,jdbcType=VARCHAR}</if>
         </where>
     </sql>
+
+    <sql id="simple_trim">
+    <where>
+        <if test="plan_id != null">tea_unit = #{plan_id,jdbcType=INTEGER}</if>
+        <if test="sch_name != null">tea_unit = sch_name and sch_name = #{sch_name,jdbcType=VARCHAR}</if>
+        <if test="com_name != null">tea_unit = com_name and com_name = #{com_name,jdbcType=VARCHAR}</if>
+        <if test="tea_id != null">tea_id = #{tea_id,jdbcType=INTEGER}</if>
+        <if test="tea_name != null">tea_name = #{tea_name,jdbcType=VARCHAR}</if>
+        <if test="tea_unit != null">and tea_unit = #{tea_unit,jdbcType=VARCHAR}</if>
+    </where>
+</sql>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="tea_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert teacher_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="tea_id != null">tea_id,</if>
             <if test="tea_name != null">tea_name,</if>
-            <if test="sch_id != null">sch_id,</if>
-            <if test="com_id != null">com_id,</if>
+            <if test="tea_unit != null">tea_unit_id,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="tea_id != null">#{tea_id,jdbcType=INTEGER},</if>
             <if test="tea_name != null">#{tea_name,jdbcType=VARCHAR},</if>
-            <if test="sch_id != null">#{sch_id,jdbcType=INTEGER},</if>
-            <if test="com_id != null">#{com_id,jdbcType=INTEGER},</if>
+            <if test="tea_unit != null">#{tea_unit,jdbcType=VARCHAR},</if>
         </trim>
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from teacher_info
+        select tea_id,tea_name,tea_unit,account,user_type from teacher_info,account_info
+        <include refid="simple_trim1"></include>
+    </select>
+
+    <select id="findAll" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select tea_id,tea_name,tea_unit,account,user_type from teacher_info,account_info
+        <include refid="simple_trim1"></include>
+    </select>
+
+    <select id="findByCompany" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select tea_id,tea_name,tea_unit from teacher_info,company_info
         <include refid="simple_trim"></include>
     </select>
+
+    <select id="findBySchool" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select tea_id,tea_name,tea_unit from teacher_info,school_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findByPlan" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select tea_id,tea_name from teacher_info national join plan_teacher
+        <include refid="simple_trim"></include>
+    </select>
+
+
 
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update teacher_info
         <set>
             <if test="new_tea_name != null and new_tea_name != ''">tea_name = #{new_tea_name},</if>
-            <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id},</if>
-            <if test="new_com_id != null and new_com_id != ''">com_id = #{new_com_id},</if>
+            <if test="new_tea_unit != null and new_tea_unit != ''">tea_unit = #{new_tea_unit},</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

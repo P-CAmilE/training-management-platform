@@ -1,5 +1,6 @@
 package com.mycharge.trainingmanagementplatform.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.PlanService;
@@ -33,8 +34,21 @@ public class PlanController {
     }
 
     @RequestMapping("/delete")
-    public Result delete(@RequestBody JSONObject JSONObject){
-        return service.delete(JSONObject);
+    public Result delete(@RequestBody JSONObject object){
+        return service.delete(object);
     }
+
+    @RequestMapping("/findUnit")
+    public Result findUnit(){
+        return service.findUnit();
+    }
+
+    @RequestMapping("/ findTeacherByUnit")
+    public Result  findTeacherByUnit(@RequestBody JSONObject object){
+        return service. findTeacherByUnit(object);
+    }
+
+
+
 
 }

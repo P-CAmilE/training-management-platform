@@ -9,7 +9,7 @@ public interface LogRegisterService {
 
     public Result login(JSONObject jsonObject, HttpServletResponse response);
 
-    public Result register(JSONObject jsonObject, HttpServletResponse response);
+    public Result register(JSONObject jsonObject);
 
 
 }

@@ -51,11 +51,6 @@ public class LogRegisterServiceImpl implements LogRegisterService {
                     accountCookie.setPath("/");
                     idCookie.setPath("/");
                 }
-                else if(userList.get(0).getString("user_type").equals("company")){
-                    accountCookie = new Cookie("account",userList.get(0).getString("account"));
-                    accountCookie.setPath("/");
-                    idCookie.setPath("/");
-                }
                 response.addCookie(accountCookie);
                 response.addCookie(idCookie);
                 res.put("msg","登陆成功");
@@ -73,29 +68,10 @@ public class LogRegisterServiceImpl implements LogRegisterService {
 
     //注册
     @Override
-    public Result register(JSONObject jsonObject, HttpServletResponse response) {
+    public Result register(JSONObject jsonObject) {
         Result res;
         try {
             int i = insertUser(jsonObject);
-            Cookie idCookie = new Cookie("acc_id",i + "");
-            Cookie accountCookie = null;
-            if(jsonObject.getString("user_type").equals("student")){
-                accountCookie = new Cookie("account",jsonObject.getString("account"));
-                idCookie.setPath("/");
-                accountCookie.setPath("/");
-            }
-            else if (jsonObject.getString("user_type").equals("admin")){
-                accountCookie = new Cookie("account",jsonObject.getString("account"));
-                idCookie.setPath("/");
-                accountCookie.setPath("/js/");
-            }
-            else if(jsonObject.getString("user_type").equals("teacher")){
-                accountCookie = new Cookie("account",jsonObject.getString("account"));
-                accountCookie.setPath("/js/");
-                idCookie.setPath("/");
-            }
-            response.addCookie(accountCookie);
-            response.addCookie(idCookie);
             res = Result.getResult(1);
             res.put("msg","注册成功");
             return res;
@@ -114,20 +90,19 @@ public class LogRegisterServiceImpl implements LogRegisterService {
     int insertUser(JSONObject jsonObject) throws SQLIntegrityConstraintViolationException{
         accountMapper.insert(jsonObject);
         int i = accountMapper.find(jsonObject).get(0).getInteger("acc_id");
-        JSONObject user = new JSONObject();
         if(jsonObject.getString("user_type").equals("student")){
-            user.put("stu_id",i);
-            studentMapper.insert(user);
+            jsonObject.put("stu_id",i);
+            studentMapper.insert(jsonObject);
         }
 
         else if(jsonObject.getString("user_type").equals("admin")){
-            user.put("admin_id",i);
-            administratorMapper.insert(user);
+            jsonObject.put("admin_id",i);
+            administratorMapper.insert(jsonObject);
         }
 
         else if(jsonObject.getString("user_type").equals("teacher")){
-            user.put("tea_id",i);
-            teacherMapper.insert(user);
+            jsonObject.put("tea_id",i);
+            teacherMapper.insert(jsonObject);
         }
         return i;
     }

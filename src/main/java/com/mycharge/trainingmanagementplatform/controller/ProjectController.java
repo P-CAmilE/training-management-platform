@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/project")
-public class ProjectController {
+public class  ProjectController {
 
     @Autowired
     ProjectService service;
@@ -33,8 +33,18 @@ public class ProjectController {
     }
 
     @RequestMapping("/delete")
-    public Result delete(@RequestBody JSONObject JSONObject){
-        return service.delete(JSONObject);
+    public Result delete(@RequestBody JSONObject object){
+        return service.delete(object);
+    }
+
+    @RequestMapping("/findPlanName")
+    public Result findPlanName(){
+        return service.findPlanName();
+    }
+
+    @RequestMapping("/findTeacherByPlan")
+    public Result findTeacherByPlan(@RequestBody JSONObject object){
+        return service.findTeacherByPlan(object);
     }
 
 }

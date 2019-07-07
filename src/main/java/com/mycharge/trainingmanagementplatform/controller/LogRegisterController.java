@@ -23,8 +23,8 @@ public class LogRegisterController {
     }
 
     @RequestMapping("/register")
-    public Result userRegister(@RequestBody JSONObject jsonObject, HttpServletResponse response){
-        Result registerResult = logService.register(jsonObject, response);
+    public Result userRegister(@RequestBody JSONObject jsonObject){
+        Result registerResult = logService.register(jsonObject);
         return registerResult;
     }
 }
