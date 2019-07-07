@@ -52,4 +52,8 @@ public class  ProjectController {
         return service.findProjectDetail(object);
     }
 
+    @RequestMapping("/findByStudent")
+    public Result findByStudent(@RequestBody JSONObject object){
+        return service.findByStudent(object);
+    }
 }

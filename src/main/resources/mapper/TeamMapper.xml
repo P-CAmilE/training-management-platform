@@ -30,17 +30,17 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select team_id,team_name,plan_name,project_name,start_time,end_time,sch_name,com_name,team_github from team_info national join project_info national join plan_info national join company_info national join school_info
+        select team_id,team_name,plan_name,pro_name,start_time,end_time,sch_name,com_name,team_github from team_info natural join project_info natural join plan_info natural join company_info natural join school_info
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findByTeacher" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select team_id,team_name,plan_name,project_name,start_time,end_time,sch_name,com_name,team_github from team_info national join project_info national join plan_info national join company_info national join school_info national join project_teacher
+        select team_id,team_name,plan_name,pro_name,start_time,end_time,sch_name,com_name,team_github from team_info natural join project_info natural join plan_info natural join company_info natural join school_info natural join project_teacher
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findByStudent" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select team_id,team_name,plan_name,project_name,start_time,end_time,sch_name,com_name,team_github from team_info national join project_info national join plan_info national join company_info national join school_info national join team_student
+        select team_id,team_name,plan_name,pro_name,start_time,end_time,sch_name,com_name,team_github from team_info natural join project_info natural join plan_info natural join company_info natural join school_info natural join team_student
         <include refid="simple_trim"></include>
     </select>
 

@@ -26,13 +26,13 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Result find(JSONObject jsonObject) {
         try{
-            if(jsonObject.getInteger("stu_id") != null) {
+//            if(jsonObject.getInteger("stu_id") != null) {
                 Result res = Result.getResult(1);
                 res.put("data", studentMapper.find(jsonObject));
                 return res;
-            }else{
-                return Result.getResult(0);
-            }
+//            }else{
+//                return Result.getResult(0);
+//            }
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);

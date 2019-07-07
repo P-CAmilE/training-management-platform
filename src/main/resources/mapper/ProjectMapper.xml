@@ -6,7 +6,8 @@
     <!--简单的查询条件-->
     <sql id="simple_trim">
         <where>
-            <if test="pro_id != null">pro_id = #{pro_id,jdbcType=INTEGER}</if>
+            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
+            <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
             <if test="pro_name != null">and pro_name = #{pro_name,jdbcType=VARCHAR}</if>
             <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
             <if test="pro_description != null">and pro_description = #{pro_description,jdbcType=VARCHAR}</if>
@@ -31,12 +32,17 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from project_info national join plan_info national join school_info national join company_info
+        select * from project_info national join plan_info natural join school_info natural join company_info
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findName" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select plan_id,plan_name,pro_id,pro_name from project_info national join plan_info
+        select plan_id,plan_name,pro_id,pro_name from project_info natural join plan_info
+    </select>
+
+    <select id="findByStudent" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select plan_id,plan_name,pro_id,pro_name,sch_name,com_name,pro_description,pro_judge from project_info natural join plan_info  natural join school_info natural join company_info natural join team_info natural join team_student
+        <include refid="simple_trim"></include>
     </select>
 
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">

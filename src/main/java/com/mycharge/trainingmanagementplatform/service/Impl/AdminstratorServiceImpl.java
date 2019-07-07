@@ -20,13 +20,13 @@ public class AdminstratorServiceImpl implements AdministratorService {
     @Override
     public Result find(JSONObject jsonObject) {
         try{
-            if(jsonObject.getInteger("admin_id") != null) {
+//            if(jsonObject.getInteger("admin_id") != null) {
                 Result res = Result.getResult(1);
                 res.put("data", mapper.find(jsonObject));
                 return res;
-            }else{
-                return Result.getResult(0);
-            }
+//            }else{
+//                return Result.getResult(0);
+//            }
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);

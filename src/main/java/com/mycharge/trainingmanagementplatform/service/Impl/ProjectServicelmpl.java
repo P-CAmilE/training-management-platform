@@ -114,6 +114,21 @@ public class ProjectServicelmpl implements ProjectService {
         }
     }
 
+    @Override
+    public Result findByStudent(JSONObject jsonObject) {
+        try{
+            if(jsonObject.getInteger("stu_id") != null) {
+                Result res = Result.getResult(1);
+                res.put("data", mapper.findByStudent(jsonObject));
+                return res;
+            }else{
+                return Result.getResult(0);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.getResult(0);
+        }
+    }
 
     @Override
     public Result findProjectDetail(JSONObject jsonObject) {

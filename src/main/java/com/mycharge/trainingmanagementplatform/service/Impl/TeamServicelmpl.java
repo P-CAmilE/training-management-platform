@@ -101,6 +101,7 @@ public class TeamServicelmpl implements TeamService {
                     list.get(0).put("team_score","目前没有老师打分");
                 }
                 res.put("data",list);
+                res.put("student",studentMapper.findByTeam(jsonObject));
                 return res;
             }else{
                 return Result.getResult(0);
@@ -143,6 +144,7 @@ public class TeamServicelmpl implements TeamService {
                     list.get(0).put("stu_score","目前没有老师打分");
                 }
                 res.put("data",list);
+                res.put("student",studentMapper.findByTeam(jsonObject));
                 return res;
             }else{
                 return Result.getResult(0);
