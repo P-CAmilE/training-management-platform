@@ -28,7 +28,7 @@ public class GitServicelmpl implements GitService {
 
     String api_url=" https://api.github.com/repos/{0}/stats/contributors";
 
-    //一周的总数据
+    //所有队的总数据
     @Override
     public Result sum(int week){
         try {
@@ -51,21 +51,21 @@ public class GitServicelmpl implements GitService {
 
                 //遍历队员
                 for(int i=0;i<jsonArray.size();i++) {
-                    JSONObject oj2 = jsonArray.getJSONObject(i);
+                    JSONObject stu = jsonArray.getJSONObject(i);
+                    JSONArray week_ary=stu.getJSONArray("week");
                     if(week>=0) {
-                        JSONObject week_oj = oj2.getJSONArray("weeks").getJSONObject(week);
+                        JSONObject week_oj = week_ary.getJSONObject(week);
                         sum_a += week_oj.getInteger("a");
                         sum_d += week_oj.getInteger("d");
                         sum_c += week_oj.getInteger("c");
                     }
                     //week为负数则表示查整个时间段，遍历所有周
                     else{
-                        JSONArray week_oj = oj2.getJSONArray("weeks");
-                        for(int j=0;j<week_oj.size();j++){
-                            JSONObject oj3 = week_oj.getJSONObject(j);
-                            sum_a += oj3.getInteger("a");
-                            sum_d += oj3.getInteger("d");
-                            sum_c += oj3.getInteger("c");;
+                        for(int j=0;j<week_ary.size();j++){
+                            JSONObject week_oj = week_ary.getJSONObject(j);
+                            sum_a += week_oj.getInteger("a");
+                            sum_d += week_oj.getInteger("d");
+                            sum_c += week_oj.getInteger("c");;
                         }
                     }
                 }
@@ -83,36 +83,96 @@ public class GitServicelmpl implements GitService {
     }
 
     //获得一个队伍的a,b,c情况
-    void team(int team_id,int week){
+    @Override
+    public Result team(int team_id, int week){
         try {
             JSONObject jsonObject=new JSONObject();
             jsonObject.put("team_id",team_id);
 
-            List<JSONObject> list = mapper.find(null);
+            JSONObject team = mapper.find(null).get(0);
 
-            JSONObject data = new JSONObject();
-            int sum_a,sum_d,sum_c;
-            for(JSONObject oj:list){
-                String git =oj.getString("team_git");
-                String[] strarray = git.split("github.com/");
-                URL url1 = new URL(String.format(api_url,strarray[1]));
-                URI uri = new URI(url1.getProtocol(), url1.getHost(), url1.getPath(), url1.getQuery(), null);
-                RestTemplate restTemplate=new RestTemplate();
-                HttpHeaders headers = new HttpHeaders();
-                headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-                HttpEntity<String> entity = new HttpEntity<String>(headers);
-                String strbody=restTemplate.exchange(uri, HttpMethod.GET, entity,String.class).getBody();
+            String git =team.getString("team_git");
+            String[] strarray = git.split("github.com/");
+            URL url1 = new URL(String.format(api_url,strarray[1]));
+            URI uri = new URI(url1.getProtocol(), url1.getHost(), url1.getPath(), url1.getQuery(), null);
+            RestTemplate restTemplate=new RestTemplate();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+            HttpEntity<String> entity = new HttpEntity<String>(headers);
+            String strbody=restTemplate.exchange(uri, HttpMethod.GET, entity,String.class).getBody();
+            //页面返回结果
+            JSONArray jsonArray = JSONArray.parseArray(strbody);
 
-                //页面返回结果
-                JSONArray jsonArray = JSONArray.parseArray(strbody);
+            JSONArray data = new JSONArray();//队员adc信息存在data里
+            Result res = Result.getResult(1);
 
-                for(int i=0;i<jsonArray.size();i++) {
-                    JSONObject oj2 = jsonArray.getJSONObject(i);
-                    oj2.getJSONArray("weeks");
+            //遍历队员
+            for(int i=0;i<jsonArray.size();i++) {
+                JSONObject stu = jsonArray.getJSONObject(i);
+                JSONArray week_ary=stu.getJSONArray("week");
+                res.put("weeks",week_ary.size());//总共几周
+                JSONObject adc=new JSONObject();//记录学生的adc信息
+                int a=0,d=0,c=0;
+                JSONObject week_oj;
+                if(week>=0){
+                    week_oj=stu.getJSONArray("week").getJSONObject(week);
+                    a=week_oj.getInteger("a");
+                    d=week_oj.getInteger("d");
+                    c=week_oj.getInteger("c");
+                }
+                else{
+                    ///遍历所有周
+                    for(int j=0;j<week_ary.size();j++){
+                        week_oj = week_ary.getJSONObject(j);
+                        a += week_oj.getInteger("a");
+                        d += week_oj.getInteger("d");
+                        c += week_oj.getInteger("c");;
+                    }
+                    adc.put("a",a);
+                    adc.put("d",d);
+                    adc.put("c",c);
+                    adc.put("username",stu.getJSONObject("author").getString("login"));
+                    data.add(adc);
                 }
             }
+
+
+            res.put("data",data);
+            return res;
         } catch (MalformedURLException | URISyntaxException e) {
             e.printStackTrace();
+            return Result.getResult(0);
+        }
+    }
+
+    @Override
+    public Result language(int team_id) {
+        try{
+            String url=" https://api.github.com/repos/P-CAmilE/{0}/languages";
+
+            JSONObject jsonObject=new JSONObject();
+            jsonObject.put("team_id",team_id);
+
+            JSONObject team = mapper.find(null).get(0);
+
+            String git =team.getString("team_git");
+            String[] strarray = git.split("github.com/");
+            URL url1 = new URL(String.format(api_url,strarray[1]));
+            URI uri = new URI(url1.getProtocol(), url1.getHost(), url1.getPath(), url1.getQuery(), null);
+            RestTemplate restTemplate=new RestTemplate();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+            HttpEntity<String> entity = new HttpEntity<String>(headers);
+            String strbody=restTemplate.exchange(uri, HttpMethod.GET, entity,String.class).getBody();
+            //页面返回结果
+            JSONObject data = JSONObject.parseObject(strbody);
+
+            Result res = Result.getResult(1);
+            res.put("data",data);
+            return res;
+        }catch (MalformedURLException | URISyntaxException e){
+            e.printStackTrace();
+            return Result.getResult(0);
         }
     }
 }

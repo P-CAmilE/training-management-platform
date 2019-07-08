@@ -6,19 +6,11 @@
     <!--简单的查询条件-->
     <sql id="simple_trim">
         <where>
-            <if test="plan_id != null">plan_id = #{plan_id,jdbcType=INTEGER}</if>
-            <if test="pro_id != null">pro_id = #{pro_id,jdbcType=INTEGER}</if>
-            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
-            <if test="stu_name != null">and stu_name = #{stu_name,jdbcType=VARCHAR}</if>
-            <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
-        </where>
-    </sql>
-
-    <sql id="simple_trim1">
-        <where>
-            <if test="true">stu_id = acc_id</if>
-            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
-            <if test="stu_name != null">and stu_name = #{stu_name,jdbcType=VARCHAR}</if>
+            <if test="tea_id != null">tea_id = #{tea_id,jdbcType=INTEGER}</if>
+            <if test="team_id != null">and team_id = #{team_id,jdbcType=INTEGER}</if>
+            <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
+            <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
+            <if test="stu_id != null">and stu_id = #{stu_id,jdbcType=INTEGER}</if>
             <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
         </where>
     </sql>
@@ -40,8 +32,8 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from student_info national join school_info, account_info
-        <include refid="simple_trim1"></include>
+        select stu_name,stu_id,sch_id,sch_name,github_account,account from student_info national join school_info inner join account_info on stu_id = acc_id
+        <include refid="simple_trim"></include>
     </select>
 
     <select id="findBySchool" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
@@ -49,6 +41,15 @@
         <include refid="simple_trim"></include>
     </select>
 
+    <select id="findByTeam" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_id,stu_name from student_info national join team_student national join team_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findByTeacher" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_name,stu_id,sch_id,sch_name,github_account,account from student_info national join school_info national join plan_info national join project_info national join project_teacher inner join account_info on stu_id = acc_id
+        <include refid="simple_trim"></include>
+    </select>
 
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update student_info
@@ -64,5 +65,24 @@
         delete from student_info
         <include refid="simple_trim"></include>
     </delete>
+
+    <select id="findStudentScore" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_score from teacher_student_score
+        <include refid="simple_trim"></include>
+    </select>
+
+    <insert id="scoreForStudent" parameterType="com.alibaba.fastjson.JSONObject">
+        insert teacher_student_score
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">stu_id,</if>
+            <if test="tea_id != null">tea_id,</if>
+            <if test="stu_score != null">stu_score,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">#{stu_id,jdbcType=INTEGER},</if>
+            <if test="tea_id != null">#{tea_id,jdbcType=INTEGER},</if>
+            <if test="stu_score != null">#{stu_score,jdbcType=FLOAT},</if>
+        </trim>
+    </insert>
 
 </mapper>

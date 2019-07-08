@@ -23,36 +23,13 @@ public class GitController {
     @Autowired
     GitService service;
 
-    @RequestMapping("/get")
-    Result get(@Param("week")int week){
+    @RequestMapping("/sum_adc")
+    Result sum(@Param("week")int week){
         return service.sum(week);
     }
 
-    @RequestMapping("/weather")
-    public String getDataByCityName(@Param("cityname") String cityName) {
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-//        HttpEntity<String> entity = new HttpEntity<String>(headers);
-//        String s=restTemplate.getForObject(uri,String.class,"广州");
-//        return  s;
-
-        //String uri="http://wthrcdn.etouch.cn/weather_mini?city="+cityName;
-
-        URL url1 = null;
-        URI uri = null;
-
-        try {
-            url1 = new URL(url);
-            uri = new URI(url1.getProtocol(), url1.getHost(), url1.getPath(), url1.getQuery(), null);
-        } catch (MalformedURLException|URISyntaxException e) {
-            e.printStackTrace();
-        }
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        HttpEntity<String> entity = new HttpEntity<String>(headers);
-        String strbody=restTemplate.exchange(uri, HttpMethod.GET, entity,String.class).getBody();
-        Object weatherResponse= JSONObject.parseObject(strbody,Object.class);
-        return weatherResponse.toString();
+    @RequestMapping("/team_adc")
+    Result  team(@Param("team_id") int team_id,@Param("week")int week) {
+        return service.team(team_id,week);
     }
 }

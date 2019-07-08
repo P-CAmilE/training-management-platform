@@ -66,21 +66,24 @@ public class PlanServiceImpl implements PlanService {
     @Override
     public Result update(JSONObject object) {
         try{
-            Result res = Result.getResult(1);
-            JSONArray jsonArray = object.getJSONArray("tea_id");
-            int planID = object.getInteger("plan_id");
-            if(jsonArray != null){
-                mapper.deletePlanTeacher(object);
-                for(int i = 0;i < jsonArray.size(); i ++){
-                    JSONObject jsonObject  = new JSONObject();
-                    jsonObject.put("tea_id",jsonArray.get(i));
-                    jsonObject.put("plan_id",planID);
-                    mapper.insertPlanTeacher(jsonObject);
+            if (object.getInteger("plan_id") != null) {
+                Result res = Result.getResult(1);
+                JSONArray jsonArray = object.getJSONArray("tea_id");
+                int planID = object.getInteger("plan_id");
+                if (jsonArray != null && !jsonArray.isEmpty()) {
+                    mapper.deletePlanTeacher(object);
+                    for (int i = 0; i < jsonArray.size(); i++) {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("tea_id", jsonArray.get(i));
+                        jsonObject.put("plan_id", planID);
+                        mapper.insertPlanTeacher(jsonObject);
+                    }
                 }
+                res.put("data", mapper.update(object));
+                return res;
+            }else{
+                return Result.getResult(0);
             }
-            res.put("data",mapper.update(object));
-
-            return res;
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);
@@ -91,13 +94,29 @@ public class PlanServiceImpl implements PlanService {
     public Result delete(JSONObject object) {
         try {
             if (object.getInteger("plan_id") != null) {
-
                 Result res = Result.getResult(1);
                 res.put("data", mapper.delete(object));
                 return res;
             }
             return Result.getResult(0);
         } catch (Exception e){
+            e.printStackTrace();
+            return Result.getResult(0);
+        }
+    }
+
+    @Override
+    public Result findPlanDetail(JSONObject jsonObject) {
+        try{
+            if(jsonObject.getInteger("plan_id") != null) {
+                Result res = Result.getResult(1);
+                res.put("data", mapper.find(jsonObject));
+                res.put("teacher",teacherMapper.findByPlan(jsonObject));
+                return res;
+            }else{
+                return Result.getResult(0);
+            }
+        }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);
         }

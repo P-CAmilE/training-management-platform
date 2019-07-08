@@ -47,4 +47,9 @@ public class  ProjectController {
         return service.findTeacherByPlan(object);
     }
 
+    @RequestMapping("/findProjectDetail")
+    public Result findProjectDetail(@RequestBody JSONObject object){
+        return service.findProjectDetail(object);
+    }
+
 }

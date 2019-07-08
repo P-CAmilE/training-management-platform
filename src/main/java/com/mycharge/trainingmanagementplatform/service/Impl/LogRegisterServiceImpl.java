@@ -94,12 +94,10 @@ public class LogRegisterServiceImpl implements LogRegisterService {
             jsonObject.put("stu_id",i);
             studentMapper.insert(jsonObject);
         }
-
         else if(jsonObject.getString("user_type").equals("admin")){
             jsonObject.put("admin_id",i);
             administratorMapper.insert(jsonObject);
         }
-
         else if(jsonObject.getString("user_type").equals("teacher")){
             jsonObject.put("tea_id",i);
             teacherMapper.insert(jsonObject);

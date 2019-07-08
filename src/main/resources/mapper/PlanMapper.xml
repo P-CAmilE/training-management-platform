@@ -7,14 +7,14 @@
     <sql id="simple_trim">
         <where>
             <if test="plan_id != null">plan_id = #{plan_id,jdbcType=INTEGER}</if>
-<!--            <if test="plan_name != null">and plan_name = #{plan_name,jdbcType=VARCHAR}</if>-->
-<!--            <if test="course_name != null">and course_name = #{course_name,jdbcType=VARCHAR}</if>-->
-<!--            <if test="course_score != null">and course_score = #{course_score,jdbcType=VARCHAR}</if>-->
-<!--            <if test="start_time != null">and start_time = #{start_time,jdbcType=TIME}</if>-->
-<!--            <if test="end_time != null">and end_time = #{end_time,jdbcType=TIME}</if>-->
-<!--            <if test="plan_description != null">and plan_description = #{plan_description,jdbcType=VARCHAR}</if>-->
-<!--            <if test="sch_id != null">and sch_id &lt;= #{sch_id,jdbcType=INTEGER}</if>-->
-<!--            <if test="com_id != null">and com_id &lt;= #{com_id,jdbcType=INTEGER}</if>-->
+            <if test="plan_name != null">and plan_name = #{plan_name,jdbcType=VARCHAR}</if>
+            <if test="course_name != null">and course_name = #{course_name,jdbcType=VARCHAR}</if>
+            <if test="course_score != null">and course_score = #{course_score,jdbcType=VARCHAR}</if>
+            <if test="start_time != null">and start_time = #{start_time,jdbcType=TIME}</if>
+            <if test="end_time != null">and end_time = #{end_time,jdbcType=TIME}</if>
+            <if test="plan_description != null">and plan_description = #{plan_description,jdbcType=VARCHAR}</if>
+            <if test="sch_id != null">and sch_id &lt;= #{sch_id,jdbcType=INTEGER}</if>
+            <if test="com_id != null">and com_id &lt;= #{com_id,jdbcType=INTEGER}</if>
         </where>
     </sql>
 
@@ -45,7 +45,7 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from plan_info national join school_info national join company_info national join plan_teacher national join teacher_info
+        select * from plan_info national join school_info national join company_info
         <include refid="simple_trim"></include>
     </select>
 
@@ -74,7 +74,7 @@
     </delete>
 
 
-    <insert id="insertPlanTeacher"  useGeneratedKeys="true" keyProperty="plan_id" parameterType="com.alibaba.fastjson.JSONObject">
+    <insert id="insertPlanTeacher" parameterType="com.alibaba.fastjson.JSONObject">
         insert plan_teacher
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="plan_id != null">plan_id,</if>

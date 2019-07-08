@@ -20,9 +20,9 @@ public class AdminstratorServiceImpl implements AdministratorService {
     @Override
     public Result find(JSONObject jsonObject) {
         try{
-            Result res = Result.getResult(1);
-            res.put("data",mapper.find(jsonObject));
-            return res;
+                Result res = Result.getResult(1);
+                res.put("data", mapper.find(jsonObject));
+                return res;
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);
@@ -32,11 +32,19 @@ public class AdminstratorServiceImpl implements AdministratorService {
     @Override
     public Result update(JSONObject jsonObject) {
         try{
-            Result res = Result.getResult(1);
-            res.put("data",mapper.update(jsonObject));
-            jsonObject.put("acc_id",jsonObject.get("admin_id"));
-            accountMapper.update(jsonObject);
-            return res;
+            if(jsonObject.getInteger("admin_id") != null) {
+                if(!mapper.find(jsonObject).isEmpty()) {
+                    Result res = Result.getResult(1);
+                    res.put("data", mapper.update(jsonObject));
+                    jsonObject.put("acc_id", jsonObject.get("admin_id"));
+                    accountMapper.update(jsonObject);
+                    return res;
+                }else{
+                    return Result.getResult(0);
+                }
+            }else{
+                return Result.getResult(0);
+            }
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);
@@ -53,11 +61,15 @@ public class AdminstratorServiceImpl implements AdministratorService {
     public Result delete(JSONObject jsonObject) {
         try{
             if(jsonObject.getInteger("admin_id") != null ){
-                Result res = Result.getResult(1);
-                res.put("data",mapper.delete(jsonObject));
-                jsonObject.put("acc_id",jsonObject.getInteger("admin_id"));
-                accountMapper.delete(jsonObject);
-                return res;
+                if(!mapper.find(jsonObject).isEmpty()) {
+                    Result res = Result.getResult(1);
+                    res.put("data", mapper.delete(jsonObject));
+                    jsonObject.put("acc_id", jsonObject.getInteger("admin_id"));
+                    accountMapper.delete(jsonObject);
+                    return res;
+                }else{
+                    return Result.getResult(0);
+                }
             }else {
                 return Result.getResult(0);
             }

@@ -4,23 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mycharge.trainingmanagementplatform.mapper.TeacherMapper">
 
-    <sql id="simple_trim1">
-        <where>
-            <if test="true">tea_id = acc_id</if>
-            <if test="tea_id != null">tea_id = #{tea_id,jdbcType=VARCHAR}</if>
-            <if test="tea_name != null">tea_name = #{tea_name,jdbcType=VARCHAR}</if>
-            <if test="tea_unit != null">and tea_unit = #{tea_unit,jdbcType=VARCHAR}</if>
-        </where>
-    </sql>
-
     <sql id="simple_trim">
     <where>
-        <if test="plan_id != null">tea_unit = #{plan_id,jdbcType=INTEGER}</if>
-        <if test="sch_name != null">tea_unit = sch_name and sch_name = #{sch_name,jdbcType=VARCHAR}</if>
-        <if test="com_name != null">tea_unit = com_name and com_name = #{com_name,jdbcType=VARCHAR}</if>
-        <if test="tea_id != null">tea_id = #{tea_id,jdbcType=INTEGER}</if>
-        <if test="tea_name != null">tea_name = #{tea_name,jdbcType=VARCHAR}</if>
-        <if test="tea_unit != null">and tea_unit = #{tea_unit,jdbcType=VARCHAR}</if>
+        <if test="team_id != null">team_id = #{tam_id,jdbcType=INTEGER}</if>
+        <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
+        <if test="project_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
+        <if test="sch_name != null">and sch_name = #{sch_name,jdbcType=VARCHAR}</if>
+        <if test="com_name != null">and com_name = #{com_name,jdbcType=VARCHAR}</if>
+        <if test="tea_id != null">and tea_id = #{tea_id,jdbcType=INTEGER}</if>
     </where>
 </sql>
 
@@ -39,22 +30,18 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select tea_id,tea_name,tea_unit,account,user_type from teacher_info,account_info
-        <include refid="simple_trim1"></include>
+        select tea_id,tea_name,tea_unit,account from teacher_info inner join account_info on tea_id = acc_id
+        <include refid="simple_trim"></include>
     </select>
 
-    <select id="findAll" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select tea_id,tea_name,tea_unit,account,user_type from teacher_info,account_info
-        <include refid="simple_trim1"></include>
-    </select>
 
     <select id="findByCompany" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select tea_id,tea_name,tea_unit from teacher_info,company_info
+        select tea_id,tea_name,tea_unit from teacher_info inner join company_info on tea_unit = com_name
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findBySchool" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select tea_id,tea_name,tea_unit from teacher_info,school_info
+        select tea_id,tea_name,tea_unit from teacher_info inner join school_info on tea_unit = sch_name
         <include refid="simple_trim"></include>
     </select>
 
@@ -63,7 +50,15 @@
         <include refid="simple_trim"></include>
     </select>
 
+    <select id="findByProject" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select tea_id,tea_name from teacher_info national join project_teacher
+        <include refid="simple_trim"></include>
+    </select>
 
+    <select id="findByTeam" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select tea_id,tea_name from teacher_info national join project_teacher national join team_info
+        <include refid="simple_trim"></include>
+    </select>
 
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update teacher_info
