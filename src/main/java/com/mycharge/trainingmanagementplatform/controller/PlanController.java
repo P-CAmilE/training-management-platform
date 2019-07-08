@@ -51,7 +51,7 @@ public class PlanController {
     }
 
 //    在修改界面中点击老师按钮时调用
-//    传入：sch_id,com_id
+//    传入：sch_name,com_name
 //    返回：tea_id,tea_name
     @RequestMapping("/findTeacherByUnit")
     public Result  findTeacherByUnit(@RequestBody JSONObject object){

@@ -139,7 +139,7 @@ public class PlanServiceImpl implements PlanService {
     public Result findTeacherByUnit(JSONObject jsonObject) {
         try{
 
-            if(jsonObject.getString("tea_name") != null && jsonObject.getString("sch_name") != null)
+            if(jsonObject.getString("com_name") != null && jsonObject.getString("sch_name") != null)
             {
                 Result res = Result.getResult(1);
                 List<JSONObject> list1 = teacherMapper.findByCompany(jsonObject);

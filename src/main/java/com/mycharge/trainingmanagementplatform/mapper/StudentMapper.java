@@ -16,4 +16,6 @@ public interface StudentMapper extends Mapper{
 
     public int scoreForStudent(JSONObject jsonObject);
 
+    public List<JSONObject> findByTeacherDetail(JSONObject jsonObject);
+
 }

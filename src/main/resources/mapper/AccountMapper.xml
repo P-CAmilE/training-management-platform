@@ -35,7 +35,7 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update account_info
         <set>
-            <if test="password != null and new_password != ''">password = #{new_password}</if>
+            <if test="new_password != null and new_password != ''">password = #{new_password}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

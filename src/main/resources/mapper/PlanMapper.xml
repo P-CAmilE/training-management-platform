@@ -6,6 +6,7 @@
     <!--简单的查询条件-->
     <sql id="simple_trim">
         <where>
+            <if test="search_name != null">plan_name like #{search_name,jdbcType=VARCHAR}</if>
             <if test="plan_id != null">plan_id = #{plan_id,jdbcType=INTEGER}</if>
             <if test="plan_name != null">and plan_name = #{plan_name,jdbcType=VARCHAR}</if>
             <if test="course_name != null">and course_name = #{course_name,jdbcType=VARCHAR}</if>
@@ -17,8 +18,6 @@
             <if test="com_id != null">and com_id &lt;= #{com_id,jdbcType=INTEGER}</if>
         </where>
     </sql>
-
-
 
     <insert id="insert"  useGeneratedKeys="true" keyProperty="plan_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert plan_info
@@ -45,7 +44,7 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from plan_info national join school_info natural join company_info
+        select * from plan_info natural join school_info natural join company_info
         <include refid="simple_trim"></include>
     </select>
 

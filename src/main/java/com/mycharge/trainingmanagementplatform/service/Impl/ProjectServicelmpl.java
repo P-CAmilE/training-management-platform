@@ -120,6 +120,7 @@ public class ProjectServicelmpl implements ProjectService {
             if(jsonObject.getInteger("stu_id") != null) {
                 Result res = Result.getResult(1);
                 res.put("data", mapper.findByStudent(jsonObject));
+                res.put("allproject",mapper.find(jsonObject));
                 return res;
             }else{
                 return Result.getResult(0);
