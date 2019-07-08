@@ -46,12 +46,12 @@ public class StudentController {
     }
 
     @RequestMapping("/scoreForStudent")
-    public Result scoreForStudent(JSONObject jsonObject){
+    public Result scoreForStudent(@RequestBody JSONObject jsonObject){
         return service.scoreForStudent(jsonObject);
     }
 
     @RequestMapping("/findByTeacher")
-    public Result findByTeacher(JSONObject jsonObject){
+    public Result findByTeacher(@RequestBody JSONObject jsonObject){
         return service.findByTeacher(jsonObject);
     }
 }
