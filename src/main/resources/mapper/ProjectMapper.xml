@@ -32,7 +32,7 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from project_info national join plan_info natural join school_info natural join company_info
+        select * from project_info natural join plan_info natural join school_info natural join company_info
         <include refid="simple_trim"></include>
     </select>
 
