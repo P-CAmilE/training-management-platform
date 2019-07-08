@@ -10,4 +10,6 @@ public interface ProjectService extends proService {
     public Result findTeacherByPlan(JSONObject jsonObject);
 
     public Result findProjectDetail(JSONObject jsonObject);
+
+    public Result findByStudent(JSONObject jsonObject);
 }

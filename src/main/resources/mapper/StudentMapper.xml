@@ -32,22 +32,22 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select stu_name,stu_id,sch_id,sch_name,github_account,account from student_info national join school_info inner join account_info on stu_id = acc_id
+        select stu_name,stu_id,sch_id,sch_name,github_account,account from student_info natural join school_info inner join account_info on stu_id = acc_id
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findBySchool" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select stu_id,stu_name from student_info national join plan_info national join project_info
+        select stu_id,stu_name from student_info natural join plan_info natural join project_info
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findByTeam" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select stu_id,stu_name from student_info national join team_student national join team_info
+        select stu_id,stu_name from student_info natural join team_student natural join team_info
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findByTeacher" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select stu_name,stu_id,sch_id,sch_name,github_account,account from student_info national join school_info national join plan_info national join project_info national join project_teacher inner join account_info on stu_id = acc_id
+        select stu_name,stu_id,sch_id,sch_name,github_account,account from student_info natural join school_info natural join plan_info natural join project_info natural join project_teacher inner join account_info on stu_id = acc_id
         <include refid="simple_trim"></include>
     </select>
 

@@ -46,17 +46,17 @@
     </select>
 
     <select id="findByPlan" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select tea_id,tea_name from teacher_info national join plan_teacher
+        select tea_id,tea_name from teacher_info natural join plan_teacher
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findByProject" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select tea_id,tea_name from teacher_info national join project_teacher
+        select tea_id,tea_name from teacher_info natural join project_teacher
         <include refid="simple_trim"></include>
     </select>
 
     <select id="findByTeam" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select tea_id,tea_name from teacher_info national join project_teacher national join team_info
+        select tea_id,tea_name from teacher_info natural join project_teacher natural join team_info
         <include refid="simple_trim"></include>
     </select>
 

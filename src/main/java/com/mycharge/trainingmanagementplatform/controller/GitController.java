@@ -32,4 +32,9 @@ public class GitController {
     Result  team(@Param("team_id") int team_id,@Param("week")int week) {
         return service.team(team_id,week);
     }
+
+    @RequestMapping("/language")
+    Result  language(@Param("team_id") int team_id) {
+        return service.language(team_id);
+    }
 }

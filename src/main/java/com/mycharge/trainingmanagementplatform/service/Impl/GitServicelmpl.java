@@ -52,7 +52,7 @@ public class GitServicelmpl implements GitService {
                 //遍历队员
                 for(int i=0;i<jsonArray.size();i++) {
                     JSONObject stu = jsonArray.getJSONObject(i);
-                    JSONArray week_ary=stu.getJSONArray("week");
+                    JSONArray week_ary=stu.getJSONArray("weeks");
                     if(week>=0) {
                         JSONObject week_oj = week_ary.getJSONObject(week);
                         sum_a += week_oj.getInteger("a");
@@ -91,9 +91,9 @@ public class GitServicelmpl implements GitService {
 
             JSONObject team = mapper.find(null).get(0);
 
-            String git =team.getString("team_git");
+            String git =team.getString("team_github");
             String[] strarray = git.split("github.com/");
-            URL url1 = new URL(String.format(api_url,strarray[1]));
+            URL url1 = new URL(MessageFormat.format(api_url,strarray[1]));
             URI uri = new URI(url1.getProtocol(), url1.getHost(), url1.getPath(), url1.getQuery(), null);
             RestTemplate restTemplate=new RestTemplate();
             HttpHeaders headers = new HttpHeaders();
@@ -109,13 +109,13 @@ public class GitServicelmpl implements GitService {
             //遍历队员
             for(int i=0;i<jsonArray.size();i++) {
                 JSONObject stu = jsonArray.getJSONObject(i);
-                JSONArray week_ary=stu.getJSONArray("week");
+                JSONArray week_ary=stu.getJSONArray("weeks");
                 res.put("weeks",week_ary.size());//总共几周
                 JSONObject adc=new JSONObject();//记录学生的adc信息
                 int a=0,d=0,c=0;
                 JSONObject week_oj;
                 if(week>=0){
-                    week_oj=stu.getJSONArray("week").getJSONObject(week);
+                    week_oj=week_ary.getJSONObject(week);
                     a=week_oj.getInteger("a");
                     d=week_oj.getInteger("d");
                     c=week_oj.getInteger("c");
@@ -128,12 +128,12 @@ public class GitServicelmpl implements GitService {
                         d += week_oj.getInteger("d");
                         c += week_oj.getInteger("c");;
                     }
-                    adc.put("a",a);
-                    adc.put("d",d);
-                    adc.put("c",c);
-                    adc.put("username",stu.getJSONObject("author").getString("login"));
-                    data.add(adc);
                 }
+                adc.put("a",a);
+                adc.put("d",d);
+                adc.put("c",c);
+                adc.put("username",stu.getJSONObject("author").getString("login"));
+                data.add(adc);
             }
 
 
@@ -148,16 +148,16 @@ public class GitServicelmpl implements GitService {
     @Override
     public Result language(int team_id) {
         try{
-            String url=" https://api.github.com/repos/P-CAmilE/{0}/languages";
+            String url=" https://api.github.com/repos/{0}/languages";
 
             JSONObject jsonObject=new JSONObject();
             jsonObject.put("team_id",team_id);
 
             JSONObject team = mapper.find(null).get(0);
 
-            String git =team.getString("team_git");
+            String git =team.getString("team_github");
             String[] strarray = git.split("github.com/");
-            URL url1 = new URL(String.format(api_url,strarray[1]));
+            URL url1 = new URL(MessageFormat.format(url,strarray[1]));
             URI uri = new URI(url1.getProtocol(), url1.getHost(), url1.getPath(), url1.getQuery(), null);
             RestTemplate restTemplate=new RestTemplate();
             HttpHeaders headers = new HttpHeaders();

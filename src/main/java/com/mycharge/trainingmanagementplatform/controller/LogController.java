@@ -2,18 +2,19 @@ package com.mycharge.trainingmanagementplatform.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mycharge.trainingmanagementplatform.model.Result;
-import com.mycharge.trainingmanagementplatform.service.ProjectService;
+import com.mycharge.trainingmanagementplatform.service.LogService;
+import com.mycharge.trainingmanagementplatform.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/project")
-public class  ProjectController {
+@RequestMapping("/log")
+public class LogController {
 
     @Autowired
-    ProjectService service;
+    LogService service;
 
     //todo:权限控制
 
@@ -25,8 +26,8 @@ public class  ProjectController {
     @RequestMapping("/find")
     public Result find(@RequestBody JSONObject object){
         return service.find(object);
-
     }
+
     @RequestMapping("/update")
     public Result update(@RequestBody JSONObject object){
         return service.update(object);
@@ -35,25 +36,5 @@ public class  ProjectController {
     @RequestMapping("/delete")
     public Result delete(@RequestBody JSONObject object){
         return service.delete(object);
-    }
-
-    @RequestMapping("/findPlanName")
-    public Result findPlanName(){
-        return service.findPlanName();
-    }
-
-    @RequestMapping("/findTeacherByPlan")
-    public Result findTeacherByPlan(@RequestBody JSONObject object){
-        return service.findTeacherByPlan(object);
-    }
-
-    @RequestMapping("/findProjectDetail")
-    public Result findProjectDetail(@RequestBody JSONObject object){
-        return service.findProjectDetail(object);
-    }
-
-    @RequestMapping("/findByStudent")
-    public Result findByStudent(@RequestBody JSONObject object){
-        return service.findByStudent(object);
     }
 }

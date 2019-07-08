@@ -26,9 +26,13 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Result find(JSONObject jsonObject) {
         try{
+//            if(jsonObject.getInteger("stu_id") != null) {
                 Result res = Result.getResult(1);
                 res.put("data", studentMapper.find(jsonObject));
                 return res;
+//            }else{
+//                return Result.getResult(0);
+//            }
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);
@@ -75,7 +79,7 @@ public class StudentServiceImpl implements StudentService {
                 if(!studentMapper.find(jsonObject).isEmpty()) {
                     Result res = Result.getResult(1);
                     res.put("data", studentMapper.update(jsonObject));
-                    jsonObject.put("acc_id", jsonObject.get("stu_id"));
+                    jsonObject.put("acc_id", jsonObject.getInteger("stu_id"));
                     accountMapper.update(jsonObject);
                     return res;
                 }else{

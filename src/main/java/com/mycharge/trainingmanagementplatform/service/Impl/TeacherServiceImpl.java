@@ -33,13 +33,13 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public Result find(JSONObject jsonObject) {
         try{
-            if(jsonObject.getInteger("tea_id") != null) {
+//            if(jsonObject.getInteger("tea_id") != null) {
                 Result res = Result.getResult(1);
                 res.put("data", teacherMapper.find(jsonObject));
                 return res;
-            }else{
-                return Result.getResult(0);
-            }
+//            }else{
+//                return Result.getResult(0);
+//            }
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);
