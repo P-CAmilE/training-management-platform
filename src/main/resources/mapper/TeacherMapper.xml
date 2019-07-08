@@ -6,14 +6,26 @@
 
     <sql id="simple_trim">
     <where>
+        <if test="search_name != null">tea_name like #{search_name,jdbcType=VARCHAR}</if>
         <if test="team_id != null">team_id = #{tam_id,jdbcType=INTEGER}</if>
         <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
         <if test="project_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
-        <if test="sch_name != null">and sch_name = #{sch_name,jdbcType=VARCHAR}</if>
-        <if test="com_name != null">and com_name = #{com_name,jdbcType=VARCHAR}</if>
         <if test="tea_id != null">and tea_id = #{tea_id,jdbcType=INTEGER}</if>
     </where>
 </sql>
+
+    <sql id="simple_trim1">
+        <where>
+            <if test="sch_name != null">and sch_name = #{sch_name,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
+    <sql id="simple_trim2">
+        <where>
+            <if test="com_name != null">and com_name = #{com_name,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="tea_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert teacher_info
@@ -37,12 +49,12 @@
 
     <select id="findByCompany" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
         select tea_id,tea_name,tea_unit from teacher_info inner join company_info on tea_unit = com_name
-        <include refid="simple_trim"></include>
+        <include refid="simple_trim2"></include>
     </select>
 
     <select id="findBySchool" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
         select tea_id,tea_name,tea_unit from teacher_info inner join school_info on tea_unit = sch_name
-        <include refid="simple_trim"></include>
+        <include refid="simple_trim1"></include>
     </select>
 
     <select id="findByPlan" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >

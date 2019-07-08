@@ -6,6 +6,7 @@
     <!--简单的查询条件-->
     <sql id="simple_trim">
         <where>
+            <if test="search_name != null">stu_name like #{search_name,jdbcType=VARCHAR}</if>
             <if test="tea_id != null">tea_id = #{tea_id,jdbcType=INTEGER}</if>
             <if test="team_id != null">and team_id = #{team_id,jdbcType=INTEGER}</if>
             <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
@@ -47,7 +48,12 @@
     </select>
 
     <select id="findByTeacher" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select stu_name,stu_id,sch_id,sch_name,github_account,account from student_info natural join school_info natural join plan_info natural join project_info natural join project_teacher inner join account_info on stu_id = acc_id
+        select stu_name,stu_id,sch_name,github_account,account from student_info natural join school_info natural join plan_info natural join project_info natural join project_teacher inner join account_info on stu_id = acc_id
+        <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findByTeacherDetail" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_name,stu_id,sch_name,github_account,account,pro_name,plan_name,team_name from student_info natural join  school_info natural join team_student natural join team_info national join project_info natural join plan_info natural join project_teacher inner join account_info on stu_id = acc_id
         <include refid="simple_trim"></include>
     </select>
 

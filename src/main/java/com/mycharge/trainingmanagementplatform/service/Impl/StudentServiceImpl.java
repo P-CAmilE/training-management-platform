@@ -49,7 +49,7 @@ public class StudentServiceImpl implements StudentService {
             }
             else if(jsonObject.getInteger("stu_id") != null){
                 Result res = Result.getResult(1);
-                List<JSONObject> list = studentMapper.find(jsonObject);
+                List<JSONObject> list = studentMapper.findByTeacherDetail(jsonObject);
                 List<JSONObject> list2 =studentMapper.findStudentScore(jsonObject);
                 if(list2.size() > 0) {
                     float allStudentScore = 0;

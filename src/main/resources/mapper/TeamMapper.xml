@@ -6,6 +6,7 @@
     <!--简单的查询条件-->
     <sql id="simple_trim">
         <where>
+            <if test="search_name != null">team_name like #{search_name,jdbcType=VARCHAR}</if>
             <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
             <if test="tea_id != null">and tea_id = #{tea_id,jdbcType=INTEGER}</if>
             <if test="team_id != null">and team_id = #{team_id,jdbcType=INTEGER}</if>
