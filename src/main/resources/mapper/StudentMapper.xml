@@ -29,6 +29,13 @@
         </where>
     </sql>
 
+    <sql id="simple_trim3">
+        <where>
+            <if test="tea_id != null">and tea_id = #{tea_id,jdbcType=INTEGER}</if>
+            <if test="stu_id != null">and stu_id = #{stu_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
     <insert id="insert"  useGeneratedKeys="true" keyProperty="stu_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert student_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -66,7 +73,7 @@
     </select>
 
     <select id="findByTeacherDetail" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select stu_name,stu_id,sch_name,github_account,account,pro_name,plan_name,team_name from student_info natural join  school_info natural join team_student natural join team_info national join project_info natural join plan_info natural join project_teacher inner join account_info on stu_id = acc_id
+        select distinct stu_name,stu_id,sch_name,github_account,account,pro_name,plan_name,team_name from student_info natural join  school_info natural join team_student natural join team_info national join project_info natural join plan_info natural join project_teacher inner join account_info on stu_id = acc_id
         <include refid="simple_trim2"></include>
     </select>
 
@@ -87,8 +94,16 @@
 
     <select id="findStudentScore" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
         select stu_score from teacher_student_score
-        <include refid="simple_trim"></include>
+        <include refid="simple_trim3"></include>
     </select>
+
+    <update id="updateScore" parameterType="com.alibaba.fastjson.JSONObject">
+        update student_info
+        <set>
+            <if test="stu_score != null and stu_score != ''">stu_score = #{stu_score,jdbcType=FLOAT}</if>
+        </set>
+        <include refid="simple_trim3"></include>
+    </update>
 
     <insert id="scoreForStudent" parameterType="com.alibaba.fastjson.JSONObject">
         insert teacher_student_score

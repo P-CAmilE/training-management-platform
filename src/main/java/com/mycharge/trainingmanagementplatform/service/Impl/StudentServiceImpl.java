@@ -142,7 +142,11 @@ public class StudentServiceImpl implements StudentService {
             if(jsonObject.getInteger("tea_id") != null && jsonObject.getInteger("stu_id") != null
                     && jsonObject.getFloat("stu_score") != null) {
                 Result res = Result.getResult(1);
-                res.put("data", studentMapper.scoreForStudent(jsonObject));
+                if(studentMapper.findStudentScore(jsonObject).isEmpty()) {
+                    res.put("data", studentMapper.scoreForStudent(jsonObject));
+                }else{
+                    studentMapper.updateScore(jsonObject);
+                }
                 return res;
             }else{
                 return Result.getResult(0);

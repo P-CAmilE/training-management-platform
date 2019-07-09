@@ -161,7 +161,11 @@ public class TeamServicelmpl implements TeamService {
             if(jsonObject.getInteger("tea_id") != null && jsonObject.getInteger("team_id") != null
                     && jsonObject.getFloat("team_score") != null) {
                 Result res = Result.getResult(1);
-                res.put("data", mapper.scoreForTeam(jsonObject));
+                if(mapper.findTeamScore(jsonObject).isEmpty()) {
+                    res.put("data", mapper.scoreForTeam(jsonObject));
+                }else{
+                    mapper.updateScore(jsonObject);
+                }
                 return res;
             }else{
                 return Result.getResult(0);
