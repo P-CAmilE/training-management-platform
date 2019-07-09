@@ -11,4 +11,7 @@ public interface ResourceMapper {
     public List<JSONObject> find(JSONObject object);
 
     public int delete(JSONObject object);
+
+    public List<JSONObject> findTeacherResource(JSONObject object);
+
 }

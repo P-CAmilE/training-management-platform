@@ -1,15 +1,15 @@
-var id =23;//$.cookie('acc_id');
-var acc ="321";//$.cookie('account');
-var user_name="xxx";//$.cookie('username');
+var id =$.cookie('acc_id');
+var acc =$.cookie('account');
+var user_name=$.cookie('username');
 
 $(function(){
-	$("#username")[0].innerHTML=user_name+"&nbsp;&nbsp;&nbsp;";
+	$("#username")[0].innerHTML=acc+"&nbsp;&nbsp;&nbsp;";
 	$.ajax({
 			url : "project/findProjectDetail",
 			type : "Post",
 			contentType: 'application/json;charset=UTF-8',
 			data : JSON.stringify({
-				"team_id":getUrlParam("team_id")
+				"pro_id":getUrlParam("pro_id")
 			}),
 			dataType : "json",
 			async : false,
@@ -20,17 +20,16 @@ $(function(){
 				}
 				//初始化页面
 				var data=res.data[0];
-				$("#team_name").append(data.team_name);
+				$("#plan_name").append(data.plan_name);
 				$("#plan_name").append(data.plan_name);
 				$("#project_name").append(data.pro_name);
 				$("#time").append(data.start_time+"--"+data.end_time);
+				$("#pro_judge").append(data.pro_judge);
 				$("#sch_name").append(data.sch_name);
-				$("#com_name").append(data.com_name);
-				for(var i=0;i<res.student.length;i++){
-					$("#members").append(res.student[i].stu_name+" ");
-				}
-				$("#github")[0].innerHTML=data.team_github;
-				$("#github").attr("href",data.team_github);
+				$("#context").append(data.pro_description);
+				for(var i=0;i<res.teacher.length;i++){
+					$("#teacher").append(res.teacher[i].tea_name+" ");
+				}				
 			}
 		});
 });

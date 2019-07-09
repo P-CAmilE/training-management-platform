@@ -1,16 +1,16 @@
-var id =$.cookie('acc_id');
-var acc =$.cookie('account');
+var id =22;//$.cookie('acc_id');
+var acc ="bb";//$.cookie('account');
 var user_name=$.cookie('username');
 
 $(function(){
 	$("#img").attr("src", "resource/download?type=image&filename=logo.jpg&owner_id="+id+"&"+'?'+Math.random());
 	$("#username")[0].innerHTML=acc+"&nbsp;&nbsp;&nbsp;";
 	$.ajax({
-			url : "student/find",
+			url : "teacher/find",
 			type : "Post",
 			contentType: 'application/json;charset=UTF-8',
 			data : JSON.stringify({
-				"stu_id":id
+				"tea_id":id
 			}),
 			dataType : "json",
 			async : false,
@@ -20,12 +20,9 @@ $(function(){
 					return;
 				}
 				//初始化页面
-				$("#name").val(res.data[0].stu_name);
+				$("#name").val(res.data[0].tea_name);
 				$("#acc").val(res.data[0].account);
-				$("#git_acc").val(res.data[0].github_account);
-				$("#img").attr("src", "resource/download?type=image&filename=logo.jpg&owner_id="+id);
-				//alert(res.data[0].com_name);
-				//alert(res.type);
+				$("#unit").val(res.data[0].tea_unit);
 			}
 		});
 		
@@ -52,16 +49,16 @@ $(function(){
 		});	
 	});
 	
-	$("#stu_info").submit(function(){
+	$("#teacher_info").submit(function(){
 		$.ajax({
-		url : "student/update",
+		url : "teacher/update",
 		type : "Post",
 		contentType: 'application/json;charset=UTF-8',
 		data : JSON.stringify({
-			"new_stu_name": $("#name").val(),
-		    "new_github_account":$("#git_acc").val(),
+			"new_tea_name": $("#name").val(),
+			"new_tea_unit": $("#unit").val(),
 			"new_password":$("#password1").val(),
-			"stu_id":id
+			"tea_id":id
 		}),
 		dataType : "json",
 		async : false,

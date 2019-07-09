@@ -1,11 +1,11 @@
-var id =$.cookie('acc_id');
-var acc =$.cookie('account');
+var id =22;//$.cookie('acc_id');
+var acc ="bb";//$.cookie('account');
 var user_name=$.cookie('username');
 
 $(function(){
 	$("#username")[0].innerHTML=acc+"&nbsp;&nbsp;&nbsp;";
 	$.ajax({
-			url : "student/find",
+			url : "teacher/find",
 			type : "Post",
 			contentType: 'application/json;charset=UTF-8',
 			data : JSON.stringify({
@@ -19,28 +19,11 @@ $(function(){
 					return;
 				}
 				//初始化页面
-				$("#name").val(res.data[0].stu_name);
-				$("#acc").val(res.data[0].account);
-				$("#git_acc")[0].innerHTML=res.data[0].github_account;
-				$("#git_acc").attr("href",res.data[0].github_account);
+				$("#name").append(res.data[0].tea_name);
+				$("#acc").append(res.data[0].account);
+				$("#unit").append(res.data[0].tea_unit);
 				$("#img").attr("src", "resource/download?type=image&filename=logo.jpg&owner_id="+id);
-				//alert(res.data[0].com_name);
-				//alert(res.type);
 			}
 		});
 		
 });
-
-	
-
-
-
-
-
-
-
-
-
-
-
-

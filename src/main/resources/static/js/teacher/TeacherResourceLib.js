@@ -1,5 +1,5 @@
-var id=$.cookie('acc_id');
-var acc =$.cookie('account');
+var id=22;//$.cookie('acc_id');
+var acc ="bb";//$.cookie('account');
 var user_name=$.cookie('username');
 
 $(function(){
@@ -44,12 +44,13 @@ $("#file_list").on('click',".form-control1",function(){
 
 function getResource(id){
 	$.ajax({
-        url: "/resource/findTeacherResource",
+        url: "/resource/find",
         type: "POST",
         dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
-			"stu_id":id
+			"owner_id":id,
+			"type":"doc"
         }),
         success:function(res){
 			if(res.type=="fail"){

@@ -6,7 +6,9 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.cookie.js"></script> 
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
@@ -19,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+	<script src="js/teacher/TeacherCheckStudentInfo.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -48,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="TeacherHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="TeacherHomepage.html">未登录&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -58,12 +61,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="fo-top-dj">
                     <h3 class="sub-tittle">学生信息:</h3>
                     <div class="content tab">
-                        <form>
+                        <form onsubmit="return false">
                             <div class="fo-top">
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">姓名:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:250px;border: none" readonly>李***</label>
+                                        <label id="stu_name" class="form-control1" style="height: 35px;width:250px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -72,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">账号:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:200px;border: none" readonly>123215654</label>
+                                        <label id="acc" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -81,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">学校:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:250px;border: none" readonly>武汉大学</label>
+                                        <label id="sch_name" class="form-control1" style="height: 35px;width:250px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -90,7 +93,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">计划:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:250px;border: none" readonly>2017级软件工程暑期实践</label>
+                                        <label id="plan_name" class="form-control1" style="height: 35px;width:250px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -99,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">项目:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:250px;border: none" readonly>高校实训实习平台</label>
+                                        <label id="pro_name" class="form-control1" style="height: 35px;width:250px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -108,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">团队:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:250px;border: none" readonly>WeCharge</label>
+                                        <label id="team_name" class="form-control1" style="height: 35px;width:250px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -117,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">个人分数:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:250px;border: none" readonly>95</label>
+                                        <label id="score" class="form-control1" style="height: 35px;width:250px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -133,8 +136,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
-                                                <textarea class="form-control1" style="height: 300px;width:400px;margin-left: 25px">123</textarea>
+                                            <form id="send" onsubmit="return false">
+											<textarea id="title" class="form-control1" style="height: 40px;width:400px;margin-left: 25px"></textarea>
+                                                <textarea id="msg" class="form-control1" style="height: 300px;width:400px;margin-left: 25px"></textarea>
                                                 <br><br>
                                                 <input id="message" type="submit" class="studentinput" style="width: 200px;margin-left: 135px" value="确认" onclick="myFunction()">
                                             </form>

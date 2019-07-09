@@ -6,7 +6,9 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.cookie.js"></script> 
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
@@ -19,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+	<script src="js/teacher/TeacherCheckStudent.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -34,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2> 用户：<a href="TeacherHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2> 用户：<a id="username" href="TeacherHomepage.html">未登录&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -62,28 +65,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="content tab">
                         <div class="fo-top">
-                            <table border="none" style=" width: 1000px;text-align: center;margin-left: 50px">
-                                <tr style="border: none;background-color: grey">
-                                    <th style="width: 100px">学生名</th>
-                                    <th style="width: 200px">账号</th>
-                                    <th style="width: 100px">学校</th>
-                                    <th style="width: 300px">操作</th>
-                                    <th style="width: 300px">评分</th>
-                                </tr>
-                                <tr style="border: none">
-                                    <td><label>李***</label></td>
-                                    <td><label>123215654</label></td>
-                                    <td><label>武汉大学</label></td>
-                                    <td><a href="TeacherCheckStudentInfo.html">查看</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="TeacherCheckLog.html">日志</a></td>
-                                    <td><input type="number" max="100" min="0" style="width: 80px;margin-left: 20px"><input type="submit" class="studentinput" style="width: 50px;text-align: center;padding-left: 10px;margin-left: 50px"value="提交" onclick="myFunction()"></td>
-                                </tr>
-                                <tr style="border: none">
-                                    <td><label>林**</label></td>
-                                    <td><label>789654</label></td>
-                                    <td><label>华中科技大学</label></td>
-                                    <td><a href="TeacherCheckStudentInfo.html">查看</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="TeacherCheckLog.html">日志</a></td>
-                                    <td><input type="number" max="100" min="0" style="width: 80px;margin-left: 20px"><input type="submit" class="studentinput" style="width: 50px;text-align: center;padding-left: 10px;margin-left: 50px"value="提交" onclick="myFunction()"></td>
-                                </tr>
+                            <table id="stu_table" border="none" style=" width: 1000px;text-align: center;margin-left: 50px">
+                       
                             </table>
                             <br><br><br>
                         </div>

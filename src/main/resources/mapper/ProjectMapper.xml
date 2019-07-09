@@ -7,6 +7,7 @@
     <sql id="simple_trim">
         <where>
             <if test="search_name != null">pro_name like #{search_name,jdbcType=VARCHAR}</if>
+            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
             <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
             <if test="pro_name != null">and pro_name = #{pro_name,jdbcType=VARCHAR}</if>
             <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
@@ -17,12 +18,9 @@
 
     <sql id="simple_trim1">
         <where>
-
             <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
-
         </where>
     </sql>
-
 
     <insert id="insert"  useGeneratedKeys="true" keyProperty="pro_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert project_info

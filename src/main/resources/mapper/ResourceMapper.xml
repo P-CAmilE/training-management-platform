@@ -13,6 +13,12 @@
         </where>
     </sql>
 
+    <sql id="simple_trim1">
+        <where>
+            <if test="stu_id != null">and stu_id = #{stu_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
     <insert id="upload"  useGeneratedKeys="true" keyProperty="resource_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert resource_info (resource_name,resource_path,owner_id) values (#{resource_name},#{resource_path},#{owner_id})
     </insert>
@@ -20,6 +26,11 @@
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject">
         select * from resource_info
         <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findTeacherResource" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject">
+        select resource_id,resource_name from student_info natural  join team_student natural join team_info natural join project_info natural join project_teacher inner join resource_info on tea_id=owner_id
+        <include refid="simple_trim1"></include>
     </select>
 
     <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">

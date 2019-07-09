@@ -6,7 +6,9 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.cookie.js"></script> 
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
@@ -19,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+	 <script src="js/teacher/TeacherCheckLog.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -47,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="TeacherHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="TeacherHomepage.html">未登录&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -59,22 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="content tab">
                         <form>
                             <div class="fo-top">
-                                <table border="none" style=" width: 1000px;text-align: center;margin-left: 50px">
-                                    <tr style="border: none;background-color: grey">
-                                        <td>标题</td>
-                                        <td>最新提交时间</td>
-                                        <td>操作</td>
-                                    </tr>
-                                    <tr style="border: none">
-                                        <td>****</td>
-                                        <td>2019.7.2 18:00</td>
-                                        <td><a style="color: #b52e31" data-toggle="modal" aria-pressed="false" data-target="#exampleModal2">查看</a> </td>
-                                    </tr>
-                                    <tr style="border: none">
-                                        <td>***</td>
-                                        <td>2019.7.1 15:00</td>
-                                        <td><a style="color: #b52e31" data-toggle="modal" aria-pressed="false" data-target="#exampleModal2">查看</a> </td>
-                                    </tr>
+                                <table id="log_table" border="none" style=" width: 1000px;text-align: center;margin-left: 50px">
                                 </table>
                                 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -86,9 +74,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form>
-                                                    <label class="form-control1" style="height: 35px;width:400px;margin-left: 25px" readonly>123123</label>
-                                                    <textarea class="form-control1" style="height: 300px;width:400px;margin-left: 25px" readonly>123</textarea>
+                                                <form onsubmit="return false">
+                                                    <textarea id="title" class="form-control1" style="height: 35px;width:400px;margin-left: 25px" readonly></textarea>
+                                                    <textarea id="log_context" class="form-control1" style="height: 300px;width:400px;margin-left: 25px" readonly></textarea>
                                                     <button id="message" type="submit" class="studentinput" style="height: 50px;width: 200px;margin-left: 135px" value="确认" data-dismiss="modal" aria-label="Close">返回</button>
                                                 </form>
                                             </div>

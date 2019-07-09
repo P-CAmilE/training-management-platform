@@ -6,7 +6,9 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.cookie.js"></script> 
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
@@ -19,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+	<script src="js/teacher/TeacherResourceLib.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -35,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="StuHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="StuHomepage.html">未登录&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -47,10 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="content tab">
                         <div class="fo-top">
                             <div class="form-group">
-                                <div class="hover1">
-                                    <label type="text" class="form-control1" style="border:0px;background:rgba(0, 0, 0, 0); margin-left: 100px" onclick="myFunction1()">ppt模板：111.ppt</label>
-                                    <label type="text" class="form-control1" style="border:0px;background:rgba(0, 0, 0, 0); margin-left: 100px" onclick="myFunction1()">实验报告模板：112.word</label>
-                                    <label type="text" class="form-control1" style="border:0px;background:rgba(0, 0, 0, 0); margin-left: 100px" onclick="myFunction1()">实验总结模板：113.word</label>
+                                <div id="file_list" class="hover1">
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="col-sm-8 ">
                                     <textarea  id="fileName" style="height:100px;width:500px;border:1px solid black; outline: none;margin-left:80px;" readonly></textarea>
                                 </div>
-                                <form>
+                                <form onsubmit="return false">
                                     <div class="col-sm-8 ">
                                         <br><br>
                                         <label class="studentinput" for="file" style="margin-left: 185px;width: 200px;text-align: center">选择文件</label>
@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="col-sm-8 ">
-                                        <input type="submit" class="studentinput" style="width: 200px;margin-left: 185px" value="提交" onclick="myFunction2()">
+                                        <input id="bu1" type="button" class="studentinput" style="width: 200px;margin-left: 185px" value="提交">
                                     </div>
                                 </form>
                             </div>
@@ -167,14 +167,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     function handleFile1(){
         fileName1.value = file1.value;
     };
-</script>
-<script>
-    function myFunction1() {
-        alert("正在下载")
-    }
-    function myFunction2() {
-        alert("提交成功")
-    }
 </script>
 </body>
 </html>

@@ -37,5 +37,10 @@ public class ResoureController {
     public Result find(@RequestBody JSONObject object){
         return service.find(object);
     }
+
+    @RequestMapping("/findTeacherResource")
+    public Result findTeacherResource(@RequestBody JSONObject object){
+        return service.findTeacherResource(object);
+    }
 }
 

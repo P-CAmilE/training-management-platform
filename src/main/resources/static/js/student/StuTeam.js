@@ -1,9 +1,9 @@
-var id =23;//$.cookie('acc_id');
-var acc ="321";//$.cookie('account');
-var user_name="xxx";//$.cookie('username');
+var id =$.cookie('acc_id');
+var acc =$.cookie('account');
+var user_name=$.cookie('username');
 
 $(function(){
-	$("#username")[0].innerHTML=user_name+"&nbsp;&nbsp;&nbsp;";
+	$("#username")[0].innerHTML=acc+"&nbsp;&nbsp;&nbsp;";
 	getTeam(id);
 });	
 //获取团队

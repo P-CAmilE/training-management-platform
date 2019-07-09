@@ -12,6 +12,7 @@
             <if test="to_id != null">and to_id = #{to_id,jdbcType=INTEGER}</if>
             <if test="msg_title != null">and msg_title = #{msg_title,jdbcType=VARCHAR}</if>
             <if test="msg_date != null">and msg_date = #{msg_date,jdbcType=TIME}</if>
+            <if test="is_read != null">and is_read = #{is_read,jdbcType=INTEGER}</if>
         </where>
     </sql>
 
@@ -46,6 +47,7 @@
             <if test="new_to_id != null">to_id = #{new_to_id,jdbcType=INTEGER},</if>
             <if test="new_msg_title != null">msg_title = #{new_msg_title,jdbcType=VARCHAR},</if>
             <if test="new_msg_date != null">msg_date = #{new_msg_date,jdbcType=TIME}</if>
+            <if test="new_is_read != null">is_read = #{new_is_read,jdbcType=INTEGER}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

@@ -15,4 +15,6 @@ public interface ResourceService {
     public Result find(JSONObject object);
 
     public Result delete(JSONObject object);
+
+    public Result findTeacherResource(JSONObject object);
 }

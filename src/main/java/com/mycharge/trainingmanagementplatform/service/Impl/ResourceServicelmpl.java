@@ -146,4 +146,16 @@ public class ResourceServicelmpl implements ResourceService {
             return res;
         }
     }
+
+    @Override
+    public Result findTeacherResource(JSONObject object) {
+        try{
+            Result res=Result.getResult(1);
+            res.put("data",mapper.findTeacherResource(object));
+            return res;
+        }catch (Exception e){
+            e.printStackTrace();
+            return  Result.getResult(0);
+        }
+    }
 }

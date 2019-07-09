@@ -6,7 +6,9 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.cookie.js"></script> 
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
@@ -19,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+	<script src="js/teacher/TeacherHomepage.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -34,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="TeacherHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="TeacherHomepage.html">未登录&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -47,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <form>
                             <div class="fo-top">
                                 <div class="form-group">
-                                    <label  class="col-sm-2 control-label">头像:</label>
+                                    <label class="col-sm-2 control-label">头像:</label>
                                     <div class="col-sm-8 ">
                                         <div>
                                             <div class="showimg">
@@ -62,25 +65,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">姓名:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:200px;border: none" readonly>刘兆生</label>
+                                        <label id="name" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
                             <div class="fo-top">
                                 <div class="form-group">
-                                    <label  class="col-sm-2 control-label">账号:</label>
+                                    <label class="col-sm-2 control-label">账号:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:200px;border: none" readonly>12345654321</label>
+                                        <label id="acc" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
                             <div class="fo-top">
                                 <div class="form-group">
-                                    <label  class="col-sm-2 control-label">单位:</label>
+                                    <label class="col-sm-2 control-label">单位:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:200px;border: none" readonly>东方瑞通</label>
+                                        <label id="unit" class="form-control1" style="height: 35px;width:200px;border: none" readonly> </label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

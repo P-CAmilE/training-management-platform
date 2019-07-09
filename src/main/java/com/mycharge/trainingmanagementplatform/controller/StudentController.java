@@ -50,7 +50,7 @@ public class StudentController {
         return service.scoreForStudent(jsonObject);
     }
 
-        @RequestMapping("/findByTeacher")
+    @RequestMapping("/findByTeacher")
     public Result findByTeacher(@RequestBody JSONObject jsonObject){
         return service.findByTeacher(jsonObject);
     }
