@@ -8463,7 +8463,7 @@ button.bg-dark:focus {
   }
   .ml-lg-auto,
   .mx-lg-auto {
-    margin-left: auto !important;
+    margin-left: 300px !important;
   }
 }
 

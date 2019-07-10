@@ -82,6 +82,14 @@
         <include refid="simple_trim"></include>
     </select>
 
+    <update id="updateScore" parameterType="com.alibaba.fastjson.JSONObject">
+        update team_info
+        <set>
+            <if test="team_score != null and team_score != ''">team_score = #{team_score,jdbcType=FLOAT}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
     <insert id="scoreForTeam" parameterType="com.alibaba.fastjson.JSONObject">
         insert teacher_team_score
         <trim prefix="(" suffix=")" suffixOverrides=",">

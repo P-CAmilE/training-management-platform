@@ -1,7 +1,7 @@
 var host="127.0.0.1:8080"
 
 
-$("#company_login").submit(function(){
+$("#admin_login").submit(function(){
     var username = $("#recipient-name2").val();
     var password = $("#password4").val();
     $.ajax({
@@ -12,11 +12,11 @@ $("#company_login").submit(function(){
         data :  JSON.stringify({
             "account":username,
             "password": password,
-            "user_type": "company"
+            "user_type": "admin"
         }),
         success:function(res){
             alert(res.msg);
-            if(res.type == "success"){window.location.href="CompHomepage";}
+            if(res.type == "success"){window.location.href="AdminHomepage";}
         },
         error:function () {
             alert("ajax error")
@@ -87,7 +87,7 @@ $("#register").submit(function(){
             data :  JSON.stringify({
                 "account":username,
                 "password": password,
-                "user_type": "student",
+                "user_type": "admin",
                 "user_email": useremail
             }),
             success:function(data){
@@ -95,8 +95,8 @@ $("#register").submit(function(){
                 if(data.type == "success") {
                     if (data.usertype == "student") {
                         window.location.href = "stuHomepage";
-                    } else if (data.usertype == "company") {
-                        window.location.href = "CompHomepage";
+                    } else if (data.usertype == "admin") {
+                        window.location.href = "AdminHomepage";
                     }
                 }
             },

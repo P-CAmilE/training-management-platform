@@ -21,19 +21,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <link rel="stylesheet" href="webfonts/teac-icon-font/iconfont.css">
 	<script src="js/teacher/TeacherResourceLib.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
     <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/pie-chart.js" type="text/javascript"></script>
+    <style>
+            tr{
+                border-top-width: 1px;
+                border-top-style: solid;
+                border-top-color: rgb(230, 189, 189);
+            }
+            table{
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: rgb(230, 189, 189);
+            }
+            td{
+                padding: 5px 10px;
+                font-size: 13px;
+                font-family:微软雅黑;
+                color: rgb(177, 106, 104);
+            }
+            th{
+                padding: 5px 10px;
+                font-size: 15px;
+                font-family: 微软雅黑;
+                color: rgb(0, 0, 0);
+            }
+            tr:nth-child(even) {
+                background: rgb(248, 255, 247);
+            }
+            tr:nth-child(odd) {
+                background: rgb(238, 217, 215)
+            }
+        </style>
 </head>
 <body>
 <div class="page-container">
     <div class="left-content">
-        <div class="inner-content">
+        <div class="inner-content user">
             <div class="header-section navbar" >
                 <div class="header_top">
+                    <a href="TeacherHomepage.html" class="top_right" style="color: #B52E31">实训管理平台-教师</a>
                     <div class="top_left">
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
@@ -65,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="fo-top">
                             <div class="form-group">
                                 <div class="col-sm-8 ">
-                                    <textarea  id="fileName" style="height:100px;width:500px;border:1px solid black; outline: none;margin-left:80px;" readonly></textarea>
+                                    <textarea  id="fileName" style="height:100px;width:500px;border:1px solid black; outline: none;margin-left:80px;border-radius: 10px;background: transparent" readonly></textarea>
                                 </div>
                                 <form onsubmit="return false">
                                     <div class="col-sm-8 ">
@@ -121,16 +152,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </header>
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
-            <ul id="menu" >
-                <li><a href="TeacherHomepage.html"><span>我的主页</span></a></li>
-                <li><a href="TeacherCheckTeacher.html"><span>教师</span></a></li>
-                <li><a href="TeacherInternPlan.html"><span>实训计划</span></a></li>
-                <li><a href="TeacherInternProject.html"><span>实训项目</span></a></li>
-                <li><a href="TeacherInternTeam.html"><span>实训团队</span></a></li>
-                <li><a href="TeacherCheckStudent.html"><span>学生</span></a></li>
-                <li><a href="TeacherRecord.html"><span>记录</span></a></li>
-                <li><a href="TeacherResourceLib.html"><span>资源库</span></a></li>
-            </ul>
+           <ul id="menu" >
+              <li><a href="TeacherHomepage.html"><i class="iconfont icon-Xtubiao-shouye"></i><span>我的主页</span></a></li>
+              <li><a href="TeacherInternPlan.html"><i class="iconfont icon-date"></i><span>实训计划</span></a></li>
+              <li><a href="TeacherInternProject.html"><i class="iconfont icon-Management"></i><span>实训项目</span></a></li>
+              <li><a href="TeacherInternTeam.html"><i class="iconfont icon-Team"></i><span>实训团队</span></a></li>
+              <li><a href="TeacherCheckStudent.html"><i class="iconfont icon-wode"></i><span>学生</span></a></li>
+              <li><a href="TeacherRecord.html"><i class="iconfont icon-Document"></i><span>记录</span></a></li>
+              <li><a href="TeacherResourceLib.html" style="background-color: firebrick"><i class="iconfont icon-Download"></i><span>资源库</span></a></li>
+           </ul>
         </div>
     </div>
     <div class="clearfix"></div>

@@ -26,7 +26,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 }
             }
         }
-//    没有找到登录状态则重定向到登录页，返回false，不执行原来controller的方法
+// 3   没有找到登录状态则重定向到登录页，返回false，不执行原来controller的方法
         response.sendRedirect("/indexhome");
         return false;
     }

@@ -1,5 +1,5 @@
-var id =22;//$.cookie('acc_id');
-var acc ="bb"//$.cookie('account');
+var id =$.cookie('acc_id');
+var acc =$.cookie('account');
 var user_name=$.cookie('username');
 
 $(function(){
@@ -49,11 +49,16 @@ function getLog(user_id){
 			log_table.innerHTML="<tr id='log_table' style='border: none;background-color: grey'><td>标题</td><td>最新提交时间</td><td>操作</td></tr>";
 			for(var i=0;i<res.data.length;i++){
 				var data=res.data[i];
-				log_table.innerHTML+="<tr style='border: none'><td>"+data.log_title+"</td><td>"+data.log_date+"</td><td><button type='button' class='read' value='"+data.log_id+"' style='border-style: none;background: none;color: #b52e31' data-toggle='modal' aria-pressed='false' data-target='#exampleModal2'>查看</button></td></tr>";
+				log_table.innerHTML+="<tr style='border: none'><td>"+data.log_title+"</td><td>"+renderTime(data.log_date)+"</td><td><button type='button' class='read' value='"+data.log_id+"' style='border-style: none;background: none;color: #b52e31' data-toggle='modal' aria-pressed='false' data-target='#exampleModal2'>查看</button></td></tr>";
 			}
 			
         }
     });
+}
+
+function renderTime(date) {
+  var dateee = new Date(date).toJSON();
+  return new Date(+new Date(dateee) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '') 
 }
 
 //获取url参数

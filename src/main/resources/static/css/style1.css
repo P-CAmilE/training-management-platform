@@ -34,6 +34,31 @@ a {
 }
 a:hover { transition: all 200ms ease-in-out; }
 
+.form-controlinput{
+    background-color: transparent;
+    border: 1px solid #cecece;
+    border-radius: 30px;
+    color: #2c2c2c;
+    line-height: normal;
+    font-size: 0.8571em;
+    -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: 200px;
+    height: 35px;
+    padding-left: 10px;
+}
+.form-controlinput:focus{
+    border: 1px solid #ffb900;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 !important;
+    color: #2c2c2c;
+}
 .page-container {
   min-width: 1260px;
   position: relative;
@@ -1924,6 +1949,7 @@ label {
     outline:none;
     font-size:1em;
     margin-bottom: 5px;
+    border-radius: 10px;
 }
 .studentinput:hover{
     color:#01AAED;
@@ -1961,10 +1987,12 @@ label {
     border-radius: 10px;
     width: 200px;
     height: 200px;
+    border-radius: 50%;
 }
 .showimg img{
     width: 100%;
     height: 100%;
+    border-radius: 50%;
 }
 .terms{
 	text-decoration:underline;
@@ -3206,18 +3234,56 @@ span.brand {
 }
 /*--  general forms  --*/
 .form-control1, .form-control_2.input-sm {
-    border: 1px solid #ccc;
-    padding: 5px 8px;
-    color: #616161;
-    background: #fff;
-    box-shadow: none !important;
-    width: 100%;
-    font-size: 0.85em;
-    font-weight: 300;
-    height: 40px;
-    border-radius: 0;
-    -webkit-appearance: none;
-    resize: none;
+    background-color: transparent;
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    color: #2c2c2c;
+    line-height: normal;
+    font-size: 0.8571em;
+    -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: 200px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right:10px;
+}
+.form-control1:focus{
+    border: 1px solid #ffb900;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 !important;
+    color: #2c2c2c;
+}
+.select-bar{
+    background-color: transparent;
+    border: 1px solid #cecece;
+    border-radius: 30px;
+    color: #2c2c2c;
+    line-height: normal;
+    font-size: 0.8571em;
+    -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: 200px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right:10px;
+}
+.select-bar:focus{
+    border: 1px solid #ffb900;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 !important;
+    color: #2c2c2c;
 }
 .hover1 label:hover{
     color:#01AAED;
