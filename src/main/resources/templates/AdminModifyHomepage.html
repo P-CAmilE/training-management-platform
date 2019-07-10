@@ -6,6 +6,7 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="js/admin/AdminModifyHomepage.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -34,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -44,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="fo-top-dj">
                     <h3 class="sub-tittle">修改主页:</h3>
                     <div class="content tab">
-                        <form>
+                        <form id="admin_info" onsubmit="return false">
                             <div class="fo-top">
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">头像:</label>
@@ -67,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">账号:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" style="height: 35px;width:200px" value="12345654321">
+                                        <input type="text" id="acc" class="form-control1" style="height: 35px;width:200px" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -76,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">邮箱:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" style="height: 35px;width:200px" value="123456@qq.com">
+                                        <input type="text" id="email" class="form-control1" style="height: 35px;width:200px">
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -85,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">密码:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="password" class="form-control1" style="height: 35px;width:200px">
+                                        <input type="password" id="password" class="form-control1" style="height: 35px;width:200px">
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -94,12 +96,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">确认密码:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="password" class="form-control1" style="height: 35px;width:200px">
+                                        <input type="password" id="password1" class="form-control1" style="height: 35px;width:200px">
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <form></form>
                             <br><br>
                             <input id="modify" type="submit" class="studentinput" style="width: 100px;margin-left: 150px" value="确认">
                             <a href="javascript:history.go(-1)" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">返回</span></a>
@@ -192,20 +193,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         //正式读取文件
         reader.readAsDataURL(file);
-    }
-</script>
-<script type="text/javascript">
-    window.onload=function()
-    {
-        var modify=document.getElementById("modify");
-        modify.onclick=function() {
-            var answer = confirm("确认要修改吗");
-            if (answer)
-                alert("修改成功");
-            else
-                return false;
-            window.location.href="AdminHomepage.html";
-        }
     }
 </script>
 </body>

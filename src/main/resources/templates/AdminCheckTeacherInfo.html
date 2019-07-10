@@ -6,6 +6,7 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="js/admin/AdminCheckTeacherInfo.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -34,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -44,13 +46,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="fo-top-dj">
                     <h3 class="sub-tittle">教师信息:</h3>
                     <div class="content tab">
-                        <input id="delete" type="submit" class="studentinput" style="width: 80px;margin-left: 1000px" value="删除">
+                        <input id="delete" type="button" class="studentinput" style="width: 80px;margin-left: 1000px" value="删除">
                         <form>
                             <div class="fo-top">
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">教师名:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:200px;border: none" readonly>刘兆生</label>
+                                        <label id="tea_name" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -59,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">账号:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:200px;border: none" readonly>12345654321</label>
+                                        <label id="account" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -68,13 +70,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">单位:</label>
                                     <div class="col-sm-8 ">
-                                        <label class="form-control1" style="height: 35px;width:200px;border: none" readonly>东方瑞通</label>
+                                        <label id="tea_unit" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
                             <br><br>
-                            <a href="AdminModifyTeacher.html" class="studentinput" style="width: 100px;margin-left: 150px"><span style="color: white;padding-left: 15px">修改</span></a>
+                            <a id="modify" class="studentinput" style="width: 100px;margin-left: 150px"><span style="color: white;padding-left: 15px">修改</span></a>
                             <a href="AdminCheckTeacher.html" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">返回</span></a>
                         </form>
                     </div>
@@ -165,20 +167,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         //正式读取文件
         reader.readAsDataURL(file);
-    }
-</script>
-<script type="text/javascript">
-    window.onload=function()
-    {
-        var delete1=document.getElementById("delete");
-        delete1.onclick=function() {
-            var answer = confirm("确认要删除吗");
-            if (answer)
-                alert("删除成功");
-            else
-                return false;
-            window.location.href="AdminCheckTeacher.html";
-        }
     }
 </script>
 </body>

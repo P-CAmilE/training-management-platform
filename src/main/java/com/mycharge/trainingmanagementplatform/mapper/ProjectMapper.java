@@ -10,7 +10,7 @@ public interface ProjectMapper extends Mapper {
 
     public int deleteProjectTeacher(JSONObject jsonObject);
 
-    public List<JSONObject> findName();
+    public List<JSONObject> findName(JSONObject jsonObject);
 
     public List<JSONObject> findByStudent(JSONObject jsonObject);
 

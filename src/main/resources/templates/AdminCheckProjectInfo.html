@@ -6,6 +6,7 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="js/admin/AdminCheckProjectInfo.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -68,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -83,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">项目名:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" value="***" style="height: 35px;width:200px;border-style: none" readonly>
+                                        <input id="pro_name" type="text" class="form-control1" style="height: 35px;width:200px;border-style: none" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -92,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">计划名:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" value="***" style="height: 35px;width:200px;border-style: none;" readonly>
+                                        <input id="plan_name" type="text" class="form-control1" style="height: 35px;width:200px;border-style: none;" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -101,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">项目时间:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" value="2019.6.24-2019.7.14" style="height: 35px;width:200px;border-style: none" readonly>
+                                        <input id="pro_time" type="text" class="form-control1" style="height: 35px;width:200px;border-style: none" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -110,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">学校:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" value="***" style="height: 35px;width:200px;border-style: none" readonly>
+                                        <input id="sch_name" type="text" class="form-control1" style="height: 35px;width:200px;border-style: none" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -119,16 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">负责公司:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" value="***" style="height: 35px;width:200px;border-style: none" readonly>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="fo-top">
-                                <div class="form-group">
-                                    <label  class="col-sm-2 control-label">成员:</label>
-                                    <div class="col-sm-8 ">
-                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px" readonly></textarea>
+                                        <input id="com_name" type="text" class="form-control1" style="height: 35px;width:200px;border-style: none" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -137,7 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">项目内容:</label>
                                     <div class="col-sm-8 ">
-                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px" readonly></textarea>
+                                        <textarea id="pro_description" class="form-control1" style="height: 100px;width:500px" readonly></textarea>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -146,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">验收标准:</label>
                                     <div class="col-sm-8 ">
-                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px" readonly></textarea>
+                                        <textarea id="pro_judge" class="form-control1" style="height: 100px;width:500px" readonly></textarea>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -155,15 +148,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">负责老师:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" value="***" style="height: 35px;width:200px;border-style: none" readonly>
+                                        <input id="tea_name" type="text" class="form-control1" style="height: 35px;width:400px;border-style: none" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
                             <br><br>
                             <div>
-   						      <a href="AdminModifyProject.html" class="studentinput" style="width: 100px;margin-left: 150px"><span style="color: white;padding-left: 15px">修改</span></a>
-                              <a href="javascript:history.go(-1)" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">返回</span></a>
+   						      <a id="modify" class="studentinput" style="width: 100px;margin-left: 150px"><span style="color: white;padding-left: 15px">修改</span></a>
+                              <a href="AdminCheckProject" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">返回</span></a>
                             </div>
                             <div class="clearfix"></div>
                     </div>
@@ -268,19 +261,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             toggle = !toggle;
         });
     </script>
-    <script type="text/javascript">
-        window.onload=function()
-        {
-            var delete1=document.getElementById("delete");
-            delete1.onclick=function() {
-                var answer = confirm("确认要删除吗");
-                if (answer)
-                    alert("删除成功");
-                else
-                    return false;
-                window.location.href="AdminCheckProject.html";
-            }
-        }
-    </script>
+</div>
 </body>
 </html>

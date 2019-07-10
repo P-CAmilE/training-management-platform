@@ -6,6 +6,7 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="js/admin/AdminCheckPlan.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -34,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2> 用户：<a id="username" href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -64,34 +66,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="fo-top">
                             <a href="AdminCreatePlan.html"  class="studentinput" style="width: 120px;margin-left: 50px;text-align: center"><span style="color: white">创建计划</span></a>
                             <br><br>
-                            <table border="none" style=" width: 1000px;text-align: center;margin-left: 50px">
-                                <tr style="border: none;background-color: grey">
-                                    <th style="width: 100px">计划名称</th>
-                                    <th style="width: 200px">实践课程/代码</th>
-                                    <th style="width: 100px">学分</th>
-                                    <th style="width: 200px">实训时间</th>
-                                    <th style="width: 100px">学校</th>
-                                    <th style="width: 100px">负责公司</th>
-                                    <th style="width: 200px">操作</th>
-                                </tr>
-                                <tr style="border: none">
-                                    <td><label>2017级软件工程暑期实践</label></td>
-                                    <td><label>中级项目实践  123456</label></td>
-                                    <td><label>1.5</label></td>
-                                    <td><label>2019年6月24日-2019年7月14日</label></td>
-                                    <td><label>武汉大学</label></td>
-                                    <td><label>东方瑞通</label></td>
-                                    <td><a href="AdminCheckPlanInfo.html">查看</a></td>
-                                </tr>
-                                <tr style="border: none">
-                                    <td><label>2018级软件工程暑期实践</label></td>
-                                    <td><label>初级项目实践  123456</label></td>
-                                    <td><label>2</label></td>
-                                    <td><label>2019年6月24日-2019年9月14日</label></td>
-                                    <td><label>华中科技大学</label></td>
-                                    <td><label>凡诺</label></td>
-                                    <td><a href="AdminCheckPlanInfo.html">查看</a></td>
-                                </tr>
+                            <table id="plan_table" border="none" style=" width: 1000px;text-align: center;margin-left: 50px">
+
                             </table>
                             <br><br><br>
                         </div>
@@ -183,19 +159,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         //正式读取文件
         reader.readAsDataURL(file);
-    }
-</script>
-<script type="text/javascript">
-    window.onload=function()
-    {
-        var modify=document.getElementById("modify");
-        modify.onclick=function() {
-            var answer = confirm("确认要修改吗");
-            if (answer)
-                window.location.href="TeacherHomepage.html";
-            else
-                return false;
-        }
     }
 </script>
 </body>

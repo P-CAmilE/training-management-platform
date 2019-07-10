@@ -6,7 +6,7 @@ import com.mycharge.trainingmanagementplatform.service.proService;
 
 public interface TeamService extends proService {
 
-    public Result findPlanProject();
+    public Result findPlanProject(JSONObject jsonObject);
 
     public Result findStudent(JSONObject jsonObject);
 

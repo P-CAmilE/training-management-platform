@@ -2,10 +2,7 @@ package com.mycharge.trainingmanagementplatform.service.Impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.mycharge.trainingmanagementplatform.mapper.ProjectMapper;
-import com.mycharge.trainingmanagementplatform.mapper.StudentMapper;
-import com.mycharge.trainingmanagementplatform.mapper.TeacherMapper;
-import com.mycharge.trainingmanagementplatform.mapper.TeamMapper;
+import com.mycharge.trainingmanagementplatform.mapper.*;
 import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +21,8 @@ public class TeamServicelmpl implements TeamService {
     private ProjectMapper projectMapper;
     @Autowired
     private TeacherMapper teacherMapper;
+    @Autowired
+    private PlanMapper planMapper;
 
     @Override
     public Result insert(JSONObject object) {
@@ -32,7 +31,7 @@ public class TeamServicelmpl implements TeamService {
             mapper.insert(object);
             List<JSONObject> jsonObjectList = mapper.find(object);
             int teamID = jsonObjectList.get(0).getInteger("team_id");
-            JSONArray jsonArray = object.getJSONArray("stu_id");
+            JSONArray jsonArray = object.getJSONArray("stu_ids");
             if(jsonArray != null){
 //              mapper.deletePlanTeacher(object);
                 for(int i = 0;i < jsonArray.size(); i ++){
@@ -222,10 +221,14 @@ public class TeamServicelmpl implements TeamService {
     }
 
     @Override
-    public Result findPlanProject() {
+    public Result findPlanProject(JSONObject jsonObject) {
         try{
             Result res = Result.getResult(1);
-            res.put("data",projectMapper.findName());
+            if(jsonObject.getInteger("plan_id") != null) {
+                res.put("data", projectMapper.findName(jsonObject));
+            }else{
+                res.put("data",planMapper.findName());
+            }
             return res;
         }catch (Exception e){
             e.printStackTrace();
@@ -236,7 +239,7 @@ public class TeamServicelmpl implements TeamService {
     @Override
     public Result findStudent(JSONObject jsonObject) {
         try{
-            if(jsonObject.getInteger("pro_id") != null || jsonObject.getInteger("plan_id") != null) {
+            if(jsonObject.getInteger("plan_id") != null) {
                 Result res = Result.getResult(1);
                 res.put("data", studentMapper.findBySchool(jsonObject));
                 return res;

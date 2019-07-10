@@ -6,6 +6,7 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="js/admin/AdminModifyProject.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -68,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -78,11 +80,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="fo-top-dj">
                     <h3 class="sub-tittle">修改项目:</h3><br>
                     <div class="content tab">
+                        <form id="modify_project_info" onsubmit="return false">
                             <div class="fo-top">
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">项目名:</label>
                                     <div class="col-sm-8 ">
-                                        <input type="text" class="form-control1" value="***" style="height: 35px;width:200px">
+                                        <input id="new_pro_name" type="text" class="form-control1"style="height: 35px;width:200px">
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -91,10 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">计划名:</label>
                                     <div class="col-sm-8 ">
-                                        <select style="width: 200px;height: 35px">
-                                            <option value="volvo">2019年暑期**</option>
-                                            <option value="saab">2019年寒假**</option>
-                                            <option value="opel">2018年**</option>
+                                        <select id="new_plan_id" style="width: 200px;height: 35px">
                                         </select>
                                     </div>
                                     <div class="clearfix"></div>
@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">项目内容:</label>
                                     <div class="col-sm-8 ">
-                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px"></textarea>
+                                        <textarea id="new_pro_description" class="form-control1"  style="height: 100px;width:500px"></textarea>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">验收标准:</label>
                                     <div class="col-sm-8 ">
-                                        <textarea class="form-control1" value="123" style="height: 100px;width:500px"></textarea>
+                                        <textarea id="new_pro_judge" class="form-control1" style="height: 100px;width:500px"></textarea>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -122,9 +122,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">负责老师:</label>
                                     <div class="col-sm-8 ">
-                                        <a class="studentinput" style="width: 105px"><span style="color: white;text-align: center;" data-toggle="modal" aria-pressed="false" data-target="#exampleModal2">点击选择</span></a>
+                                        <a id="selectTeacher" class="studentinput" style="width: 105px"><span style="color: white;text-align: center;" data-toggle="modal" aria-pressed="false" data-target="#exampleModal2">点击选择</span></a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input class="form-control1" style="height: 35px;width:200px;border: none" value="已选择：刘兆生" readonly>
+                                        <input id="selectedTeacher" class="form-control1" style="height: 35px;width:200px;border: none" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -140,39 +140,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
-                                                <table border="none" style=" width: 400px;text-align: center;margin-left: 25px">
-                                                    <tr style="border: none;background-color: grey">
-                                                        <th style="width: 100px">选择</th>
-                                                        <th style="width: 100px">教师名</th>
-                                                        <th style="width: 100px">账号</th>
-                                                        <th style="width: 100px">单位</th>
-                                                    </tr>
-                                                    <tr style="border: none">
-                                                        <td><input name="Teacher" type="checkbox" value="刘兆生" /></td>
-                                                        <td><label>刘兆生</label></td>
-                                                        <td><label>12345654321</label></td>
-                                                        <td><label>东方瑞通</label></td>
-                                                    </tr>
-                                                    <tr style="border: none">
-                                                        <td><input name="Teacher" type="checkbox" value="chris" /></td>
-                                                        <td><label>chris</label></td>
-                                                        <td><label>2323245646</label></td>
-                                                        <td><label>凡诺</label></td>
-                                                    </tr>
+                                                <table id="teacher_table" border="none" style=" width: 400px;text-align: center;margin-left: 25px">
+
                                                 </table>
                                                 <br><br>
-                                                <input id="choose" type="submit" class="studentinput" style="width: 100px;margin-left: 100px" value="选择">
-                                                <a class="studentinput" style="width: 100px;margin-left: 50px"><span style="color: white;padding-left: 15px" data-dismiss="modal" aria-label="Close">取消</span></a>
-                                            </form>
+                                            <a class="studentinput" id="choose" style="width: 120px;margin-left: 50px"><span style="color: white;padding-left: 25px" data-dismiss="modal" aria-label="Close">选择</span></a>
+                                            <a class="studentinput" style="width: 100px;margin-left: 50px"><span style="color: white;padding-left: 15px" data-dismiss="modal" aria-label="Close">取消</span></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <br><br>
                             <div>
-                                <input type="submit" class="studentinput" style="width: 100px;margin-left: 150px" value="确认" onclick="myFunction()">
-                                <a href="javascript:history.go(-1)" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">返回</span></a>
+                                <input type="submit" class="studentinput" style="width: 100px;margin-left: 150px" value="确认">
+                                <a id="cancelModify" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">返回</span></a>
                             </div>
                             <div class="clearfix"></div>
                     </div>
@@ -277,16 +258,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             toggle = !toggle;
         });
     </script>
-    <script>
-	function myFunction() {
-            var answer = confirm("确认要修改吗");
-            if (answer)
-                alert("修改成功");
-            else
-                return false;
-            window.location.href="AdminCheckProjectInfo.html";
-	}
-    </script>
     <!-- easing -->
 	<script src="js/easing.js"></script>
 	<!-- smooth scroll -->
@@ -295,5 +266,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/stock.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.js "></script>
+</div>
 </body>
 </html>

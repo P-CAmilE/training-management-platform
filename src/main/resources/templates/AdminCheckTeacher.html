@@ -6,6 +6,7 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="js/admin/AdminCheckTeacher.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -34,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="AdminHomepage.html">&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -64,25 +66,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="fo-top">
                             <a href="AdminCreateTeacher.html"  class="studentinput" style="width: 120px;margin-left: 150px;text-align: center"><span style="color: white">创建教师</span></a>
                             <br><br>
-                            <table border="none" style=" width: 800px;text-align: center;margin-left: 150px">
-                                <tr style="border: none;background-color: grey">
-                                    <th style="width: 100px">教师名</th>
-                                    <th style="width: 200px">账号</th>
-                                    <th style="width: 200px">单位</th>
-                                    <th style="width: 300px">操作</th>
-                                </tr>
-                                <tr style="border: none">
-                                    <td><label>刘兆生</label></td>
-                                    <td><label>12345654321</label></td>
-                                    <td><label>东方瑞通</label></td>
-                                    <td><a href="AdminCheckTeacherInfo.html">查看</a></td>
-                                </tr>
-                                <tr style="border: none">
-                                    <td><label>chris</label></td>
-                                    <td><label>2323245646</label></td>
-                                    <td><label>凡诺</label></td>
-                                    <td><a href="AdminCheckTeacherInfo.html">查看</a></td>
-                                </tr>
+                            <table id="teacher_table" border="none" style=" width: 800px;text-align: center;margin-left: 150px">
+
                             </table>
                             <br><br><br>
                         </div>
@@ -174,19 +159,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         //正式读取文件
         reader.readAsDataURL(file);
-    }
-</script>
-<script type="text/javascript">
-    window.onload=function()
-    {
-        var modify=document.getElementById("modify");
-        modify.onclick=function() {
-            var answer = confirm("确认要修改吗");
-            if (answer)
-                alert("修改成功");
-            else
-                return false;
-        }
     }
 </script>
 </body>

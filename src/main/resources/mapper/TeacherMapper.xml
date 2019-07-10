@@ -7,9 +7,9 @@
     <sql id="simple_trim">
     <where>
         <if test="search_name != null">tea_name like #{search_name,jdbcType=VARCHAR}</if>
-        <if test="team_id != null">team_id = #{tam_id,jdbcType=INTEGER}</if>
+        <if test="team_id != null">team_id = #{team_id,jdbcType=INTEGER}</if>
         <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
-        <if test="project_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
+        <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
         <if test="tea_id != null">and tea_id = #{tea_id,jdbcType=INTEGER}</if>
     </where>
 </sql>
@@ -58,7 +58,7 @@
     </select>
 
     <select id="findByPlan" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select tea_id,tea_name from teacher_info natural join plan_teacher
+        select tea_id,tea_name,tea_unit from teacher_info natural join plan_teacher
         <include refid="simple_trim"></include>
     </select>
 

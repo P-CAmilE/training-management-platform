@@ -6,6 +6,7 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="js/admin/AdminCheckProject.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -35,7 +37,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -62,31 +64,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <a href="AdminCreateProject.html"  class="studentinput" style="width: 120px;margin-left: 50px;text-align: center"><span style="color: white">创建项目</span></a>
                     <br><br>
-                    <table border="none" style=" width: 1000px;text-align: center;margin-left: 50px">
-                        <tr style="border: none;background-color: grey"r>
-                            <td>项目名</td>
-                            <td>计划名</td>
-                            <td>实训时间</td>
-                            <td>学校</td>
-                            <td>负责公司</td>
-                            <td>操作</td>
-                        </tr>
-                        <tr style="border: none">
-                            <td>***</td>
-                            <td>2019年暑期**</td>
-                            <td>2019.6.24-2019.7.14</td>
-                            <td>武汉大学</td>
-                            <td>东方瑞通</td>
-                             <td><a href="AdminCheckProjectInfo.html">查看</a> </td>
-                        </tr>
-                        <tr style="border: none">
-                            <td>***</td>
-                            <td>2019年暑期**</td>
-                            <td>2019.6.24-2019.7.14</td>
-                            <td>武汉大学</td>
-                            <td>***</td>
-                             <td><a href="AdminCheckTeamInfo.html">查看</a> </td>
-                        </tr>
+                    <table id="project_table" border="none" style=" width: 1000px;text-align: center;margin-left: 50px">
+
+
                      </table><br><br>
                 </div>
                 <br><br>

@@ -53,9 +53,9 @@ public class TeamController {
     }
 
     @RequestMapping("/findPlanProject")
-    public Result findPlanProject(HttpServletRequest request){
+    public Result findPlanProject(@RequestBody JSONObject object, HttpServletRequest request){
         if(Validate.valiToken(request))
-            return service.findPlanProject();
+            return service.findPlanProject(object);
         else
             return Result.getResult(0).put("msg","未登录");
     }

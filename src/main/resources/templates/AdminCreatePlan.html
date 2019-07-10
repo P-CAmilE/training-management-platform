@@ -6,6 +6,7 @@
     <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <link href="css/style1.css" rel='stylesheet' type='text/css' />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -19,6 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- font-awesome icons -->
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
     <!-- //Custom Theme files -->
+    <script src="js/admin/AdminCreatePlan.js"></script>
     <script src="js/amcharts.js"></script>
     <script src="js/serial.js"></script>
     <script src="js/light.js"></script>
@@ -47,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
                     </div>
                     <div class="top_left">
-                        <h2><span></span> 用户：<a href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                        <h2><span></span> 用户：<a id="username" href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -57,12 +59,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="fo-top-dj">
                     <h3 class="sub-tittle">创建计划:</h3>
                     <div class="content tab">
-                        <form>
+                        <form id="create_plan_info" onsubmit="return false">
                             <div class="fo-top">
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">计划名称:</label>
                                     <div class="col-sm-8 ">
-                                        <input class="form-control1" style="height: 35px;width:200px">
+                                        <input id="plan_name" class="form-control1" style="height: 35px;width:200px">
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -71,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">实践课程/代码:</label>
                                     <div class="col-sm-8 ">
-                                        <input class="form-control1" style="height: 35px;width:200px">
+                                        <input id="course_name" class="form-control1" style="height: 35px;width:200px">
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -80,17 +82,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">学分:</label>
                                     <div class="col-sm-8 ">
-                                        <input class="form-control1" style="height: 35px;width:200px">
+                                        <input id="course_score" class="form-control1" style="height: 35px;width:200px">
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
                             <div class="fo-top">
                                 <div class="form-group">
-                                    <label  class="col-sm-2 control-label">实训时间:</label>
+                                    <label class="col-sm-2 control-label">实训时间:</label>
                                     <div class="col-sm-8 ">
-                                        <input class="form-control1" type="date" style="height: 35px;width:200px">-
-                                        <input class="form-control1" type="date" style="height: 35px;width:200px;">
+                                        <input id="start_time" class="form-control1" type="date" style="height: 35px;width:200px">-
+                                        <input id="end_time" class="form-control1" type="date" style="height: 35px;width:200px;">
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -99,10 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">学校:</label>
                                     <div class="col-sm-8 ">
-                                        <select style="width: 200px;height: 35px">
-                                            <option value="volvo">武汉大学</option>
-                                            <option value="saab">华中科技大学</option>
-                                            <option value="opel">武汉理工大学</option>
+                                        <select id="sch_name" style="width: 200px;height: 35px">
                                         </select>
                                     </div>
                                     <div class="clearfix"></div>
@@ -112,10 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">负责公司:</label>
                                     <div class="col-sm-8 ">
-                                        <select style="width: 200px;height: 35px">
-                                            <option value="volvo">东方瑞通</option>
-                                            <option value="saab">凡诺</option>
-                                            <option value="opel">123456</option>
+                                        <select id="com_name" style="width: 200px;height: 35px">
                                         </select>
                                     </div>
                                     <div class="clearfix"></div>
@@ -125,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">参与班级:</label>
                                     <div class="col-sm-8 ">
-                                        <textarea class="form-control1" style="height: 100px;width:400px">软工一班 软工二班 软工三班 软工四班 软工五班 软工六班</textarea>
+                                        <textarea id="joined_class" class="form-control1" style="height: 100px;width:400px"></textarea>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -135,8 +131,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">负责老师:</label>
                                     <div class="col-sm-8 ">
-                                        <a class="studentinput" style="width: 105px"><span style="color: white;text-align: center;" data-toggle="modal" aria-pressed="false" data-target="#exampleModal2">点击选择</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input class="form-control1" style="height: 35px;width:200px;border: none" value="已选择：刘兆生" readonly>
+                                        <a id="selectTeacher" class="studentinput" style="width: 105px"><span style="color: white;text-align: center;" data-toggle="modal" aria-pressed="false" data-target="#exampleModal2">点击选择</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input id="selectedTeacher" class="form-control1" style="height: 35px;width:400px;border: none" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -146,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">计划介绍:</label>
                                     <div class="col-sm-8 ">
-                                        <textarea class="form-control1" style="height: 100px;width:400px">1234567892222222222222222222222222222222222222222</textarea>
+                                        <textarea id="plan_description" class="form-control1" style="height: 100px;width:400px"></textarea>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -161,37 +157,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
-                                                <table border="none" style=" width: 400px;text-align: center;margin-left: 25px">
-                                                    <tr style="border: none;background-color: grey">
-                                                        <th style="width: 100px">选择</th>
-                                                        <th style="width: 100px">教师名</th>
-                                                        <th style="width: 100px">账号</th>
-                                                        <th style="width: 100px">单位</th>
-                                                    </tr>
-                                                    <tr style="border: none">
-                                                        <td><input name="Teacher" type="checkbox" value="刘兆生" /></td>
-                                                        <td><label>刘兆生</label></td>
-                                                        <td><label>12345654321</label></td>
-                                                        <td><label>东方瑞通</label></td>
-                                                    </tr>
-                                                    <tr style="border: none">
-                                                        <td><input name="Teacher" type="checkbox" value="chris" /></td>
-                                                        <td><label>chris</label></td>
-                                                        <td><label>2323245646</label></td>
-                                                        <td><label>凡诺</label></td>
-                                                    </tr>
+                                                <table id="teacher_table" border="none" style=" width: 400px;text-align: center;margin-left: 25px">
                                                 </table>
                                                 <br><br>
-                                                <input id="choose" type="submit" class="studentinput" style="width: 100px;margin-left: 100px" value="选择">
-                                                <a class="studentinput" style="width: 100px;margin-left: 50px"><span style="color: white;padding-left: 15px" data-dismiss="modal" aria-label="Close">取消</span></a>
-                                            </form>
+                                            <a class="studentinput" id="choose" style="width: 120px;margin-left: 50px"><span style="color: white;padding-left: 25px" data-dismiss="modal" aria-label="Close">选择</span></a>
+                                                <a class="studentinput" style="width: 120px;margin-left: 50px"><span style="color: white;padding-left: 25px" data-dismiss="modal" aria-label="Close">取消</span></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <br><br>
-                            <input type="submit" class="studentinput" style="width: 100px;margin-left: 150px" value="创建" onclick="myFunction()">
+                            <input type="submit" class="studentinput" style="width: 100px;margin-left: 150px" value="创建">
                             <a href="AdminCheckPlan.html" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">取消</span></a>
                         </form>
                     </div>
@@ -282,13 +258,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         //正式读取文件
         reader.readAsDataURL(file);
-    }
-</script>
-<script type="text/javascript">
-    function myFunction()
-    {
-        alert("创建成功");
-        window.location.href="AdminCheckPlan.html";
     }
 </script>
 </body>
