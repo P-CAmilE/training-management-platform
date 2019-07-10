@@ -8,8 +8,7 @@ spring:
     static-locations: classpath:/static/
   thymeleaf:
     cache: false
-    prefix:
-      classpath: /templates/
+    prefix: classpath:/templates/
     suffix: .html
     encoding: UTF-8
     mode: HTML

@@ -16,6 +16,23 @@
         </where>
     </sql>
 
+    <sql id="simple_trim2">
+        <where>
+            <if test="search_name != null">team_name like #{search_name,jdbcType=VARCHAR}</if>
+            <if test="tea_id != null">and tea_id = #{tea_id,jdbcType=INTEGER}</if>
+            <if test="team_id != null">and team_id = #{team_id,jdbcType=INTEGER}</if>
+            <if test="team_name != null">and team_name = #{team_name,jdbcType=VARCHAR}</if>
+            <if test="team_github != null">and team_github = #{team_github,jdbcType=VARCHAR}</if>
+            <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <sql id="simple_trim1">
+        <where>
+            <if test="team_id != null">and team_id = #{team_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
     <insert id="insert"  useGeneratedKeys="true" keyProperty="team_id" parameterType="com.alibaba.fastjson.JSONObject">
         insert team_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -52,7 +69,7 @@
             <if test="new_team_github != null">team_github = #{new_team_github,jdbcType=VARCHAR},</if>
             <if test="new_pro_id != null">pro_id = #{new_pro_id,jdbcType=INTEGER},</if>
         </set>
-        <include refid="simple_trim"></include>
+        <include refid="simple_trim2"></include>
     </update>
 
     <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
@@ -74,7 +91,7 @@
 
     <delete id="deleteTeamStudent" parameterType="com.alibaba.fastjson.JSONObject">
         delete from team_student
-        <include refid="simple_trim"></include>
+        <include refid="simple_trim1"></include>
     </delete>
 
     <select id="findTeamScore" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >

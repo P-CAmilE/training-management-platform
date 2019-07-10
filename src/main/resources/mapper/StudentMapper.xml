@@ -58,7 +58,7 @@
     </select>
 
     <select id="findBySchool" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select stu_id,stu_name from student_info natural join plan_info natural join project_info
+        select stu_id,stu_name,sch_name from student_info natural join plan_info natural join school_info
         <include refid="simple_trim"></include>
     </select>
 

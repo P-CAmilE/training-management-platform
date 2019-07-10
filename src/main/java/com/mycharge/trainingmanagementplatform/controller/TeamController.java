@@ -37,8 +37,8 @@ public class TeamController {
     }
 
     @RequestMapping("/findPlanProject")
-    public Result findPlanProject(){
-        return teamService.findPlanProject();
+    public Result findPlanProject(@RequestBody JSONObject object){
+        return teamService.findPlanProject(object);
     }
 
     @RequestMapping("/findStudent")

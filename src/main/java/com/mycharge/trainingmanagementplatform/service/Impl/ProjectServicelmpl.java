@@ -64,7 +64,7 @@ public class ProjectServicelmpl implements ProjectService {
             if(object.getInteger("pro_id") != null) {
                 Result res = Result.getResult(1);
                 JSONArray jsonArray = object.getJSONArray("tea_id");
-                int proID = object.getInteger("pro_id");
+                int  proID = object.getInteger("pro_id");
                 if (jsonArray != null) {
                     mapper.deleteProjectTeacher(object);
                     for (int i = 0; i < jsonArray.size(); i++) {
