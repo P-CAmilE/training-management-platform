@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.CompanyMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="com_id != null">com_id = #{com_id,jdbcType=INTEGER}</if>
+            <if test="com_name != null">and com_name = #{com_name,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="com_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert company_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="com_name != null">com_name,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="com_name != null">#{com_name,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from company_info
+     <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findAll" resultType="com.alibaba.fastjson.JSONObject">
+        select * from company_info
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update company_info
+        <set>
+            <if test="new_com_name != null and new_com_name != ''">com_name = #{new_com_name}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from company_info
+        <include refid="simple_trim"></include>
+    </delete>
+</mapper>

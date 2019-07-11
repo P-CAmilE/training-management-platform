@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.PlanMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="search_name != null">plan_name like #{search_name,jdbcType=VARCHAR}</if>
+            <if test="plan_id != null">plan_id = #{plan_id,jdbcType=INTEGER}</if>
+            <if test="plan_name != null">and plan_name = #{plan_name,jdbcType=VARCHAR}</if>
+            <if test="course_name != null">and course_name = #{course_name,jdbcType=VARCHAR}</if>
+            <if test="course_score != null">and course_score = #{course_score,jdbcType=VARCHAR}</if>
+            <if test="start_time != null">and start_time = #{start_time,jdbcType=TIME}</if>
+            <if test="end_time != null">and end_time = #{end_time,jdbcType=TIME}</if>
+            <if test="plan_description != null">and plan_description = #{plan_description,jdbcType=VARCHAR}</if>
+            <if test="sch_id != null">and sch_id &lt;= #{sch_id,jdbcType=INTEGER}</if>
+            <if test="com_id != null">and com_id &lt;= #{com_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="plan_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert plan_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="plan_name != null">plan_name,</if>
+            <if test="course_name != null">course_name,</if>
+            <if test="course_score != null">course_score,</if>
+            <if test="start_time != null">start_time,</if>
+            <if test="end_time != null">end_time,</if>
+            <if test="plan_description != null">plan_description,</if>
+            <if test="sch_id != null">sch_id,</if>
+            <if test="com_id != null">com_id,</if>
+            <if test="joined_class != null">joined_class,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="plan_name != null">#{plan_name,jdbcType=VARCHAR},</if>
+            <if test="course_name != null">#{course_name,jdbcType=VARCHAR},</if>
+            <if test="course_score != null">#{course_score,jdbcType=VARCHAR},</if>
+            <if test="start_time != null">#{start_time,jdbcType=TIME},</if>
+            <if test="end_time != null">#{end_time,jdbcType=TIME},</if>
+            <if test="plan_description != null">#{plan_description,jdbcType=VARCHAR},</if>
+            <if test="sch_id != null">#{sch_id,jdbcType=INTEGER},</if>
+            <if test="com_id != null">#{com_id,jdbcType=INTEGER},</if>
+            <if test="joined_class != null">#{joined_class,jdbcType=VARCHAR}</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from plan_info natural join school_info natural join company_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findName" resultType="com.alibaba.fastjson.JSONObject" >
+        select plan_id,plan_name from plan_info
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update plan_info
+        <set>
+            <if test="new_plan_name != null">plan_name = #{new_plan_name,jdbcType=VARCHAR},</if>
+            <if test="new_course_name != null">course_name = #{new_course_name,jdbcType=VARCHAR},</if>
+            <if test="new_course_score != null">course_score = #{new_course_score,jdbcType=VARCHAR},</if>
+            <if test="new_start_time != null">start_time = #{new_start_time,jdbcType=TIME},</if>
+            <if test="new_end_time != null">end_time = #{new_end_time,jdbcType=TIME},</if>
+            <if test="new_plan_description != null">plan_description = #{new_plan_description,jdbcType=VARCHAR},</if>
+            <if test="new_sch_id != null">sch_id = #{new_sch_id,jdbcType=INTEGER},</if>
+            <if test="new_com_id != null">com_id = #{new_com_id,jdbcType=INTEGER},</if>
+            <if test="new_joined_class != null">joined_class = #{new_joined_class,jdbcType=VARCHAR},</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from plan_info
+        <include refid="simple_trim"></include>
+    </delete>
+
+
+    <insert id="insertPlanTeacher" parameterType="com.alibaba.fastjson.JSONObject">
+        insert plan_teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="plan_id != null">plan_id,</if>
+            <if test="tea_id != null">tea_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="plan_id != null">#{plan_id,jdbcType=INTEGER},</if>
+            <if test="tea_id != null">#{tea_id,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+
+    <delete id="deletePlanTeacher" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from plan_teacher
+        <include refid="simple_trim"></include>
+    </delete>
+
+
+</mapper>

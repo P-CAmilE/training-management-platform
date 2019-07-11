@@ -1,31 +1,55 @@
 package com.mycharge.trainingmanagementplatform.controller;
 
-
+import com.alibaba.fastjson.JSONObject;
+import com.mycharge.trainingmanagementplatform.model.Result;
 import com.mycharge.trainingmanagementplatform.service.LogService;
+import com.mycharge.trainingmanagementplatform.service.MessageService;
+import com.mycharge.trainingmanagementplatform.utility.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import javax.servlet.http.HttpServletRequest;
+
+@RestController
+@RequestMapping("/log")
 public class LogController {
 
     @Autowired
-    private LogService logService;
+    LogService service;
 
-    @PostMapping("/login")
-    public void userLogIn(@RequestParam("username") String username,@RequestParam("password") String password,@RequestParam("usertype") int usertype){
+    //todo:权限控制
 
-        logService.login(username, password,usertype);
-
+    @RequestMapping("/insert")
+    public Result insert(@RequestBody JSONObject object, HttpServletRequest request){
+        if(Validate.valiToken(request)&&Validate.valiRole(request,7))
+            return service.insert(object);
+        else
+            return Result.getResult(0).put("msg","未登录");
     }
 
-    @PostMapping("/register")
-    public void userRegister(@RequestParam("username") String username,@RequestParam("password") String password, @RequestParam("usertype") int usertype, @RequestParam("email") String email){
-
-        logService.register(username, password, usertype, email);
-
+    @RequestMapping("/find")
+    public Result find(@RequestBody JSONObject object, HttpServletRequest request){
+        if(Validate.valiToken(request))
+            return service.find(object);
+        else
+            return Result.getResult(0).put("msg","未登录");
     }
 
+    @RequestMapping("/update")
+    public Result update(@RequestBody JSONObject object, HttpServletRequest request){
+        if(Validate.valiToken(request))
+            return service.update(object);
+        else
+            return Result.getResult(0).put("msg","未登录");
+    }
+
+    @RequestMapping("/delete")
+    public Result delete(@RequestBody JSONObject object, HttpServletRequest request){
+        if(Validate.valiToken(request))
+            return service.delete(object);
+        else
+            return Result.getResult(0).put("msg","未登录");
+    }
 }

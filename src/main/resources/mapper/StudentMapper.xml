@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.StudentMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="search_name != null">stu_name like "%"#{search_name,jdbcType=VARCHAR}"%"</if>
+            <if test="tea_id != null">tea_id = #{tea_id,jdbcType=INTEGER}</if>
+            <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
+            <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
+            <if test="stu_id != null">and stu_id = #{stu_id,jdbcType=INTEGER}</if>
+            <if test="sch_id != null">and sch_id = #{sch_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <sql id="simple_trim1">
+        <where>
+            <if test="team_id != null">team_id = #{team_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <sql id="simple_trim2">
+        <where>
+            <if test="search_name != null">stu_name like #{search_name,jdbcType=VARCHAR}</if>
+            <if test="tea_id != null">and tea_id = #{tea_id,jdbcType=INTEGER}</if>
+            <if test="stu_id != null">and stu_id = #{stu_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <sql id="simple_trim3">
+        <where>
+            <if test="tea_id != null">and tea_id = #{tea_id,jdbcType=INTEGER}</if>
+            <if test="stu_id != null">and stu_id = #{stu_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="stu_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert student_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">stu_id,</if>
+            <if test="stu_name != null">stu_name,</if>
+            <if test="sch_id != null">sch_id,</if>
+            <if test="github_account != null">github_account,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">#{stu_id,jdbcType=INTEGER},</if>
+            <if test="stu_name != null">#{stu_name,jdbcType=VARCHAR},</if>
+            <if test="sch_id != null">#{sch_id,jdbcType=INTEGER},</if>
+            <if test="github_account != null">#{github_account,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_name,stu_id,sch_name,github_account,account from student_info natural join school_info inner join account_info on stu_id = acc_id
+        <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findBySchool" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_id,stu_name,sch_name from student_info natural join plan_info natural join school_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findByTeam" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_id,stu_name from student_info natural join team_student natural join team_info
+        <include refid="simple_trim1"></include>
+    </select>
+
+    <select id="findByTeacher" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_name,stu_id,sch_name,github_account,account from student_info natural join school_info natural join plan_info natural join project_info natural join project_teacher inner join account_info on stu_id = acc_id
+        <include refid="simple_trim2"></include>
+    </select>
+
+    <select id="findByTeacherDetail" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select distinct stu_name,stu_id,sch_name,github_account,account,pro_name,plan_name,team_name from student_info natural join  school_info natural join team_student natural join team_info national join project_info natural join plan_info natural join project_teacher inner join account_info on stu_id = acc_id
+        <include refid="simple_trim2"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update student_info
+        <set>
+            <if test="new_stu_name != null and new_stu_name != ''">stu_name = #{new_stu_name},</if>
+            <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id},</if>
+            <if test="new_github_account != null">github_account = #{new_github_account}</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from student_info
+        <include refid="simple_trim"></include>
+    </delete>
+
+    <select id="findStudentScore" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select stu_score from teacher_student_score
+        <include refid="simple_trim3"></include>
+    </select>
+
+    <update id="updateScore" parameterType="com.alibaba.fastjson.JSONObject">
+        update student_info
+        <set>
+            <if test="stu_score != null and stu_score != ''">stu_score = #{stu_score,jdbcType=FLOAT}</if>
+        </set>
+        <include refid="simple_trim3"></include>
+    </update>
+
+    <insert id="scoreForStudent" parameterType="com.alibaba.fastjson.JSONObject">
+        insert teacher_student_score
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">stu_id,</if>
+            <if test="tea_id != null">tea_id,</if>
+            <if test="stu_score != null">stu_score,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stu_id != null">#{stu_id,jdbcType=INTEGER},</if>
+            <if test="tea_id != null">#{tea_id,jdbcType=INTEGER},</if>
+            <if test="stu_score != null">#{stu_score,jdbcType=FLOAT},</if>
+        </trim>
+    </insert>
+
+</mapper>

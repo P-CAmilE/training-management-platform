@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycharge.trainingmanagementplatform.mapper.ProjectMapper">
+    <!--简单的查询条件-->
+    <sql id="simple_trim">
+        <where>
+            <if test="search_name != null">pro_name like #{search_name,jdbcType=VARCHAR}</if>
+            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
+            <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>
+            <if test="pro_name != null">and pro_name = #{pro_name,jdbcType=VARCHAR}</if>
+            <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
+            <if test="pro_description != null">and pro_description = #{pro_description,jdbcType=VARCHAR}</if>
+            <if test="pro_judge != null">and pro_judge &gt;= #{pro_judge,jdbcType=VARCHAR}</if>
+        </where>
+    </sql>
+
+    <sql id="simple_trim1">
+        <where>
+            <if test="stu_id != null">stu_id = #{stu_id,jdbcType=INTEGER}</if>
+        </where>
+    </sql>
+
+    <insert id="insert"  useGeneratedKeys="true" keyProperty="pro_id" parameterType="com.alibaba.fastjson.JSONObject">
+        insert project_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pro_name != null">pro_name,</if>
+            <if test="plan_id != null">plan_id,</if>
+            <if test="pro_description != null">pro_description,</if>
+            <if test="pro_judge != null">pro_judge,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pro_name != null">#{pro_name,jdbcType=VARCHAR},</if>
+            <if test="plan_id != null">#{plan_id,jdbcType=INTEGER},</if>
+            <if test="pro_description != null">#{pro_description,jdbcType=VARCHAR},</if>
+            <if test="pro_judge != null">#{pro_judge,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+    <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select * from project_info natural join plan_info natural join school_info natural join company_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findName" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select pro_id,pro_name from project_info natural join plan_info
+        <include refid="simple_trim"></include>
+    </select>
+
+    <select id="findByStudent" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
+        select plan_id,plan_name,pro_id,pro_name,sch_name,com_name,start_time,end_time from project_info natural join plan_info  natural join school_info natural join company_info natural join team_info natural join team_student
+        <include refid="simple_trim1"></include>
+    </select>
+
+    <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
+        update project_info
+        <set>
+            <if test="new_pro_name != null">pro_name = #{new_pro_name,jdbcType=VARCHAR},</if>
+            <if test="new_plan_id != null">plan_id = #{new_plan_id,jdbcType=INTEGER},</if>
+            <if test="new_pro_description != null">pro_description = #{new_pro_description,jdbcType=VARCHAR},</if>
+            <if test="new_pro_judge != null">pro_judge = #{new_pro_judge,jdbcType=VARCHAR},</if>
+        </set>
+        <include refid="simple_trim"></include>
+    </update>
+
+    <delete id="delete" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from project_info
+        <include refid="simple_trim"></include>
+    </delete>
+
+    <insert id="insertProjectTeacher" parameterType="com.alibaba.fastjson.JSONObject">
+        insert project_teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pro_id != null">pro_id,</if>
+            <if test="tea_id != null">tea_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pro_id != null">#{pro_id,jdbcType=INTEGER},</if>
+            <if test="tea_id != null">#{tea_id,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+
+    <delete id="deleteProjectTeacher" parameterType="com.alibaba.fastjson.JSONObject">
+        delete from project_teacher
+        <include refid="simple_trim"></include>
+    </delete>
+
+</mapper>

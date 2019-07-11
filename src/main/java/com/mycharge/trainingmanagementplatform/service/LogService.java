@@ -1,11 +1,9 @@
 package com.mycharge.trainingmanagementplatform.service;
 
+import com.alibaba.fastjson.JSONObject;
+import com.mycharge.trainingmanagementplatform.mapper.Mapper;
+import com.mycharge.trainingmanagementplatform.service.proService;
 
-public interface LogService {
-
-    public int login(String username, String password, int usertype);
-
-    public int register(String username, String password, int usertype, String email);
-
+public interface LogService extends proService {
 
 }

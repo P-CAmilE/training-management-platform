@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<head>
+    <title>实训平台-管理员-计划信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="css/style1.css" rel='stylesheet' type='text/css' />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- popup box -->
+    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font-awesome icons -->
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <script src="js/admin/AdminCheckPlanInfo.js"></script>
+    <script src="js/amcharts.js"></script>
+    <script src="js/serial.js"></script>
+    <script src="js/light.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/pie-chart.js" type="text/javascript"></script>
+</head>
+<div class="page-container">
+    <div class="left-content">
+        <div class="inner-content">
+            <div class="header-section navbar" >
+                <div class="header_top">
+                    <div class="top_left">
+                        <h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
+                    </div>
+                    <div class="top_left">
+                        <h2><span></span> 用户：<a id="username" href="AdminHomepage.html">123&nbsp;&nbsp;&nbsp;</a></h2>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="content1">
+                <div class="fo-top-dj">
+                    <h3 class="sub-tittle">计划信息:</h3>
+                    <div class="content tab">
+                        <input id="delete" type="submit" class="studentinput" style="width: 80px;margin-left: 1000px" value="删除">
+                        <form>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">计划名称:</label>
+                                    <div class="col-sm-8 ">
+                                        <label id="plan_name" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">实践课程/代码:</label>
+                                    <div class="col-sm-8 ">
+                                        <label id="course_name" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">学分:</label>
+                                    <div class="col-sm-8 ">
+                                        <label id="course_score" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">实训时间:</label>
+                                    <div class="col-sm-8 ">
+                                        <label id="plan_time" class="form-control1" style="height: 35px;width:400px;border: none" readonly></label>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">学校:</label>
+                                    <div class="col-sm-8 ">
+                                        <label id="sch_name" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">负责公司:</label>
+                                    <div class="col-sm-8 ">
+                                        <label id="com_name" class="form-control1" style="height: 35px;width:200px;border: none" readonly></label>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">参与班级:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea id="joined_class" class="form-control1" style="height: 100px;width:400px;border: none" readonly></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">负责老师:</label>
+                                    <div class="col-sm-8 ">
+                                        <label id="tea_name" class="form-control1" style="height: 35px;width:400px;border: none" readonly></label>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fo-top">
+                                <div class="form-group">
+                                    <label  class="col-sm-2 control-label">计划介绍:</label>
+                                    <div class="col-sm-8 ">
+                                        <textarea id="plan_description" class="form-control1" style="height: 100px;width:400px;border: none" readonly></textarea>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <a id="modify" class="studentinput" style="width: 100px;margin-left:120px"><span style="color: white;padding-left: 15px">修改</span></a>
+                            <a href="AdminCheckPlan.html" class="studentinput" style="width: 100px;margin-left: 120px"><span style="color: white;padding-left: 15px">返回</span></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="fo-top-di">
+                    <div class="foot-top">
+                        <div class="col-md-6 s-c">
+                            <li>
+                                <div class="fooll">
+                                    <h1>follow us on</h1>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="social-ic">
+                                    <ul>
+                                        <li><a href="#"><i class="facebok"> </i></a></li>
+                                        <li><a href="#"><i class="twiter"> </i></a></li>
+                                        <li><a href="#"><i class="goog"> </i></a></li>
+                                        <li><a href="#"><i class="be"> </i></a></li>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                </div>
+                            </li>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <header class="logo1">
+                    <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+                </header>
+                <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+                <div class="menu">
+                    <ul id="menu" >
+                        <li><a href="AdminHomepage.html"><span>我的主页</span></a></li>
+                        <li><a href="AdminCheckTeacher.html"><span>教师</span></a></li>
+                        <li><a href="AdminCheckStudent.html"><span>学生</span></a></li>
+                        <li><a href="AdminCheckPlan.html"><span>计划</span></a></li>
+                        <li><a href="AdminCheckProject.html"><span>项目</span></a></li>
+                        <li><a href="AdminCheckTeam.html"><span>团队</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<script>
+    var toggle = true;
+
+    $(".sidebar-icon").click(function() {
+        if (toggle)
+        {
+            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+            $("#menu span").css({"position":"absolute"});
+        }
+        else
+        {
+            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+            setTimeout(function() {
+                $("#menu span").css({"position":"relative"});
+            }, 400);
+        }
+        toggle = !toggle;
+    });
+</script>
+<script>
+    function upLoad(){
+        var fileInput = document.getElementById("upimg");
+        var file = fileInput.files[0];
+        //创建读取文件的对象
+        var reader = new FileReader();
+        //创建文件读取相关的变量
+        var imgFile;
+        //为文件读取成功设置事件
+        reader.onload=function(e) {
+            // alert('文件读取完成');
+            imgFile = e.target.result;
+            console.log(imgFile);
+            $("#img").attr('src',imgFile);
+        };
+
+        //正式读取文件
+        reader.readAsDataURL(file);
+    }
+</script>
+</body>
+</html>
