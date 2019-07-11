@@ -31,7 +31,10 @@ public class Validate {
 
     //验证角色权限
     static public boolean valiRole(HttpServletRequest request,int role_group ){
-        int r = (int)request.getSession().getAttribute("role");
+        Object attribute = request.getSession().getAttribute("role");
+        if(attribute == null)
+            return false;
+        int r = (int) attribute;
         if((role_group&r)==0){
             return false;
         }

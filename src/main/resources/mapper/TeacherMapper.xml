@@ -6,7 +6,7 @@
 
     <sql id="simple_trim">
     <where>
-        <if test="search_name != null">tea_name like #{search_name,jdbcType=VARCHAR}</if>
+        <if test="search_name != null">tea_name like "%"#{search_name,jdbcType=VARCHAR}"%"</if>
         <if test="team_id != null">team_id = #{team_id,jdbcType=INTEGER}</if>
         <if test="plan_id != null">and plan_id = #{plan_id,jdbcType=INTEGER}</if>
         <if test="pro_id != null">and pro_id = #{pro_id,jdbcType=INTEGER}</if>

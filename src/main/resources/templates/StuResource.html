@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<head>
+	<title>实训平台-学生-上传资源</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script type="text/javascript"src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.cookie.js"></script> 
+	<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<link href="css/style1.css" rel='stylesheet' type='text/css' />
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<!-- popup box -->
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- font-awesome icons -->
+	<link href="css/fontawesome-all.min.css" rel="stylesheet">
+	<!-- //Custom Theme files -->
+	<link rel="stylesheet" href="webfonts/stu-icon-font/iconfont.css">
+	<script src="js/student/StuResource.js"></script>
+	<script src="js/amcharts.js"></script>
+	<script src="js/serial.js"></script>
+	<script src="js/light.js"></script>
+	<script src="js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<div class="page-container">
+	<div class="left-content">
+		<div class="inner-content user">
+			<div class="header-section navbar" >
+				<div class="header_top">
+				    <a href="StuHomepage.html" style="color: #B52E31" class="top_right">实训管理平台-学生</a>
+					<div class="top_left">
+						<h2><a href="IndexHome.html" style="color: indianred">退出登录</a></h2>
+					</div>
+					<div class="top_left">
+						<h2><span></span> 用户：<a id="username" href="StuHomepage.html">未登录&nbsp;&nbsp;&nbsp;</a></h2>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+            <div class="content1">
+                <div class="fo-top-dj">
+                    <h3 class="sub-tittle">已有资源:</h3>
+                    <div class="content tab">
+                        <div class="fo-top">
+                            <div class="form-group">
+                                <div id="file_list" class="hover1">
+								
+                                <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="content1">
+				<div class="fo-top-dj">
+				    <h3 class="sub-tittle">上传资源文件:</h3>
+					<div class="content tab">
+						<div class="fo-top">
+							<div class="form-group">
+								<div class="col-sm-8 ">
+									<textarea  id="fileName" style="height:100px;width:500px;border-radius: 10px;border:1px solid black;background: transparent; outline: none;margin-left:80px;" readonly></textarea>
+								</div>
+								<form>
+									<div class="col-sm-8 ">
+									    <br><br>
+										<label class="studentinput" for="file" style="margin-left: 185px;width: 200px;text-align: center">选择文件</label>
+										<br><br>
+										<input type="file" id="file" style="position:absolute;clip:rect(0 0 0 0);" onchange="handleFile()">
+									</div>
+									<div class="clearfix"></div>
+									<div class="col-sm-8 ">
+										<input type="button" id="bu1" class="studentinput" style="width: 200px;margin-left: 185px" value="提交">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+           	<!-- //target modal -->
+            <div class="content">
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+                <div class="fo-top-di">
+                    <footer class="py-sm-5" style="background: transparent">
+                        <div class="container">
+                            <div class="row py-5">
+                                <!-- footer grid1 -->
+                                <div class="col-lg-3 col-sm-6">
+                                    <h2>
+                                        <a class="navbar-brand" href="IndexHome.html" style="margin-bottom: 20px">
+                                            高校实训管理
+                                        </a>
+                                    </h2>
+                                    <div class="fv3-contact mt-3" style="margin-left: 20px">
+                                        <span class="fas fa-home mr-2"></span>
+                                        <p>WHU, WeCharge</p>
+                                    </div>
+                                    <div class="fv3-contact">
+                                        <span class="fas fa-phone-volume mr-2" style="margin-left: 20px"></span>
+                                        <p>+456 123 7890</p>
+                                    </div>
+                                    <div class="fv3-contact">
+                                        <span class="fas fa-envelope-open mr-2" style="margin-left: 20px"></span>
+                                        <a class="text-secondary">info@example.com</a>
+                                    </div>
+                                </div>
+                                <!-- //footer grid1 -->
+                                <!-- footer grid2 -->
+                                <div class="col-lg-3  col-sm-6 footv3-left text-lg-center my-sm-0 mt-5">
+                                    <h3 class="mb-3"><span style="color:black">关于本平台</span></h3>
+                                    <ul class="list-agileits">
+                                        <li class="my-3">
+                                            <a target="_blank" href="AboutUs.html#about" role="button">
+                                                平台功能
+                                            </a>
+                                        </li>
+                                        <li class="mb-3">
+                                            <a target="_blank" href="AboutUs.html#special" role="button">
+                                                平台特色
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="AboutUs.html#admin" role="button">
+                                                管理模式
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3  col-sm-6 footv3-left text-lg-center my-lg-0 mt-sm-5 mt-5">
+                                    <h3 class="mb-3"><span style="color:black">关注我们</span></h3>
+                                    <ul class="list-agileits">
+                                        <li>
+                                            <a target="_blank" href="https://weibo.com/u/7226819426" data-toggle="modal" aria-pressed="false" data-target="#exampleModal2">
+                                                新浪微博
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-3  col-sm-6 footv3-left text-lg-center my-lg-0 mt-sm-5 mt-5">
+                                    <h3 class="mb-3"><span style="color:black">您的想法</span></h3>
+                                    <div class="contact-top1">
+                                        <form action="#" method="get" class="f-color pt-3">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3" id="contactcomment" required></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-danger btn-block">提交</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //footer container -->
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+	<div class="sidebar-menu">
+		<header class="logo1">
+			<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+		</header>
+		<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+        <div class="menu">
+            <ul id="menu" >
+               <li><a href="StuHomepage.html"><i class="iconfont icon-wode"></i><span>主页</span></a></li>
+               <li><a href="StuInternship.html"><i class="iconfont icon-Management"></i><span>项目</span></a></li>
+               <li><a href="StuTeam.html"><i class="iconfont icon-Team"></i><span>团队</span></a></li>
+               <li><a href="StuLog.html"><i class="iconfont icon-List"></i><span>日志</span></a></li>
+               <li><a href="StuResource.html" style="background-color: firebrick"><i class="iconfont icon-Download"></i><span>资源库</span></a></li>
+               <li><a href="StudentMessage.html"><i class="iconfont icon-Message"></i><span>收到的消息</span></a></li>
+            </ul>
+        </div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<script>
+	var toggle = true;
+
+	$(".sidebar-icon").click(function() {
+		if (toggle)
+		{
+			$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+			$("#menu span").css({"position":"absolute"});
+		}
+		else
+		{
+			$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+			setTimeout(function() {
+				$("#menu span").css({"position":"relative"});
+			}, 400);
+		}
+		toggle = !toggle;
+	});
+</script>
+<script>
+	var file = document.getElementById("file");
+	var fileName = document.getElementById("fileName");
+	function handleFile(){
+		fileName.value = file.value;
+	};
+</script>
+
+</body>
+</html>

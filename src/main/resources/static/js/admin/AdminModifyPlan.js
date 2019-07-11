@@ -1,5 +1,5 @@
 var id =21;//$.cookie('acc_id');
-var acc ="admin";//$.cookie('account');
+var acc =$.cookie('account');
 // var user_name=$.cookie('username');
 
 $(function(){
@@ -36,7 +36,7 @@ $(function(){
     var teachernames =[];
     $("#selectTeacher").click(function(){
         var teacher_table=$("#teacher_table")[0];
-        teacher_table.innerHTML = "<tr style=\"border: none;background-color: grey\">" +
+        teacher_table.innerHTML = "<tr style=\"border: none;background-color: rgb(238, 217, 215)\">" +
             "                                                        <th style=\"width: 100px\">选择</th>" +
             "                                                        <th style=\"width: 100px\">教师名</th>" +
             "                                                        <th style=\"width: 100px\">单位</th>" +
@@ -58,7 +58,7 @@ $(function(){
                 teachernames = res.data;
                 for(var i=0;i<res.data.length;i++){
                     var data = res.data[i];
-                    teacher_table.innerHTML+="<tr style=\"border: none\">" +
+                    teacher_table.innerHTML+="<tr style='border: none; background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'>" +
                         "                                                        <td><input name=\"teacher\" type=\"checkbox\" value=\""+ data.tea_id+ "\" /></td>" +
                         "                                                        <td><label>"+ data.tea_name +"</label></td>" +
                         "                                                        <td><label>"+ data.tea_unit +"</label></td>" +
