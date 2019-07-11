@@ -1,5 +1,9 @@
 package com.mycharge.trainingmanagementplatform.mapper;
 
-public interface CompanyMapper extends  Mapper{
+import com.alibaba.fastjson.JSONObject;
 
+import java.util.List;
+
+public interface CompanyMapper extends  Mapper{
+    public List<JSONObject> findAll();
 }

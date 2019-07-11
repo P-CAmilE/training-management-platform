@@ -6,9 +6,10 @@
 
     <sql id="simple_trim">
         <where>
-            <if test="account != null">account = #{account,jdbcType=VARCHAR}</if>
-            <if test="password != null">and password = #{password,jdbcType=VARCHAR}</if>
-            <if test="user_type != null">and user_type = #{user_type,jdbcType=VARCHAR}</if>
+            <if test="acc_id != null and acc_id != ''">acc_id = #{acc_id,jdbcType=INTEGER}</if>
+            <if test="account != null and account != ''">and account = #{account,jdbcType=VARCHAR}</if>
+            <if test="password != null and password != ''">and password = #{password,jdbcType=VARCHAR}</if>
+            <if test="user_type != null and user_type != ''">and user_type = #{user_type,jdbcType=VARCHAR}</if>
         </where>
     </sql>
 
@@ -34,8 +35,7 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update account_info
         <set>
-            <if test="account != null and new_account != ''">account = #{new_account},</if>
-            <if test="password != null and new_password != ''">password = #{new_password}</if>
+            <if test="new_password != null and new_password != ''">password = #{new_password,jdbcType=VARCHAR}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

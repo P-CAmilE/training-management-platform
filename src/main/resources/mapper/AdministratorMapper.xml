@@ -6,12 +6,13 @@
 
     <sql id="simple_trim">
         <where>
-            <if test="admin_email != null">admin_email = #{admin_email,jdbcType=VARCHAR}</if>
+            <if test="admin_id != null">admin_id = #{admin_id,jdbcType=INTEGER}</if>
         </where>
     </sql>
 
+
     <insert id="insert" useGeneratedKeys="true" keyProperty="admin_id" parameterType="com.alibaba.fastjson.JSONObject">
-        insert administrator_info
+        insert administrator_info*
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="admin_id != null">admin_id,</if>
             <if test="admin_email != null">admin_email,</if>
@@ -23,14 +24,14 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from administrator_info
+        select * from administrator_info inner join account_info on admin_id = acc_id
         <include refid="simple_trim"></include>
     </select>
 
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update administrator_info
         <set>
-            <if test="new_admin_email != null and new_admin_email != ''">password = #{new_admin_email}</if>
+            <if test="new_admin_email != null and new_admin_email != ''">admin_email = #{new_admin_email}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>
