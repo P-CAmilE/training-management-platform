@@ -24,4 +24,19 @@ public class Result extends HashMap<String, Object>{
         res.put("type",type);
         return res;
     }
+
+
+    @Override
+    public Result put(String key, Object value) {
+        super.put(key,value);
+        return this;
+    }
+
+    public Result put(String key, String value) {
+        value = value.replaceAll("&","&amp;");
+        value = value.replaceAll("<","&lt;");
+        value = value.replaceAll(">","&gt;");
+        super.put(key,value);
+        return this;
+    }
 }

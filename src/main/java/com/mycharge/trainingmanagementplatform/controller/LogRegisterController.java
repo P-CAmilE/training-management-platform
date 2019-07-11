@@ -7,24 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@CrossOrigin
-@Controller
+@RestController
 public class LogRegisterController {
 
     @Autowired
     private LogRegisterService logService;
 
-    @PostMapping("/login")
-    @ResponseBody
-    public Result logIn(@RequestBody JSONObject jsonObject, HttpServletResponse response){
-        Result loginResult = logService.login(jsonObject, response);
+    @RequestMapping("/login")
+    public Result logIn(@RequestBody JSONObject jsonObject, HttpServletResponse response, HttpServletRequest request){
+        Result loginResult = logService.login(jsonObject, response, request);
         return loginResult;
     }
 
-    @PostMapping(value = "/register")
-    @ResponseBody
+    @RequestMapping("/register")
     public Result userRegister(@RequestBody JSONObject jsonObject){
         Result registerResult = logService.register(jsonObject);
         return registerResult;

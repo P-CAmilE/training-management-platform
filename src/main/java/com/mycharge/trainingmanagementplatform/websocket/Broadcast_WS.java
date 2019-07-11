@@ -20,7 +20,7 @@ import java.util.List;
 @Component
 @ServerEndpoint(value = "/broadcast/{uid}")
 public class Broadcast_WS extends WebSocket{
-    static Logger log= LoggerFactory.getLogger(Msg_WS.class);
+    static Logger log= LoggerFactory.getLogger(Broadcast_WS.class);
 
     @Autowired
     StudentMapper mapper;

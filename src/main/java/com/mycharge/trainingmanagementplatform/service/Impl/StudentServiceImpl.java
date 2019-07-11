@@ -79,9 +79,10 @@ public class StudentServiceImpl implements StudentService {
                 if(!studentMapper.find(jsonObject).isEmpty()) {
                     Result res = Result.getResult(1);
                     res.put("data", studentMapper.update(jsonObject));
-                    if(jsonObject.getString("new_password") != null) {
+                    if(jsonObject.getString("new_password")!= "") {
                         jsonObject.put("acc_id", jsonObject.get("stu_id"));
                         accountMapper.update(jsonObject);
+
                     }
                     return res;
                 }else{

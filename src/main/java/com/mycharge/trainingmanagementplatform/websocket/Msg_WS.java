@@ -3,9 +3,14 @@ package com.mycharge.trainingmanagementplatform.websocket;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
+import com.mycharge.trainingmanagementplatform.mapper.MessageMapper;
+import com.mycharge.trainingmanagementplatform.mapper.StudentMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
@@ -16,6 +21,17 @@ import java.io.IOException;
 @ServerEndpoint(value = "/websocket/{uid}")
 public class Msg_WS extends WebSocket{
     static Logger log= LoggerFactory.getLogger(Msg_WS.class);
+
+    @Autowired
+    MessageMapper mapper;
+
+    public static Msg_WS ws;
+
+    @PostConstruct
+    public void init(){
+        ws=this;
+        ws.mapper=this.mapper;
+    }
 
     @OnOpen
     public void onOpen(Session session, @PathParam("uid") String uid){
@@ -68,15 +84,16 @@ public class Msg_WS extends WebSocket{
     public void onMessage(@PathParam("uid")String uid, String info, Session session){
         try {
             JSONObject object=JSON.parseObject(info);
-            String to = object.getString("to");
+            String to = object.getString("to_id");
             if(to==null) {
                 log.info("to字段为空，无用消息");
             return;
             }
-            String from = object.getString("from");
-            String msg = object.getString("msg");
 
             log.info(object.toJSONString());
+
+            //存入数据库
+            ws.mapper.insert(object);
 
             //发送给to指定的用户，如果不在线则把消息存到消息队列
             Boolean is_online=false;
