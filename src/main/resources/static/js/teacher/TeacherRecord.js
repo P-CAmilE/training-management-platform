@@ -71,10 +71,10 @@ function getLog(user_id){
 			}
 			//动态生成日志表
 			var log_table=$("#log_table")[0];
-			log_table.innerHTML="<tr id='log_table' style='border: none;background-color: grey'><td>标题</td><td>最新提交时间</td><td>操作</td></tr>";
+			log_table.innerHTML="<tr id='log_table' style='border: none;background-color: rgb(238, 217, 215)'><td>标题</td><td>最新提交时间</td><td>操作</td></tr>";
 			for(var i=0;i<res.data.length;i++){
 				var data=res.data[i];
-				log_table.innerHTML+="<tr style='border: none'><td>"+data.log_title+"</td><td>"+renderTime(data.log_date)+"</td><td><button type='button' class='read' value='"+data.log_id+"' style='border-style: none;background: none;color: #b52e31' data-toggle='modal' aria-pressed='false' data-target='#exampleModal2'>查看</button></td></tr>";
+				log_table.innerHTML+="<tr style='border: none;background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'><td>"+data.log_title+"</td><td>"+renderTime(data.log_date)+"</td><td><button type='button' class='read' value='"+data.log_id+"' style='border-style: none;background: none;color: #b52e31' data-toggle='modal' aria-pressed='false' data-target='#exampleModal2'>查看</button></td></tr>";
 			}
 			
         }

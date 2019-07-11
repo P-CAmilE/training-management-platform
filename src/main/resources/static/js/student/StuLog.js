@@ -50,9 +50,9 @@ function getLog(user_id){
 			}
 			//动态生成日志表
 			var log_table=$("#log_table")[0];
-			log_table.innerHTML="<tr style='border: none;background-color: grey'><td>标题</td><td>最新提交时间</td><td>操作</td></tr>";
+			log_table.innerHTML="<tr style='border: none;background-color: rgb(238, 217, 215)'><td>标题</td><td>最新提交时间</td><td>操作</td></tr>";
 			for(var i=0;i<res.data.length;i++){
-				log_table.innerHTML+="<tr><td>"+res.data[i].log_title+"</td><td>"+renderTime(res.data[i].log_date)+"</td><td><a href='StuModifyLog.html' style='color: #b52e31'>修改</a></td></tr>";
+				log_table.innerHTML+="<tr style='background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'><td>"+res.data[i].log_title+"</td><td>"+renderTime(res.data[i].log_date)+"</td><td><a href='StuModifyLog.html' style='color: #b52e31'>修改</a></td></tr>";
 			}
 			
         }
