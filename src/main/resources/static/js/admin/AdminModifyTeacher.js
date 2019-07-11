@@ -43,7 +43,7 @@ $(function(){
                 "tea_id":tea_id,
                 "new_tea_name": $("#new_tea_name").val(),
                 "new_password": $("#new_password").val(),
-                "new_tea_unit": $("#tea_unit").val(),
+                "new_tea_unit": $("#new_tea_unit").val(),
                 "user_type": "teacher"
                 }),
                 dataType: "json",
