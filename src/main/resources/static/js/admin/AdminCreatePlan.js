@@ -58,7 +58,7 @@ $(function(){
                  teachernames = res.data;
                 for(var i=0;i<res.data.length;i++){
                     var data = res.data[i];
-                    teacher_table.innerHTML+="<tr style=\"border: none\">" +
+                    teacher_table.innerHTML+="<tr style=\"border: none\" background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+">" +
                         "                                                        <td><input name=\"teacher\" type=\"checkbox\" value=\""+ data.tea_id+ "\" /></td>" +
                         "                                                        <td><label>"+ data.tea_name +"</label></td>" +
                         "                                                        <td><label>"+ data.tea_unit +"</label></td>" +

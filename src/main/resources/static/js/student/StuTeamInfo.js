@@ -29,14 +29,33 @@ $(function(){
 				for(var i=0;i<res.student.length;i++){
 					$("#members").append(res.student[i].stu_name+" ");
 				}
-				$("#github")[0].innerHTML=data.team_github;
-				$("#github").attr("href",data.team_github);
+				$("#github").val(innerHTML=data.team_github);
+				//$("#github").attr("href",data.team_github);
 				//$("#team_score").append(data.team_score);
 				//$("#stu_score").append(data.stu_score);
 			}
 		});
-		
-		
+$("#send").click(function(){
+	$.ajax({
+			url : "team/update",
+			type : "Post",
+			contentType: 'application/json;charset=UTF-8',
+			data : JSON.stringify({
+				"new_team_github":$("#github").val(),
+				"team_id":getUrlParam("team_id")
+			}),
+			dataType : "json",
+			async : false,
+			success : function(res) {
+				if(res.type=="fail"){
+					alert("修改失败");
+					return;
+				}
+			}
+	});	
+	
+});	
+	
 
 });
 

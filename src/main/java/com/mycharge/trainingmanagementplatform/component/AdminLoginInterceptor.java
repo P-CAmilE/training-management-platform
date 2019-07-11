@@ -1,5 +1,7 @@
 package com.mycharge.trainingmanagementplatform.component;
 
+import com.mycharge.trainingmanagementplatform.global.Role;
+import com.mycharge.trainingmanagementplatform.utility.Validate;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -9,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.HttpCookie;
 
-public class LoginInterceptor extends HandlerInterceptorAdapter {
+public class AdminLoginInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -22,7 +24,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 //      遍历cookie如果找到登录状态则返回true执行原来controller的方法
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("acc_id")) {
-                    return true;
+                    if(Validate.valiRole(request, Role.role_group.get("admin"))) {
+                        return true;
+                    }
                 }
             }
         }
@@ -31,15 +35,4 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         return false;
     }
 
-//    @Override
-//    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-//                           ModelAndView modelAndView) throws Exception {
-//        System.out.println(">>>LoginInterceptor>>>>>>>请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后）");
-//    }
-//
-//    @Override
-//    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-//            throws Exception {
-//        System.out.println(">>>LoginInterceptor>>>>>>>在整个请求结束之后被调用，也就是在DispatcherServlet 渲染了对应的视图之后执行（主要是用于进行资源清理工作）");
-//    }
 }

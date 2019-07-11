@@ -33,7 +33,7 @@ function getTeacher(user_id){
 
             for(var i=0;i<res.data.length;i++){
                 var data = res.data[i];
-                student_table.innerHTML+="<tr style='border: none'><td>"+data.stu_name+"</td><td>"+data.account+"</td><td>"+data.sch_name+"</td><td><a href='AdminCheckstudentInfo?stu_id="+data.stu_id+"' style='color: #b52e31'>查看</a></td></tr>";
+                student_table.innerHTML+="<tr style='border: none' background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"><td>"+data.stu_name+"</td><td>"+data.account+"</td><td>"+data.sch_name+"</td><td><a href='AdminCheckstudentInfo?stu_id="+data.stu_id+"' style='color: #b52e31'>查看</a></td></tr>";
             }
         }
     });
