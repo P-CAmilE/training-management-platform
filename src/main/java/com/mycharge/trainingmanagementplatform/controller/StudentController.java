@@ -26,7 +26,7 @@ public class StudentController {
     @RequestMapping("/insert")
     public Result insert(@RequestBody JSONObject object, HttpServletRequest request){
         if(Validate.valiToken(request))
-            return service.insert(object);
+            return logRegisterService.register(object);
         else
             return Result.getResult(0).put("msg","未登录");
     }

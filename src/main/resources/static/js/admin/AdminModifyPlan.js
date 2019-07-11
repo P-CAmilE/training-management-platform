@@ -1,5 +1,5 @@
 var id =21;//$.cookie('acc_id');
-var acc ="admin";//$.cookie('account');
+var acc =$.cookie('account');
 // var user_name=$.cookie('username');
 
 $(function(){

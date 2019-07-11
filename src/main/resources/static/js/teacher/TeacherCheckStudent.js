@@ -20,6 +20,7 @@ $("#search").submit(function(){
 				alert("获取学生失败");
 				return;
 			}
+			
 			//动态生成项目表
 			var stu_table=$("#stu_table")[0];
 			stu_table.innerHTML="<tr style='border: none;background-color: rgb(238, 217, 215)'><th style='width: 100px'>学生名</th><th style='width: 200px'>账号</th><th style='width: 100px'>学校</th><th style='width: 300px'>操作</th><th style='width: 300px'>评分</th></tr>";

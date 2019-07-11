@@ -15,10 +15,10 @@ public class Role implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         role_group.put("all",getAll());//直接不检验也可
-        role_group.put("all_but_stu",getAll()-role.student.ordinal());
-        role_group.put("student",role.student.ordinal());
-        role_group.put("teacher",role.teacher.ordinal());
-        role_group.put("admin",role.admin.ordinal());
+        role_group.put("all_but_stu",getAll()-getRole("student"));
+        role_group.put("student",getRole("student"));
+        role_group.put("teacher",getRole("teacher"));
+        role_group.put("admin",getRole("admin"));
     }
 
 
