@@ -9,7 +9,7 @@ $(function(){
 //获取
 function getPlan(user_id){
     var plan_table=$("#plan_table")[0];
-    plan_table.innerHTML="<tr style=\"border: none;background-color: grey\">" +
+    plan_table.innerHTML="<tr style='border: none;background-color: rgb(238, 217, 215)'>" +
         "<th style=\"width: 200px\">计划名称</th>" +
         "<th style=\"width: 200px\">实践课程/代码</th>" +
         "<th style=\"width: 100px\">学分</th>" +
@@ -32,7 +32,7 @@ function getPlan(user_id){
             }
             for(var i=0;i<res.data.length;i++){
                 var data = res.data[i];
-                plan_table.innerHTML+="<tr style='border: none'><td>"+data.plan_name+"</td><td>"+data.course_name+"</td><td>"+data.course_score+
+                plan_table.innerHTML+="<tr style='border: none;background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'><td>"+data.plan_name+"</td><td>"+data.course_name+"</td><td>"+data.course_score+
                     "</td><td>"+renderTime(data.start_time)+"--"+renderTime(data.end_time)+"</td><td>"+data.sch_name+"</td><td>"+data.com_name+"</td><td><a href='AdminCheckPlanInfo?plan_id="+data.plan_id+"' style='color: #b52e31'>查看</a></td></tr>";
             }
         }
@@ -45,14 +45,3 @@ function renderTime(date) {
     return t;
 }
 
-function getNowFormatDate() {//获取当前时间
-    var date = new Date();
-    var seperator1 = "-";
-    var seperator2 = ":";
-    var month = date.getMonth() + 1<10? "0"+(date.getMonth() + 1):date.getMonth() + 1;
-    var strDate = date.getDate()<10? "0" + date.getDate():date.getDate();
-    var currentdate = date.getFullYear() + seperator1  + month  + seperator1  + strDate
-        + " "  + date.getHours()  + seperator2  + date.getMinutes()
-        + seperator2 + date.getSeconds();
-    return currentdate;
-}

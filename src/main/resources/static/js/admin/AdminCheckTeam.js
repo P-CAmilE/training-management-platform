@@ -9,7 +9,7 @@ $(function(){
 //获取
 function getTeam(user_id){
     var team_table=$("#team_table")[0];
-    team_table.innerHTML="<tr style=\"border: none;background-color: grey\">" +
+    team_table.innerHTML="<tr style=\"border: none;background-color: rgb(238, 217, 215)\">" +
         "<th style=\"width: 200px\">团队名</th>" +
         "<th style=\"width: 200px\">计划名</th>" +
         "<th style=\"width: 200px\">项目名</th>" +
@@ -31,7 +31,7 @@ function getTeam(user_id){
             }
             for(var i=0;i<res.data.length;i++){
                 var data = res.data[i];
-                team_table.innerHTML+="<tr style='border: none' background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"><td>"+data.team_name+"</td><td>"+data.plan_name+"</td><td>"+data.pro_name+
+                team_table.innerHTML+="<tr style='border: none; background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'><td>"+data.team_name+"</td><td>"+data.plan_name+"</td><td>"+data.pro_name+
                     "</td><td>"+data.sch_name+"</td><td>"+data.com_name+"</td><td><a href='AdminCheckTeamInfo?team_id="+data.team_id+"' style='color: #b52e31'>查看</a></td></tr>";
             }
         }

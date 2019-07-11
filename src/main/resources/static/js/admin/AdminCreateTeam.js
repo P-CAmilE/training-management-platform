@@ -72,7 +72,7 @@ $(function(){
     var studentrnames =[];
     $("#selectStudent").click(function(){
         var student_table=$("#student_table")[0];
-        student_table.innerHTML = "<tr style=\"border: none;background-color: grey\">" +
+        student_table.innerHTML = "<tr style=\"border: none;background-color: rgb(238, 217, 215)\">" +
             "                                                        <th style=\"width: 100px\">选择</th>" +
             "                                                        <th style=\"width: 100px\">学生名</th>" +
             "                                                        <th style=\"width: 100px\">学校</th>" +
@@ -91,7 +91,7 @@ $(function(){
                 studentrnames = res.data;
                 for(var i=0;i<res.data.length;i++){
                     var data = res.data[i];
-                    student_table.innerHTML+="<tr style=\"border: none\" background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+">" +
+                    student_table.innerHTML+="<tr style='border: none; background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'>" +
                         "                                                        <td><input name=\"teacher\" type=\"checkbox\" value=\""+ data.stu_id+ "\" /></td>" +
                         "                                                        <td><label>"+ data.stu_name +"</label></td>" +
                         "                                                        <td><label>"+ data.sch_name +"</label></td>" +
