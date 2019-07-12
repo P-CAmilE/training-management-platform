@@ -40,7 +40,7 @@ public class AdminstratorServiceImpl implements AdministratorService {
                 if(!mapper.find(jsonObject).isEmpty()) {
                     Result res = Result.getResult(1);
                     res.put("data", mapper.update(jsonObject));
-                    if(jsonObject.getString("new_password") != null) {
+                    if(jsonObject.getString("new_password") != null && jsonObject.getString("new_password") != "") {
                         jsonObject.put("acc_id", jsonObject.getInteger("admin_id"));
                         accountMapper.update(jsonObject);
                     }

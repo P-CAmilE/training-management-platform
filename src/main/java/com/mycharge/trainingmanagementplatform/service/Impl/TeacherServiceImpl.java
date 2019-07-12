@@ -53,7 +53,7 @@ public class TeacherServiceImpl implements TeacherService {
                 if(!teacherMapper.find(jsonObject).isEmpty()) {
                     Result res = Result.getResult(1);
                     res.put("data", teacherMapper.update(jsonObject));
-                    if(jsonObject.getString("new_password") != null) {
+                    if(jsonObject.getString("new_password") != null && jsonObject.getString("new_password") != "") {
                         jsonObject.put("acc_id", jsonObject.get("tea_id"));
                         accountMapper.update(jsonObject);
                     }

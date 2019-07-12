@@ -30,7 +30,7 @@ public class ProjectServicelmpl implements ProjectService {
             List<JSONObject> jsonObjectList = mapper.find(object);
             int proID = jsonObjectList.get(0).getInteger("pro_id");
             JSONArray jsonArray = object.getJSONArray("tea_id");
-            if(jsonArray != null){
+            if(jsonArray != null && !jsonArray.isEmpty()){
 //              mapper.deletePlanTeacher(object);
                 for(int i = 0;i < jsonArray.size(); i ++){
                     JSONObject jsonObject  = new JSONObject();
@@ -65,7 +65,7 @@ public class ProjectServicelmpl implements ProjectService {
                 Result res = Result.getResult(1);
                 JSONArray jsonArray = object.getJSONArray("tea_id");
                 int  proID = object.getInteger("pro_id");
-                if (jsonArray != null) {
+                if (jsonArray != null && !jsonArray.isEmpty()) {
                     mapper.deleteProjectTeacher(object);
                     for (int i = 0; i < jsonArray.size(); i++) {
                         JSONObject jsonObject = new JSONObject();

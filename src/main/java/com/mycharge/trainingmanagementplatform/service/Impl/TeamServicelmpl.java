@@ -32,7 +32,7 @@ public class TeamServicelmpl implements TeamService {
             List<JSONObject> jsonObjectList = mapper.find(object);
             int teamID = jsonObjectList.get(0).getInteger("team_id");
             JSONArray jsonArray = object.getJSONArray("stu_ids");
-            if(jsonArray != null){
+            if(jsonArray != null && !jsonArray.isEmpty()){
 //              mapper.deletePlanTeacher(object);
                 for(int i = 0;i < jsonArray.size(); i ++){
                     JSONObject jsonObject  = new JSONObject();
@@ -183,7 +183,7 @@ public class TeamServicelmpl implements TeamService {
                 Result res = Result.getResult(1);
                 JSONArray jsonArray = object.getJSONArray("stu_id");
                 int teamID = object.getInteger("team_id");
-                if (jsonArray != null) {
+                if (jsonArray != null && !jsonArray.isEmpty()) {
                     mapper.deleteTeamStudent(object);
                     for (int i = 0; i < jsonArray.size(); i++) {
                         JSONObject jsonObject = new JSONObject();

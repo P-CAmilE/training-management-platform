@@ -35,7 +35,7 @@ public class PlanServiceImpl implements PlanService {
             List<JSONObject> jsonObjectList = mapper.find(object);
             int planID = jsonObjectList.get(0).getInteger("plan_id");
             JSONArray jsonArray = object.getJSONArray("tea_id");
-            if(jsonArray != null){
+            if(jsonArray != null && !jsonArray.isEmpty()){
 //                mapper.deletePlanTeacher(object);
                 for(int i = 0;i < jsonArray.size(); i ++){
                     JSONObject jsonObject  = new JSONObject();
@@ -70,7 +70,7 @@ public class PlanServiceImpl implements PlanService {
                 Result res = Result.getResult(1);
                 JSONArray jsonArray = object.getJSONArray("tea_id");
                 int planID = object.getInteger("plan_id");
-                if (jsonArray != null && jsonArray.isEmpty()) {
+                if (jsonArray != null && !jsonArray.isEmpty()) {
                     mapper.deletePlanTeacher(object);
                     for (int i = 0; i < jsonArray.size(); i++) {
                         JSONObject jsonObject = new JSONObject();
