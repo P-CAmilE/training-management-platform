@@ -32,7 +32,7 @@ $(function(){
                 for(var i=0;i<res.data.length;i++){
                     var data = res.data[i];
                     plan_table.innerHTML+="<tr style='border: none;background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'><td>"+data.plan_name+"</td><td>"+data.course_name+"</td><td>"+data.course_score+
-                        "</td><td>"+renderTime(data.start_time)+"--"+renderTime(data.end_time)+"</td><td>"+data.sch_name+"</td><td>"+data.com_name+"</td><td><a href='AdminCheckPlanInfo?plan_id="+data.plan_id+"' style='color: #b52e31'>查看</a></td></tr>";
+                        "</td><td>"+renderTime(data.start_time)+"-"+renderTime(data.end_time)+"</td><td>"+data.sch_name+"</td><td>"+data.com_name+"</td><td><a href='AdminCheckPlanInfo?plan_id="+data.plan_id+"' style='color: #b52e31'>查看</a></td></tr>";
                 }
             }
         });
