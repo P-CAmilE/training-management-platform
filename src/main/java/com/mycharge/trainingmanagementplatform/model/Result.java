@@ -1,6 +1,10 @@
 package com.mycharge.trainingmanagementplatform.model;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 //用来返回数据给前端，type指消息类型
 public class Result extends HashMap<String, Object>{
@@ -39,4 +43,19 @@ public class Result extends HashMap<String, Object>{
         super.put(key,value);
         return this;
     }
+
+    public Result put(String key, List<JSONObject> list) {
+        List<JSONObject> l2=new LinkedList<>();
+        for(JSONObject oj:list){
+            String value=oj.toJSONString();
+            value = value.replaceAll("&","&amp;");
+            value = value.replaceAll("<","&lt;");
+            value = value.replaceAll(">","&gt;");
+            oj=JSONObject.parseObject(value);
+            l2.add(oj);
+        }
+        super.put(key,l2);
+        return this;
+    }
+
 }

@@ -98,7 +98,7 @@
     </select>
 
     <update id="updateScore" parameterType="com.alibaba.fastjson.JSONObject">
-        update student_info
+        update teacher_student_score
         <set>
             <if test="stu_score != null and stu_score != ''">stu_score = #{stu_score,jdbcType=FLOAT}</if>
         </set>

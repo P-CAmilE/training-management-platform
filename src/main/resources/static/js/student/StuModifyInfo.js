@@ -71,6 +71,7 @@ $(function(){
 			}
 			else{
 				alert("保存成功");
+				window.location.href="StuHomepage";
 			}
 		}
 		});

@@ -89,7 +89,7 @@ public class GitServicelmpl implements GitService {
             JSONObject jsonObject=new JSONObject();
             jsonObject.put("team_id",team_id);
 
-            JSONObject team = mapper.find(null).get(0);
+            JSONObject team = mapper.find(jsonObject).get(0);
 
             String git =team.getString("team_github");
             String[] strarray = git.split("github.com/");

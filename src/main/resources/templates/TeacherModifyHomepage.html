@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">账号:</label>
                                     <div class="col-sm-8 ">
-                                        <input id="acc" type="text" class="form-control1" style="height: 35px;width:200px">
+                                        <input id="acc" type="text" class="form-control1" style="height: 35px;width:200px" readonly>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -262,7 +262,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         modify.onclick=function() {
             var answer = confirm("确认要修改吗");
             if (answer)
-                window.location.href="TeacherHomepage.html";
+            {
+                if($("#password1").val() == $("#password2").val()){
+                    window.location.href="TeacherHomepage.html";
+                }else{
+                    alert("请保证两次输入的密码相同");
+                    return false;
+                }
+            }
             else
                 return false;
         }

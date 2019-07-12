@@ -24,7 +24,7 @@ $(function(){
 				$("#plan_name").append(data.plan_name);
 				$("#course").append(data.course_name);
 				$("#course_score").append(data.course_score);
-				$("#time").append(data.start_time+"--"+data.end_time);
+				$("#time").append(renderTime(data.start_time)+"--"+renderTime(data.end_time));
 				$("#com_name").append(data.com_name);
 				$("#sch_name").append(data.sch_name);
 				$("#joined_class").val(data.joined_class);
@@ -43,4 +43,10 @@ function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg);  // 匹配目标参数
     if (r != null) return unescape(r[2]); return null; // 返回参数值
+}
+
+function renderTime(date) {
+	var temp = new Date(date);
+	var t = temp.getFullYear()+"."+(temp.getMonth()+1)+"."+temp.getDate();
+	return t;
 }

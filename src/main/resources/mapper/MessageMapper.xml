@@ -35,7 +35,7 @@
     </insert>
 
     <select id="find" resultType="com.alibaba.fastjson.JSONObject" parameterType="com.alibaba.fastjson.JSONObject" >
-        select * from message_info
+        select * from message_info inner join teacher_info on from_id = tea_id
         <include refid="simple_trim"></include>
     </select>
 

@@ -4,28 +4,27 @@ var user_name=$.cookie('username');
 $(function(){
 	getLog(id);
 	$("#username")[0].innerHTML=acc+"&nbsp;&nbsp;&nbsp;";
-$("#bu1").click(function(){
+
+$("#send").click(function(){
 	$.ajax({
-        url: "/log/insert",
+        url: "/log/update",
         type: "POST",
         dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
-			"user_id":id,
-			"log_title":$("#log_title").val(),
-			"log_context":$("#log_context").val(),
-			"log_date":getNowFormatDate()
+			"log_id":getUrlParam("log_id"),
+			"new_log_title":$("#title").val(),
+			"new_log_context":$("#context").val(),
+			"new_log_date":getNowFormatDate()
 			
         }),
         success:function(res){
 			if(res.type=="fail"){
-				alert("发送日志失败");
+				alert("修改日志失败");
 			}
 			else{
-				alert("发送日志成功");
-				$("#log_title").val("");
-				$("#log_context").val("");
-				getLog(id);
+				alert("修改日志成功");
+				window.location.href="StuLog";
 			}
         }
     });	
@@ -41,19 +40,16 @@ function getLog(user_id){
         dataType : "json",
         contentType: 'application/json;charset=UTF-8',
         data :  JSON.stringify({
-			"user_id":user_id
+			"log_id":getUrlParam("log_id")
+			
         }),
         success:function(res){
 			if(res.type=="fail"){
 				alert("获取历史日志失败");
 				return;
 			}
-			//动态生成日志表
-			var log_table=$("#log_table")[0];
-			log_table.innerHTML="<tr style='border: none;background-color: rgb(238, 217, 215)'><td>标题</td><td>最新提交时间</td><td>操作</td></tr>";
-			for(var i=0;i<res.data.length;i++){
-				log_table.innerHTML+="<tr style='background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'><td>"+res.data[i].log_title+"</td><td>"+renderTime(res.data[i].log_date)+"</td><td><a href='StuModifyLog.html?log_id="+res.data[i].log_id+"' style='color: #b52e31'>修改</a></td></tr>";
-			}
+			$("#title").val(res.data[0].log_title);
+			$("#context").val(res.data[0].log_context);
 			
         }
     });
@@ -62,6 +58,14 @@ function getLog(user_id){
 function renderTime(date) {
   var dateee = new Date(date).toJSON();
   return new Date(+new Date(dateee) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '') 
+}
+
+
+//获取url参数
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  // 匹配目标参数
+    if (r != null) return unescape(r[2]); return null; // 返回参数值
 }
 
 function getNowFormatDate() {//获取当前时间

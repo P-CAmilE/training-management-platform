@@ -62,7 +62,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="fo-top-dj">
                     <h3 class="sub-tittle">学生信息:</h3>
                     <div class="content tab">
-                        <form onsubmit="return false">
                             <div class="fo-top">
                                 <div class="form-group">
                                     <label  class="col-sm-2 control-label">姓名:</label>
@@ -141,7 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<textarea id="title" class="form-control1" style="height: 40px;width:400px;margin-left: 25px"></textarea>
                                                 <textarea id="msg" class="form-control1" style="height: 300px;width:400px;margin-left: 25px"></textarea>
                                                 <br><br>
-                                                <input id="message" type="submit" class="studentinput" style="width: 200px;margin-left: 135px" value="确认" onclick="myFunction()">
+                                                <input id="message" type="submit" class="studentinput" style="width: 200px;margin-left: 135px" value="确认">
                                             </form>
                                         </div>
                                     </div>
@@ -149,7 +148,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <br><br>
                             <a href="TeacherCheckStudent.html"  class="studentinput" style="width: 200px;margin-left: 200px"><span style="color: white;padding-left: 65px">返回</span></a>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -287,11 +285,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         //正式读取文件
         reader.readAsDataURL(file);
-    }
-</script>
-<script>
-    function myFunction() {
-        alert("发送成功")
     }
 </script>
 </body>

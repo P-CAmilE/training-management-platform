@@ -23,7 +23,7 @@ $(function(){
 				$("#plan_name").append(data.plan_name);
 				$("#plan_name").append(data.plan_name);
 				$("#project_name").append(data.pro_name);
-				$("#time").append(data.start_time+"--"+data.end_time);
+				$("#time").append(renderTime(data.start_time)+"--"+renderTime(data.end_time));
 				$("#pro_judge").append(data.pro_judge);
 				$("#sch_name").append(data.sch_name);
 				$("#context").append(data.pro_description);
@@ -39,4 +39,10 @@ function getUrlParam(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg);  // 匹配目标参数
     if (r != null) return unescape(r[2]); return null; // 返回参数值
+}
+
+function renderTime(date) {
+	var temp = new Date(date);
+	var t = temp.getFullYear()+"."+(temp.getMonth()+1)+"."+temp.getDate();
+	return t;
 }

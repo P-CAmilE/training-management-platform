@@ -19,7 +19,7 @@ public interface TeamMapper extends Mapper {
 
     public List<JSONObject> findTeamScore(JSONObject jsonObject);
 
-    public List<JSONObject>  updateScore(JSONObject jsonObject);
+    public int updateScore(JSONObject jsonObject);
 
 }
 

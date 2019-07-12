@@ -25,7 +25,7 @@ $(function(){
 				$("#team_name").append(data.team_name);
 				$("#plan_name").append(data.plan_name);
 				$("#pro_name").append(data.pro_name);
-				$("#time").append(data.start_time+"--"+data.end_time);
+				$("#time").append(renderTime(data.start_time)+"--"+renderTime(data.end_time));
 				$("#sch_name").append(data.sch_name);
 				$("#com_name").append(data.com_name);
 				for(var i=0;i<res.student.length;i++){
@@ -70,7 +70,11 @@ $(function(){
 		draw($(this).val());	
 	});
 });
-
+function renderTime(date) {
+	var temp = new Date(date);
+	var t = temp.getFullYear()+"."+(temp.getMonth()+1)+"."+temp.getDate();
+	return t;
+}
 function getNowFormatDate() {//获取当前时间
 	var date = new Date();
 	var seperator1 = "-";
@@ -93,7 +97,7 @@ function getUrlParam(name) {
 //绘制条形图
 function draw(week){
 	$.ajax({
-			url : "git/team_adc?team_id="+id+"&week="+week,
+			url : "git/team_adc?team_id="+getUrlParam("team_id")+"&week="+week,
 			type : "Post",
 			contentType: 'application/json;charset=UTF-8',
 			dataType : "json",
