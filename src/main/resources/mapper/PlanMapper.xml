@@ -57,15 +57,15 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update plan_info
         <set>
-            <if test="new_plan_name != null">plan_name = #{new_plan_name,jdbcType=VARCHAR},</if>
-            <if test="new_course_name != null">course_name = #{new_course_name,jdbcType=VARCHAR},</if>
-            <if test="new_course_score != null">course_score = #{new_course_score,jdbcType=VARCHAR},</if>
-            <if test="new_start_time != null">start_time = #{new_start_time,jdbcType=TIME},</if>
-            <if test="new_end_time != null">end_time = #{new_end_time,jdbcType=TIME},</if>
-            <if test="new_plan_description != null">plan_description = #{new_plan_description,jdbcType=VARCHAR},</if>
-            <if test="new_sch_id != null">sch_id = #{new_sch_id,jdbcType=INTEGER},</if>
-            <if test="new_com_id != null">com_id = #{new_com_id,jdbcType=INTEGER},</if>
-            <if test="new_joined_class != null">joined_class = #{new_joined_class,jdbcType=VARCHAR},</if>
+            <if test="new_plan_name != null and new_plan_name != ''">plan_name = #{new_plan_name,jdbcType=VARCHAR},</if>
+            <if test="new_course_name != null and new_course_name != ''">course_name = #{new_course_name,jdbcType=VARCHAR},</if>
+            <if test="new_course_score != null and new_course_score != ''">course_score = #{new_course_score,jdbcType=VARCHAR},</if>
+            <if test="new_start_time != null and new_start_time != ''">start_time = #{new_start_time,jdbcType=TIME},</if>
+            <if test="new_end_time != null and new_end_time != ''">end_time = #{new_end_time,jdbcType=TIME},</if>
+            <if test="new_plan_description != null and new_plan_description != ''">plan_description = #{new_plan_description,jdbcType=VARCHAR},</if>
+            <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id,jdbcType=INTEGER},</if>
+            <if test="new_com_id != null and new_com_id != ''">com_id = #{new_com_id,jdbcType=INTEGER},</if>
+            <if test="new_joined_class != null and new_joined_class != ''">joined_class = #{new_joined_class,jdbcType=VARCHAR},</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

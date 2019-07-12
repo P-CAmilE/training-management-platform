@@ -42,12 +42,12 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update message_info
         <set>
-            <if test="new_msg_context != null">msg_context = #{new_msg_context,jdbcType=VARCHAR},</if>
-            <if test="new_from_id != null">from_id = #{new_from_id,jdbcType=INTEGER},</if>
-            <if test="new_to_id != null">to_id = #{new_to_id,jdbcType=INTEGER},</if>
-            <if test="new_msg_title != null">msg_title = #{new_msg_title,jdbcType=VARCHAR},</if>
-            <if test="new_msg_date != null">msg_date = #{new_msg_date,jdbcType=TIME}</if>
-            <if test="new_is_read != null">is_read = #{new_is_read,jdbcType=INTEGER}</if>
+            <if test="new_msg_context != null and new_msg_context != ''">msg_context = #{new_msg_context,jdbcType=VARCHAR},</if>
+            <if test="new_from_id != null and new_from_id != ''">from_id = #{new_from_id,jdbcType=INTEGER},</if>
+            <if test="new_to_id != null and new_to_id != ''">to_id = #{new_to_id,jdbcType=INTEGER},</if>
+            <if test="new_msg_title != null and new_msg_title != ''">msg_title = #{new_msg_title,jdbcType=VARCHAR},</if>
+            <if test="new_msg_date != null and new_msg_date != ''">msg_date = #{new_msg_date,jdbcType=TIME}</if>
+            <if test="new_is_read != null and new_is_read != ''">is_read = #{new_is_read,jdbcType=INTEGER}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

@@ -37,9 +37,9 @@
     <update id="update" parameterType="com.alibaba.fastjson.JSONObject">
         update log_info
         <set>
-            <if test="new_user_id != null">user_id = #{new_user_id,jdbcType=INTEGER},</if>
-            <if test="new_log_context != null">log_context = #{new_log_context,jdbcType=VARCHAR},</if>
-            <if test="new_log_date != null">log_date = #{new_log_date,jdbcType=TIME},</if>
+            <if test="new_user_id != null and new_user_id != ''">user_id = #{new_user_id,jdbcType=INTEGER},</if>
+            <if test="new_log_context != null and new_log_context != ''">log_context = #{new_log_context,jdbcType=VARCHAR},</if>
+            <if test="new_log_date != null and new_log_date != ''">log_date = #{new_log_date,jdbcType=TIME},</if>
         </set>
         <include refid="simple_trim"></include>
     </update>

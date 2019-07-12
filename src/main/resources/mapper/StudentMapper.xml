@@ -82,7 +82,7 @@
         <set>
             <if test="new_stu_name != null and new_stu_name != ''">stu_name = #{new_stu_name},</if>
             <if test="new_sch_id != null and new_sch_id != ''">sch_id = #{new_sch_id},</if>
-            <if test="new_github_account != null">github_account = #{new_github_account}</if>
+            <if test="new_github_account != null and new_github_account != ''">github_account = #{new_github_account}</if>
         </set>
         <include refid="simple_trim"></include>
     </update>
