@@ -9,7 +9,7 @@ $(function(){
 			type : "Post",
 			contentType: 'application/json;charset=UTF-8',
 			data : JSON.stringify({
-				"stu_id":id
+				"tea_id":id
 			}),
 			dataType : "json",
 			async : false,

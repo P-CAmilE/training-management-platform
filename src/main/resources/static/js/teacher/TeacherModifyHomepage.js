@@ -49,7 +49,7 @@ $(function(){
 		});	
 	});
 	
-	$("#teacher_info").submit(function(){
+	$("#tea_info").submit(function(){
 		$.ajax({
 		url : "teacher/update",
 		type : "Post",
