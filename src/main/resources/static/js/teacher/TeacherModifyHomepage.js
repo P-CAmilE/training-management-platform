@@ -22,7 +22,6 @@ $(function(){
 				//初始化页面
 				$("#name").val(res.data[0].tea_name);
 				$("#acc").val(res.data[0].account);
-				$("#unit").val(res.data[0].tea_unit);
 			}
 		});
 
@@ -36,7 +35,6 @@ $(function(){
 		dataType: 'json',
 		success: function (res) {
 			//alert(res.type)
-			$("#account").val(account);
 			var tea_unit = $("#new_tea_unit")[0];
 			for (var i = 0; i < res.company.length; i++) {
 				var data = res.company[i];

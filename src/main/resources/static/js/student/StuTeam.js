@@ -32,3 +32,4 @@ function getTeam(user_id){
         }
     });
 }
+

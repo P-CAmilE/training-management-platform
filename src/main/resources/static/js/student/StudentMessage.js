@@ -74,7 +74,7 @@ function getMessage(id){
 				var c="";
 				if(res.data[i].is_read==0)
 					c="新！"
-				msg_table.innerHTML+="<tr style='border: none;background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'><td>"+res.data[i].from_id+"</td><td>"
+				msg_table.innerHTML+="<tr style='border: none;background-color: rgb"+(i%2==0?"(248, 255, 247)":"(238, 217, 215)")+"'><td>"+res.data[i].tea_name+"</td><td>"
 				+c+res.data[i].msg_title+"</td><td>"+renderTime(res.data[i].msg_date)
 				+"</td><td><button type='button' class='read' value='"+res.data[i].msg_id+"' style='border-style: none;background: none;color: #b52e31' data-toggle='modal' aria-pressed='false' data-target='#exampleModal'>查看</button></td></tr>";
 			}

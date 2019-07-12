@@ -21,21 +21,16 @@ $(function(){
 				var data = res.data[0];
 				//初始化页面
 				$("#stu_name").append(data.stu_name);
-$("#stu_name").append(data.stu_name);
 				$("#acc").append(data.account);
-				$("#sch_name").append(data.sch_name);
 				$("#sch_name").append(data.sch_name);
 				$("#score").append(data.stu_score);
 				$("#pro_name").append(data.pro_name);
 				$("#plan_name").append(data.plan_name);
 				$("#team_name").append(data.team_name);
-				for(var i=0;i<res.teacher.length;i++){
-					$("#tea_list").append(res.teacher[i].tea_name+" ");
-				}
 			}
 		});
 		
-		var ws = new WebSocket("ws://localhost:8080/websocket/"+id);
+	var ws = new WebSocket("ws://localhost:8080/websocket/"+id);
 	ws.onmessage = function(evt) {
 		alert(evt.data);
     };
@@ -53,6 +48,7 @@ $("#stu_name").append(data.stu_name);
 		json.push(row);
 		var jsonStr = JSON.stringify(json[0]);
 		ws.send(jsonStr); 
+		alert("发送成功");
 	});	
 		
 });
