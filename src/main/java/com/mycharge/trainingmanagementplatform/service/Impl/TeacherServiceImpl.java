@@ -50,14 +50,18 @@ public class TeacherServiceImpl implements TeacherService {
     public Result update(JSONObject jsonObject) {
         try{
             if(jsonObject.getInteger("tea_id") != null) {
-                if(!teacherMapper.find(jsonObject).isEmpty()) {
-                    Result res = Result.getResult(1);
-                    res.put("data", teacherMapper.update(jsonObject));
-                    if(jsonObject.getString("new_password") != null && jsonObject.getString("new_password") != "") {
-                        jsonObject.put("acc_id", jsonObject.get("tea_id"));
-                        accountMapper.update(jsonObject);
+                if(jsonObject.getString("tea_unit") != null) {
+                    if (!teacherMapper.find(jsonObject).isEmpty()) {
+                        Result res = Result.getResult(1);
+                        res.put("data", teacherMapper.update(jsonObject));
+                        if (jsonObject.getString("new_password") != null && jsonObject.getString("new_password") != "") {
+                            jsonObject.put("acc_id", jsonObject.get("tea_id"));
+                            accountMapper.update(jsonObject);
+                        }
+                        return res;
+                    } else {
+                        return Result.getResult(0);
                     }
-                    return res;
                 }else{
                     return Result.getResult(0);
                 }

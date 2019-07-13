@@ -25,21 +25,25 @@ public class ProjectServicelmpl implements ProjectService {
     @Override
     public Result insert(JSONObject object) {
         try{
-            Result res = Result.getResult(1);
-            mapper.insert(object);
-            List<JSONObject> jsonObjectList = mapper.find(object);
-            int proID = jsonObjectList.get(0).getInteger("pro_id");
-            JSONArray jsonArray = object.getJSONArray("tea_id");
-            if(jsonArray != null && !jsonArray.isEmpty()){
+            if(object.getInteger("plan_id") != null) {
+                Result res = Result.getResult(1);
+                mapper.insert(object);
+                List<JSONObject> jsonObjectList = mapper.find(object);
+                int proID = jsonObjectList.get(0).getInteger("pro_id");
+                JSONArray jsonArray = object.getJSONArray("tea_id");
+                if (jsonArray != null && !jsonArray.isEmpty()) {
 //              mapper.deletePlanTeacher(object);
-                for(int i = 0;i < jsonArray.size(); i ++){
-                    JSONObject jsonObject  = new JSONObject();
-                    jsonObject.put("tea_id",jsonArray.get(i));
-                    jsonObject.put("pro_id",proID);
-                    mapper.insertProjectTeacher(jsonObject);
+                    for (int i = 0; i < jsonArray.size(); i++) {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("tea_id", jsonArray.get(i));
+                        jsonObject.put("pro_id", proID);
+                        mapper.insertProjectTeacher(jsonObject);
+                    }
                 }
+                return res;
+            }else{
+                return Result.getResult(0);
             }
-            return res;
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);

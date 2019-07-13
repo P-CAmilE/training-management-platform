@@ -12,14 +12,14 @@
 
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="admin_id" parameterType="com.alibaba.fastjson.JSONObject">
-        insert administrator_info*
+        insert administrator_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="admin_id != null">admin_id,</if>
             <if test="admin_email != null">admin_email,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="admin_id != null">#{acc_id,jdbcType=INTEGER},</if>
-            <if test="admin_email != null">#{account,jdbcType=VARCHAR},</if>
+            <if test="admin_id != null">#{admin_id,jdbcType=INTEGER},</if>
+            <if test="admin_email != null">#{admin_email,jdbcType=VARCHAR},</if>
         </trim>
     </insert>
 

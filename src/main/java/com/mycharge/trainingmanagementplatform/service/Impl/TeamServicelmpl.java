@@ -27,21 +27,25 @@ public class TeamServicelmpl implements TeamService {
     @Override
     public Result insert(JSONObject object) {
         try{
-            Result res = Result.getResult(1);
-            mapper.insert(object);
-            List<JSONObject> jsonObjectList = mapper.find(object);
-            int teamID = jsonObjectList.get(0).getInteger("team_id");
-            JSONArray jsonArray = object.getJSONArray("stu_ids");
-            if(jsonArray != null && !jsonArray.isEmpty()){
+            if(object.getInteger("plan_id") != null || object.getInteger("pro_id") != null) {
+                Result res = Result.getResult(1);
+                mapper.insert(object);
+                List<JSONObject> jsonObjectList = mapper.find(object);
+                int teamID = jsonObjectList.get(0).getInteger("team_id");
+                JSONArray jsonArray = object.getJSONArray("stu_ids");
+                if (jsonArray != null && !jsonArray.isEmpty()) {
 //              mapper.deletePlanTeacher(object);
-                for(int i = 0;i < jsonArray.size(); i ++){
-                    JSONObject jsonObject  = new JSONObject();
-                    jsonObject.put("stu_id",jsonArray.get(i));
-                    jsonObject.put("team_id",teamID);
-                    mapper.insertTeamStudent(jsonObject);
+                    for (int i = 0; i < jsonArray.size(); i++) {
+                        JSONObject jsonObject = new JSONObject();
+                        jsonObject.put("stu_id", jsonArray.get(i));
+                        jsonObject.put("team_id", teamID);
+                        mapper.insertTeamStudent(jsonObject);
+                    }
                 }
+                return res;
+            }else{
+                return Result.getResult(0);
             }
-            return res;
         }catch (Exception e){
             e.printStackTrace();
             return Result.getResult(0);

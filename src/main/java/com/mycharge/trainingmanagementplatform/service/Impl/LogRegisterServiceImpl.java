@@ -84,7 +84,8 @@ public class LogRegisterServiceImpl implements LogRegisterService {
             return res;
         }catch (Exception e) {
             e.printStackTrace();
-            return Result.getResult(0);
+            return Result.getResult(0).put("msg","账号已存在，请重新输入");
+
         }
     }
 

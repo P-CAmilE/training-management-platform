@@ -93,11 +93,7 @@ $("#register").submit(function(){
             success:function(data){
                 alert(data.msg);
                 if(data.type == "success") {
-                    if (data.usertype == "student") {
-                        window.location.href = "stuHomepage";
-                    } else if (data.usertype == "admin") {
-                        window.location.href = "AdminHomepage";
-                    }
+                    window.location.href = "IndexHome";
                 }
             },
             error: function (){
