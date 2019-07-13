@@ -50,6 +50,9 @@ $("#send").click(function(){
 				if(res.type=="fail"){
 					alert("修改失败");
 					return;
+				}else{
+					alert("修改成功");
+					return;
 				}
 			}
 	});	
