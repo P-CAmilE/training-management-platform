@@ -30,27 +30,48 @@ $(function(){
 			}
 		});
 		
-	var ws = new WebSocket("ws://localhost:8080/websocket/"+id);
-	ws.onmessage = function(evt) {
-		alert(evt.data);
-    };
+	//var ws = new WebSocket("ws://localhost:8080/websocket/"+id);
 
 	//发送消息
 	$("#send").submit(function(){
-		 var json = [];
-		 var row = {
-			 from_id: id,
-			 to_id: getUrlParam("stu_id"),
-			 msg_title: $("#title").val(),
-			 msg_context: $("#msg").val(),
-			 msg_date:getNowFormatDate()
-		}
-		json.push(row);
-		var jsonStr = JSON.stringify(json[0]);
-		ws.send(jsonStr); 
-		alert("发送成功");
-	});	
-		
+		 // var json = [];
+		 // var row = {
+			 // from_id: id,
+			 // to_id: getUrlParam("stu_id"),
+			 // msg_title: $("#title").val(),
+			 // msg_context: $("#msg").val(),
+			 // msg_date:getNowFormatDate()
+		// }
+		// json.push(row);
+		// var jsonStr = JSON.stringify(json[0]);
+		// ws.send(jsonStr); 
+		// alert("发送成功");
+	// });	
+		$.ajax({
+			url : "message/insert",
+			type : "Post",
+			contentType: 'application/json;charset=UTF-8',
+			data : JSON.stringify({
+				"from_id":id,
+				"to_id":getUrlParam("stu_id"),
+				"msg_title": $("#title").val(),
+				"msg_context": $("#msg").val(),
+				"msg_date": getNowFormatDate()
+			}),
+			dataType : "json",
+			async : false,
+			success : function(res) {
+				if(res.type=="fail"){
+					alert("发送消息失败");
+					return;
+				}
+				else{
+					alert("发送消息成功");
+					return;
+				}
+			}
+		});
+});
 });
 
 function getNowFormatDate() {//获取当前时间

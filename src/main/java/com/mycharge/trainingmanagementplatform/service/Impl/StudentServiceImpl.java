@@ -76,7 +76,6 @@ public class StudentServiceImpl implements StudentService {
     public Result update(JSONObject jsonObject) {
         try{
             if(jsonObject.getInteger("stu_id") != null) {
-                if(jsonObject.getInteger("sch_id") != null) {
                     if (!studentMapper.find(jsonObject).isEmpty()) {
                         Result res = Result.getResult(1);
                         res.put("data", studentMapper.update(jsonObject));
@@ -88,9 +87,6 @@ public class StudentServiceImpl implements StudentService {
                     } else {
                         return Result.getResult(0);
                     }
-                }else{
-                    return Result.getResult(0);
-                }
             }else{
                 return Result.getResult(0);
             }

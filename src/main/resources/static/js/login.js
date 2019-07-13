@@ -88,7 +88,7 @@ $("#register").submit(function(){
                 "account":username,
                 "password": password,
                 "user_type": "admin",
-                "user_email": useremail
+                "acc_email": useremail
             }),
             success:function(data){
                 alert(data.msg);

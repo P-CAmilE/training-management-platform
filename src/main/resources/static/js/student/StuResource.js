@@ -36,7 +36,7 @@ $("#bu1").click(function(){
 	});
 	
 $("#file_list").on('click',".form-control1",function(){
-	location.href = "/resource/download?type=doc&owner_id="+id+"&filename="+$(this)[0].innerHTML;
+	location.href = "/resource/download?type=doc&owner_id="+"45"+"&filename="+$(this)[0].innerHTML;
 });
 });
 
